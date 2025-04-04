@@ -1,2 +1,4 @@
 # life-expansion
-Full stack app that uses mongoDB, NextJS, auth, authorization, and other cool features
+Full stack app that uses Prisma
+bcryptjs, Cryptr, Express-session, Postgres, Next,
+React, React-dom, React-draggable, Sass.
