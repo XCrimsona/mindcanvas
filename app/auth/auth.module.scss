@@ -1,0 +1,517 @@
+$_0: 0px;
+$_1: 1px;
+$_2: 2px;
+$_3: 3px;
+$_4: 4px;
+$_5: 5px;
+$_6: 6px;
+$_7: 7px;
+$_8: 8px;
+$_9: 9px;
+$_10: 10px;
+$_15: 15px;
+$_20: 20px;
+$_22: 22px;
+$_27: 27px;
+$_30: 30px;
+$_35: 35px;
+$_40: 40px;
+$_50: 50px;
+$_60: 60px;
+$_70: 70px;
+$_80: 80px;
+$_100: 100px;
+$_120: 120px;
+$_150: 150px;
+$_180: 180px;
+$_200: 200px;
+$_230: 230px;
+$_250: 250px;
+$_280: 280px;
+$_300: 300px;
+$_330: 330px;
+$_350: 350px;
+$_400: 400px;
+$_450: 450px;
+$_500: 500px;
+$_550: 550px;
+$_600: 600px;
+$_650: 650px;
+$_700: 700px;
+$_750: 750px;
+$_800: 800px;
+$_850: 850px;
+$_900: 900px;
+$_950: 950px;
+$_1000: 1000px;
+$auto: auto;
+
+@mixin display-align($Type) {
+    display: $Type;
+}
+
+@mixin justify-items($Type) {
+    justify-items: $Type;
+}
+
+@mixin justify-content($Type) {
+    justify-content: $Type;
+}
+
+@mixin align-content($Type) {
+    align-content: $Type;
+}
+
+@mixin align-items($Type) {
+    align-items: $Type;
+}
+
+@mixin flex-align($Type) {
+    flex-wrap: $Type;
+}
+
+@mixin margin-x-y($x1, $y1, $x2, $y2) {
+    margin: $x1 $y1 $x2 $y2;
+}
+
+@mixin padding-x-y($x1, $y1, $x2, $y2) {
+    padding: $x1 $y1 $x2 $y2;
+}
+
+@mixin align-text($Type) {
+    text-align: $Type;
+}
+
+@mixin text-color($color) {
+    color: $color;
+}
+
+@mixin background($Type) {
+    background: $Type;
+}
+
+@mixin background-color($color) {
+    background-color: $color;
+}
+
+@mixin width($width) {
+    width: $width;
+}
+
+@mixin height($height) {
+    height: $height;
+}
+
+@mixin min-height($min-height) {
+    min-height: $min-height;
+}
+
+@mixin max-height($max-height) {
+    max-height: $max-height;
+}
+
+@mixin url($url){
+background: url($url);
+}
+
+
+.auth-layout {
+    position: relative;
+    z-index: 1;
+    @include display-align(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    @include height(100%);
+    @include background(radial-gradient(#000000 75%, #fabb00aa));
+    font-family: calibri, Arial, Helvetica, sans-serif;
+    @include margin-x-y($_0 , $auto, $_0 , $auto );
+    @include padding-x-y($_0 ,
+        $_0,
+        $_0 ,
+        $_0 );
+
+    .sign-in-page,
+    .sign-up-page {
+        @include margin-x-y($_0 , $auto, $_0 , $auto );
+        @include padding-x-y($_100 ,
+            $_0,
+            $_100,
+            $_0);
+
+        .sign-in-block,
+        .sign-up-block {
+            //signin styling
+            border: $_2 solid #FABB00aa;
+            @include background-color(#111); // @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1743773571/turqoise-triags_xmiedg.png")
+            @include margin-x-y($_0 , $auto, $_0 , $auto );
+            @include padding-x-y($_6 ,
+                $_6,
+                $_6 ,
+                $_6 );
+            border-radius: 10px;
+            box-shadow: $_0 $_1 $_10 $_3 #000;
+
+            .heading-one {
+                @include display-align(block);
+                @include margin-x-y($_30 , $auto, $_30 , $auto );
+                @include padding-x-y($_0 ,
+                    $_0,
+                    $_0,
+                    $_0 );
+                @include text-color(#FFFFFF);
+            }
+
+            .form-sign-in {
+                .form-data-container {
+                    @include display-align(flex);
+                    @include justify-content(center);
+                    @include align-items(center);
+                    @include text-color(#FFFFFF);
+                    @include margin-x-y($_0, $auto , $_0 , $auto );
+
+                    .sign-in-label {
+                        @include display-align(block);
+                        @include margin-x-y($_2, $auto , $_2 , $auto );
+                    }
+
+                    .email-input,
+                    .password-input {
+                        @include display-align(block);
+                        @include margin-x-y($_2, $auto , $_2 , $auto );
+                        outline: $_2 solid #111;
+                        @include background-color(#111);
+                        border: $_2 solid #111;
+                        border-bottom: $_2 solid #FABB00;
+                        @include text-color(#FFFFFF);
+                    }
+
+                    .email-input:focus,
+                    .password-input:focus {
+                        outline: $_2 solid #111;
+                        @include background-color(#111);
+                    }
+
+                    .email-input::placeholder,
+                    .password-input::placeholder {
+                        @include text-color(#FFFFFF);
+                        @include background-color(#111);
+                        border: $_2 solid #111;
+                    }
+                }
+
+                .submit-btn-wrapper {
+                    @include margin-x-y($_0, $auto , $_0 , $auto );
+                    @include display-align(flex);
+                    @include justify-content(center);
+                    @include align-items(center);
+
+                    .submit {
+                        border-radius: $_10;
+                        cursor: pointer;
+                        @include margin-x-y($_10, $auto , $_5 , $auto );
+                        font-weight: 600;
+                        border: $_2 solid #FABB00;
+                        @include background-color(#000);
+                        @include text-color(#FABB00);
+                        text-transform: uppercase
+                    }
+                }
+
+                .cancel-btn-wrapper {
+                    @include margin-x-y($_0, $auto , $_0 , $auto );
+                    @include display-align(flex);
+                    @include justify-content(center);
+                    @include align-items(center);
+
+                    .cancel-verification {
+                        border-radius: $_10;
+                        cursor: pointer;
+                        @include margin-x-y($_5, $auto , $_10 , $auto );
+                        @include background-color(#000);
+                        border: $_2 solid #FABB00;
+
+                        a {
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            font-weight: 600;
+                            @include text-color(#FABB00);
+                        }
+                    }
+                }
+            }
+
+            .may-need-account {
+                @include margin-x-y($_5, $auto , $_10 , $auto );
+                @include display-align(block);
+                @include text-color(#FFFFFF);
+
+                .no-account {
+                    @include margin-x-y($_15, $auto , $_15 , $auto );
+                    @include align-text(center);
+                }
+
+                .get-access {
+                    @include margin-x-y($_5, $auto , $_15 , $auto );
+                    @include justify-content(center);
+                    @include align-text(center);
+
+                    .contact {
+                        cursor: pointer;
+                        @include margin-x-y($_5, $auto , $_10 , $auto );
+                        @include text-color(#FFF);
+                    }
+                }
+            }
+
+            //signup styling (checkpoint)
+        }
+    }
+}
+
+.auth-layout::before {
+    content: "";
+    // @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1743889545/turqoise-triags_xmiedg.png");
+    background: url("https://res.cloudinary.com/djjvj73xa/image/upload/v1743890270/turqoise-triags_xmiedg.png");
+    position: absolute;
+    background-attachment: fixed;
+    z-index: -1;
+    top: $_0;
+    left: $_0;
+    right: $_0;
+    bottom: $_0;
+
+}
+
+@media screen and (min-width:321px) and (max-width:375.9px) {
+    .auth-layout {
+
+        .sign-in-page,
+        .sign-up-page {
+
+            .sign-in-block,
+            .sign-up-block {
+                @include width(250px);
+
+                .heading-one {
+                    @include align-text(center);
+                }
+
+                .form-sign-in {
+                    @include width(250px);
+
+                    .form-data-container {
+                        @include display-align(block);
+                        // @include justify-content(left);
+                        // @include align-items(center);
+                        @include width(180px);
+
+                        .sign-in-label {
+                            @include width(80px);
+                            @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                        }
+
+                        .email-input,
+                        .password-input {
+                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                            @include width(160px);
+                            border-left: $_2 solid #FABB00;
+                        }
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(180px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-verification {
+                            @include width(180px);
+                        }
+                    }
+                }
+
+                .may-need-account {
+                    @include width(200px);
+
+                    .no-account {}
+
+                    .get-acccess {
+
+                        .contact {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:376px) and (max-width:425.9px) {
+    .auth-layout {
+
+        .sign-in-page,
+        .sign-up-page {
+
+            .sign-in-block,
+            .sign-up-block {
+                @include width(300px);
+
+                .heading-one {
+                    @include align-text(center);
+                }
+
+                .form-sign-in {
+                    .form-data-container {
+                        @include width(300px);
+
+                        .sign-in-label {
+                            @include width(80px);
+                        }
+
+                        .email-input,
+                        .password-input {
+                            @include width(150px);
+                        }
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(150px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-verification {
+                            @include width(150px);
+                        }
+                    }
+                }
+
+                .may-need-account {
+                    @include width(200px);
+
+                    .no-account {}
+
+                    .get-acccess {
+
+                        .contact {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:426px) and (max-width:768.9px) {
+    .auth-layout {
+
+        .sign-in-page,
+        .sign-up-page {
+
+            .sign-in-block,
+            .sign-up-block {
+                @include width(300px);
+
+                .heading-one {
+                    @include align-text(center);
+                }
+
+                .form-sign-in {
+                    .form-data-container {
+                        @include width(300px);
+
+                        .sign-in-label {
+                            @include width(80px);
+                        }
+
+                        .email-input,
+                        .password-input {
+                            @include width(150px);
+                        }
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(150px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-verification {
+                            @include width(150px);
+                        }
+                    }
+                }
+
+                .may-need-account {
+                    @include width(200px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:769px) {
+    .auth-layout {
+
+        .sign-in-page,
+        .sign-up-page {
+
+            .sign-in-block,
+            .sign-up-block {
+                @include width(300px);
+
+                .heading-one {
+                    @include align-text(center);
+                }
+
+                .form-sign-in {
+                    .form-data-container {
+                        @include width(300px);
+
+                        .sign-in-label {
+                            @include width(80px);
+                        }
+
+                        .email-input,
+                        .password-input {
+                            @include width(150px);
+                        }
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(150px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-verification {
+                            @include width(150px);
+                        }
+                    }
+                }
+
+                .may-need-account {
+                    @include width(200px);
+                }
+            }
+        }
+    }
+}

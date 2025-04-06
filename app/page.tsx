@@ -5,15 +5,18 @@ import UL from "@/src/ui/UL";
 import ListItem from "@/src/ui/ListItem";
 import HeadingTwo from "@/src/ui/HeadingTwo";
 import { Metadata } from "next";
-import Signin from "./auth/signin/Signin";
+// import Signin from "./auth/signin/Signin";
+// import Link from "next/link";
+import RouteLink from "@/src/components/ProductSection/RouteLink";
+import home from "@/app/(main-route)/home.module.scss";
 
 export const metadata: Metadata = {
-  title: "Signup Page",
+  title: "Home | Life Expansion",
   description:
     "Life Expansion is a platform that focuses on work efficiency, getting back your time by bringing all your work, ideas to an oragnized place.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://netlify.life-expansion.app/",
+    canonical: "https://vercel.life-expansion.app/",
   },
   icons: {
     icon: "favicon.ico",
@@ -51,7 +54,7 @@ export default function Home() {
 
   return (
     <Div className="page">
-      <HeadingOne id="heading-one" className="heading-one">
+      <HeadingOne id="heading-one" className={home["heading-one"]}>
         Life Expansion
       </HeadingOne>
       <LongText className="paragraph">
@@ -97,7 +100,9 @@ export default function Home() {
         })}
       </UL>
       <Div className="sign-in-container">
-        <Signin />
+        <RouteLink className="route-link" href="/auth/signin">
+          Sign for top security & full access to our features
+        </RouteLink>
       </Div>
     </Div>
   );
