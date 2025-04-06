@@ -1,5 +1,6 @@
 import Div from "@/src/ui/Div";
 import { Metadata } from "next";
+import authstyles from "@/app/auth/auth.module.scss";
 
 export const metadata: Metadata = {
   title: "Signup Page",
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     "Gain access to powerful tools | Analysis | Image Stacking | Goal setting | Fitness tracking and more | Register on Life Expansion Today",
   robots: "noindex, nofollow",
   alternates: {
-    canonical: "https://netlify.life-expansion.app/register",
+    canonical: "https://vercel.life-expansion.app/register",
   },
   icons: {
     icon: "favicon.ico",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 
 const Signup = () => {
   return (
-    <Div className="sign-up-page">
+    <Div className={authstyles["sign-up-page"]}>
       <Signup />
     </Div>
   );
