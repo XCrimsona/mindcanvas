@@ -1,4 +1,4 @@
 # life-expansion
-Full stack app that uses mongoose, mongodb,
-bcryptjs, Cryptr, Express-session, Next,
+5 in 1 Full stack app that uses Mongoose, Mongodb,
+Bcryptjs, Cryptr, Express-session, Next,
 React, React-dom, React-draggable, Sass.
