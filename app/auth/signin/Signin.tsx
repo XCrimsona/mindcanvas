@@ -4,7 +4,7 @@ import Section from "@/src/ui/Section";
 import Label from "@/src/components/form-elements/Label";
 import HeadingOne from "@/src/ui/HeadingOne";
 import authstyles from "@/app/auth/auth.module.scss";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import {
   InputEmail,
   InputPassword,
@@ -14,7 +14,7 @@ import Contact from "@/src/components/ProductSection/Contact";
 import LongText from "@/src/ui/LongText";
 import Button from "@/src/components/form-elements/Button";
 import Link from "next/link";
-
+import axios from "axios";
 const Signin = () => {
   try {
     //Data controls | input containers
@@ -28,18 +28,52 @@ const Signin = () => {
     });
 
     //Updating field states
-    const updateFormData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const updateEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
-      setFormData((prevState) => ({
-        ...prevState,
+      setFormData((prevEmailState) => ({
+        ...prevEmailState,
         [name]: value,
       }));
+      console.log(formData.email);
+    };
+
+    const updatePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData((prevPasswordState) => ({
+        ...prevPasswordState,
+        [name]: value,
+      }));
+      console.log(formData.password);
     };
 
     //
-    const processSignIn = (e: FormEvent<HTMLFormElement>) => {
+    const processSignIn = async (e: FormEvent<HTMLFormElement>) => {
+      try {
+        e.preventDefault();
+        console.log(formData);
+        if (!formData) {
+          alert("Fields are empty, please complete the login");
+        }
+        //data will be sent to the backend from here
+        const loginAPIEndPoint = await axios.post("/api/auth/signin", formData);
+        //want to try a new feature: socket.io
+        //for real-time notifcations to check login success or failed to verify
+        if (loginAPIEndPoint.status === 200) {
+          alert("Success");
+          //redirect to dashboard
+        } else {
+          alert("Failed");
+          //reload and remain on login page
+        }
+      } catch (err: any) {
+        console.warn("Something went wrong");
+      }
+    };
+
+    const formCancelled = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      alert("This is the submit process");
+      formData.email = "";
+      formData.password = "";
     };
 
     return (
@@ -54,7 +88,7 @@ const Signin = () => {
         <form
           className={authstyles["form-sign-in"]}
           onSubmit={processSignIn}
-          autoSave="on"
+          autoSave="off"
           autoCorrect="off"
           autoComplete="off"
           autoFocus={false}
@@ -74,7 +108,7 @@ const Signin = () => {
                 placeholder="Type in your email"
                 className={authstyles["email-input"]}
                 value={formData.email}
-                onChange={updateFormData}
+                onChange={updateEmail}
               />
             </Div>
           </Div>
@@ -92,7 +126,7 @@ const Signin = () => {
                 placeholder="Type in your password"
                 className={authstyles["password-input"]}
                 value={formData.password}
-                onChange={updateFormData}
+                onChange={updatePassword}
               />
             </Div>
           </Div>
@@ -107,6 +141,7 @@ const Signin = () => {
             <Button
               id="cancel-verification"
               className={authstyles["cancel-verification"]}
+              onClick={formCancelled}
             >
               <Link href={"/"}>Cancel</Link>
             </Button>

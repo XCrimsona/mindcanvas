@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface InputColorProps {
   id: string;
@@ -10,9 +10,10 @@ export const InputColor = ({ id, className, onChange }: InputColorProps) => {
     <input
       type="color"
       id={id}
+      minLength={3}
+      maxLength={10}
       className={className}
       placeholder="Choose a color"
-      name="color"
       onChange={onChange}
       required
     />
@@ -37,9 +38,10 @@ export const InputEmail = ({
     <input
       type="email"
       id={id}
+      minLength={2}
+      maxLength={40}
       className={className}
       placeholder={placeholder}
-      name="email"
       onChange={onChange}
       value={value}
       required
@@ -53,7 +55,6 @@ interface InputTextProps {
   placeholder: string;
   value: string;
   onChange: React.ReactEventHandler;
-  onFocus: React.ReactEventHandler;
 }
 export const InputText = ({
   id,
@@ -61,18 +62,17 @@ export const InputText = ({
   placeholder,
   value,
   onChange,
-  onFocus,
 }: InputTextProps) => {
   return (
     <input
       type="text"
       id={id}
+      minLength={1}
+      maxLength={500}
       className={className}
       placeholder={placeholder}
-      name="text"
       value={value}
       onChange={onChange}
-      onFocus={onFocus}
       required
     />
   );
@@ -81,31 +81,45 @@ export const InputText = ({
 interface InputDateProps {
   id: string;
   className: string;
-  placeholder: string;
   value: string;
   onChange: React.ReactEventHandler;
-  onFocus: React.ReactEventHandler;
 }
 export const InputDate = ({
   id,
   className,
-  placeholder,
   value,
   onChange,
-  onFocus,
 }: InputDateProps) => {
   return (
     <input
       type="date"
       id={id}
       className={className}
-      placeholder={placeholder}
-      name="date"
       value={value}
       onChange={onChange}
-      onFocus={onFocus}
       required
     />
+  );
+};
+
+interface InputSelectProps {
+  id: string;
+  className: string;
+  value: string;
+  onChange: React.ReactEventHandler;
+  children: ReactNode;
+}
+export const InputSelect = ({
+  id,
+  className,
+  onChange,
+  children,
+  value,
+}: InputSelectProps) => {
+  return (
+    <select id={id} value={value} className={className} onChange={onChange}>
+      {children}
+    </select>
   );
 };
 
@@ -114,24 +128,17 @@ interface InputRangeProps {
   className: string;
   value: string;
   onChange: React.ReactEventHandler;
-  onFocus?: React.ReactEventHandler;
 }
-export const Range = ({
-  id,
-  className,
-  value,
-  onChange,
-  onFocus,
-}: InputRangeProps) => {
+export const Range = ({ id, className, value, onChange }: InputRangeProps) => {
   return (
     <input
       type="range"
       id={id}
+      minLength={1}
+      maxLength={100}
       className={className}
       value={value}
-      name="range"
       onChange={onChange}
-      onFocus={onFocus}
     />
   );
 };
@@ -154,9 +161,31 @@ export const InputPassword = ({
     <input
       type="password"
       id={id}
+      minLength={6}
+      maxLength={140}
       className={className}
       placeholder={placeholder}
-      name="password"
+      value={value}
+      onChange={onChange}
+      required
+    />
+  );
+};
+export const InputConfirmPassword = ({
+  id,
+  className,
+  placeholder,
+  value,
+  onChange,
+}: InputPasswordProps) => {
+  return (
+    <input
+      type="password"
+      id={id}
+      minLength={6}
+      maxLength={140}
+      className={className}
+      placeholder={placeholder}
       value={value}
       onChange={onChange}
       required
@@ -168,14 +197,12 @@ interface InputRadioProps {
   id: string;
   className: string;
   value: string;
-  name: string;
   onChange: React.ReactEventHandler;
 }
 export const InputRadio = ({
   id,
   className,
   value,
-  name,
   onChange,
 }: InputRadioProps) => {
   return (
@@ -184,7 +211,6 @@ export const InputRadio = ({
       id={id}
       className={className}
       value={value}
-      name={name}
       onChange={onChange}
       required
     />
@@ -209,7 +235,6 @@ export const InputCheckBox = ({
       id={id}
       className={className}
       value={value}
-      name="checkbox"
       onChange={onChange}
     />
   );
@@ -220,24 +245,22 @@ interface InputSearchProps {
   className: string;
   value: string;
   onChange: React.ReactEventHandler;
-  onFocus: React.ReactEventHandler;
 }
 export const InputSearch = ({
   id,
   className,
   value,
   onChange,
-  onFocus,
 }: InputSearchProps) => {
   return (
     <input
       type="search"
       id={id}
+      minLength={2}
+      maxLength={100}
       className={className}
       value={value}
-      name="search"
       onChange={onChange}
-      onFocus={onFocus}
       required
     />
   );
@@ -250,15 +273,7 @@ interface InputSubmitProps {
 }
 
 export const InputSubmit = ({ id, className, value }: InputSubmitProps) => {
-  return (
-    <input
-      type="submit"
-      id={id}
-      className={className}
-      value={value}
-      name="submit"
-    />
-  );
+  return <input type="submit" id={id} className={className} value={value} />;
 };
 
 interface InputFileProps {
@@ -279,7 +294,6 @@ export const InputFile = ({
       id={id}
       className={className}
       value={value}
-      name="file"
       onChange={onChange}
       required
     />
@@ -304,7 +318,6 @@ export const InputFiles = ({
       id={id}
       className={className}
       value={value}
-      name="files"
       multiple
       onChange={onChange}
       required
