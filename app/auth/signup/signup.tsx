@@ -68,6 +68,16 @@ const Signup = () => {
       }
     };
 
+    const signupCancelled = () => {
+      formData.firstname = "";
+      formData.lastname = "";
+      formData.gender = "";
+      formData.dob = "";
+      formData.email = "";
+      formData.password = "";
+      formData.confirmpassword = "";
+    };
+
     const gender = {
       genderText: [
         "Prefer not to specify",
@@ -176,7 +186,8 @@ const Signup = () => {
               />
             </Div>
             <Div className={authstyles["input-wrapper"]}>
-              <InputDate
+              <input
+                type="date"
                 id="dob-input"
                 className={authstyles["dob-input"]}
                 value={formData.dob ? formData.dob : ""}
@@ -257,7 +268,11 @@ const Signup = () => {
             />
           </Div>
           <Div className={authstyles["cancel-btn-wrapper"]}>
-            <Button id="cancel-signup" className={authstyles["cancel-signup"]}>
+            <Button
+              id="cancel-signup"
+              className={authstyles["cancel-signup"]}
+              onClick={signupCancelled}
+            >
               <Link href={"/"}>Cancel</Link>
             </Button>
           </Div>
