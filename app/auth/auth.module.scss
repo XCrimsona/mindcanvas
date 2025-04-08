@@ -117,7 +117,6 @@ background: url($url);
 
 .auth-layout {
     position: relative;
-    overflow-y: scroll;
     z-index: 1;
     @include display-align(flex);
     @include justify-content(center);
@@ -132,15 +131,15 @@ background: url($url);
     @include margin-x-y($_0 , $auto, $_0 , $auto );
     @include padding-x-y($_0 ,
         $_0,
-        $_0,
-        $_0 );
+        $_0 ,
+        $_0);
 
     .sign-in-page,
     .sign-up-page {
         @include margin-x-y($_0 , $auto, $_0 , $auto );
         @include padding-x-y($_0 ,
             $_0,
-            $_5,
+            $_0,
             $_0);
 
         .sign-in-block,
@@ -249,8 +248,6 @@ background: url($url);
 
             //signup styling
             .form-sign-up {
-                height: auto;
-
                 .form-data-container {
                     @include display-align(flex);
                     // @include justify-content(center);
@@ -401,13 +398,16 @@ background: url($url);
 
 @media screen and (min-width:321px) and (max-width:425.9px) {
     .auth-layout {
-        @include height(100%);
 
         .sign-in-page,
         .sign-up-page {
 
+
             .sign-in-block,
             .sign-up-block {
+                overflow-y: scroll;
+                @include height(auto);
+                @include max-height(500px);
                 @include width(250px);
 
                 .heading-one {
@@ -531,6 +531,9 @@ background: url($url);
 
             .sign-in-block,
             .sign-up-block {
+                overflow-y: scroll;
+                @include height(auto);
+                @include max-height(500px);
                 @include width(250px);
 
                 .heading-one {
@@ -654,6 +657,9 @@ background: url($url);
 
             .sign-in-block,
             .sign-up-block {
+                overflow-y: scroll;
+                @include height(auto);
+                @include max-height(500px);
                 @include width(300px);
 
                 .heading-one {
@@ -1080,3 +1086,18 @@ background: url($url);
         }
     }
 }
+
+
+// orientation development required later
+// @media screen and (min-width: 769px) and (orientation:landscape) {
+
+//     .sign-up-block,
+//     .sign-in-block {
+//         @include height(600px);
+//         overflow-y: scroll;
+//         @include height(auto);
+//         @include max-height(300px);
+
+//         @include height(600px)
+//     }
+// }
