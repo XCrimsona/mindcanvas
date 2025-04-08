@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
 };
 
-const page = () => {
+const Page = () => {
   return (
     <Div className={authstyles["sign-in-page"]}>
       <Signin />
@@ -23,4 +23,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

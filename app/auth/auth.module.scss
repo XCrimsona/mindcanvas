@@ -117,32 +117,37 @@ background: url($url);
 
 .auth-layout {
     position: relative;
+    overflow-y: scroll;
     z-index: 1;
     @include display-align(flex);
     @include justify-content(center);
     @include align-items(center);
     @include height(100%);
-    @include background(radial-gradient(#000000 75%, #fabb00aa));
+    background-attachment: fixed;
+    background-size: cover;
+    background: url("https://res.cloudinary.com/djjvj73xa/image/upload/v1743890270/turqoise-triags_xmiedg.png");
+    @include background-color(#000);
+    // @include background(radial-gradient(#000000 75%, #fabb00aa));
     font-family: calibri, Arial, Helvetica, sans-serif;
     @include margin-x-y($_0 , $auto, $_0 , $auto );
     @include padding-x-y($_0 ,
         $_0,
-        $_0 ,
+        $_0,
         $_0 );
 
     .sign-in-page,
     .sign-up-page {
         @include margin-x-y($_0 , $auto, $_0 , $auto );
-        @include padding-x-y($_100 ,
+        @include padding-x-y($_0 ,
             $_0,
-            $_100,
+            $_5,
             $_0);
 
         .sign-in-block,
         .sign-up-block {
             //signin styling
             border: $_2 solid #FABB00aa;
-            @include background-color(#111); // @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1743773571/turqoise-triags_xmiedg.png")
+            @include background-color(#111);
             @include margin-x-y($_0 , $auto, $_0 , $auto );
             @include padding-x-y($_6 ,
                 $_6,
@@ -162,6 +167,8 @@ background: url($url);
             }
 
             .form-sign-in {
+                @include margin-x-y($_0, $auto , $_0 , $auto );
+
                 .form-data-container {
                     @include display-align(flex);
                     @include justify-content(center);
@@ -240,6 +247,107 @@ background: url($url);
                 }
             }
 
+            //signup styling
+            .form-sign-up {
+                height: auto;
+
+                .form-data-container {
+                    @include display-align(flex);
+                    // @include justify-content(center);
+                    @include align-items(center);
+                    @include text-color(#FFFFFF);
+                    @include margin-x-y($_0, $auto , $_0 , $auto );
+
+                    .sign-up-label {
+                        @include display-align(block);
+                        @include margin-x-y($_2, $auto , $_2 , $auto );
+                    }
+
+
+                    .firstname-input,
+                    .lastname-input,
+                    .gender-input,
+                    .dob-input,
+                    .email-input,
+                    .password-input,
+                    .confirm-password-input {
+                        @include display-align(block);
+                        @include margin-x-y($_2, $auto , $_2 , $auto );
+                        outline: $_2 solid #111;
+                        @include background-color(#111);
+                        border: $_2 solid #111;
+                        border-bottom: $_2 solid #FABB00;
+                        @include text-color(#FFFFFF);
+                    }
+
+
+
+                    .firstname-input:focus,
+                    .lastname-input:focus,
+                    .gender-input:focus,
+                    .dob-input:focus,
+                    .email-input:focus,
+                    .password-input:focus,
+                    .confirm-password-input:focus {
+                        outline: $_2 solid #111;
+                        @include background-color(#111);
+                    }
+
+                    .firstname-input::placeholder,
+                    .lastname-input::placeholder,
+                    // .gender-input::placeholder,
+                    .dob-input::placeholder,
+                    .email-input::placeholder,
+                    .password-input::placeholder,
+                    .confirm-password-input::placeholder {
+                        @include text-color(#FFFFFF);
+                        @include background-color(#111);
+                        border: $_2 solid #111;
+                    }
+                }
+
+                .submit-btn-wrapper {
+                    @include margin-x-y($_0, $auto , $_0 , $auto );
+                    @include display-align(flex);
+                    @include justify-content(center);
+                    @include align-items(center);
+
+                    .submit {
+                        border-radius: $_10;
+                        cursor: pointer;
+                        @include margin-x-y($_10, $auto , $_5 , $auto );
+                        font-weight: 600;
+                        border: $_2 solid #FABB00;
+                        @include background-color(#000);
+                        @include text-color(#FABB00);
+                        text-transform: uppercase
+                    }
+                }
+
+                .cancel-btn-wrapper {
+                    @include margin-x-y($_0, $auto , $_0 , $auto );
+                    @include display-align(flex);
+                    @include justify-content(center);
+                    @include align-items(center);
+
+                    .cancel-signup {
+                        border-radius: $_10;
+                        cursor: pointer;
+                        @include margin-x-y($_5, $auto , $_10 , $auto );
+                        @include background-color(#000);
+                        border: $_2 solid #FABB00;
+
+                        a {
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            font-weight: 600;
+                            @include text-color(#FABB00);
+                        }
+                    }
+                }
+            }
+
+            //for signin and signup
             .may-need-account {
                 @include margin-x-y($_5, $auto , $_10 , $auto );
                 @include display-align(block);
@@ -261,29 +369,39 @@ background: url($url);
                         @include text-color(#FFF);
                     }
                 }
-            }
 
-            //signup styling (checkpoint)
+                .have-an-account {
+                    @include margin-x-y($_15, $auto , $_15 , $auto );
+                    @include align-text(center);
+                }
+
+                .login-access {
+                    @include display-align(block);
+                    @include margin-x-y($_15, $auto , $_15 , $auto );
+                    border-radius: $_10;
+                    cursor: pointer;
+                    @include margin-x-y($_5, $auto , $_10 , $auto );
+                    @include background-color(#000);
+                    border: $_2 solid #FABB00;
+                    @include align-text(center);
+
+                    .login-route-link {
+                        @include margin-x-y($_15, $auto , $_15 , $auto );
+                        @include text-color(#FABB00);
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-weight: 600;
+                    }
+                }
+            }
         }
     }
 }
 
-.auth-layout::before {
-    content: "";
-    // @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1743889545/turqoise-triags_xmiedg.png");
-    background: url("https://res.cloudinary.com/djjvj73xa/image/upload/v1743890270/turqoise-triags_xmiedg.png");
-    position: absolute;
-    background-attachment: fixed;
-    z-index: -1;
-    top: $_0;
-    left: $_0;
-    right: $_0;
-    bottom: $_0;
 
-}
-
-@media screen and (min-width:321px) and (max-width:375.9px) {
+@media screen and (min-width:321px) and (max-width:425.9px) {
     .auth-layout {
+        @include height(100%);
 
         .sign-in-page,
         .sign-up-page {
@@ -306,7 +424,7 @@ background: url($url);
                         @include width(180px);
 
                         .sign-in-label {
-                            @include width(80px);
+                            @include width(120px);
                             @include margin-x-y($_15, $_0 , $_5 , $_0 );
                         }
 
@@ -335,14 +453,69 @@ background: url($url);
                     }
                 }
 
+                .form-sign-up {
+                    @include width(250px);
+
+                    .form-data-container {
+                        @include display-align(block);
+                        @include width(200px);
+
+                        .sign-up-label {
+                            @include width(200px);
+                            @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                        }
+
+                        .firstname-input,
+                        .lastname-input,
+                        .dob-input,
+                        .email-input,
+                        .password-input,
+                        .confirm-password-input {
+                            @include width(180px);
+                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                            border-left: $_2 solid #FABB00;
+                        }
+
+                        .gender-input {
+                            @include width(188px);
+                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                            border-left: $_2 solid #FABB00;
+                        }
+
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(180px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-signup {
+                            @include width(180px);
+                        }
+                    }
+                }
+
                 .may-need-account {
-                    @include width(200px);
 
-                    .no-account {}
+                    .no-account,
+                    .have-an-account {
+                        font-size: 12px;
+                    }
 
-                    .get-acccess {
+                    .get-access {
+                        font-size: 12px;
+                        @include width(180px);
+                    }
 
-                        .contact {}
+                    .login-access {
+                        @include width(180px);
+
                     }
                 }
             }
@@ -358,23 +531,31 @@ background: url($url);
 
             .sign-in-block,
             .sign-up-block {
-                @include width(300px);
+                @include width(250px);
 
                 .heading-one {
                     @include align-text(center);
                 }
 
                 .form-sign-in {
+                    @include width(250px);
+
                     .form-data-container {
-                        @include width(300px);
+                        @include display-align(block);
+                        // @include justify-content(left);
+                        // @include align-items(center);
+                        @include width(180px);
 
                         .sign-in-label {
-                            @include width(80px);
+                            @include width(120px);
+                            @include margin-x-y($_15, $_0 , $_5 , $_0 );
                         }
 
                         .email-input,
                         .password-input {
-                            @include width(150px);
+                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                            @include width(160px);
+                            border-left: $_2 solid #FABB00;
                         }
                     }
 
@@ -382,7 +563,7 @@ background: url($url);
                         @include width(200px);
 
                         .submit {
-                            @include width(150px);
+                            @include width(180px);
                         }
                     }
 
@@ -390,19 +571,74 @@ background: url($url);
                         @include width(200px);
 
                         .cancel-verification {
-                            @include width(150px);
+                            @include width(180px);
+                        }
+                    }
+                }
+
+                .form-sign-up {
+                    @include width(250px);
+
+                    .form-data-container {
+                        @include display-align(block);
+                        @include width(200px);
+
+                        .sign-up-label {
+                            @include width(200px);
+                            @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                        }
+
+                        .firstname-input,
+                        .lastname-input,
+                        .dob-input,
+                        .email-input,
+                        .password-input,
+                        .confirm-password-input {
+                            @include width(180px);
+                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                            border-left: $_2 solid #FABB00;
+                        }
+
+                        .gender-input {
+                            @include width(188px);
+                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                            border-left: $_2 solid #FABB00;
+                        }
+
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(180px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-signup {
+                            @include width(180px);
                         }
                     }
                 }
 
                 .may-need-account {
-                    @include width(200px);
 
-                    .no-account {}
+                    .no-account,
+                    .have-an-account {
+                        font-size: 12px;
+                    }
 
-                    .get-acccess {
+                    .get-access {
+                        font-size: 12px;
+                        @include width(180px);
+                    }
 
-                        .contact {}
+                    .login-access {
+                        @include width(180px);
+
                     }
                 }
             }
@@ -410,7 +646,7 @@ background: url($url);
     }
 }
 
-@media screen and (min-width:426px) and (max-width:768.9px) {
+@media screen and (min-width:426px) and (max-width:600.9px) {
     .auth-layout {
 
         .sign-in-page,
@@ -455,8 +691,249 @@ background: url($url);
                     }
                 }
 
+                .form-sign-up {
+
+                    .form-data-container {
+                        @include width(300px);
+                        @include display-align(block);
+
+                        .label-wrapper {
+                            @include margin-x-y($_15, $auto , $_5 , $auto );
+
+                            @include width(200px);
+
+                            .sign-up-label-firstname,
+                            .sign-up-label-lasttname,
+                            .sign-up-label-gender,
+                            .sign-up-label-dob,
+                            .sign-up-label-password,
+                            .sign-up-label-confirm-password {
+                                @include display-align(flex);
+                                @include justify-content(left);
+                                @include align-items(center);
+                                @include width(190px);
+                                @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                            }
+                        }
+
+                        .input-wrapper {
+
+                            @include margin-x-y($_15, $auto , $_5 , $auto );
+                            @include width(200px);
+
+                            .firstname-input,
+                            .lastname-input,
+                            .dob-input,
+                            .email-input,
+                            .password-input,
+                            .confirm-password-input {
+                                @include width(190px);
+                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                                border-left: $_2 solid #FABB00;
+                            }
+
+                            .gender-input {
+                                @include width(198px);
+                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                                border-left: $_2 solid #FABB00;
+                            }
+                        }
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(180px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-signup {
+                            @include width(180px);
+                        }
+                    }
+                }
+
                 .may-need-account {
-                    @include width(200px);
+
+                    .no-account,
+                    .have-an-account {
+                        font-size: 12px;
+                    }
+
+                    .get-access {
+                        font-size: 12px;
+                        @include width(180px);
+                    }
+
+                    .login-access {
+                        font-size: 14px;
+                        @include width(180px);
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:768.9px) {
+    .auth-layout {
+
+        .sign-in-page,
+        .sign-up-page {
+
+            .sign-in-block {
+                @include width(300px);
+
+                .heading-one {
+                    @include align-text(center);
+                }
+
+                .form-sign-in {
+                    .form-data-container {
+                        @include width(300px);
+
+                        .sign-in-label {
+                            @include width(80px);
+                        }
+
+                        .email-input,
+                        .password-input {
+                            @include width(150px);
+                        }
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(150px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-verification {
+                            @include width(150px);
+                        }
+                    }
+                }
+
+                .may-need-account {
+
+                    .no-account,
+                    .have-an-account {
+                        font-size: 12px;
+                    }
+
+                    .get-access {
+                        font-size: 12px;
+                        @include width(180px);
+                    }
+
+                    .login-access {
+                        font-size: 14px;
+                        @include width(180px);
+
+                    }
+                }
+            }
+
+            .sign-up-block {
+                .heading-one {
+                    @include align-text(center);
+                }
+
+                .form-sign-up {
+                    @include width(500px);
+                    @include margin-x-y($_0, $auto , $_0 , $auto );
+
+                    .form-data-container {
+                        @include width(350px);
+
+                        .label-wrapper {
+                            @include margin-x-y($_0, $auto , $_0 , $auto );
+
+                            @include width(150px);
+
+                            .sign-up-label-firstname,
+                            .sign-up-label-lastname,
+                            .sign-up-label-gender,
+                            .sign-up-label-dob,
+                            .sign-up-label-email,
+                            .sign-up-label-password,
+                            .sign-up-label-confirm-password {
+                                @include display-align(flex);
+                                @include justify-content(left);
+                                @include align-content(center);
+                                @include width(160px);
+                                @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                            }
+                        }
+
+                        .input-wrapper {
+
+                            @include margin-x-y($_15, $auto , $_5 , $auto );
+                            @include width(200px);
+
+                            .firstname-input,
+                            .lastname-input,
+                            .dob-input,
+                            .email-input,
+                            .password-input,
+                            .confirm-password-input {
+                                @include width(190px);
+                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                                border-left: $_2 solid #FABB00;
+                            }
+
+                            .gender-input {
+                                @include width(198px);
+                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                                border-left: $_2 solid #FABB00;
+                            }
+                        }
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(180px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-signup {
+                            @include width(180px);
+                        }
+                    }
+                }
+
+                .may-need-account {
+
+                    .no-account,
+                    .have-an-account {
+                        font-size: 12px;
+                    }
+
+                    .get-access {
+                        font-size: 12px;
+                        @include width(180px);
+                    }
+
+                    .login-access {
+                        font-size: 14px;
+                        @include width(180px);
+
+                    }
                 }
             }
         }
@@ -469,8 +946,7 @@ background: url($url);
         .sign-in-page,
         .sign-up-page {
 
-            .sign-in-block,
-            .sign-up-block {
+            .sign-in-block {
                 @include width(300px);
 
                 .heading-one {
@@ -507,9 +983,98 @@ background: url($url);
                         }
                     }
                 }
+            }
+
+            .sign-up-block {
+                .heading-one {
+                    @include align-text(center);
+                }
+
+                .form-sign-up {
+                    @include width(500px);
+                    @include margin-x-y($_0, $auto , $_0 , $auto );
+
+                    .form-data-container {
+                        @include width(350px);
+
+                        .label-wrapper {
+                            @include margin-x-y($_0, $auto , $_0 , $auto );
+
+                            @include width(150px);
+
+                            .sign-up-label-firstname,
+                            .sign-up-label-lastname,
+                            .sign-up-label-gender,
+                            .sign-up-label-dob,
+                            .sign-up-label-email,
+                            .sign-up-label-password,
+                            .sign-up-label-confirm-password {
+                                @include display-align(flex);
+                                @include justify-content(left);
+                                @include align-content(center);
+                                @include width(160px);
+                                @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                            }
+                        }
+
+                        .input-wrapper {
+
+                            @include margin-x-y($_15, $auto , $_5 , $auto );
+                            @include width(200px);
+
+                            .firstname-input,
+                            .lastname-input,
+                            .dob-input,
+                            .email-input,
+                            .password-input,
+                            .confirm-password-input {
+                                @include width(190px);
+                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                                border-left: $_2 solid #FABB00;
+                            }
+
+                            .gender-input {
+                                @include width(198px);
+                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
+                                border-left: $_2 solid #FABB00;
+                            }
+                        }
+                    }
+
+                    .submit-btn-wrapper {
+                        @include width(200px);
+
+                        .submit {
+                            @include width(180px);
+                        }
+                    }
+
+                    .cancel-btn-wrapper {
+                        @include width(200px);
+
+                        .cancel-signup {
+                            @include width(180px);
+                        }
+                    }
+                }
 
                 .may-need-account {
-                    @include width(200px);
+
+                    .no-account,
+                    .have-an-account {
+                        font-size: 12px;
+                    }
+
+                    .get-access {
+                        font-size: 12px;
+                        @include width(180px);
+                    }
+
+                    .login-access {
+                        font-size: 14px;
+                        @include width(180px);
+
+                    }
                 }
             }
         }
