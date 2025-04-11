@@ -1,6 +1,6 @@
 "use client";
-import PageFooter from "@/(home)/(components)/PageFooter";
-import PageHeader from "@/(home)/(components)/PageHeader";
+import PageFooter from "@/app/(home)/(components)/PageFooter";
+import PageHeader from "@/app/(home)/(components)/PageHeader";
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
 

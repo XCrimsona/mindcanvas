@@ -110,25 +110,6 @@ $auto: auto;
     max-height: $max-height;
 }
 
-.page {
-    letter-spacing: 1px;
-    @include margin-x-y($_0, $auto, $_0, $auto );
-    font-family: calibri, Arial, Helvetica, sans-serif;
-    padding: 0;
+@mixin font-size($size) {
+    font-size: $size;
 }
-
-@media screen and (min-width:250px) and (max-width:320.9px) {}
-
-@media screen and (min-width:321px) and (max-width:375.9px) {}
-
-@media screen and (min-width:376px) and (max-width:425.9px) {}
-
-@media screen and (min-width:426px) and (max-width:768.9px) {}
-
-@media screen and (min-width:769px) and (max-width:1024.9px) {}
-
-@media screen and (min-width:1025px) and (max-width:1440.9px) {}
-
-@media screen and (min-width:1441px) and (max-width:2560.9px) {}
-
-@media screen and (min-width:2561px) {}

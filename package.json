@@ -14,12 +14,13 @@
     "cryptr": "^6.3.0",
     "express-session": "^1.18.1",
     "mongodb": "^6.15.0",
-    "mongoose": "^8.13.1",
+    "mongoose": "^8.13.2",
     "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-draggable": "^4.4.6",
-    "sass": "^1.86.0"
+    "sass": "^1.86.0",
+    "typed.js": "^2.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
