@@ -1,14 +1,7 @@
 import Div from "@/src/ui/Div";
-import HeadingOne from "@/src/ui/HeadingOne";
-import LongText from "@/src/ui/LongText";
-import UL from "@/src/ui/UL";
-import ListItem from "@/src/ui/ListItem";
-import HeadingTwo from "@/src/ui/HeadingTwo";
 import { Metadata } from "next";
-// import Signin from "./auth/signin/Signin";
-// import Link from "next/link";
-import RouteLink from "@/src/components/ProductSection/RouteLink";
-import home from "@/app/(main-route)/home.module.scss";
+import home from "@/app/(home)/(css)/home.module.scss";
+import Home from "@/app/(home)/Home";
 
 export const metadata: Metadata = {
   title: "Home | Life Expansion",
@@ -24,86 +17,10 @@ export const metadata: Metadata = {
 };
 
 // Home Page Dashboard
-export default function Home() {
-  const content: any = {
-    //Introduction Summary of Tools used by app features
-    designedFor: [
-      "Personal Content Analysis",
-      "Limited Desk Space",
-      "Organizing Custom Data",
-      "Enhancing work efficiency by keeping your data structured and accessible",
-    ],
-
-    //Distinct features avail when logged in
-    features: [
-      "Dynamic Image Editing",
-      "Multi-Image Stacking and Layering",
-      "Drag-and-Drop Image Interaction (like sticky notes on a whiteboard)",
-      "Personalized Goal Setting",
-      "Annual Planner Aligned with Goal Setting",
-      "Fitness Tracking and Monitoring",
-    ],
-    ["privacy-security"]: [
-      "We use cookies solely to help you track your data. We do not collect, store, or share your data with third parties, ensuring maximum privacy.",
-      "All data related to individual accounts are encrypted which means admins cannot alter your data",
-      "Life Expansion\u2019s privacy rules stand as a guard to ensure your information remains protected via encryption and security layers",
-      "By this privacy rule life expansion performs database operations, that are analysis matrics to monitor for unauthorized logins, offensive database commands that may indicate potential cyber attacks to break into accounts, copy, modify, or destroy information",
-      "Modern Authentication is highly recommended even as a closed project based platform",
-    ],
-  };
-
+export default function Page() {
   return (
-    <Div className="page">
-      <HeadingOne id="heading-one" className={home["heading-one"]}>
-        Life Expansion
-      </HeadingOne>
-      <LongText className="paragraph">
-        Welcome to Life Expansion. Life Expansion is a platform that focuses on
-        work efficiency, getting back your time by bringing all your work, ideas
-        to an organized place.
-      </LongText>
-      <HeadingTwo id="heading-two" className="heading-two">
-        It{"\u2019"}s Designed for{"\u003a"}
-      </HeadingTwo>
-      <UL className="list">
-        {content.designedFor.map((perfectDesign: string, key: number) => {
-          return (
-            <ListItem key={key} className="listitem">
-              {perfectDesign}
-            </ListItem>
-          );
-        })}
-      </UL>
-      <HeadingTwo id="heading-two" className="heading-two">
-        Features{"\u003a"}
-      </HeadingTwo>
-      <Div className="list">
-        {content.features.map((feature: string, key: number) => {
-          return (
-            <LongText key={key} className="privacy-statement">
-              {feature}
-            </LongText>
-          );
-        })}
-      </Div>
-      <HeadingTwo id="heading-two" className="heading-two">
-        Life Expansion prioritizes privacy and security through the following
-        measures{"\u003a"}
-      </HeadingTwo>
-      <UL className="list">
-        {content["privacy-security"].map((feature: string, key: number) => {
-          return (
-            <ListItem key={key} className="listitem">
-              {feature}
-            </ListItem>
-          );
-        })}
-      </UL>
-      <Div className="sign-in-container">
-        <RouteLink className="route-link" href="/auth/signin">
-          Sign for top security & full access to our features
-        </RouteLink>
-      </Div>
+    <Div className={home["page"]}>
+      <Home />
     </Div>
   );
 }

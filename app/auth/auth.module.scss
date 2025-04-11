@@ -124,7 +124,7 @@ background: url($url);
     @include height(100%);
     background-attachment: fixed;
     background-size: cover;
-    background: url("https://res.cloudinary.com/djjvj73xa/image/upload/v1743890270/turqoise-triags_xmiedg.png");
+    background: url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
     @include background-color(#000);
     // @include background(radial-gradient(#000000 75%, #fabb00aa));
     font-family: calibri, Arial, Helvetica, sans-serif;
@@ -259,7 +259,6 @@ background: url($url);
                         @include display-align(block);
                         @include margin-x-y($_2, $auto , $_2 , $auto );
                     }
-
 
                     .firstname-input,
                     .lastname-input,

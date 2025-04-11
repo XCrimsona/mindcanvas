@@ -1,7 +1,7 @@
 "use client";
 import Div from "@/src/ui/Div";
-import PageHeader from "@/(home)/(components)/PageHeader";
-import PageFooter from "@/(home)/(components)/PageFooter";
+import PageHeader from "@/app/(home)/(components)/PageHeader";
+import PageFooter from "@/app/(home)/(components)/PageFooter";
 import HeadingOne from "@/src/ui/HeadingOne";
 
 const ImageEditing = () => {
