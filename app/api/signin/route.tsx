@@ -16,4 +16,6 @@ export async function POST(request: Request) {
       { status: 409 }
     );
   }
+
+  //sign user and redirect
 }

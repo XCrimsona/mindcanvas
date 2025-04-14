@@ -7,6 +7,8 @@ import HeadingTwo from "@/src/ui/HeadingTwo";
 import RouteLink from "@/src/components/ProductSection/RouteLink";
 import home from "@/app/(home)/(css)/home.module.scss";
 import Header from "@/src/components/Header";
+import Footer from "@/src/components/Footer";
+import ShortText from "@/src/ui/ShortText";
 // Home Page Dashboard
 const Home = () => {
   const content: any = {
@@ -30,10 +32,10 @@ const Home = () => {
       "Built-in Fitness App",
     ],
     ["privacy-security"]: [
-      "Life Expansion use cookies to help you track your data. It stores your data with cloud providers such as mongoDB, and azure cloud, but we stricly refuse to share your personal data with other third parties who sell personal data.",
-      "Life Expansion\u2019s privacy rules protects a user\u2019s information by encrypting data of all inidividual accounts that even the admin cannot access because the security key of that account decrpyting data is kept by the user.",
-      "By having this privacy rule in place life expansion performs database operations, that are analysis matrics to monitor for unauthorized logins, offensive database commands that may indicate potential cyber attacks to break into accounts, copy, modify, or destroy information. Life expansion cannot scan your data in any way.",
-      "Multi Factor Authentication is highly recommended even as we are a closed project based platform.",
+      "Life Expansion use cookies to help you track your data. It stores your data with cloud providers such as mongoDB, and azure cloud. We have a privacy policy that states we stricly refuse to share any of your data with other third parties who sell personal data behind the scenes.",
+      "Life Expansion\u2019s privacy rules protect all users and their information by encrypting data of all inidividual accounts that even the admins cannot access as the security key of all those accounts decrypting data is kept by the user.",
+      "By having privacy rules in place, life expansion performs database operations that analyze metrics to monitor for unauthorized logins, offensive database commands that may indicate potential cyber attacks to break into accounts, attempying to gain access to copy, modify, or destroy information. Life expansion cannot scan your data in any way.",
+      "Multi Factor Authentication is highly recommended.",
     ],
   };
 
@@ -118,6 +120,14 @@ const Home = () => {
           Sign in
         </RouteLink>
       </Div>
+
+      <Footer id="home-footer" className="home-footer">
+        <Div className="creator">
+          <ShortText className="project-creator">
+            Created by Christeen Fabian | MysteriousTechLady
+          </ShortText>
+        </Div>
+      </Footer>
     </>
   );
 };
