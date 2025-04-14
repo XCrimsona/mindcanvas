@@ -15,5 +15,5 @@
 <li>Data Management</li>
 <li>Image Editing</li>
 <li>Fitness Tracking</li>
-</li>Planner</li>
+<li>Planner</li>
 </ul>
