@@ -1,16 +1,16 @@
 "use client";
 import PageFooter from "@/app/(home)/(components)/PageFooter";
-import PageHeader from "@/app/(home)/(components)/PageHeader";
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
+import AuthHeader from "../AuthHeader";
 
 const Fitness = () => {
   return (
     <>
-      <PageHeader />
+      <AuthHeader />
       <Div className="account-fitness-tracking-content">
         <HeadingOne id="heading-one" className="heading-one">
-          Fitness section
+          Fitness section 5 | Coming Soon
         </HeadingOne>
       </Div>
       <PageFooter />

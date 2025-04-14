@@ -36,6 +36,7 @@ const userschema = new mongoose.Schema({
     minLength: 16,
     maxLength: 140,
     required: [true, "Retype the same password to ensure its correct."],
+    select: false,
   },
   role: "base-access",
 });

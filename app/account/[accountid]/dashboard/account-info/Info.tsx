@@ -1,16 +1,16 @@
 "use client";
 import PageFooter from "@/app/(home)/(components)/PageFooter";
-import PageHeader from "@/app/(home)/(components)/PageHeader";
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
+import AuthHeader from "../AuthHeader";
 
 const Info = () => {
   return (
     <>
-      <PageHeader />
+      <AuthHeader />
       <Div className="account-info-content">
         <HeadingOne id="heading-one" className="heading-one">
-          Account Info section 1
+          Account Info Start here
         </HeadingOne>
       </Div>
       <PageFooter />
