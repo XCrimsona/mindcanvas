@@ -120,11 +120,10 @@ const Home = () => {
           Sign in
         </RouteLink>
       </Div>
-
-      <Footer id="home-footer" className="home-footer">
-        <Div className="creator">
-          <ShortText className="project-creator">
-            Created by Christeen Fabian | MysteriousTechLady
+      <Footer id="home-footer" className={home["home-footer"]}>
+        <Div className={home["project-creator"]}>
+          <ShortText className={home["creator"]}>
+            Created by Christeen Fabian
           </ShortText>
         </Div>
       </Footer>

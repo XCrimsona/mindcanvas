@@ -41,6 +41,7 @@ export const InputEmail = ({
       minLength={2}
       maxLength={40}
       className={className}
+      autoComplete="off"
       placeholder={placeholder}
       onChange={onChange}
       value={value}
@@ -54,7 +55,7 @@ interface InputTextProps {
   className: string;
   placeholder: string;
   value: string;
-  onChange: React.ReactEventHandler;
+  onChange?: React.ReactEventHandler;
 }
 export const InputText = ({
   id,
@@ -72,8 +73,51 @@ export const InputText = ({
       className={className}
       placeholder={placeholder}
       value={value}
+      autoComplete="off"
       onChange={onChange}
       required
+    />
+  );
+};
+export const InputDisabledText = ({
+  id,
+  className,
+  value,
+  onChange,
+}: InputTextProps) => {
+  return (
+    <input
+      type="text"
+      id={id}
+      minLength={1}
+      maxLength={500}
+      disabled
+      autoComplete="off"
+      className={className}
+      value={value}
+      onChange={onChange}
+      required
+    />
+  );
+};
+export const InputEnabledText = ({
+  id,
+  className,
+  placeholder,
+  value,
+  onChange,
+}: InputTextProps) => {
+  return (
+    <input
+      type="text"
+      id={id}
+      minLength={1}
+      maxLength={500}
+      autoComplete="off"
+      placeholder={placeholder}
+      className={className}
+      value={value}
+      onChange={onChange}
     />
   );
 };
@@ -167,7 +211,6 @@ export const InputPassword = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      required
     />
   );
 };
