@@ -1,4 +1,4 @@
-const label = ({
+const Label = ({
   htmlfor,
   className,
   text,
@@ -14,4 +14,4 @@ const label = ({
   );
 };
 
-export default label;
+export default Label;

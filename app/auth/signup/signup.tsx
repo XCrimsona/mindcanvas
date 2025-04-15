@@ -78,16 +78,14 @@ const Signup = () => {
       formData.confirmpassword = "";
     };
 
-    const gender = {
-      genderText: [
-        "Prefer not to specify",
-        "Female",
-        "Male",
-        "Transgender",
-        "Non-binary",
-        "Other",
-      ],
-    };
+    const gender = [
+      "Prefer not to specify",
+      "Female",
+      "Male",
+      "Transgender",
+      "Non-binary",
+      "Other",
+    ];
     return (
       <Section
         id="sign-up-container"
@@ -166,7 +164,7 @@ const Signup = () => {
                   setFormData({ ...formData, gender: e.target.value });
                 }}
               >
-                {gender.genderText.map((item: any, index: number) => {
+                {gender.map((item: any, index: number) => {
                   return (
                     <option id={`option${index}`} key={index} value={item}>
                       {item}

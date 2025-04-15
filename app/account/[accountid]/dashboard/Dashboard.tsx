@@ -4,6 +4,9 @@ import RouteLink from "@/src/components/ProductSection/RouteLink";
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
 import { useParams } from "next/navigation";
+import dashboardStyling from "@/app/account/[accountid]/dashboard/dashboard.module.scss";
+import Footer from "@/src/components/Footer";
+import ShortText from "@/src/ui/ShortText";
 
 const Dashboard = () => {
   const params = useParams<{ accountid: string }>();
@@ -44,16 +47,24 @@ const Dashboard = () => {
 
   return (
     <>
-      <Div className="account-dashboard-content">
-        <HeadingOne id="heading-one" className="heading-one">
+      <Div className={dashboardStyling["account-dashboard-content"]}>
+        <HeadingOne
+          id="heading-one"
+          className={dashboardStyling["heading-one"]}
+        >
           Account Dashboard
         </HeadingOne>
         {accountDashboardLinkData.map(
           (linkDataComponent: any, index: number) => {
             return (
-              <Div key={index} className={`${index}dashboard-link-component`}>
+              <Div
+                key={index}
+                className={`${dashboardStyling["dashboard-link-component"]}`}
+              >
                 <RouteLink
-                  className="auth-link-component-built-in-app"
+                  className={
+                    dashboardStyling["auth-link-component-built-in-app"]
+                  }
                   href={`/account/${params.accountid}/dashboard${linkDataComponent.routeData.route}`}
                 >
                   {linkDataComponent.routeData.text}
@@ -63,7 +74,16 @@ const Dashboard = () => {
           }
         )}
       </Div>
-      <PageFooter />
+      <Footer
+        id="dashboard-footer"
+        className={dashboardStyling["dashboard-footer"]}
+      >
+        <Div className={dashboardStyling["project-creator"]}>
+          <ShortText className={dashboardStyling["creator"]}>
+            Created by Christeen Fabian
+          </ShortText>
+        </Div>
+      </Footer>
     </>
   );
 };

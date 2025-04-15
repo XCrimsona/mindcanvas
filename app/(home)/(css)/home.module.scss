@@ -114,6 +114,34 @@ $auto: auto;
     font-size: $size;
 }
 
+@mixin border($thickness, $type, $color) {
+    border: $thickness $type $color;
+}
+
+@mixin border-radius($thickness) {
+    border-radius: $thickness;
+}
+
+@mixin position($position) {
+    position: $position;
+}
+
+@mixin top($position) {
+    top: $position;
+}
+
+@mixin bottom($position) {
+    bottom: $position;
+}
+
+@mixin left($position) {
+    left: $position;
+}
+
+@mixin right($position) {
+    right: $position;
+}
+
 .page {
     letter-spacing: 1px;
     font-family: calibri, Arial, Helvetica, sans-serif;
@@ -122,6 +150,7 @@ $auto: auto;
     @include text-color(#fff);
     @include margin-x-y($_0, $auto, $_0, $auto );
     @include padding-x-y($_0, $_0, $_10, $_0 );
+    @include position(relative);
 
     .heading-one,
     .heading-two {
@@ -187,6 +216,25 @@ $auto: auto;
         .route-link {
             @include display-align(block);
             @include padding-x-y($_10, $_0 , $_10 , $_0 );
+        }
+    }
+
+    .home-footer {
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include display-align(block);
+        @include position(fixed);
+        @include bottom($_0);
+        @include right($_0);
+        @include left($_0);
+        @include background-color(#222);
+
+        .project-creator {
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+
+            .creator {
+                @include align-text(center);
+                @include text-color(#fff);
+            }
         }
     }
 }
@@ -335,8 +383,9 @@ $auto: auto;
 
             .features {
                 @include margin-x-y($_10, $auto , $_10 , $auto );
+                @include padding-x-y($_10, $_0 , $_10 , $_0);
                 @include justify-content(center);
-                @include width(330px);
+                @include width(350px);
             }
         }
 
@@ -344,7 +393,6 @@ $auto: auto;
             @include margin-x-y($_60, $auto , $_20 , $auto );
             @include width(350px);
             @include align-text(center);
-
         }
 
         .list-security-privacy {
@@ -352,7 +400,6 @@ $auto: auto;
             @include display-align(flex);
             @include flex-align(wrap);
             @include align-text(left);
-
 
             .sec-priv-item {
                 @include width(330px);
@@ -364,7 +411,7 @@ $auto: auto;
         .sign-in-container {
             @include align-text(center);
             @include width(300px);
-            border-radius: 10px;
+            @include border-radius(10px);
 
             .route-link {
                 @include display-align(block);
