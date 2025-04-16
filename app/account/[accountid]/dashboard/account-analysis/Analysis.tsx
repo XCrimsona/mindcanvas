@@ -1,6 +1,6 @@
 "use client";
 import PageFooter from "@/app/(home)/(components)/PageFooter";
-import AuthHeader from "@/app/account/[accountid]/dashboard/AuthHeader";
+import AuthHeader from "@/app/account/[accountid]/dashboard/(auth-header)/AuthHeader";
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
 const Analysis = () => {

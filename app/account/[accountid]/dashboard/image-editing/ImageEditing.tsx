@@ -2,7 +2,7 @@
 import Div from "@/src/ui/Div";
 import PageFooter from "@/app/(home)/(components)/PageFooter";
 import HeadingOne from "@/src/ui/HeadingOne";
-import AuthHeader from "../AuthHeader";
+import AuthHeader from "../(auth-header)/AuthHeader";
 
 const ImageEditing = () => {
   return (
