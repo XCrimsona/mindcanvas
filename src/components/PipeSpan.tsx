@@ -1,6 +1,6 @@
 "use client";
-const PipeSpan = () => {
-  return <span className="form-pipe-span"> | </span>;
+const PipeSpan = ({ className }: { className: string }) => {
+  return <span className={className}> | </span>;
 };
 
 export default PipeSpan;

@@ -1,483 +1,521 @@
 "use client";
-import PageFooter from "@/app/(home)/(components)/PageFooter";
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
-import AuthHeader from "../AuthHeader";
+import AuthHeader from "@/app/account/[accountid]/dashboard/(auth-header)/AuthHeader";
 import info from "@/app/account/[accountid]/dashboard/account-info/(css)/info.module.scss";
 import ShortText from "@/src/ui/ShortText";
 import Footer from "@/src/components/Footer";
 import {
+  InputDate,
   InputDisabledText,
   InputEnabledText,
   InputPassword,
   InputSubmit,
-  InputText,
 } from "@/src/components/form-elements/InputTypeInterfaces";
-import {
-  ChangeEvent,
-  FormEvent,
-  FormEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Label from "@/src/components/form-elements/Label";
 import Button from "@/src/components/form-elements/Button";
 import PipeSpan from "@/src/components/PipeSpan";
 
 const Info = () => {
-  //define form field data types and input
-  interface formDataInterface {
-    firstname: string;
-    lastname: string;
-    gender?: string | undefined;
-    dob?: string | undefined;
-    email: string;
-    password: string;
-    confirmpassword: string;
-  }
-  const [formData, setNewFormData] = useState<formDataInterface>({
-    firstname: "",
-    lastname: "",
-    gender: "",
-    dob: "",
-    email: "",
-    password: "",
-    confirmpassword: "",
-  });
+  try {
+    //define form field data types and input
+    interface formDataInterface {
+      firstname: string;
+      lastname: string;
+      gender?: string | undefined;
+      dob?: string | undefined;
+      email: string;
+      ["current-password"]: string;
+      ["new-password"]: string;
+      ["confirm-new-password"]: string;
+    }
+    const [formData, setNewFormData] = useState<formDataInterface>({
+      firstname: "",
+      lastname: "",
+      gender: "",
+      dob: "",
+      email: "",
+      ["current-password"]: "",
+      ["new-password"]: "",
+      ["confirm-new-password"]: "",
+    });
 
-  //used to control which fields are read only and which can be editable with the below interface object and useState
-  interface formFieldToggleProps {
-    firstname: boolean;
-    lastname: boolean;
-    gender: boolean;
-    dob: boolean;
-    email: boolean;
-    password: boolean;
-    confirmpassword: boolean;
-  }
+    //used to control which fields are read only and which can be editable with the below interface object and useState
+    interface formFieldToggleProps {
+      firstname: boolean;
+      lastname: boolean;
+      gender: boolean;
+      dob: boolean;
+      email: boolean;
+      ["current-password"]: boolean;
+      ["new-password"]: boolean;
+      ["confirm-new-password"]: boolean;
+    }
 
-  //auth controls whether user can update their credentials
-  //below code design is temporary
-  const [formFieldToggle, setformFieldToggle] = useState<formFieldToggleProps>({
-    firstname: false,
-    lastname: false,
-    gender: false,
-    dob: false,
-    email: false,
-    password: false,
-    confirmpassword: false,
-  });
+    //auth controls whether user can update their credentials
+    //below code design is temporary
+    const [formFieldToggle, setformFieldToggle] =
+      useState<formFieldToggleProps>({
+        firstname: false,
+        lastname: false,
+        gender: false,
+        dob: false,
+        email: false,
+        ["current-password"]: false,
+        ["new-password"]: false,
+        ["confirm-new-password"]: false,
+      });
 
-  const gender = [
-    "Prefer not to specify",
-    "Female",
-    "Male",
-    "Transgender",
-    "Non-binary",
-    "Other",
-  ];
-  //pull data from the cloud to display in read only fields
-  // useEffect(() => {
-  //   try {
-  //     const data = fetch("api/account/2938423/dashboard/account-info"); //number must be an actual user from db
-  //     const resposne = await data.json();
+    const gender = [
+      "Prefer not to specify",
+      "Female",
+      "Male",
+      "Transgender",
+      "Non-binary",
+      "Other",
+    ];
+    //pull data from the cloud to display in read only fields
+    // useEffect(() => {
+    //   try {
+    //     const data = fetch("api/account/2938423/dashboard/account-info"); //number must be an actual user from db
+    //     const resposne = await data.json();
 
-  //     return; //replace with data object
-  //   } catch (err: any) {
-  //     console.warn("Something went wrong: ", err.message);
-  //   }
-  // }, []);
+    //     return; //replace with data object
+    //   } catch (err: any) {
+    //     console.warn("Something went wrong: ", err.message);
+    //   }
+    // }, []);
 
-  //this area manages all submitted data
-  const processSubmission = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert("Hello I am a submission!");
-    //combine backend fetch api route with submission
-    //16apr continues here
-  };
+    //this area manages all submitted data
 
-  return (
-    <>
-      <AuthHeader />
-      <Div className={info["account-info-content"]}>
-        <HeadingOne id="heading-one" className={info["heading-one"]}>
-          Account Info Start here
-        </HeadingOne>
-        <form method="POST" onSubmit={processSubmission}>
-          <Div className="firstname-container">
-            <Label
-              htmlfor="firstname"
-              className={info["update-firstname"]}
-              text="Firstname"
-            />
-            {formFieldToggle.firstname ? (
-              <Div className="data-control-container">
-                <InputEnabledText
-                  id="firstname-input"
-                  className={"firstname-input"}
-                  placeholder={"Update your firstname"}
-                  value={formData.firstname}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                    e.preventDefault();
-                    setNewFormData({ ...formData, firstname: e.target.value });
-                  }}
+    const processSubmission = (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      alert("Hello I am a submission!");
+      //combine backend fetch api route with submission
+      //16apr continues here
+    };
+
+    return (
+      <>
+        <AuthHeader />
+        <Div className={info["account-info-content"]}>
+          <HeadingOne id="heading-one" className={info["heading-one"]}>
+            Account Info
+          </HeadingOne>
+          <form
+            id="account-info-form"
+            className={info["account-info-form"]}
+            method="POST"
+            onSubmit={processSubmission}
+          >
+            <Div className={info["firstname-container"]}>
+              <Label
+                htmlfor="firstname"
+                className={info["update-firstname"]}
+                text="Firstname"
+              />
+              {formFieldToggle.firstname ? (
+                <Div className={info["data-control-container"]}>
+                  <InputEnabledText
+                    id="firstname"
+                    className={info["firstname-input"]}
+                    placeholder={"Update your First Name"}
+                    value={formData.firstname}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                      e.preventDefault();
+                      setNewFormData({
+                        ...formData,
+                        firstname: e.target.value,
+                      });
+                    }}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState firstname to help control view and edit modes. This one disables field editing*/}
+                  <Button
+                    id="disable-firstname-editing"
+                    className={info["disable-firstname-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        firstname: !formFieldToggle.firstname,
+                      });
+                    }}
+                  >
+                    View Only
+                  </Button>
+                </Div>
+              ) : (
+                <Div className={info["data-control-container"]}>
+                  <InputDisabledText
+                    id="firstname"
+                    className={info["firstname-input"]}
+                    placeholder={""}
+                    value={/*formData.firstname*/ "some name"}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState data.firstname to help control view and edit modes. This one enables field editing*/}
+                  <Button
+                    id="enable-firstname-editing"
+                    className={info["enable-firstname-editing"]}
+                    onClick={(e: ChangeEvent<HTMLInputElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        firstname: !formFieldToggle.firstname,
+                      });
+                    }}
+                  >
+                    Modify
+                  </Button>
+                </Div>
+              )}
+            </Div>
+            <Div className={info["lastname-container"]}>
+              <Label
+                htmlfor="lastname"
+                className={info["update-lastname"]}
+                text="Lastname"
+              />
+              {formFieldToggle.lastname ? (
+                <Div className={info["data-control-container"]}>
+                  <InputEnabledText
+                    id="lastname"
+                    className={info["lastname-input"]}
+                    placeholder={"Update your Last Name"}
+                    value={formData.lastname}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                      e.preventDefault();
+                      setNewFormData({ ...formData, lastname: e.target.value });
+                    }}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState lastname to help control view and edit modes. This one disables field editing*/}
+                  <Button
+                    id="disable-firstname-editing"
+                    className={info["disable-lastname-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        lastname: !formFieldToggle.lastname,
+                      });
+                    }}
+                  >
+                    View Only
+                  </Button>
+                </Div>
+              ) : (
+                <Div className={info["data-control-container"]}>
+                  <InputDisabledText
+                    id="lastname"
+                    className={info["lastname-input"]}
+                    placeholder={""}
+                    value={/*formData.lastname*/ "some name"}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState lastname to help control view and edit modes. This one enables field editing*/}
+                  <Button
+                    id="enable-lastname-editing"
+                    className={info["enable-lastname-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        lastname: !formFieldToggle.lastname,
+                      });
+                    }}
+                  >
+                    Modify
+                  </Button>
+                </Div>
+              )}
+            </Div>
+            <Div className={info["gender-container"]}>
+              <Label
+                htmlfor="gender"
+                className={info["update-gender"]}
+                text="Gender"
+              />
+              {formFieldToggle.gender ? (
+                <Div className={info["data-control-container"]}>
+                  <select
+                    id="gender"
+                    className={info["gender-input"]}
+                    value={formData.gender ? formData.gender : ""}
+                    onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+                      e.preventDefault();
+                      setNewFormData({ ...formData, gender: e.target.value });
+                    }}
+                  >
+                    {gender.map((item: any, index: number) => {
+                      return (
+                        <option id={`option-${index}`} key={index} value={item}>
+                          {item}
+                        </option>
+                      );
+                    })}
+                  </select>
+
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState gender to help control view and edit modes. This one disables field editing*/}
+                  <Button
+                    id="disable-gender-editing"
+                    className={info["disable-gender-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        gender: !formFieldToggle.gender,
+                      });
+                    }}
+                  >
+                    View Only
+                  </Button>
+                </Div>
+              ) : (
+                <Div className={info["data-control-container"]}>
+                  <InputDisabledText
+                    id="gender"
+                    className={info["gender-input-disabled"]}
+                    placeholder={""}
+                    value={/*formData.gender*/ "some name"}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState gender to help control view and edit modes. This one enables field editing*/}
+                  <Button
+                    id="enable-gender-editing"
+                    className={info["enable-gender-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        gender: !formFieldToggle.gender,
+                      });
+                    }}
+                  >
+                    Modify
+                  </Button>
+                </Div>
+              )}
+            </Div>
+            <Div className={info["dob-container"]}>
+              <Label htmlfor="dob" className={info["update-dob"]} text="Dob" />
+              {formFieldToggle.dob ? (
+                <Div className={info["data-control-container"]}>
+                  <InputDate
+                    id="dob"
+                    className={info["dob-input"]}
+                    value={formData.dob ? formData.dob : ""}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                      e.preventDefault();
+                      setNewFormData({ ...formData, dob: e.target.value });
+                    }}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one disables field editing*/}
+                  <Button
+                    id="disable-dob-editing"
+                    className={info["disable-dob-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        dob: !formFieldToggle.dob,
+                      });
+                    }}
+                  >
+                    View Only
+                  </Button>
+                </Div>
+              ) : (
+                <Div className={info["data-control-container"]}>
+                  <InputDisabledText
+                    id="dob"
+                    className={info["dob-input"]}
+                    placeholder={""}
+                    value={/*formData.dob*/ "some name"}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one enables field editing*/}
+                  <Button
+                    id="enable-dob-editing"
+                    className={info["enable-dob-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        dob: !formFieldToggle.dob,
+                      });
+                    }}
+                  >
+                    Modify
+                  </Button>
+                </Div>
+              )}
+            </Div>
+            <Div className={info["email-container"]}>
+              <Label
+                htmlfor="email"
+                className={info["update-email"]}
+                text="Email"
+              />
+              {formFieldToggle.email ? (
+                // appear when form field email boolean state is true
+                <Div className={info["data-control-container"]}>
+                  <InputEnabledText
+                    id="email"
+                    className={info["email-input"]}
+                    placeholder={"Update your Email"}
+                    value={formData.email}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                      e.preventDefault();
+                      setNewFormData({ ...formData, email: e.target.value });
+                    }}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState email to help control view and edit modes. This one disables field editing*/}
+                  <Button
+                    id="disable-email-editing"
+                    className={info["disable-email-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        email: !formFieldToggle.email,
+                      });
+                    }}
+                  >
+                    View Only
+                  </Button>
+                </Div>
+              ) : (
+                // appear when form field email boolean state is false
+                <Div className={info["data-control-container"]}>
+                  <InputDisabledText
+                    id="email"
+                    className={info["email-input"]}
+                    placeholder={""}
+                    value={/*formData.email*/ "some name"}
+                  />
+                  <PipeSpan className={info["form-pipe-span"]} />
+                  {/* Button below is soleply programmed for updating useState email to help control view and edit modes. This one enables field editing*/}
+                  <Button
+                    id="enable-email-editing"
+                    className={info["enable-email-editing"]}
+                    onClick={(e: ChangeEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      setformFieldToggle({
+                        ...formFieldToggle,
+                        email: !formFieldToggle.email,
+                      });
+                    }}
+                  >
+                    Modify
+                  </Button>
+                </Div>
+              )}
+            </Div>
+            <Div className={info["current-password-container"]}>
+              <Label
+                htmlfor="current-password"
+                className={info["current-password"]}
+                text="Current Password"
+              />
+              <InputPassword
+                id="current-password"
+                className={info["current-password-input"]}
+                placeholder={"Type in your current password"}
+                value={formData["current-password"]}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  e.preventDefault();
+                  setNewFormData({
+                    ...formData,
+                    "current-password": e.target.value,
+                  });
+                }}
+              />
+            </Div>
+            <Div className={info["new-password-container"]}>
+              <Label
+                htmlfor="new-password"
+                className={info["new-password"]}
+                text="New Password"
+              />
+              <InputPassword
+                id="new-password"
+                className={info["new-password-input"]}
+                placeholder={"Type in your new password"}
+                value={formData["current-password"]}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  e.preventDefault();
+                  setNewFormData({
+                    ...formData,
+                    "new-password": e.target.value,
+                  });
+                }}
+              />
+            </Div>
+            <Div className={info["confirm-new-password-container"]}>
+              <Label
+                htmlfor="confirm-new-password"
+                className={info["confirm-new-password"]}
+                text="Confirm New Password"
+              />
+              <InputPassword
+                id="confirm-new-password"
+                className={info["confirm-new-password-input"]}
+                placeholder={"Confirm your new password"}
+                value={formData["confirm-new-password"]}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  e.preventDefault();
+                  setNewFormData({
+                    ...formData,
+                    "confirm-new-password": e.target.value,
+                  });
+                }}
+              />
+            </Div>
+            <Div className={info["form-processing-btn"]}>
+              <Div className={info["submit-container"]}>
+                <InputSubmit
+                  className={info["submit-btn"]}
+                  id="submit-btn"
+                  value="Update"
                 />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState firstname to help control view and edit modes. This one disables field editing*/}
-                <Button
-                  id="disable-firstname-editing"
-                  className="disable-firstname-editing"
-                  onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      firstname: !formFieldToggle.firstname,
-                    });
-                  }}
-                >
-                  Make View Only
-                </Button>
               </Div>
-            ) : (
-              <Div className="data-control-container">
-                <InputDisabledText
-                  id="firstname-input"
-                  className={"firstname-input"}
-                  placeholder={""}
-                  value={/*formData.firstname*/ "some name"}
-                />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState data.firstname to help control view and edit modes. This one enables field editing*/}
+              <Div className={info["cancel-container"]}>
                 <Button
-                  id="enable-firstname-editing"
-                  className="enable-firstname-editing"
-                  onClick={(e: ChangeEvent<HTMLInputElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      firstname: !formFieldToggle.firstname,
-                    });
-                  }}
-                >
-                  Modify
-                </Button>
-              </Div>
-            )}
-          </Div>
-          <Div className="lastname-container">
-            <Label
-              htmlfor="lastname"
-              className={info["update-lastname"]}
-              text="Lastname"
-            />
-            {formFieldToggle.lastname ? (
-              <Div className="data-control-container">
-                <InputEnabledText
-                  id="lastname-input"
-                  className={"lastname-input"}
-                  placeholder={"Update your lastname"}
-                  value={formData.lastname}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                    e.preventDefault();
-                    setNewFormData({ ...formData, lastname: e.target.value });
-                  }}
-                />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState lastname to help control view and edit modes. This one disables field editing*/}
-                <Button
-                  id="disable-firstname-editing"
-                  className="disable-firstname-editing"
-                  onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      lastname: !formFieldToggle.lastname,
-                    });
-                  }}
-                >
-                  Make View Only
-                </Button>
-              </Div>
-            ) : (
-              <Div className="data-control-container">
-                <InputDisabledText
-                  id="lastname-input"
-                  className={"lastname-input"}
-                  placeholder={""}
-                  value={/*formData.lastname*/ "some name"}
-                />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState lastname to help control view and edit modes. This one enables field editing*/}
-                <Button
-                  id="enable-lastname-editing"
-                  className="enable-lastname-editing"
-                  onClick={(e: ChangeEvent<HTMLInputElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      lastname: !formFieldToggle.lastname,
-                    });
-                  }}
-                >
-                  Modify
-                </Button>
-              </Div>
-            )}
-          </Div>
-          <Div className="gender-container">
-            <Label
-              htmlfor="gender"
-              className={info["update-gender"]}
-              text="Gender"
-            />
-            {formFieldToggle.gender ? (
-              <Div className="data-control-container">
-                <select
-                  id="gender-input"
-                  className={"gender-input"}
-                  value={formData.gender ? formData.gender : ""}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-                    e.preventDefault();
-                    setNewFormData({ ...formData, gender: e.target.value });
-                  }}
-                >
-                  {gender.map((item: any, index: number) => {
-                    return (
-                      <option id={`option-${index}`} key={index} value={item}>
-                        {item}
-                      </option>
+                  onClick={() => {
+                    alert(
+                      " discarded! remember security check before clearing if data exists"
                     );
-                  })}
-                </select>
-
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState gender to help control view and edit modes. This one disables field editing*/}
-                <Button
-                  id="disable-gender-editing"
-                  className="disable-gender-editing"
-                  onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      gender: !formFieldToggle.gender,
-                    });
                   }}
+                  id="cancel-submit"
+                  className={info["cancel-submit"]}
                 >
-                  Make View Only
+                  Discard
                 </Button>
               </Div>
-            ) : (
-              <Div className="data-control-container">
-                <InputDisabledText
-                  id="gender-input"
-                  className={"gender-input"}
-                  placeholder={""}
-                  value={/*formData.gender*/ "some name"}
-                />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState gender to help control view and edit modes. This one enables field editing*/}
-                <Button
-                  id="enable-gender-editing"
-                  className="enable-gender-editing"
-                  onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      gender: !formFieldToggle.gender,
-                    });
-                  }}
-                >
-                  Modify
-                </Button>
-              </Div>
-            )}
-          </Div>
-          <Div className="dob-container">
-            <Label htmlfor="dob" className={info["update-dob"]} text="Dob" />
-            {formFieldToggle.dob ? (
-              <Div className="data-control-container">
-                <InputEnabledText
-                  id="dob"
-                  className={"dob-input"}
-                  placeholder={"Update your DoB"}
-                  value={formData.dob ? formData.dob : ""}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                    e.preventDefault();
-                    setNewFormData({ ...formData, dob: e.target.value });
-                  }}
-                />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one disables field editing*/}
-                <Button
-                  id="disable-dob-editing"
-                  className="disable-dob-editing"
-                  onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      dob: !formFieldToggle.dob,
-                    });
-                  }}
-                >
-                  Make View Only
-                </Button>
-              </Div>
-            ) : (
-              <Div className="data-control-container">
-                <InputDisabledText
-                  id="dob"
-                  className={"dob-input"}
-                  placeholder={""}
-                  value={/*formData.dob*/ "some name"}
-                />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one enables field editing*/}
-                <Button
-                  id="enable-dob-editing"
-                  className="enable-dob-editing"
-                  onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      dob: !formFieldToggle.dob,
-                    });
-                  }}
-                >
-                  Modify
-                </Button>
-              </Div>
-            )}
-          </Div>
-          <Div className="email-container">
-            <Label
-              htmlfor="email"
-              className={info["update-email"]}
-              text="Email"
-            />
-            {formFieldToggle.email ? (
-              // appear when form field email boolean state is true
-              <Div className="data-control-container">
-                <InputEnabledText
-                  id="email"
-                  className={"email-input"}
-                  placeholder={"Update your email"}
-                  value={formData.email}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                    e.preventDefault();
-                    setNewFormData({ ...formData, email: e.target.value });
-                  }}
-                />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState email to help control view and edit modes. This one disables field editing*/}
-                <Button
-                  id="disable-email-editing"
-                  className="disable-email-editing"
-                  onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      email: !formFieldToggle.email,
-                    });
-                  }}
-                >
-                  Make View Only
-                </Button>
-              </Div>
-            ) : (
-              // appear when form field email boolean state is false
-              <Div className="data-control-container">
-                <InputDisabledText
-                  id="email"
-                  className={"email-input"}
-                  placeholder={""}
-                  value={/*formData.email*/ "some name"}
-                />
-                <PipeSpan />
-                {/* Button below is soleply programmed for updating useState email to help control view and edit modes. This one enables field editing*/}
-                <Button
-                  id="enable-email-editing"
-                  className="enable-email-editing"
-                  onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-                    e.preventDefault();
-                    setformFieldToggle({
-                      ...formFieldToggle,
-                      email: !formFieldToggle.email,
-                    });
-                  }}
-                >
-                  Modify
-                </Button>
-              </Div>
-            )}
-          </Div>
-          <Div className="password-container">
-            <Label
-              htmlfor="new-password"
-              className={info["update-password"]}
-              text="Password"
-            />
-            <InputPassword
-              id="new-password"
-              className={"new-password"}
-              placeholder={"Update to your new password"}
-              value={formData.password}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                e.preventDefault();
-                setNewFormData({ ...formData, password: e.target.value });
-              }}
-            />
-          </Div>
-          <Div className="confirm-password-container">
-            <Label
-              htmlfor="confirm-new-password"
-              className={info["confirm-new-password"]}
-              text="Confirm New Password"
-            />
-            <InputPassword
-              id="confirm-new-password"
-              className={"confirm-new-password"}
-              placeholder={"Confirm your new password"}
-              value={formData.confirmpassword ? formData.confirmpassword : ""}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                e.preventDefault();
-                setNewFormData({
-                  ...formData,
-                  confirmpassword: e.target.value,
-                });
-              }}
-            />
-          </Div>
-          <Div className="submit">
-            <InputSubmit
-              className="submit-btn"
-              id="submit-btn"
-              value="Update"
-            />
-          </Div>
-          <Div className="cancel">
-            <Button
-              onClick={() => {
-                alert(
-                  " discarded! remember security check before clearing if data exists"
-                );
-              }}
-              id="cancel-submit"
-              className="cancel-submit"
-            >
-              Discard
-            </Button>
-          </Div>
-        </form>
-      </Div>
-      <Footer id="account-info-footer" className={info["account-info-footer"]}>
-        <Div className={info["project-creator"]}>
-          <ShortText className={info["creator"]}>
-            Created by Christeen Fabian
-          </ShortText>
+            </Div>
+          </form>
         </Div>
-      </Footer>
-    </>
-  );
+        <Footer
+          id="account-info-footer"
+          className={info["account-info-footer"]}
+        >
+          <Div className={info["project-creator"]}>
+            <ShortText className={info["creator"]}>
+              Created by Christeen Fabian
+            </ShortText>
+          </Div>
+        </Footer>
+      </>
+    );
+  } catch (err: any) {
+    console.warn("Something went wrong: ", err.message);
+  }
 };
 
 export default Info;
