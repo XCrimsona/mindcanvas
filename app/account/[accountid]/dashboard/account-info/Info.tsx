@@ -152,7 +152,9 @@ const Info = () => {
                     id="firstname"
                     className={info["firstname-input"]}
                     placeholder={""}
-                    value={/*formData.firstname*/ "some name"}
+                    value={
+                      formData.firstname ? formData.firstname : "Not assigned"
+                    }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState data.firstname to help control view and edit modes. This one enables field editing*/}
@@ -212,7 +214,9 @@ const Info = () => {
                     id="lastname"
                     className={info["lastname-input"]}
                     placeholder={""}
-                    value={/*formData.lastname*/ "some name"}
+                    value={
+                      formData.lastname ? formData.lastname : "Not assigned"
+                    }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState lastname to help control view and edit modes. This one enables field editing*/}
@@ -280,7 +284,7 @@ const Info = () => {
                     id="gender"
                     className={info["gender-input-disabled"]}
                     placeholder={""}
-                    value={/*formData.gender*/ "some name"}
+                    value={formData.gender ? formData.gender : "Not assigned"}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState gender to help control view and edit modes. This one enables field editing*/}
@@ -335,7 +339,7 @@ const Info = () => {
                     id="dob"
                     className={info["dob-input"]}
                     placeholder={""}
-                    value={/*formData.dob*/ "some name"}
+                    value={formData.dob ? formData.dob : "Not assigned"}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one enables field editing*/}
@@ -397,7 +401,7 @@ const Info = () => {
                     id="email"
                     className={info["email-input"]}
                     placeholder={""}
-                    value={/*formData.email*/ "some name"}
+                    value={formData.email ? formData.email : "Not assigned"}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState email to help control view and edit modes. This one enables field editing*/}
@@ -447,7 +451,7 @@ const Info = () => {
                 id="new-password"
                 className={info["new-password-input"]}
                 placeholder={"Type in your new password"}
-                value={formData["current-password"]}
+                value={formData["new-password"]}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   e.preventDefault();
                   setNewFormData({
