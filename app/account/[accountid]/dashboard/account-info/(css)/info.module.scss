@@ -167,7 +167,7 @@ background: url($url);
     @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
     @include background-color(#000);
     z-index: 1;
-    @include height(auto);
+    @include height(100%);
 
     .account-info-content {
         z-index: 2;

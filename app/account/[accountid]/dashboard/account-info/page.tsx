@@ -1,17 +1,33 @@
 import Div from "@/src/ui/Div";
-import HeadingOne from "@/src/ui/HeadingOne";
 import Info from "./Info";
 import { Metadata } from "next";
 import info from "@/app/account/[accountid]/dashboard/account-info/(css)/info.module.scss";
+import { getDB } from "@/lib/connnections/Connections";
 
 export const metadata: Metadata = {
   title: "Account Info",
   description: "Read and modify you data safely",
 };
-const Page = () => {
+
+const FetchUserInfo = async (accountid: string) => {
+  const response: any = await fetch(
+    `http://localhost:3000/api/account/${accountid}/dashboard/account-info`
+  );
+  if (response.ok) {
+    return await response.json();
+  } else {
+    console.warn("Failed to retrieve, try again in 3 minutes");
+  }
+};
+
+const Page = async ({ params }: any) => {
+  const { accountid }: any = await params;
+  const data = await FetchUserInfo(String(accountid));
+  // console.log("params: ", JSON.stringify(accountid));
+
   return (
     <Div className={info["account-info"]}>
-      <Info />
+      <Info params={data} />
     </Div>
   );
 };

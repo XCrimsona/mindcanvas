@@ -1,36 +1,26 @@
 import jwt, { SignOptions } from "jsonwebtoken";
-// const jwt = require("jsonwebtoken");
 
 interface TokenPayload {
-  email: string;
+  sub: string;
   role: string;
 }
 
 export class TokenService {
-  #secret: string;
-  #default: string;
-  constructor(secret: string, defaultExpiry: string = "1h") {
-    if (!secret || secret.length < 32) {
-      throw new Error("JWT Secret is mssing or too weak");
-    }
-
-    this.#secret = secret;
-    this.#default = defaultExpiry;
-  }
+  #jwtsecret: string = process.env.JWT_SECRET!;
 
   sign = (payload: TokenPayload, expiresIn?: any): string => {
     const options: SignOptions = {
-      expiresIn: expiresIn || this.#default,
+      expiresIn: expiresIn || "1h",
       algorithm: "HS256",
     };
-    return jwt.sign(payload, this.#secret, options);
+    return jwt.sign(payload, this.#jwtsecret, options);
   };
 
   verify(token: string): TokenPayload {
     try {
-      return jwt.verify(token, this.#secret) as TokenPayload;
-    } catch (err) {
-      throw new Error("Invalid or expired token");
+      return jwt.verify(token, this.#jwtsecret) as TokenPayload;
+    } catch (err: any) {
+      throw new Error("Invalid or expired token: ", err.message);
     }
   }
 
