@@ -17,9 +17,8 @@ import Label from "@/src/components/form-elements/Label";
 import Button from "@/src/components/form-elements/Button";
 import PipeSpan from "@/src/components/PipeSpan";
 
-const Info = () => {
+const Info = ({ params }: any) => {
   try {
-    //define form field data types and input
     interface formDataInterface {
       firstname: string;
       lastname: string;
@@ -30,6 +29,7 @@ const Info = () => {
       ["new-password"]: string;
       ["confirm-new-password"]: string;
     }
+    // define form field data types and input
     const [formData, setNewFormData] = useState<formDataInterface>({
       firstname: "",
       lastname: "",
@@ -89,11 +89,34 @@ const Info = () => {
 
     //this area manages all submitted data
 
-    const processSubmission = (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      alert("Hello I am a submission!");
-      //combine backend fetch api route with submission
-      //16apr continues here
+    const processSubmission = async (e: FormEvent<HTMLFormElement>) => {
+      try {
+        e.preventDefault();
+        console.log(formData);
+
+        if (!formData) {
+          alert("Please complete required fields");
+        } else {
+          const formattedFormData = {
+            id: params.message._id,
+            formData,
+          };
+          const updatedData = await fetch(
+            `/api/account/${params.message._id}/dashboard/account-info`,
+            {
+              method: "PUT",
+              body: JSON.stringify(formattedFormData),
+            }
+          );
+          if (updatedData.ok) {
+            alert("Successfully Updated");
+          } else {
+            alert("Failed to Update account info");
+          }
+        }
+      } catch (err: any) {
+        console.warn("Something went wrong: ", err.message);
+      }
     };
 
     return (
@@ -153,7 +176,9 @@ const Info = () => {
                     className={info["firstname-input"]}
                     placeholder={""}
                     value={
-                      formData.firstname ? formData.firstname : "Not assigned"
+                      params.message.firstname
+                        ? params.message.firstname
+                        : "Not assigned"
                     }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
@@ -215,7 +240,9 @@ const Info = () => {
                     className={info["lastname-input"]}
                     placeholder={""}
                     value={
-                      formData.lastname ? formData.lastname : "Not assigned"
+                      params.message.lastname
+                        ? params.message.lastname
+                        : "Not assigned"
                     }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
@@ -284,7 +311,11 @@ const Info = () => {
                     id="gender"
                     className={info["gender-input-disabled"]}
                     placeholder={""}
-                    value={formData.gender ? formData.gender : "Not assigned"}
+                    value={
+                      params.message.gender
+                        ? params.message.gender
+                        : "Not assigned"
+                    }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState gender to help control view and edit modes. This one enables field editing*/}
@@ -339,7 +370,9 @@ const Info = () => {
                     id="dob"
                     className={info["dob-input"]}
                     placeholder={""}
-                    value={formData.dob ? formData.dob : "Not assigned"}
+                    value={
+                      params.message.dob ? params.message.dob : "Not assigned"
+                    }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one enables field editing*/}
@@ -401,7 +434,11 @@ const Info = () => {
                     id="email"
                     className={info["email-input"]}
                     placeholder={""}
-                    value={formData.email ? formData.email : "Not assigned"}
+                    value={
+                      params.message.email
+                        ? params.message.email
+                        : "Not assigned"
+                    }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState email to help control view and edit modes. This one enables field editing*/}

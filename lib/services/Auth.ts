@@ -1,56 +1,57 @@
-import { PasswordService } from "./hashing";
+import { PasswordService } from "./Hashing";
 import UserModel from "@/models/userModel";
-import { TokenService } from "@/app/auth/JwtTokenService";
+import { TokenService } from "@/lib/services/JwtTokenService";
 
 interface Register {
   firstname: string;
   lastname: string;
-  gender?: String | null;
+  gender?: string | null;
   dob?: string | null;
   email: string;
   password: string;
   confirmpassword: string;
 }
-export class auth {
-  #JWT_SECRET: string;
-  #DB_STRING: string;
+export class AuthService {
   private tokenService: TokenService;
   private passwordService: PasswordService;
   constructor() {
-    this.#JWT_SECRET = process.env.JWT_SECRET!;
-    this.#DB_STRING = process.env.DB_STRING!;
     this.passwordService = new PasswordService();
-    this.tokenService = new TokenService(this.#JWT_SECRET);
+    this.tokenService = new TokenService();
   }
 
   signup = async (userInput: Register): Promise<void> => {
-    const {
-      firstname,
-      lastname,
-      gender,
-      dob,
-      email,
-      password,
-      confirmpassword,
-    } = userInput;
-    if (password !== confirmpassword || confirmpassword !== password) {
-      throw new Error("Passwords do not match!");
-    }
+    const { firstname, lastname, gender, dob, email, password } = userInput;
 
-    const existingUser = await UserModel.findOne({ email });
-    if (existingUser) {
+    const data: any = {};
+    if (firstname) data.firstname = firstname;
+    if (lastname) data.lastname = lastname;
+    if (gender) data.gender = gender;
+    if (dob) data.dob = dob;
+    if (email) data.email = email;
+    if (password) data.password = password;
+    console.log(data);
+
+    if (!data) {
+      throw new Error("Form data is required but missing");
+    }
+    const user = await UserModel.findOne({ email });
+    if (user) {
       throw new Error("That email already exists!");
     } else {
+      if (!firstname || !password) {
+        throw new Error("Passwords is missing!");
+      }
       const hashpassword = await this.passwordService.hashPassword(password);
-      await UserModel.create({
+      const createdUser = await UserModel.create({
         firstname,
         lastname,
         gender,
         email,
         dob,
         password: hashpassword,
-        role: "base-access",
+        role: "user",
       });
+      return createdUser;
     }
   };
 
@@ -67,9 +68,11 @@ export class auth {
     return this.#signinToken(existingUser.email, existingUser.role);
   };
 
-  #signinToken = (email: string, role: string) => {
-    return this.tokenService.sign({ email, role });
+  #signinToken = (sub: string, role: string) => {
+    return this.tokenService.sign({ sub, role });
   };
 
-  //decryption is already part of the encryption file why make another decrpyt module inside the class, forsaken?
+  #verifyToken = (sub: string) => {
+    return this.tokenService.verify(sub);
+  };
 }

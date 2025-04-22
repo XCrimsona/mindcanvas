@@ -1,16 +1,13 @@
 "use client";
 import Header from "@/src/components/Header";
-import CustomNavLink from "@/src/components/nav/Nav-Link";
-import { useState } from "react";
-import Div from "@/src/ui/Div";
-import { useParams } from "next/navigation";
-import RouteLink from "@/src/components/ProductSection/RouteLink";
+// import { useState } from "react";
+// import { useParams } from "next/navigation";
 const PageHeader = () => {
-  const params = useParams<{ accountid: string }>();
-  const [sideBarState, setSideBarState] = useState<Boolean>(false);
-  const handleSideBarState = () => {
-    setSideBarState(!sideBarState);
-  };
+  // const params = useParams<{ accountid: string }>();
+  // const [sideBarState, setSideBarState] = useState<boolean>(false);
+  // const handleSideBarState = () => {
+  //   setSideBarState(!sideBarState);
+  // };
 
   return (
     <Header id="home-header" className="home-header">

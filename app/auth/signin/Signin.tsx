@@ -27,26 +27,6 @@ const Signin = () => {
       password: "",
     });
 
-    //Updating field states
-    const updateEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target;
-      setFormData((prevEmailState) => ({
-        ...prevEmailState,
-        [name]: value,
-      }));
-      console.log(formData.email);
-    };
-
-    const updatePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target;
-      setFormData((prevPasswordState) => ({
-        ...prevPasswordState,
-        [name]: value,
-      }));
-      console.log(formData.password);
-    };
-
-    //
     const processSignIn = async (e: FormEvent<HTMLFormElement>) => {
       try {
         e.preventDefault();
@@ -55,7 +35,7 @@ const Signin = () => {
           alert("Fields are empty, please complete the login");
         }
         //data will be sent to the backend from here
-        const loginAPIEndPoint = await axios.post("/api/auth/signin", formData);
+        const loginAPIEndPoint = await axios.post("/api/signin", formData);
         //want to try a new feature: socket.io
         //for real-time notifcations to check login success or failed to verify
         if (loginAPIEndPoint.status === 200) {
@@ -108,7 +88,12 @@ const Signin = () => {
                 placeholder="Type in your email"
                 className={authstyles["email-input"]}
                 value={formData.email}
-                onChange={updateEmail}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setFormData({
+                    ...formData,
+                    email: e.target.value,
+                  })
+                }
               />
             </Div>
           </Div>
@@ -126,7 +111,12 @@ const Signin = () => {
                 placeholder="Type in your password"
                 className={authstyles["password-input"]}
                 value={formData.password}
-                onChange={updatePassword}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setFormData({
+                    ...formData,
+                    password: e.target.value,
+                  })
+                }
               />
             </Div>
           </Div>

@@ -20,8 +20,11 @@ import Button from "@/src/components/form-elements/Button";
 import Link from "next/link";
 import RouteLink from "@/src/components/ProductSection/RouteLink";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { ConnectToDB } from "@/lib/connnections/Connections";
 
 const Signup = () => {
+  const router = useRouter();
   try {
     //Data controls | input containers
     interface formDataInterface {
@@ -43,26 +46,50 @@ const Signup = () => {
       confirmpassword: "",
     });
 
-    //
     const processSignup = async (e: FormEvent<HTMLFormElement>) => {
       try {
         e.preventDefault();
-        alert("This is the submit process");
         console.log(formData);
         if (!formData) {
           alert("Fields are empty, please complete the login");
         }
-        //data will be sent to the backend from here
-        // const loginAPIEndPoint = await axios.post("/api/auth/signup", formData);
-        //want to try a new feature: socket.io
-        //for real-time notifcations to check login success or failed to verify
-        // if (loginAPIEndPoint.status === 201) {
-        // alert("Success");
-        //redirect to dashboard
-        // } else {
-        // alert("Failed");
-        //reload and remain on signup page
-        // }
+
+        //extra sanitation incase devtools manipulate input
+        const requiredFields =
+          formData.firstname ||
+          formData.lastname ||
+          formData.email ||
+          formData.password ||
+          formData.confirmpassword;
+        if (!requiredFields) {
+          alert("please complete required fields for signup!");
+        } else if (
+          formData.confirmpassword.length !== formData.password.length
+        ) {
+          alert("Passwords do not match!");
+        } else {
+          //data will be sent to the backend from here
+          const response: any = await fetch("/api/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          //want to try a new feature: socket.io
+          //for real-time notifcations to check login success or failed to verify
+          if (response.status === 201) {
+            // redirect to dashboard
+            alert("welcome");
+            const data: any = await response.json();
+            router.push(`/account/${data._id}/dashboard`);
+          } else {
+            //reload and remain on signup page
+            const data = await response.json();
+            alert(data.error);
+          }
+        }
       } catch (err: any) {
         console.warn("Something went wrong");
       }
