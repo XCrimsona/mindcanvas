@@ -1,23 +1,23 @@
-import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
+import { NextRequest, NextResponse } from "next/server";
 import UserModel from "@/models/userModel";
 import { TokenService } from "@/lib/services/JwtTokenService";
 import { getDB } from "@/lib/connnections/Connections";
-
-export async function POST(request: Request) {
+import { PasswordService } from "@/lib/services/Hashing";
+import { AuthService } from "@/lib/services/Auth";
+export async function POST(request: NextRequest) {
   try {
     await getDB();
     const body = await request.json();
     const { email, password } = body;
+    const user = await UserModel.findOne({ email });
 
-    if (!email && !password) {
+    if (!email || !password) {
       return NextResponse.json(
         { error: "Please fill required fields!" },
         { status: 400 }
       );
     }
 
-    const user = await UserModel.findOne({ email });
     if (!user) {
       return NextResponse.json(
         { error: "Enter email doesn't exist!" },
@@ -28,23 +28,43 @@ export async function POST(request: Request) {
     }
 
     //sign user and redirect
-    const validUserPassword = await bcrypt.compare(password, user.password);
-    if (!validUserPassword) {
-      return NextResponse.json(
-        { error: "Incorrect credentials" },
-        { status: 403 }
+    const comparePassword = new PasswordService();
+
+    // if (
+    //   (await comparePassword.comparePasswords(password, user.password)) ===
+    //   false
+    // ) {
+    //   return NextResponse.json(
+    //     { error: "Incorrect credentials" },
+    //     { status: 403 }
+    //   );
+    // }
+    console.log("user data: ", user);
+
+    if (
+      user &&
+      (await comparePassword.comparePasswords(password, user.password))
+    ) {
+      // request.session.user = {};
+      const authService = new AuthService();
+      const formattedUserData = await authService.signin(user.email, password);
+      if (!formattedUserData) {
+        return new NextResponse(JSON.stringify({ error: "token not found" }), {
+          status: 404,
+        });
+      } else {
+        return new NextResponse(JSON.stringify({ formattedUserData }), {
+          status: 200,
+        });
+      }
+    } else {
+      return new NextResponse(
+        JSON.stringify({ error: "Incorrect credentials" }),
+        {
+          status: 403,
+        }
       );
     }
-
-    //access and sign a new instance token to fully verify the user and respond with authenticated using a signed token
-    const signUser = new TokenService();
-    const token = signUser.sign({
-      sub: user._id.toString(),
-      role: user.role,
-    });
-
-    // request.session.user = {};
-    return NextResponse.json({ token }, { status: 200 });
   } catch (err: any) {
     console.warn("Something went wrong: ", err.message);
   }

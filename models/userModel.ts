@@ -15,18 +15,18 @@ const userschema = new mongoose.Schema(
     },
     dob: {
       type: String,
-      minLength: 1,
-      maxLength: 10,
+      maxlength: [12, "Dob too long"],
     },
     email: {
       type: String,
       unique: true,
+      maxlength: [50, "Email too long (max 50 characters)"],
       required: [true, "Please use a valid email address"],
     },
     password: {
       type: String,
-      minLength: 16,
-      maxLength: 140,
+      minlength: 16,
+      maxlength: 140,
       required: [
         true,
         "Use special, and alphanumeric characters for a strong password.",

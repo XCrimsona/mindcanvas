@@ -114,6 +114,35 @@ $auto: auto;
     font-size: $size;
 }
 
+@mixin border($thickness, $type, $color) {
+    border: $thickness $type $color;
+}
+
+@mixin border-radius($thickness) {
+    border-radius: $thickness;
+}
+
+@mixin position($position) {
+    position: $position;
+}
+
+@mixin top($position) {
+    top: $position;
+}
+
+@mixin bottom($position) {
+    bottom: $position;
+}
+
+@mixin left($position) {
+    left: $position;
+}
+
+@mixin right($position) {
+    right: $position;
+}
+
+
 @media screen and (min-width:320px) and (max-width:425.9px) {}
 
 @media screen and (min-width:426px) and (max-width:600.9px) {}

@@ -1,6 +1,9 @@
 import { PasswordService } from "./Hashing";
 import UserModel from "@/models/userModel";
 import { TokenService } from "@/lib/services/JwtTokenService";
+import jwt from "jsonwebtoken";
+import { NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
 
 interface Register {
   firstname: string;
@@ -9,7 +12,6 @@ interface Register {
   dob?: string | null;
   email: string;
   password: string;
-  confirmpassword: string;
 }
 export class AuthService {
   private tokenService: TokenService;
@@ -56,16 +58,34 @@ export class AuthService {
   };
 
   signin = async (email: string, password: string) => {
-    const existingUser = await UserModel.findOne({ email });
+    const user = await UserModel.findOne({ email });
 
-    if (!existingUser) throw new Error("That email does not exist!");
+    if (!user) throw new Error("That email does not exist!");
 
-    const isValid = await this.passwordService.comparePasswords(
-      password,
-      existingUser.password
-    );
-    if (!isValid) throw new Error("Not Authorized, Incorrect Credentials");
-    return this.#signinToken(existingUser.email, existingUser.role);
+    console.log(typeof user.password);
+
+    const isValid = await bcrypt.compare(password, user.password);
+    if (isValid === false)
+      return new NextResponse(
+        JSON.stringify("Not Authorized, Incorrect Credentials"),
+        { status: 403 }
+      );
+    console.log(user);
+
+    //   sub: existingUser._id.toString(),
+    // const token = jwt.sign({}, process.env.JWT, {});
+    // this.tokenService.sign({
+    //   sub: existingUser._id.toString(),
+    //   role: existingUser.role,
+    // });
+
+    return user._id;
+    // {
+    //   token,
+    //   _id: user._id,
+    //   role: user.role,
+    //   email: user.email,
+    // };
   };
 
   #signinToken = (sub: string, role: string) => {
