@@ -1,4 +1,6 @@
 <h1>Life Expansion</h1>
+<p>"Expand Your Life Efficiently"<p/>
+
 <p>4 in 1 Full stack app that uses:</p>
 <h2>Techs</h2>
 <ul>  
