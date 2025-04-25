@@ -1,17 +1,15 @@
 "use client";
 import PageFooter from "@/app/(home)/(components)/PageFooter";
 import Div from "@/src/ui/Div";
-import HeadingOne from "@/src/ui/HeadingOne";
-import AuthHeader from "../(auth-header)/AuthHeader";
 
-const DataManagement = () => {
+import management from "@/app/account/[accountid]/dashboard/data-management/(css)/management.module.scss";
+import LongText from "@/src/ui/LongText";
+const DataManagement = ({ params }: any) => {
   return (
     <>
-      <AuthHeader />
-      <Div className="data-management-content">
-        <HeadingOne id="heading-one" className="heading-one">
-          Data Management section 3 | Coming Soon
-        </HeadingOne>
+      <Div className={management["data-management-content"]}>
+        data
+        {params.data.firstname}
       </Div>
       <PageFooter />
     </>

@@ -1,34 +1,44 @@
 import jwt, { SignOptions } from "jsonwebtoken";
-
+import { getSecret } from "@/lib/azure-keyvault";
+import session from "express-session";
 interface TokenPayload {
   sub: string;
   role: string;
 }
 
 export class TokenService {
-  #jwtsecret: string = process.env.JWT_SECRET!;
-
-  sign = (payload: TokenPayload, expiresIn?: any): string => {
-    const options: SignOptions = {
-      expiresIn: expiresIn || "1h",
-      algorithm: "HS256",
-    };
-    return jwt.sign(payload, this.#jwtsecret, options);
-  };
-
-  verify(token: string): TokenPayload {
+  #jwtsecret = process.env.JWT!;
+  // #jwtsecret =await getSecret("JWT")!;
+  // constructor(jwt: string) {
+  // this.#jwtsecret = await getSecret("JWT")!;
+  // }
+  sign = async (payload: TokenPayload): Promise<string> => {
     try {
-      return jwt.verify(token, this.#jwtsecret) as TokenPayload;
+      const key: any = jwt.sign(payload, this.#jwtsecret!, {
+        expiresIn: "1h",
+      });
+      return key;
     } catch (err: any) {
       throw new Error("Invalid or expired token: ", err.message);
     }
-  }
+  };
 
-  requireRole(token: string, allowedRoles: string[]): TokenPayload {
-    const payload = this.verify(token);
+  verify = async (token: string): Promise<TokenPayload> => {
+    try {
+      return jwt.verify(token, this.#jwtsecret!) as TokenPayload;
+    } catch (err: any) {
+      throw new Error("Invalid or expired token: ", err.message);
+    }
+  };
+
+  requireRole = async (
+    token: string,
+    allowedRoles: string[]
+  ): Promise<TokenPayload> => {
+    const payload = await this.verify(token);
     if (!allowedRoles.includes(payload.role)) {
       throw new Error("Access Denied: insufficient privileges");
     }
     return payload;
-  }
+  };
 }

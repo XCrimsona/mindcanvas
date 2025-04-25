@@ -14,9 +14,11 @@ import Contact from "@/src/components/ProductSection/Contact";
 import LongText from "@/src/ui/LongText";
 import Button from "@/src/components/form-elements/Button";
 import Link from "next/link";
-import axios from "axios";
+import { useRouter } from "next/navigation";
 const Signin = () => {
   try {
+    const router = useRouter();
+
     //Data controls | input containers
     interface formDataInterface {
       email: string;
@@ -31,19 +33,26 @@ const Signin = () => {
       try {
         e.preventDefault();
         console.log(formData);
-        if (!formData) {
+        if (!formData.email || !formData.password) {
           alert("Fields are empty, please complete the login");
+          return;
         }
         //data will be sent to the backend from here
-        const loginAPIEndPoint = await axios.post("/api/signin", formData);
+        const response: any = await fetch("/api/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
         //want to try a new feature: socket.io
         //for real-time notifcations to check login success or failed to verify
-        if (loginAPIEndPoint.status === 200) {
-          alert("Success");
-          //redirect to dashboard
+        if (response.status === 200) {
+          const data: any = await response.json();
+          router.push(`/account/${data.formattedUserData._id}/dashboard`);
         } else {
-          alert("Failed");
-          //reload and remain on login page
+          const error = await response.json();
+          console.warn(error);
         }
       } catch (err: any) {
         console.warn("Something went wrong");

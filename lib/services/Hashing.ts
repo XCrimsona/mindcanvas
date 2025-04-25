@@ -1,9 +1,10 @@
 import bcrypt from "bcryptjs";
 
 export class PasswordService {
-  #saltRounds = 12;
+  private readonly = 12;
+
   hashPassword = async (password: string): Promise<string> => {
-    const saltStrength = await bcrypt.genSalt(this.#saltRounds);
+    const saltStrength = await bcrypt.genSalt(this.readonly);
     return await bcrypt.hash(password, saltStrength);
   };
 
@@ -11,6 +12,10 @@ export class PasswordService {
     plainTextPassword: string,
     hashPassword: string
   ): Promise<boolean> => {
+    console.log(
+      "comparing: ",
+      await bcrypt.compare(plainTextPassword, hashPassword)
+    );
     return await bcrypt.compare(plainTextPassword, hashPassword);
   };
 }

@@ -23,6 +23,7 @@ const FetchUserInfo = async (accountid: string) => {
 const Page = async ({ params }: any) => {
   const { accountid }: any = await params;
   const data = await FetchUserInfo(String(accountid));
+  // const data = await FetchUserInfo(String(accountid));
   // console.log("params: ", JSON.stringify(accountid));
 
   return (
