@@ -52,7 +52,6 @@ export async function POST(request: Request) {
     }
 
     // Clean and safe input
-
     const hashedPassword = await passwordService.hashPassword(password);
     const data: any = {};
     if (firstname) data.firstname = firstname.trim();

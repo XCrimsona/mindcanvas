@@ -3,8 +3,8 @@ import DataManagement from "./Management";
 import HeadingOne from "@/src/ui/HeadingOne";
 import AuthHeader from "../(auth-header)/AuthHeader";
 import management from "@/app/account/[accountid]/dashboard/data-management/(css)/management.module.scss";
-import LongText from "@/src/ui/LongText";
 import { NextResponse } from "next/server";
+import AuthFooter from "../(auth-footer)/AuthFooter";
 
 //declare data fetch here
 
@@ -50,23 +50,17 @@ const Page = async ({ params }: any) => {
   // console.log(info);
 
   return (
-    <Div className={management["account-data-management"]}>
+    <Div className={management["main-data-management-container"]}>
       <AuthHeader />
-
-      <HeadingOne id="heading-one" className={management["heading-one"]}>
-        White Board Data Management
-      </HeadingOne>
-      <LongText className={management["paragraph"]}>
-        Your workspace of creativity, organization and automating space and work
-        flow efficiency. No Limitations!
-      </LongText>
-      <LongText className={management["paragraph"]}>
-        Right click for options and explore the power. If running short or
-        finding it hard. You&pos;ll find the ? mark at the top middle to help
-        you with your questions
-      </LongText>
+      <Div className={management["heading-container"]}>
+        <HeadingOne id="heading-one" className={management["heading-one"]}>
+          White Board Data Management
+        </HeadingOne>
+      </Div>
       {/* pass fetch down here*/}
+
       <DataManagement params={info} />
+      <AuthFooter />
     </Div>
   );
 };

@@ -118,6 +118,22 @@ $auto: auto;
     border: $thickness $type $color;
 }
 
+@mixin border-top($thickness, $type, $color) {
+    border-top: $thickness $type $color;
+}
+
+@mixin border-bottom($thickness, $type, $color) {
+    border-bottom: $thickness $type $color;
+}
+
+@mixin border-left($thickness, $type, $color) {
+    border-left: $thickness $type $color;
+}
+
+@mixin border-right($thickness, $type, $color) {
+    border-right: $thickness $type $color;
+}
+
 @mixin border-radius($thickness) {
     border-radius: $thickness;
 }
@@ -142,6 +158,172 @@ $auto: auto;
     right: $position;
 }
 
+@mixin url($url){
+background: url($url);
+}
+
+@mixin linearGradient($color1, $color2, $color3,
+    $color4, $color5,
+    $color6, $color7) {
+
+    background: conic-gradient(from -119deg at center center, $color1,
+            $color2,
+            $color3,
+            $color4, $color5,
+            $color6, $color7);
+    // mix-blend-mode: luminosity;
+    background-blend-mode: color-burn;
+}
+
+$darkAsdhBlack: rgb(12, 12, 12, 1);
+$Gold: rgba(250, 186, 0, 0.7);
+
+.main-data-management-container {
+    @include height(100%);
+    @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
+    @include background-color(#000000);
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    z-index: 1;
+
+    .heading-one {
+        @include text-color(#ffffff);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include padding-x-y($_30, $_0, $_30 , $_0 );
+        @include align-text(center);
+    }
+
+    .workspace-dashboard {
+        @include display-align(flex);
+        @include justify-content(center);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+        // @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include position(relative);
+        @include border-radius($_10);
+        //for portrait mode
+        @include min-height(300px);
+        @include max-height(400px);
+        overflow-y: auto;
+        @include linearGradient($Gold 0.2deg, $darkAsdhBlack 55.6deg, $darkAsdhBlack 116.8deg, $Gold 169.2deg, $darkAsdhBlack 257.8deg,
+            $darkAsdhBlack 313.6deg,
+            $Gold 345.6deg);
+
+        //for screen orientation landscape mode
+        // @include min-height(450px);
+        // @include max-height(650px);
+
+        .workspace-sheets-wrapper {
+            @include border-radius($_10);
+            @include display-align(block);
+            @include background-color(rgba(0, 0, 0, 0.7));
+            @include position(relative);
+            @include margin-x-y($_10, $auto, $_10 , $auto );
+
+            .workspace-sheets {
+                @include display-align(block);
+                @include margin-x-y($_0, $auto, $_0 , $auto );
+
+                .workspace-sheet-wrapper {
+                    @include display-align(block);
+                    @include background-color(#1c1c1c);
+                    @include border-radius($_10);
+                    box-shadow: $_0 $_4 $_6 $_3 #4c4c4c;
+                    @include padding-x-y($_0, $_0, $_0 , $_0 );
+
+                    .workspace-sheet {
+                        @include margin-x-y($_20, $auto, $_10 , $auto );
+                        @include min-height(50px);
+                        @include display-align(flex);
+                        @include flex-align(wrap);
+                        @include align-items(center);
+                        @include justify-content(left);
+                        @include text-color(#fff);
+
+                        .workspace-name {
+                            @include display-align(flex);
+                            @include flex-align(wrap);
+                            @include align-items(center);
+                            @include justify-content(left);
+                            @include max-height(100px);
+                            transition: border .2s ease-in-out;
+                            @include border-top ($_2, solid, transparent);
+                            @include border-left ($_2, solid, transparent);
+                            @include border-right ($_2, solid, transparent);
+                            @include border-bottom ($_2, solid, transparent);
+                            @include margin-x-y($_0, $_0, $_0, $_15);
+                            outline: $_2 solid #1c1c1c;
+                            @include background-color(#1c1c1c);
+                            @include text-color(#fff);
+                        }
+
+                        .workspace-name:focus {
+                            @include max-height(100px);
+                            @include border-top ($_2, solid, #1c1c1c);
+                            @include border-left ($_2, solid, #1c1c1c);
+                            @include border-right ($_2, solid, #1c1c1c);
+                            @include border-bottom ($_2, solid, #FABB00DD);
+                            @include margin-x-y($_0, $_0, $_0, $_15);
+                            outline: $_2 solid #1c1c1c;
+                            @include background-color(#1c1c1c);
+                            @include text-color(#fff);
+                        }
+
+                        .workspace-description {
+                            // @include width(400px);
+                            @include max-height(100px);
+                            @include display-align(flex);
+                            @include flex-align(wrap);
+                            @include align-items(center);
+                            @include justify-content(left);
+                            transition: border .2s ease-in-out;
+                            @include border-top ($_2, solid, transparent);
+                            @include border-left ($_2, solid, transparent);
+                            @include border-right ($_2, solid, transparent);
+                            @include border-bottom ($_2, solid, transparent);
+                            @include margin-x-y($_0, $auto, $_0, $_15);
+                            outline: $_2 solid #1c1c1c;
+                            @include background-color(#1c1c1c);
+                            @include text-color(#fff);
+                        }
+
+                        .workspace-description:focus {
+                            @include border-top ($_2, solid, #1c1c1c);
+                            @include border-left ($_2, solid, #1c1c1c);
+                            @include border-right ($_2, solid, #1c1c1c);
+                            @include border-bottom ($_2, solid, #FABB00DD);
+                            @include text-color(#fff);
+                            @include background-color(#1c1c1c);
+                            outline: $_2 solid #1c1c1c;
+                        }
+                    }
+                }
+            }
+
+            .controls {
+                @include position(absolute);
+                @include bottom($_40);
+                @include left($_0);
+                @include right($_0);
+                @include display-align(flex);
+                @include flex-align(wrap);
+                @include align-items(center);
+                @include justify-content(center);
+                @include margin-x-y($_0, $auto, $_0 , $auto );
+
+                .create-new-workspace-sheet-button {
+                    @include position(absolute);
+                    @include display-align(flex);
+                    @include flex-align(wrap);
+                    @include align-items(center);
+                    @include justify-content(center);
+                    @include align-text(center);
+                    @include margin-x-y($_30, $auto, $_10 , $auto );
+
+                }
+            }
+        }
+    }
+}
+
 
 @media screen and (min-width:320px) and (max-width:425.9px) {}
 
@@ -149,4 +331,55 @@ $auto: auto;
 
 @media screen and (min-width:601px) and (max-width:768.9px) {}
 
-@media screen and (min-width:769px) {}
+@media screen and (min-width:769px) {
+
+    .main-data-management-container {
+        .heading-one {
+            @include width(700px);
+        }
+
+
+        .workspace-dashboard {
+            @include width(700px);
+
+            .workspace-sheets-wrapper {
+                @include width(650px);
+
+                .workspace-sheets {
+                    @include width(600px);
+
+                    .workspace-sheet-wrapper {
+                        @include width(600px);
+
+                        .workspace-sheet {
+                            @include width(550px);
+
+                            .workspace-name {
+                                @include width(150px);
+                            }
+
+                            .workspace-name:focus {
+                                @include width(150px);
+                            }
+
+                            .workspace-description {
+                                @include width(350px);
+                            }
+
+                            .workspace-description:focus {
+                                @include width(350px);
+                            }
+                        }
+                    }
+                }
+
+                .controls {
+                    .create-new-workspace-sheet-button {}
+                }
+            }
+        }
+
+
+
+    }
+}
