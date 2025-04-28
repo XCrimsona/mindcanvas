@@ -1,0 +1,234 @@
+$_0: 0px;
+$_1: 1px;
+$_2: 2px;
+$_3: 3px;
+$_4: 4px;
+$_5: 5px;
+$_6: 6px;
+$_7: 7px;
+$_8: 8px;
+$_9: 9px;
+$_10: 10px;
+$_15: 15px;
+$_20: 20px;
+$_22: 22px;
+$_27: 27px;
+$_30: 30px;
+$_35: 35px;
+$_40: 40px;
+$_50: 50px;
+$_60: 60px;
+$_70: 70px;
+$_80: 80px;
+$_100: 100px;
+$_120: 120px;
+$_150: 150px;
+$_180: 180px;
+$_200: 200px;
+$_230: 230px;
+$_250: 250px;
+$_280: 280px;
+$_300: 300px;
+$_330: 330px;
+$_350: 350px;
+$_400: 400px;
+$_450: 450px;
+$_500: 500px;
+$_550: 550px;
+$_600: 600px;
+$_650: 650px;
+$_700: 700px;
+$_750: 750px;
+$_800: 800px;
+$_850: 850px;
+$_900: 900px;
+$_950: 950px;
+$_1000: 1000px;
+$auto: auto;
+
+@mixin display-align($Type) {
+    display: $Type;
+}
+
+@mixin justify-items($Type) {
+    justify-items: $Type;
+}
+
+@mixin justify-content($Type) {
+    justify-content: $Type;
+}
+
+@mixin align-content($Type) {
+    align-content: $Type;
+}
+
+@mixin align-items($Type) {
+    align-items: $Type;
+}
+
+@mixin flex-align($Type) {
+    flex-wrap: $Type;
+}
+
+@mixin margin-x-y($x1, $y1, $x2, $y2) {
+    margin: $x1 $y1 $x2 $y2;
+}
+
+@mixin padding-x-y($x1, $y1, $x2, $y2) {
+    padding: $x1 $y1 $x2 $y2;
+}
+
+@mixin align-text($Type) {
+    text-align: $Type;
+}
+
+@mixin text-color($color) {
+    color: $color;
+}
+
+@mixin background($Type) {
+    background: $Type;
+}
+
+@mixin background-color($color) {
+    background-color: $color;
+}
+
+@mixin width($width) {
+    width: $width;
+}
+
+@mixin height($height) {
+    height: $height;
+}
+
+@mixin min-height($min-height) {
+    min-height: $min-height;
+}
+
+@mixin max-height($max-height) {
+    max-height: $max-height;
+}
+
+@mixin font-size($size) {
+    font-size: $size;
+}
+
+@mixin border($thickness, $type, $color) {
+    border: $thickness $type $color;
+}
+
+@mixin border-radius($thickness) {
+    border-radius: $thickness;
+}
+
+@mixin position($position) {
+    position: $position;
+}
+
+@mixin top($position) {
+    top: $position;
+}
+
+@mixin bottom($position) {
+    bottom: $position;
+}
+
+@mixin left($position) {
+    left: $position;
+}
+
+@mixin right($position) {
+    right: $position;
+}
+
+@mixin url($url){
+background: url($url);
+}
+
+.auth-footer {
+    @include width(100%);
+    @include background-color(#000000ee);
+    @include left($_0);
+    @include right($_0);
+    @include bottom($_0);
+    @include height($_60);
+    @include position(absolute);
+
+    .creator {
+        @include position(relative);
+        @include margin-x-y($_0, $auto, $_0, $auto);
+        @include display-align(flex);
+        @include flex-align(wrap);
+        @include align-items(center);
+        @include justify-content(center);
+        @include height(inherit);
+
+        .project-creator {
+            @include display-align(flex);
+            @include flex-align(wrap);
+            @include align-items(center);
+            @include justify-content(center);
+            @include margin-x-y($_0, $auto, $_0, $auto);
+            @include text-color(#ffffff);
+        }
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:425.9px) {
+    .auth-footer {
+        .auth-route {
+            .auth-go-back-route {
+                @include font-size(20px);
+
+                .auth-route-icon {
+                    @include height(20px);
+                    @include width(20px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:426px) and (max-width:600.9px) {
+    .auth-footer {
+        .auth-route {
+            .auth-go-back-route {
+                @include font-size(20px);
+
+                .auth-route-icon {
+                    @include height(20px);
+                    @include width(20px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:768.9px) {
+    .auth-footer {
+        .auth-route {
+
+            .auth-go-back-route {
+                @include font-size(20px);
+
+                .auth-route-icon {
+                    @include height(20px);
+                    @include width(20px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:769px) {
+    .auth-footer {
+        .creator {
+            @include width(500px);
+
+            .project-creator {
+                @include width(500px);
+            }
+        }
+    }
+}

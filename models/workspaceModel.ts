@@ -24,12 +24,16 @@ const workspaceSchema = new mongoose.Schema(
       ref: "users",
       required: true,
     },
-    collaborators: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: "users",
-      },
-    ],
+    dateCreated: {
+      type: String,
+      required: true,
+    },
+    // collaborators: [
+    //   {
+    //     type: mongoose.Types.ObjectId,
+    //     ref: "users",
+    //   },
+    // ],
   },
   { timestamps: true }
 );

@@ -2,7 +2,6 @@ import Div from "@/src/ui/Div";
 import Info from "./Info";
 import { Metadata } from "next";
 import info from "@/app/account/[accountid]/dashboard/account-info/(css)/info.module.scss";
-import { getDB } from "@/lib/connnections/Connections";
 
 export const metadata: Metadata = {
   title: "Account Info",

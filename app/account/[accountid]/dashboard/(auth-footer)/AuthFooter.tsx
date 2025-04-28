@@ -1,0 +1,18 @@
+"use client";
+import Footer from "@/src/components/Footer";
+import Div from "@/src/ui/Div";
+import ShortText from "@/src/ui/ShortText";
+import authFooter from "@/app/account/[accountid]/dashboard/(auth-footer)/auth-footer.module.scss";
+const AuthFooter = () => {
+  return (
+    <Footer id="auth-footer" className={authFooter["auth-footer"]}>
+      <Div className={authFooter["creator"]}>
+        <ShortText className={authFooter["project-creator"]}>
+          Created by Christeen Fabian | MysteriousTechLady
+        </ShortText>
+      </Div>
+    </Footer>
+  );
+};
+
+export default AuthFooter;
