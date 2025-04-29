@@ -14,24 +14,6 @@ const fetchSheetData = async (accountid: string) => {
   );
   if (response.ok) {
     return await response.json();
-
-    // const userId = await response.json();
-
-    // console.log("userId: ", userId);
-    // const sheetData = await fetch(
-    //   `http://localhost:3000/api/account/${userId.data._id}/dashboard/data-management/sheet/[sheetid]/[sheetname]/`
-    // );
-    // if (sheetData.ok) {
-    //   const sheetdata = await sheetData.json();
-    //   console.log("sheet Data: ", "Failed to retrive sheet data");
-    //   return sheetdata;
-    // } else {
-    //   console.log("Failed to retrive sheet data");
-    //   return new NextResponse(
-    //     JSON.stringify({ error: "Failed to retrieve sheet data" }),
-    //     { status: 404 }
-    //   );
-    // }
   } else {
     console.log("Failed to retrieve accountid");
     return new NextResponse(

@@ -22,6 +22,7 @@ export async function GET(req: NextRequest, { params }: any) {
   console.log("params: ", accountid, typeof accountid);
 
   const user = await UserModel.findById(accountid);
+  console.log(user);
 
   if (!user) {
     return NextResponse.json({ error: "Failed to retrieve" }, { status: 404 });
