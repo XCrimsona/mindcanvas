@@ -8,11 +8,7 @@ interface TokenPayload {
 
 export class TokenService {
   #jwtsecret = process.env.JWT!;
-  // #jwtsecret =await getSecret("JWT")!;
-  // constructor(jwt: string) {
-  // this.#jwtsecret = await getSecret("JWT")!;
-  // }
-  sign = async (payload: TokenPayload): Promise<string> => {
+  sign = (payload: TokenPayload) => {
     try {
       const key: any = jwt.sign(payload, this.#jwtsecret!, {
         expiresIn: "1h",
@@ -23,7 +19,7 @@ export class TokenService {
     }
   };
 
-  verify = async (token: string): Promise<TokenPayload> => {
+  verify = (token: string) => {
     try {
       return jwt.verify(token, this.#jwtsecret!) as TokenPayload;
     } catch (err: any) {
@@ -31,11 +27,8 @@ export class TokenService {
     }
   };
 
-  requireRole = async (
-    token: string,
-    allowedRoles: string[]
-  ): Promise<TokenPayload> => {
-    const payload = await this.verify(token);
+  requireRole = (token: string, allowedRoles: string[]) => {
+    const payload = this.verify(token);
     if (!allowedRoles.includes(payload.role)) {
       throw new Error("Access Denied: insufficient privileges");
     }

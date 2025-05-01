@@ -6,8 +6,6 @@ import management from "@/app/account/[accountid]/dashboard/data-management/(css
 import { NextResponse } from "next/server";
 import AuthFooter from "../(auth-footer)/AuthFooter";
 
-//declare data fetch here
-
 const fetchSheetData = async (accountid: string) => {
   const response = await fetch(
     `http://localhost:3000/api/account/${accountid}/dashboard/data-management`
@@ -15,7 +13,6 @@ const fetchSheetData = async (accountid: string) => {
   if (response.ok) {
     return await response.json();
   } else {
-    console.log("Failed to retrieve accountid");
     return new NextResponse(
       JSON.stringify({ error: "Failed to retrieve accountid" }),
       { status: 404 }
@@ -24,12 +21,8 @@ const fetchSheetData = async (accountid: string) => {
 };
 
 const Page = async ({ params }: any) => {
-  //invoke fetch here
-  //data will be sent to the backend from here
   const { accountid } = await params;
-
   const info = await fetchSheetData(String(accountid));
-  // console.log(info);
 
   return (
     <Div className={management["main-data-management-container"]}>

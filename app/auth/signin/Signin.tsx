@@ -33,8 +33,11 @@ const Signin = () => {
       try {
         e.preventDefault();
         console.log(formData);
-        if (!formData.email || !formData.password) {
-          alert("Fields are empty, please complete the login");
+        const loginData: any = {};
+        if (formData.email) loginData.email = formData.email;
+        if (formData.password) loginData.password = formData.password;
+        if (!loginData) {
+          alert("Complete the login fields");
           return;
         }
         //data will be sent to the backend from here
@@ -43,16 +46,16 @@ const Signin = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(loginData),
         });
         //want to try a new feature: socket.io
         //for real-time notifcations to check login success or failed to verify
-        if (response.status === 200) {
+        if (response.ok) {
           const data: any = await response.json();
-          router.push(`/account/${data.formattedUserData._id}/dashboard`);
+          router.push(`/account/${data.data._id}/dashboard`);
         } else {
           const error = await response.json();
-          console.warn(error);
+          console.warn("frontend sigin error: ", error);
         }
       } catch (err: any) {
         console.warn("Something went wrong");

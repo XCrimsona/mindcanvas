@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import UserModel from "@/models/userModel";
 import { getDB } from "@/lib/connnections/Connections";
+import bcrypt from "bcryptjs";
+import { PasswordService } from "@/lib/services/Hashing";
 
 export async function OPTIONS() {
   return new NextResponse(null, {
@@ -19,52 +21,89 @@ export async function GET(req: NextRequest, { params }: any) {
   await getDB();
 
   const { accountid } = await params;
-  console.log("params: ", accountid, typeof accountid);
 
   const user = await UserModel.findById(accountid);
-  console.log(user);
+  // console.log(user);
 
   if (!user) {
     return NextResponse.json({ error: "Failed to retrieve" }, { status: 404 });
   }
-  return NextResponse.json({ message: user }, { status: 200 });
+  return NextResponse.json({ data: user }, { status: 200 });
 }
 
 //finds and updates user data
-export async function PUT(req: NextRequest) {
+export async function PUT(req: NextRequest, { params }: any): Promise<any> {
   await getDB();
-
+  const { accountid } = await params;
   const body = await req.json();
-  const { id, formdata } = body;
-  console.log("user data for PUT: ", id, typeof id);
-  console.log("user data for PUT: ", formdata, typeof formdata);
-  if (!id) {
-    return NextResponse.json({ error: "User id not found!" }, { status: 404 });
-  }
+  const { updateAccountData } = body;
 
-  // if (formdata == null) {
-  //   return NextResponse.json({ error: "fields are empty" }, { status: 400 });
-  // }
+  const {
+    firstname,
+    lastname,
+    gender,
+    dob,
+    email,
+    currentPassword,
+    newPassword,
+    confirmNewPassword,
+  } = updateAccountData;
 
-  // return NextResponse.json({ message: "ok" }, { status: 200 });
-  const founduser = await UserModel.findById(id);
-  // console.log(founduser);
-  if (!founduser) {
+  const user = await UserModel.findById(accountid);
+  if (!user) {
     return NextResponse.json(
-      { error: "Failed to find your account info." },
-      { status: 500 }
+      { error: "Account ID not found." },
+      { status: 404 }
     );
   } else {
-    const newData = UserModel.updateOne(
-      { _id: id },
-      { $set: formdata },
-      { new: true }
-    );
-    // console.log(newData);
-
-    return NextResponse.json(
-      { message: "Your account info has been updated." },
-      { status: 200 }
-    );
+    const newAccountInfo: any = {};
+    if (firstname) newAccountInfo.firstname = firstname;
+    if (lastname) newAccountInfo.lastname = lastname;
+    if (gender) newAccountInfo.gender = gender;
+    if (dob) newAccountInfo.dob = dob;
+    if (email) newAccountInfo.email = email;
+    if (currentPassword) newAccountInfo.currentPassword = currentPassword;
+    if (newPassword) newAccountInfo.newPassword = newPassword;
+    if (confirmNewPassword) newAccountInfo.email = email;
+    const encryptNewPassword = new PasswordService();
+    if (
+      user &&
+      (await encryptNewPassword.comparePasswords(
+        currentPassword,
+        user.password
+      )) === false
+    ) {
+      return NextResponse.json(
+        { error: "Current password incorrect" },
+        { status: 403 }
+      );
+    } else {
+      if (
+        newAccountInfo.newPassword !== newAccountInfo.confirmNewPassword ||
+        newAccountInfo.confirmNewPassword !== newAccountInfo.newPassword
+      ) {
+        return NextResponse.json(
+          { error: "New passwords don't match" },
+          { status: 400 }
+        );
+      } else {
+        if (newPassword) {
+          newAccountInfo.password = await bcrypt.hash(newPassword, 10);
+          console.log("old password for account: ", user.password);
+          console.log("new password for account: ", newAccountInfo.password);
+        }
+      }
+      await UserModel.updateOne(
+        { _id: user._id },
+        {
+          $set: newAccountInfo,
+        },
+        { new: true }
+      );
+      return NextResponse.json(
+        { message: "Your account info has been updated." },
+        { status: 200 }
+      );
+    }
   }
 }

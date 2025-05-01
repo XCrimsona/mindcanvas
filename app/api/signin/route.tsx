@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import UserModel from "@/models/userModel";
-import { TokenService } from "@/lib/services/JwtTokenService";
 import { getDB } from "@/lib/connnections/Connections";
-import { PasswordService } from "@/lib/services/Hashing";
 import { AuthService } from "@/lib/services/Auth";
 
 export async function OPTIONS() {
@@ -25,15 +23,6 @@ export async function POST(request: NextRequest) {
     const { email, password } = body;
     const user = await UserModel.findOne({ email });
 
-    if (!user) {
-      return NextResponse.json(
-        { error: "Enter email doesn't exist!" },
-
-        //conflict of attempting to make more than one identical email addressess
-        { status: 404 }
-      );
-    }
-
     if (!email || !password) {
       return NextResponse.json(
         { error: "Please fill required fields!" },
@@ -41,38 +30,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!user) {
+      return NextResponse.json(
+        { error: "Enter email doesn't exist!" },
+        { status: 404 }
+      );
+    }
     //sign user and redirect
     console.log("user data: ", user);
 
-    const comparePassword = new PasswordService();
-    if (
-      user &&
-      (await comparePassword.comparePasswords(password, user.password))
-    ) {
-      const loginData: any = {};
-      if (email) loginData.email = email;
-      if (password) loginData.password = password;
+    const loginData: any = { email, password };
+    const authservice = new AuthService();
+    const authResponse = await authservice.signin(loginData);
+    console.log("auth response: ", authResponse);
 
-      // request.session.user = {};
-      const authService = new AuthService();
-      const formattedUserData = await authService.signin(loginData);
-      if (!formattedUserData) {
-        return new NextResponse(JSON.stringify({ error: "token not found" }), {
-          status: 404,
-        });
-      }
-      return new NextResponse(JSON.stringify(formattedUserData), {
-        status: 200,
-      });
-    } else {
-      return new NextResponse(
-        JSON.stringify({ error: "Incorrect credentials" }),
-        {
-          status: 403,
-        }
-      );
-    }
+    const returnData = {
+      _id: user._id,
+      data: authResponse,
+    };
+    console.log("return data: ", returnData.data);
+
+    return NextResponse.json({ data: returnData }, { status: 200 });
   } catch (err: any) {
-    console.warn("Something went wrong: ", err.message);
+    return NextResponse.json(
+      { error: err.message || "Unexpected server error" },
+      { status: 500 }
+    );
   }
 }

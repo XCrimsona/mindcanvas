@@ -11,30 +11,11 @@ import RouteLink from "@/src/components/ProductSection/RouteLink";
 import { useState } from "react";
 import SVG from "@/src/SVG";
 
-interface IPulledDataProps {
-  name: String;
-  workspacename: string;
-  workspacedescription: string;
-}
-
 interface IWorkspaceProps {
   workspacename: string;
   workspacedescription: string;
 }
 const DataManagement = ({ params }: { params: any }) => {
-  //sort workspace data
-  // const workspaces = params.data.workspaces;
-  // console.log(workspaces);
-  // const workspaces = params.data.workspaces.map((workspace: any) => {
-  //   return (
-  //     <>
-  //       <p>{workspace._id}</p>
-  //       <p>{workspace.workspacename}</p>
-  //       <p>{workspace.name}</p>
-  //     </>
-  //   );
-  // });
-
   //displays temporary field when plus button is clicked
   const [displayNewWorkspace, setDisplayNewWorkspace] =
     useState<Boolean>(false);
@@ -80,20 +61,21 @@ const DataManagement = ({ params }: { params: any }) => {
     });
 
     interface formDataProps {
+      sub: string;
       workspacename: string;
       workspacedescription: string;
-      sub: string;
     }
     const formData: formDataProps = {
-      workspacename: newWorkspace.workspacename,
-      workspacedescription: newWorkspace.workspacedescription,
-      sub: params.data.id,
+      sub: params.data._id,
+      workspacename: saveNewWorkspace.workspacename,
+      workspacedescription: saveNewWorkspace.workspacedescription,
     };
+
     if (!formData) {
       alert("Please ensure your form data is complete!");
     } else {
       const response = await fetch(
-        `http://localhost:3000/api/account/${params.data.id}/dashboard/data-management`,
+        `http://localhost:3000/api/account/${params.data._id}/dashboard/data-management`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -115,28 +97,38 @@ const DataManagement = ({ params }: { params: any }) => {
     workspacedescription: "",
   });
 
+  interface updatedWorkspaceProps {
+    sub: string;
+    workspacename: string;
+    workspacedescription: string;
+  }
+  const updatedWorkspaceData: updatedWorkspaceProps = {
+    sub: params.data._id,
+    workspacename: "",
+    workspacedescription: "",
+  };
+
   const updateWorkspace = async (e: React.ChangeEvent<HTMLInputElement>) => {
     // updating a specific workspace on at a time
-    setSaveNewWorkspace({
+    setUpdateAWorkspace({
       ...newWorkspace,
       workspacename: e.target.value,
       workspacedescription: e.target.value,
     });
 
-    // const response = await fetch(
-    //   `http://localhost:3000/api/account/${params.data.id}/dashboard/data-management`,
-    //   {
-    //     method: "PUT",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(saveNewWorkspace),
-    //   }
-    // );
-    // if (response.ok) {
-    //   alert("New workspace saved!");
-    //   setDisplayNewWorkspace(false);
-    // } else {
-    //   alert("New workspace not saved!");
-    // }
+    const response = await fetch(
+      `http://localhost:3000/api/account/${params.data._id}/dashboard/data-management`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedWorkspaceData),
+      }
+    );
+    if (response.ok) {
+      alert("Workspace updated!");
+    } else {
+      alert("Workspace not updated!");
+    }
   };
 
   return (
@@ -147,61 +139,53 @@ const DataManagement = ({ params }: { params: any }) => {
             {/* {params.data.firstname} */}
             {params.data.workspaces.map((workspace: any) => {
               return (
-                <Div className={management["workspace-sheet-wrapper"]}>
-                  {/* params.workspaceName */}
-
-                  {/* Workspace sheet appear here */}
-                  {/* temp div field */}
+                <Div
+                  key={workspace._id}
+                  className={management["workspace-sheet-wrapper"]}
+                >
                   <Div className={management["workspace-sheet"]}>
-                    {/* mapping required  */}
-                    {/* workspaces */}
-                    <>
-                      <Div
-                        className={management["workspace-sheet-forefront-data"]}
+                    <Div
+                      className={management["workspace-sheet-forefront-data"]}
+                    >
+                      <RouteLink
+                        href={`http://localhost:3000/account/${params.data._id}/dashboard/data-management/workspace/${workspace._id}/${workspace.name}`}
+                        className={management["dynamic-workspace-route"]}
                       >
-                        <RouteLink
-                          href={`http://localhost:3000/account/${params.data.id}/dashboard/data-management/workspace/${workspace._id}/${workspace.name}`}
-                          className={management["dynamic-workspace-route"]}
-                        >
-                          <SVG
-                            src="https://res.cloudinary.com/djjvj73xa/image/upload/v1745662977/backward-solid_1_dpek7z.svg"
-                            alt="double forward icon"
-                            className={management["forward-to-workspace-icon"]}
-                          />
-                        </RouteLink>
-                        <InputText
-                          id="workspace-name"
-                          value={workspace.workspacename}
-                          onChange={(
-                            e: React.ChangeEvent<HTMLInputElement>
-                          ) => {
-                            setUpdateAWorkspace({
-                              ...updateAWorkspace,
-                              workspacedescription: e.target.value,
-                            });
-                          }}
-                          placeholder={"Update workspace name"}
-                          className={management["workspace-name"]}
+                        <SVG
+                          src="https://res.cloudinary.com/djjvj73xa/image/upload/v1745662977/backward-solid_1_dpek7z.svg"
+                          alt="double forward icon"
+                          className={management["forward-to-workspace-icon"]}
                         />
-                        {/* based on boolean expression for onfocus and off focus  */}
-                        <textarea
-                          cols={12}
-                          // onResize=/
-                          id="workspace-description"
-                          value={workspace.description}
-                          onChange={(
-                            e: React.ChangeEvent<HTMLTextAreaElement>
-                          ) => {
-                            setUpdateAWorkspace({
-                              ...updateAWorkspace,
-                              workspacedescription: e.target.value,
-                            });
-                          }}
-                          placeholder={"Update workspace description"}
-                          className={management["workspace-description"]}
-                        />
-                      </Div>
-                    </>
+                      </RouteLink>
+                      <InputText
+                        id="workspace-name"
+                        value={workspace.workspacename}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          setUpdateAWorkspace({
+                            ...updateAWorkspace,
+                            workspacedescription: e.target.value,
+                          });
+                        }}
+                        placeholder={"Update workspace name"}
+                        className={management["workspace-name"]}
+                      />
+                      {/* based on boolean expression for onfocus and off focus  */}
+                      <textarea
+                        cols={12}
+                        id="workspace-description"
+                        value={workspace.description}
+                        onChange={(
+                          e: React.ChangeEvent<HTMLTextAreaElement>
+                        ) => {
+                          setUpdateAWorkspace({
+                            ...updateAWorkspace,
+                            workspacedescription: e.target.value,
+                          });
+                        }}
+                        placeholder={"Update workspace description"}
+                        className={management["workspace-description"]}
+                      />
+                    </Div>
                     <Div
                       className={management["workspace-sheet-forefront-data"]}
                     >
