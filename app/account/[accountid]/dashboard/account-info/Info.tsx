@@ -72,23 +72,19 @@ const Info = ({ params }: any) => {
       "Female",
       "Male",
       "Transgender",
-      "Non-binary",
+      "Non-Binary",
       "Other",
     ];
-    //pull data from the cloud to display in read only fields
-    // useEffect(() => {
-    //   try {
-    //     const data = fetch("api/account/2938423/dashboard/account-info"); //number must be an actual user from db
-    //     const resposne = await data.json();
-
-    //     return; //replace with data object
-    //   } catch (err: any) {
-    //     console.warn("Something went wrong: ", err.message);
-    //   }
-    // }, []);
-
-    //this area manages all submitted data
-
+    interface UpdateAccountDataProps {
+      firstname?: string;
+      lastname?: string;
+      gender?: string;
+      dob?: string;
+      email?: string;
+      currentPassword?: string;
+      newPassword?: string;
+      confirmNewPassword?: string;
+    }
     const processSubmission = async (e: FormEvent<HTMLFormElement>) => {
       try {
         e.preventDefault();
@@ -97,21 +93,40 @@ const Info = ({ params }: any) => {
         if (!formData) {
           alert("Please complete required fields");
         } else {
-          const formattedFormData = {
-            id: params.message._id,
-            formData,
+          const updateAccountData: UpdateAccountDataProps = {};
+
+          if (formData.firstname)
+            updateAccountData.firstname = formData.firstname;
+          if (formData.lastname) updateAccountData.lastname = formData.lastname;
+          if (formData.gender) updateAccountData.gender = formData.gender;
+          if (formData.dob) updateAccountData.dob = formData.dob;
+          if (formData.email) updateAccountData.email = formData.email;
+          if (formData["current-password"])
+            updateAccountData["currentPassword"] = formData["current-password"];
+          if (formData["new-password"])
+            updateAccountData["newPassword"] = formData["new-password"];
+          if (formData["confirm-new-password"])
+            updateAccountData["confirmNewPassword"] =
+              formData["confirm-new-password"];
+
+          const updatedFormData = {
+            _id: params.data._id,
+            updateAccountData,
           };
+
           const updatedData = await fetch(
-            `/api/account/${params.message._id}/dashboard/account-info`,
+            `/api/account/${params.data._id}/dashboard/account-info`,
             {
               method: "PUT",
-              body: JSON.stringify(formattedFormData),
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(updatedFormData),
             }
           );
           if (updatedData.ok) {
-            alert("Successfully Updated");
+            alert("Successfully updated");
           } else {
-            alert("Failed to Update account info");
+            const error = await updatedData.json();
+            alert("Could not update account info: " + error.error);
           }
         }
       } catch (err: any) {
@@ -129,7 +144,6 @@ const Info = ({ params }: any) => {
           <form
             id="account-info-form"
             className={info["account-info-form"]}
-            method="POST"
             onSubmit={processSubmission}
           >
             <Div className={info["firstname-container"]}>
@@ -176,8 +190,8 @@ const Info = ({ params }: any) => {
                     className={info["firstname-input"]}
                     placeholder={""}
                     value={
-                      params.message.firstname
-                        ? params.message.firstname
+                      params.data.firstname
+                        ? params.data.firstname
                         : "Not assigned"
                     }
                   />
@@ -240,8 +254,8 @@ const Info = ({ params }: any) => {
                     className={info["lastname-input"]}
                     placeholder={""}
                     value={
-                      params.message.lastname
-                        ? params.message.lastname
+                      params.data.lastname
+                        ? params.data.lastname
                         : "Not assigned"
                     }
                   />
@@ -312,9 +326,7 @@ const Info = ({ params }: any) => {
                     className={info["gender-input-disabled"]}
                     placeholder={""}
                     value={
-                      params.message.gender
-                        ? params.message.gender
-                        : "Not assigned"
+                      params.data.gender ? params.data.gender : "Not assigned"
                     }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
@@ -370,9 +382,7 @@ const Info = ({ params }: any) => {
                     id="dob"
                     className={info["dob-input"]}
                     placeholder={""}
-                    value={
-                      params.message.dob ? params.message.dob : "Not assigned"
-                    }
+                    value={params.data.dob ? params.data.dob : "Not assigned"}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
                   {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one enables field editing*/}
@@ -435,9 +445,7 @@ const Info = ({ params }: any) => {
                     className={info["email-input"]}
                     placeholder={""}
                     value={
-                      params.message.email
-                        ? params.message.email
-                        : "Not assigned"
+                      params.data.email ? params.data.email : "Not assigned"
                     }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />

@@ -29,12 +29,9 @@ export async function GET(request: NextRequest, { params }: any): Promise<any> {
       });
     }
 
-    //workspace data
     const workspaces = await workspaceModel.find({ createdBy: user._id });
-    // console.log(workspaces);
-
     const userInfo = {
-      id: user._id,
+      _id: user._id,
       workspaces,
     };
     return new NextResponse(JSON.stringify({ data: userInfo }), {
@@ -46,6 +43,55 @@ export async function GET(request: NextRequest, { params }: any): Promise<any> {
 }
 
 export async function POST(request: NextRequest): Promise<any> {
+  try {
+    await getDB();
+    const body = await request.json();
+    const { sub, workspacename, workspacedescription } = body;
+
+    const user = await UserModel.findById(String(sub));
+    if (!user) {
+      return new NextResponse(JSON.stringify({ error: "User not found" }), {
+        status: 404,
+      });
+    }
+
+    //to track user signup and dates if needed later on
+    const date = Dates();
+    const workspaceData: any = {};
+    if (workspacename) workspaceData.workspacename = workspacename;
+    if (workspacedescription)
+      workspaceData.workspacedescription = workspacedescription;
+
+    if (workspacename && workspacedescription) {
+      // const newWorkspace =
+      const refactorWorkspaceName = workspacename
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-");
+      await workspaceModel.create({
+        name: refactorWorkspaceName,
+        //above for urls
+        workspacename: workspacename,
+        description: workspacedescription,
+        createdBy: user._id,
+        dateCreated: date,
+      });
+      // console.log(newWorkspace);
+
+      return NextResponse.json({ message: "ok" }, { status: 201 });
+    } else {
+      return NextResponse.json(
+        { error: "Fill in required fields" },
+        { status: 400 }
+      );
+    }
+  } catch (err: any) {
+    console.warn("Error: ", err.message);
+  }
+}
+
+export async function PUT(request: NextRequest): Promise<any> {
   try {
     await getDB();
     // const { accountid }: any = await params;
@@ -78,13 +124,11 @@ export async function POST(request: NextRequest): Promise<any> {
         .trim()
         .replace(/[^a-z0-9\s-]/g, "")
         .replace(/\s+/g, "-");
-      await workspaceModel.create({
+      await workspaceModel.updateOne({
         name: refactorWorkspaceName,
         //above for urls
         workspacename: workspacename,
         description: workspacedescription,
-        createdBy: user._id,
-        dateCreated: date,
       });
       // console.log(newWorkspace);
 

@@ -1,21 +1,19 @@
 import bcrypt from "bcryptjs";
 
 export class PasswordService {
-  private readonly = 12;
+  #saltStrength = 12;
 
   hashPassword = async (password: string): Promise<string> => {
-    const saltStrength = await bcrypt.genSalt(this.readonly);
-    return await bcrypt.hash(password, saltStrength);
+    const salt = await bcrypt.genSalt(this.#saltStrength);
+    return await bcrypt.hash(password, salt);
   };
 
   comparePasswords = async (
     plainTextPassword: string,
     hashPassword: string
   ): Promise<boolean> => {
-    console.log(
-      "comparing: ",
-      await bcrypt.compare(plainTextPassword, hashPassword)
-    );
-    return await bcrypt.compare(plainTextPassword, hashPassword);
+    const match = await bcrypt.compare(plainTextPassword, hashPassword);
+    console.log("comparing: ", match);
+    return match;
   };
 }

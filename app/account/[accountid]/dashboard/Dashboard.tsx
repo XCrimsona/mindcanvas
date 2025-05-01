@@ -10,7 +10,6 @@ import ShortText from "@/src/ui/ShortText";
 
 const Dashboard = () => {
   const params = useParams<{ accountid: string }>();
-
   const accountDashboardLinkData: any = [
     {
       routeData: {

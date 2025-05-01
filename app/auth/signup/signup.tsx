@@ -50,23 +50,20 @@ const Signup = () => {
       try {
         e.preventDefault();
         console.log(formData);
-        if (!formData) {
-          alert("Fields are empty, please complete the login");
-        }
 
         //extra sanitation incase devtools manipulate input
         const requiredFields =
-          formData.firstname ||
-          formData.lastname ||
-          formData.email ||
-          formData.password ||
+          formData.firstname &&
+          formData.lastname &&
+          formData.email &&
+          formData.password &&
           formData.confirmpassword;
         if (!requiredFields) {
           alert("please complete required fields for signup!");
-        } else if (
-          formData.confirmpassword.length !== formData.password.length
-        ) {
+          return;
+        } else if (formData.confirmpassword !== formData.password) {
           alert("Passwords do not match!");
+          return;
         } else {
           //data will be sent to the backend from here
           const response: any = await fetch("/api/signup", {
@@ -79,14 +76,13 @@ const Signup = () => {
 
           //want to try a new feature: socket.io
           //for real-time notifcations to check login success or failed to verify
-          if (response.status === 201) {
+          const data = await response.json();
+          if (response.ok) {
             // redirect to dashboard
             alert("welcome");
-            const data: any = await response.json();
             router.push(`/account/${data._id}/dashboard`);
           } else {
             //reload and remain on signup page
-            const data = await response.json();
             alert(data.error);
           }
         }
@@ -96,13 +92,15 @@ const Signup = () => {
     };
 
     const signupCancelled = () => {
-      formData.firstname = "";
-      formData.lastname = "";
-      formData.gender = "";
-      formData.dob = "";
-      formData.email = "";
-      formData.password = "";
-      formData.confirmpassword = "";
+      setFormData({
+        firstname: "",
+        lastname: "",
+        gender: "",
+        dob: "",
+        email: "",
+        password: "",
+        confirmpassword: "",
+      });
     };
 
     const gender = [
