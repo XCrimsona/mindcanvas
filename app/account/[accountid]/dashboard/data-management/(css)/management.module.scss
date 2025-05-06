@@ -171,12 +171,16 @@ background: url($url);
             $color3,
             $color4, $color5,
             $color6, $color7);
-    // mix-blend-mode: luminosity;
-    background-blend-mode: color-burn;
 }
 
 $darkAsdhBlack: rgb(12, 12, 12, 1);
 $Gold: rgba(250, 186, 0, 0.7);
+
+@mixin Angular-Gradient() {
+    @include linearGradient($Gold 0.2deg, $darkAsdhBlack 55.6deg, $darkAsdhBlack 116.8deg, $Gold 169.2deg, $darkAsdhBlack 257.8deg,
+        $darkAsdhBlack 313.6deg,
+        $Gold 345.6deg);
+}
 
 .main-data-management-container {
     @include height(100%);
@@ -203,9 +207,7 @@ $Gold: rgba(250, 186, 0, 0.7);
         //for portrait mode
 
         overflow-y: auto;
-        @include linearGradient($Gold 0.2deg, $darkAsdhBlack 55.6deg, $darkAsdhBlack 116.8deg, $Gold 169.2deg, $darkAsdhBlack 257.8deg,
-            $darkAsdhBlack 313.6deg,
-            $Gold 345.6deg);
+        @include Angular-Gradient();
 
         //for screen orientation landscape mode
         // @include min-height(450px);

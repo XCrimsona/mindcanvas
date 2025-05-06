@@ -16,6 +16,12 @@ interface IWorkspaceProps {
   workspacedescription: string;
 }
 const DataManagement = ({ params }: { params: any }) => {
+  //refresh page to update workspace data
+  const refresh = () => {
+    alert("Refresh Logic");
+    return;
+  };
+
   //displays temporary field when plus button is clicked
   const [displayNewWorkspace, setDisplayNewWorkspace] =
     useState<Boolean>(false);

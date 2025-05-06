@@ -2,16 +2,12 @@ import mongoose from "mongoose";
 
 const textSchema = new mongoose.Schema(
   {
-    content: {
-      type: String,
-      required: true,
-      minlength: [1, "Text content cannot be empty"],
-      maxlength: [10000, "Text content too long (max 10 K characters)"],
-    },
     text: {
       type: String,
       enum: ["paragraph", "list"],
       default: "paragraph",
+      minlength: [1, "Text content cannot be empty"],
+      maxlength: [10000, "Text content too long (max 10 K characters)"],
       required: true,
     },
     isDraggable: {
