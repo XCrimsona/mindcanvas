@@ -53,7 +53,7 @@ export const InputEmail = ({
 interface InputTextProps {
   id: string;
   className: string;
-  placeholder: string;
+  placeholder?: string;
   value: string;
   onChange?: React.ReactEventHandler;
 }

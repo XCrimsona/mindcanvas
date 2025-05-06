@@ -151,6 +151,7 @@ background: url($url);
     @include background-color(#000000ee);
     @include height($_60);
     @include position(relative);
+    border-bottom: $_2 solid #333333;
 
     .auth-route {
         @include display-align(flex);

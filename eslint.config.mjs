@@ -14,7 +14,7 @@ const eslintConfig = [
   {
     rules: {
       "@next/next/no-img-element": "off",
-      "@next/next/no-sync-params": "off",
+      // "@next/next/no-sync-params": "off",
     }
   }
 ];
