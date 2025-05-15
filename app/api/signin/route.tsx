@@ -16,6 +16,16 @@ export async function OPTIONS() {
   });
 }
 
+export async function GET(request: NextRequest) {
+  try {
+    await getDB();
+  } catch (err: any) {
+    return NextResponse.json(
+      { error: err.message || "Unexpected connection error" },
+      { status: 500 }
+    );
+  }
+}
 export async function POST(request: NextRequest) {
   try {
     await getDB();

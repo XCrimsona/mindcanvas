@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import UserModel from "@/models/userModel";
 import { AuthService } from "@/lib/services/Auth";
 import { getDB } from "@/lib/connnections/Connections";
@@ -14,6 +14,17 @@ export async function OPTIONS() {
       "Access-Control-Allow-Credentials": "true",
     },
   });
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    await getDB();
+  } catch (err: any) {
+    return NextResponse.json(
+      { error: err.message || "Unexpected connection error" },
+      { status: 500 }
+    );
+  }
 }
 
 export async function POST(request: Request) {

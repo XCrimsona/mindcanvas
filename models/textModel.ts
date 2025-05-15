@@ -10,13 +10,17 @@ const textSchema = new mongoose.Schema(
       maxlength: [10000, "Text content too long (max 10 K characters)"],
       required: true,
     },
-    isDraggable: {
-      type: Boolean,
-      default: false,
-    },
-    isReorderable: {
-      type: Boolean,
-      default: false,
+    postition: {
+      x: {
+        type: String,
+        required: [true, "X coordinate is required"],
+        min: 0,
+      },
+      y: {
+        type: String,
+        required: [true, "Y coordinate is required"],
+        min: 0,
+      },
     },
     createdBy: {
       type: mongoose.Types.ObjectId,

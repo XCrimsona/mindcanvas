@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   },
 };
 
-const Page = () => {
+const Page = async () => {
+  await fetch("http:localhost:3000/api/signin");
   return (
     <Div className={authstyles["sign-in-page"]}>
       <Signin />

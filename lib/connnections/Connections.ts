@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export class ConnectToDB {
+class ConnectToDB {
   #DB_STRING: string;
   constructor() {
     this.#DB_STRING = process.env.DB_CONNECTION_STRING!;
@@ -17,6 +17,14 @@ export class ConnectToDB {
 }
 
 export const getDB = async () => {
-  const db = new ConnectToDB();
-  await db.ConnectToDB();
+  try {
+    if (mongoose.connection.readyState >= 1) return;
+    const db = new ConnectToDB();
+    await db.ConnectToDB();
+  } catch (err: any) {
+    console.warn(
+      "Something is wrong with the app core data connection: ",
+      err.message
+    );
+  }
 };

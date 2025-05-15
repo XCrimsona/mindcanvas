@@ -79,6 +79,7 @@ export const InputText = ({
     />
   );
 };
+
 export const InputDisabledText = ({
   id,
   className,
@@ -100,6 +101,7 @@ export const InputDisabledText = ({
     />
   );
 };
+
 export const InputEnabledText = ({
   id,
   className,

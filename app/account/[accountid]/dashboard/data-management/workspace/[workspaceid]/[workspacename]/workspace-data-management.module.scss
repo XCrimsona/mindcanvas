@@ -98,6 +98,14 @@ $auto: auto;
     width: $width;
 }
 
+@mixin min-width($min-width) {
+    min-width: $min-width;
+}
+
+@mixin max-width($max-width) {
+    max-width: $max-width;
+}
+
 @mixin height($height) {
     height: $height;
 }
@@ -200,11 +208,8 @@ $Gold: rgba(250, 186, 0, 0.7);
 
         .work-data-management-container {
             @include display-align(flex);
-            // @include justify-content(center);
-            // @include align-content(center);
             @include flex-align(wrap);
-            // @include position(relative);
-            // @include top(0px);
+            @include align-content(flex-start);
             //temp width
             @include width(700px);
             @include align-text(center);
@@ -363,22 +368,372 @@ $Gold: rgba(250, 186, 0, 0.7);
                 }
             }
 
-            .work-data-management-cluster {
+            //where data is displayed
+            .data-container {
+
+                //temp width this is a media query
+                @include height(550px);
+                @include width(700px);
+                @include border-radius(10px);
+                @include margin-x-y($_0, $auto, $_0 , $auto );
+                @include background-color(rgba(0, 0, 0, 0.7));
+
+                overflow: scroll;
+                white-space: none;
+
+                .data-scroll-board {
+                    @include position(relative);
+
+                    //reusable text data component
+                    .data-text-component {
+                        @include display-align(flex);
+                        @include justify-content(center);
+                        @include align-items(center);
+                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include background-color(#111);
+                        @include border-bottom($_2, solid, #00FBA0B3);
+                        @include width(350px);
+                        @include height(30px);
+                        transition: height .2s ease-in-out, width .2s ease-in-out;
+
+                        .mass-enabled-input-text-field {
+                            @include border-top($_2, solid, #111);
+                            @include border-bottom($_2, solid, #111);
+                            @include text-color(#fff);
+                            @include border-left($_2, solid, #111);
+                            @include border-right($_2, solid, #111);
+                            @include background-color(#111);
+                            // @include border-bottom($_2, solid, #00FBA0B3);
+                            @include width(330px);
+                            @include height(20px);
+                            outline: $_2 solid #111;
+                        }
+                    }
+
+                    .dynamic-data-container {}
+
+                    .data-element {
+                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        background-color: green;
+                        box-shadow: inset 0px 0px 2px 2px #00aaffcc;
+
+                        //temp
+                        .p-tag {
+
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                            background-color: skyblue;
+                            @include text-color(#fff);
+                        }
+
+                    }
+
+                }
+            }
+
+            .workspace-core-functionalities {
+                @include height(100px);
                 @include display-align(flex);
                 @include flex-align(wrap);
                 @include justify-content(center);
-                @include align-content(center);
-                @include min-height(550px);
-                @include max-height(550px);
+                @include align-items(center);
+                @include margin-x-y($_20, $auto, $_20 , $auto );
                 //temp width
                 @include width(700px);
-                @include margin-x-y($_10, $auto, $_10 , $auto );
-                @include background-color(rgba(0, 0, 0, 0.7));
+                @include text-color(#fff);
+                @include background-color(#000000B3);
+                @include border-radius(10px);
+                @include position(relative);
+                overflow: visible;
 
-                .work-data-management-dummy-cluster-data {
-                    @include width(700px);
+                .component-hub-container {
                     @include margin-x-y($_0, $auto, $_0 , $auto );
-                    @include text-color(#fff);
+                    @include width(100px);
+                    @include height(70px);
+                    @include display-align(flex);
+                    @include flex-align(wrap);
+                    @include justify-content(center);
+                    @include align-content(center);
+
+                    .component-hub-btn-wrapper {
+                        .component-hub-btn {
+                            @include height(30px);
+                            @include width(30px);
+                            cursor: pointer;
+                        }
+                    }
+
+                    .component-hub-text-wrapper {
+                        @include margin-x-y($_0, $auto, $_0 , $auto );
+
+                        .longtext {
+                            // @include height(30px);
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                            @include font-size(15px);
+                        }
+                    }
+                }
+
+                //this is the one not appearing
+                //Comonent Hub child component functionality properties
+                .comp-hub-data-components-container {
+                    @include position(absolute);
+                    @include display-align(flex);
+                    @include justify-content(center);
+                    @include align-items(center);
+                    @include top(-110px);
+                    @include left(24px);
+                    @include height(200px);
+                    @include background-color(#000000);
+                    z-index: 4;
+                    //temp width
+                    @include width(200px);
+                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include border-top($_2, solid, #FABB00DD);
+                    @include border-bottom($_2, solid, #FABB00DD);
+                    @include border-left($_2, solid, #FABB00DD);
+                    @include border-right($_2, solid, #FABB00DD);
+                    @include border-radius(10px);
+
+                    .comp-hub-data-components-list-container {
+                        @include position(relative);
+                        @include height(200px);
+                        @include width(200px);
+                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include display-align(flex);
+                        @include justify-content(center);
+                        @include align-items(center);
+
+                        @include margin-x-y($_0, $_0, $_0 , $_0 );
+
+                        .close-icon-wrapper {
+                            @include position(absolute);
+                            @include display-align(flex);
+                            @include justify-content(center);
+                            @include align-items(center);
+                            @include border-top($_2, solid, #000);
+                            @include border-bottom($_2, solid, #000);
+                            @include border-left($_2, solid, #000);
+                            @include border-right($_2, solid, #000);
+                            // @include margin-x-y($_0, $_0, $_0 , $auto );
+                            @include top(10px);
+                            @include right(6px);
+                            @include width(28px);
+                            @include height(28px);
+                            transform: rotate(45deg);
+                            cursor: pointer;
+                            @include background-color(#000);
+
+                            .close-icon {
+                                @include border-radius(8px);
+                                @include display-align(block);
+                                @include width(20px);
+                                @include height(20px);
+                            }
+                        }
+
+                        .comp-hub-data-components-list {
+
+                            .text-comp,
+                            .audio-comp,
+                            .image-comp,
+                            .video-comp {
+                                @include width(150px);
+                                @include border-top($_2, solid, #000000B3);
+                                @include border-bottom($_2, solid, #00BFA0B3);
+                                @include border-left($_2, solid, #000000B3);
+                                @include border-right($_2, solid, #000000B3);
+                                @include border-radius(4px);
+                                @include margin-x-y($_5, $auto, $_5 , $auto );
+                                @include background-color(#141414B3);
+                                @include text-color(#fff);
+                                cursor: grab;
+                            }
+                        }
+                    }
+                }
+
+
+                .zoom-controls-container {
+                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include width(120px);
+                    @include height(70px);
+                    @include display-align(block);
+
+                    .zoom-controls {
+                        @include height(30px);
+                        @include display-align(flex);
+                        @include flex-align(wrap);
+                        @include position(relative);
+                        @include margin-x-y($_0, $auto, $_0 , $auto );
+
+                        .zoom-in-wrapper {
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                            @include width(50px);
+
+                            .btn-zoom-in {
+                                @include height(30px);
+                                @include width(30px);
+                                cursor: pointer;
+                            }
+                        }
+
+                        .zoom-out-wrapper {
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                            @include width(50px);
+
+                            .btn-zoom-out {
+                                @include height(30px);
+                                @include width(30px);
+                                cursor: pointer;
+                            }
+                        }
+
+                    }
+
+                    .zoom-controls-text-wrapper {
+                        @include display-align(block);
+                        @include margin-x-y($_10, $auto, $_0 , $auto );
+                        @include height(20px);
+
+                        .zoom-controls-text {
+                            @include display-align(block);
+                            @include align-text(center);
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                        }
+                    }
+                }
+
+                .help-container {
+                    @include display-align(block);
+                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include height(70px);
+
+                    .help-btn-wrapper {
+                        @include width(50px);
+                        @include height(30px);
+                        @include display-align(block);
+                        @include margin-x-y($_0, $auto, $_0 , $auto );
+
+                        .help-mark {
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                            @include height(30px);
+                            @include width(30px);
+                            cursor: pointer;
+                        }
+                    }
+
+                    .help-text-wrapper {
+                        @include display-align(block);
+                        @include margin-x-y($_10, $auto, $_0 , $auto );
+                        @include height(20px);
+
+                        .help-text {
+                            @include display-align(block);
+                            @include align-text(center);
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                        }
+                    }
+                }
+
+
+                .workspace-size-controls {
+                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include height(70px);
+                    @include width(300px);
+                    @include display-align(flex);
+                    @include flex-align(wrap);
+                    @include justify-content(center);
+
+                    .height-container,
+                    .width-container {
+                        @include margin-x-y($_0, $_5, $_0 , $_5 );
+
+                        .immutable-height,
+                        .immutable-width,
+                        .mutable-height,
+                        .mutable-width {
+                            @include display-align(block);
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                            @include background-color(#000000B3);
+                            @include border-top($_2, solid, #000000B3);
+                            @include border-bottom($_2, solid, #FABB00DD);
+                            @include border-left($_2, solid, #000000B3);
+                            @include border-right($_2, solid, #000000B3);
+                            @include width(120px);
+                            @include text-color(#fff);
+                            @include height(14px);
+                        }
+
+                        .mutable-height:focus,
+                        .mutable-width:focus {
+                            cursor: text;
+                            @include background-color(#000000B3);
+                            outline: $_2 solid #000000B3;
+                            @include text-color(#fff);
+
+                        }
+
+                        .immutable-height:hover,
+                        .immutable-width:hover {
+                            cursor: not-allowed;
+                        }
+                    }
+
+                    .toggle-visual-ops-wrapper {
+                        @include display-align(flex);
+                        @include justify-content(center);
+                        @include align-items(center);
+                        @include margin-x-y($_0, $_5, $_0 , $_5 );
+                        @include height(20px);
+
+                        .toggle-visual-ops {
+                            @include display-align(block);
+                            @include background-color(#1C1C1C);
+                            @include border-radius(4px);
+                            box-shadow: inset 0px 0px 0px 2px #333;
+                            border-top: none;
+                            border-left: none;
+                            border-right: none;
+                            border-bottom: none;
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                            @include padding-x-y($_4, $_0, $_4, $_0 );
+                            @include text-color(#fff);
+                            @include width(128px);
+                            @include font-size(12px);
+                            cursor: pointer;
+                        }
+                    }
+
+                    .update-spacing-btn-wrapper {
+                        @include display-align(flex);
+                        @include justify-content(center);
+                        @include align-items(center);
+                        @include margin-x-y($_0, $_5, $_0 , $_5 );
+                        @include height(20px);
+
+                        .update-spacing-btn {
+                            @include display-align(block);
+                            @include background-color(#1C1C1C);
+                            @include border-radius(4px);
+                            box-shadow: inset 0px 0px 0px 2px #333;
+                            border-top: none;
+                            border-left: none;
+                            border-right: none;
+                            border-bottom: none;
+                            @include border($_2, solid, none);
+                            @include margin-x-y($_0, $auto, $_0 , $auto );
+                            @include padding-x-y($_4, $_0, $_4, $_0 );
+                            @include text-color(#fff);
+                            @include width(128px);
+                            @include font-size(12px);
+                            cursor: pointer;
+                        }
+                    }
+
+                    .workspace-controls-text {
+                        @include display-align(block);
+                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                    }
                 }
             }
         }
