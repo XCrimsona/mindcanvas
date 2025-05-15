@@ -16,7 +16,9 @@ export const metadata: Metadata = {
   },
 };
 
-const Page = () => {
+const Page = async () => {
+  await fetch("http:localhost:3000/api/signup");
+
   return (
     <Div className={authstyles["sign-up-page"]}>
       <Signup />

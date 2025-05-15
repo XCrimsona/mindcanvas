@@ -4,14 +4,23 @@ import { ReactNode } from "react";
 const Div = ({
   className,
   children,
-  onMouseOut,
+  onMouseDown,
+  onStyle,
+  ref,
 }: {
   className: string;
-  onMouseOut?: React.ReactEventHandler;
+  onMouseDown?: React.ReactEventHandler;
   children: ReactNode;
+  onStyle?: any;
+  ref?: any;
 }) => {
   return (
-    <div className={className} onMouseOut={onMouseOut}>
+    <div
+      ref={ref}
+      style={onStyle}
+      className={className}
+      onMouseDown={onMouseDown}
+    >
       {children}
     </div>
   );

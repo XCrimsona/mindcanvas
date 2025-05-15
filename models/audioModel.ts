@@ -9,7 +9,7 @@ const audioSchema = new mongoose.Schema(
     audioFormat: {
       type: String,
       enum: ["mp3", "wav", "ogg"],
-      default: "paragraph",
+      default: "mp3",
     },
     transcription: {
       type: String,

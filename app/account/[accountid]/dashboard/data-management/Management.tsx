@@ -38,7 +38,7 @@ const DataManagement = ({ params }: { params: any }) => {
       //make temporary form visisble
       setDisplayNewWorkspace(true);
 
-      //temperory editable data until submitted to the claoud
+      //temperory editable data until submitted to the cloud
       setNewWorkspace({
         ...newWorkspace,
         workspacename: "New workspace",
@@ -49,18 +49,12 @@ const DataManagement = ({ params }: { params: any }) => {
     }
   };
 
-  //used to send data to the cloud via post
-  const [saveNewWorkspace, setSaveNewWorkspace] = useState<IWorkspaceProps>({
-    workspacename: "",
-    workspacedescription: "",
-  });
-
   //send data to cloud
   const saveWorkspace = async (
     e: React.FormEvent<HTMLFormElement>
   ): Promise<any> => {
     e.preventDefault();
-    setSaveNewWorkspace({
+    setNewWorkspace({
       ...newWorkspace,
       workspacename: newWorkspace.workspacename,
       workspacedescription: newWorkspace.workspacedescription,
@@ -73,8 +67,8 @@ const DataManagement = ({ params }: { params: any }) => {
     }
     const formData: formDataProps = {
       sub: params.data._id,
-      workspacename: saveNewWorkspace.workspacename,
-      workspacedescription: saveNewWorkspace.workspacedescription,
+      workspacename: newWorkspace.workspacename,
+      workspacedescription: newWorkspace.workspacedescription,
     };
 
     if (!formData) {
@@ -136,6 +130,12 @@ const DataManagement = ({ params }: { params: any }) => {
       alert("Workspace not updated!");
     }
   };
+  console.log(
+    "params.data.workspaces: ",
+    typeof params.data.workspaces,
+    " ",
+    params.data.workspaces
+  );
 
   return (
     <>

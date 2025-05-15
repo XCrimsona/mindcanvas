@@ -32,7 +32,6 @@ const Signin = () => {
     const processSignIn = async (e: FormEvent<HTMLFormElement>) => {
       try {
         e.preventDefault();
-        console.log(formData);
         const loginData: any = {};
         if (formData.email) loginData.email = formData.email;
         if (formData.password) loginData.password = formData.password;
@@ -64,8 +63,11 @@ const Signin = () => {
 
     const formCancelled = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      formData.email = "";
-      formData.password = "";
+      setFormData({
+        ...formData,
+        email: "",
+        password: "",
+      });
     };
 
     return (
