@@ -9,7 +9,7 @@ import ZoomControls from "./(ComponentHubJSXStructure)/ZoomControls";
 import HelpButton from "./(ComponentHubJSXStructure)/HelpButton";
 import WorkspaceSizeControls from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/(ComponentHubJSXStructure)/WorkspaceSizeControls";
 import ComponentHubButton from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/(ComponentHubJSXStructure)/ComponentHubButton";
-import { SharedUseStateProvider } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/SharedStateProvider";
+import { ComponentHubStateProvider } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/SharedStateProvider";
 
 const WorkspaceCoreFunctionality = () => {
   //toggle data comp hub UI visibility
@@ -17,10 +17,10 @@ const WorkspaceCoreFunctionality = () => {
 
   return (
     <Div className={workspaceDataManagement["workspace-core-functionalities"]}>
-      <SharedUseStateProvider>
+      <ComponentHubStateProvider>
         <ComponentHubButton />
         <ComponentHub />
-      </SharedUseStateProvider>
+      </ComponentHubStateProvider>
       <ZoomControls />
       <HelpButton />
 

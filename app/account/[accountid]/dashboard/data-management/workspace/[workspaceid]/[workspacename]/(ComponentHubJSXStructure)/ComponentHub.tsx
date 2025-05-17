@@ -4,15 +4,15 @@ import Div from "@/src/ui/Div";
 import SVG from "@/src/SVG";
 import Button from "@/src/components/form-elements/Button";
 import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
+import { TextContextProvider } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/text/TextContextProvider";
 
-import { useSharedUseState } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/SharedStateProvider";
+import { useComponentHubState } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/SharedStateProvider";
+import { TextButton } from "../DataComponents/text/TextButton";
 const ComponentHub = () => {
-  const { sharedToggleState, toggleSharedState } = useSharedUseState();
-  // const { sharedTextState, setSharedTextState } = useSharedTextState();
+  const { sharedToggleState, toggleSharedState } = useComponentHubState();
   // const { sharedAudioState, setSharedAudioState } = useSharedAudioState();
   // const { sharedImageState, setSharedImageState } = useSharedImageState();
   // const { sharedVideoState, setSharedVideoState } = useSharedVideoState();
-
   return (
     sharedToggleState && (
       <Div
@@ -40,13 +40,9 @@ const ComponentHub = () => {
           <Div
             className={workspaceDataManagement["comp-hub-data-components-list"]}
           >
-            <Button
-              id="text-comp"
-              // onClick={CreateNewTextComponent}
-              className={workspaceDataManagement["text-comp"]}
-            >
-              Text
-            </Button>
+            <TextContextProvider>
+              <TextButton />
+            </TextContextProvider>
             <Button
               id="audio-comp"
               // onClick={}

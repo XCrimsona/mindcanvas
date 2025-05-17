@@ -6,29 +6,38 @@ import React, { useState } from "react";
 import Button from "@/src/components/form-elements/Button";
 import Div from "@/src/ui/Div";
 import {
-  MassInputDisabledText,
+  // MassInputDisabledText,
   MassInputEnabledText,
 } from "@/src/components/mass-workspace-elements/MassWorkspaceInputComponents";
 import Label from "@/src/components/form-elements/Label";
 import SVG from "@/src/SVG";
-// import { useTextComponentDisplayState } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/TextComponentDisplayState";
-import { useNewTextComponent } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/text/NewTextComponent";
+import { useTextContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/text/TextContextProvider";
 
 const TextInputUnit = ({ params }: any) => {
-  const { newTextComponent, setNewTextComponent } = useNewTextComponent();
+  //activates text input form
+  const { useInputCompref, textToggleState } = useTextContext();
+
+  // const { newTextComponent, setNewTextComponent } = useNewTextComponent();
+  const [newTextComponent, setNewTextComponent] = useState<any>({
+    text: "",
+  });
 
   //submit text Data
   const textComponentFormData = async (
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    const textFormData: any = {};
 
+    const textFormData: any = {};
     if (newTextComponent.text) textFormData.text = newTextComponent.text;
+
     if (!newTextComponent.text) {
       alert("Text Component must be filled with data");
       return;
     } else {
+      //test textFormData.text
+      console.log(textFormData.text);
+
       const text = await fetch(
         `http://localhost:3000/api/account/${params.accountid}/dashboard/data-management/workspace/${params.workspaceid}/${params.workspacename}`,
         {
@@ -46,45 +55,63 @@ const TextInputUnit = ({ params }: any) => {
       }
     }
   };
+  console.log(textToggleState);
 
-  return (
-    <form onSubmit={textComponentFormData}>
-      <Div className={workspaceDataManagement["label-wrapper"]}>
-        <Label
-          htmlfor="mass-enabled-input-text-field"
-          className={workspaceDataManagement["text-component-data-input-label"]}
-          text="Text Component"
-        />
-      </Div>
-      <Div className={workspaceDataManagement["text-input-wrapper"]}>
-        <MassInputEnabledText
-          //   onClick={clickedTextDataComponent}
-          id="mass-enabled-input-text-field"
-          className={workspaceDataManagement["mass-enabled-input-text-field"]}
-          value={newTextComponent.text}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setNewTextComponent({
-              ...newTextComponent,
-              text: e.target.value,
-            });
-          }}
-        />
-      </Div>
-      <Div className={workspaceDataManagement["text-submit-btn-container"]}>
-        <Button
-          id=""
-          className={workspaceDataManagement[""]}
-          // onClick={}
-        >
-          <SVG
-            className={workspaceDataManagement["svg-send-icon"]}
-            src="https://res.cloudinary.com/djjvj73xa/image/upload/v1745662977/backward-solid_1_dpek7z.svg"
-            alt="Up arrow send icon"
+  return textToggleState ? (
+    <Div
+      className={workspaceDataManagement["data-text-component"]}
+      ref={useInputCompref}
+      onStyle={{
+        position: "absolute",
+        top: "0px",
+        bottom: "0px",
+        left: "0px",
+        right: "0px",
+        color: "#fff",
+        zIndex: 4,
+        // transform: `translate(${posRef.current.x}px,${posRef.current.y}px)`,
+      }}
+    >
+      <form onSubmit={textComponentFormData}>
+        <Div className={workspaceDataManagement["label-wrapper"]}>
+          <Label
+            htmlfor="mass-enabled-input-text-field"
+            className={
+              workspaceDataManagement["text-component-data-input-label"]
+            }
+            text="Text Component"
           />
-        </Button>
-      </Div>
-    </form>
-  );
+        </Div>
+        <Div className={workspaceDataManagement["text-input-wrapper"]}>
+          <MassInputEnabledText
+            //   onClick={clickedTextDataComponent}
+            id="mass-enabled-input-text-field"
+            className={workspaceDataManagement["mass-enabled-input-text-field"]}
+            value={newTextComponent.text}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setNewTextComponent({
+                ...newTextComponent,
+                text: e.target.value,
+              });
+            }}
+          />
+        </Div>
+        <Div className={workspaceDataManagement["text-submit-btn-container"]}>
+          <Button
+            id=""
+            className={workspaceDataManagement[""]}
+            // onClick={}
+          >
+            <SVG
+              className={workspaceDataManagement["svg-send-icon"]}
+              src="https://res.cloudinary.com/djjvj73xa/image/upload/v1745662977/backward-solid_1_dpek7z.svg"
+              alt="Up arrow send icon"
+            />
+          </Button>
+        </Div>
+      </form>
+    </Div>
+  ) : null;
 };
 
 export default TextInputUnit;

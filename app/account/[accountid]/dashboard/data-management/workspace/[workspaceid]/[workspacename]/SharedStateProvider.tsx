@@ -16,7 +16,7 @@ interface ISharedUseStateContextType {
 const SharedUseStateContext = createContext<
   ISharedUseStateContextType | undefined
 >(undefined);
-export const SharedUseStateProvider = ({
+export const ComponentHubStateProvider = ({
   children,
 }: {
   children: ReactNode;
@@ -36,7 +36,7 @@ export const SharedUseStateProvider = ({
   );
 };
 
-export const useSharedUseState = () => {
+export const useComponentHubState = () => {
   const context = useContext(SharedUseStateContext);
   if (!context) {
     throw new Error(

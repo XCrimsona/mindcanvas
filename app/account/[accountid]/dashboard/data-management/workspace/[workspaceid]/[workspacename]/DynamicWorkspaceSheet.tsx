@@ -5,6 +5,7 @@ import AuthHeader from "@/app/account/[accountid]/dashboard/data-management/work
 import DataContainer from "./DataContainer";
 import PrimaryControlsAndDetails from "./(ComponentHubJSXStructure)/PrimaryControlsAndDetails";
 import WorkspaceCoreFunctionality from "./WorkspaceCoreFunctionality";
+import { WorkspaceSizeContextProvider } from "./DataComponents/WorkspaceControlsProvider/WorkspaceSizeContextProvider";
 
 const DynamicWorkspaceSheet = ({ params }: any) => {
   try {
@@ -28,9 +29,10 @@ const DynamicWorkspaceSheet = ({ params }: any) => {
               }
             >
               <PrimaryControlsAndDetails params={params} />
-
-              <DataContainer params={params} />
-              <WorkspaceCoreFunctionality />
+              <WorkspaceSizeContextProvider>
+                <DataContainer params={params} />
+                <WorkspaceCoreFunctionality />
+              </WorkspaceSizeContextProvider>
             </Div>
           </Div>
         </Div>
