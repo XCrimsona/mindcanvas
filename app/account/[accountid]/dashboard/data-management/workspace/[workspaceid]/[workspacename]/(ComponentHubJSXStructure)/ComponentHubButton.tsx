@@ -5,11 +5,10 @@ import Div from "@/src/ui/Div";
 import SVG from "@/src/SVG";
 // import { compHubDataElementMouseDownEvent } from "../DataComponents/MouseEvents";
 import LongText from "@/src/ui/LongText";
-import { useSharedUseState } from "../SharedStateProvider";
-// import { useCompHubDisplayState } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/(ComponentHubJSXStructure)/ComponentHubDisplayState";
+import { useComponentHubState } from "../SharedStateProvider";
 
 const ComponentHubButton = () => {
-  const { toggleSharedState } = useSharedUseState();
+  const { toggleSharedState } = useComponentHubState();
   return (
     <Div className={workspaceDataManagement["component-hub-container"]}>
       <Div className={workspaceDataManagement["component-hub-btn-wrapper"]}>

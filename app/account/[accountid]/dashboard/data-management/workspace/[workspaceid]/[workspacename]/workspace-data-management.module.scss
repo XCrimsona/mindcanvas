@@ -392,8 +392,8 @@ $Gold: rgba(250, 186, 0, 0.7);
                         @include margin-x-y($_0, $auto, $_0 , $auto );
                         @include background-color(#111);
                         @include border-bottom($_2, solid, #00FBA0B3);
-                        @include width(350px);
-                        @include height(30px);
+                        @include width(300px);
+                        @include height(300px);
                         transition: height .2s ease-in-out, width .2s ease-in-out;
 
                         .mass-enabled-input-text-field {

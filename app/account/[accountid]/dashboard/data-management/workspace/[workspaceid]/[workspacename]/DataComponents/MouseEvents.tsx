@@ -1,8 +1,6 @@
 import { useRef } from "react";
 import { useDataScrollBoardRef } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataScrollBoardRef";
-import { useMultiDataComponent } from "./MultiDataComponent";
 
-const { setMultiDataComponent } = useMultiDataComponent();
 const draggingIdRef = useRef<string | null>(null);
 const offSetRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
@@ -14,10 +12,7 @@ export const compHubDataElementMouseDownEvent = (
   event: React.MouseEvent,
   id: string
 ) => {
-  //disable submission trigger
-  // event.preventDefault();
   draggingIdRef.current = id;
-
   const InputDataComponentRect = event.currentTarget.getBoundingClientRect();
   //find parent(sub-container)'s width and height and establish offset
   offSetRef.current = {
@@ -30,9 +25,6 @@ export const compHubDataElementMouseMoveEvent = (event: React.MouseEvent) => {
   const id = draggingIdRef.current;
   if (!id || !dataScrollBoardRef.current) return;
 
-  //import dataScrollBoard
-  // const { dataScrollBoardRef } = useDataScrollBoardRef();
-
   const dataScrollBoardRect =
     dataScrollBoardRef.current.getBoundingClientRect();
   console.log(dataScrollBoardRect);
@@ -43,8 +35,8 @@ export const compHubDataElementMouseMoveEvent = (event: React.MouseEvent) => {
   const mouseY = event.clientY - dataScrollBoardRect.top;
 
   //find the height and width of the selected element
-  let newXValue = event.clientX - offSetRef.current.x;
-  let newYValue = event.clientY - offSetRef.current.y;
+  let newXValue = mouseX - offSetRef.current.x;
+  let newYValue = mouseY - offSetRef.current.y;
 
   //data-scroll-board's children width and height
   const childX = 300;
@@ -58,30 +50,18 @@ export const compHubDataElementMouseMoveEvent = (event: React.MouseEvent) => {
   newYValue = Math.max(0, Math.min(newYValue, maxY));
 
   //update the selected DataComponentRef positioning
-  setMultiDataComponent((prev: any) =>
-    prev.map((component: any) =>
-      component.id === id
-        ? { ...component, x: newXValue, y: newYValue }
-        : component
-    )
-  );
+  // setMultiDataComponent((prev: any) =>
+  //   prev.map((component: any) =>
+  //     component.id === id
+  //       ? { ...component, x: newXValue, y: newYValue }
+  //       : component
+  //   )
+  // );
   //   x: determinedDataCompPosX,
   //   y: determinedDataCompPosY,
   // }
 };
 
 export const compHubDataElementMouseUpEvent = (event: React.MouseEvent) => {
-  //disable submission trigger
-  // event.preventDefault();
   draggingIdRef.current = null;
-
-  //capure active listeners for entire mouse event cycle and remove them when cycle is complete
-  // document.removeEventListener<any>(
-  //   "mousemove",
-  //   compHubDataElementMouseMoveEvent
-  // );
-  // document.removeEventListener<any>(
-  //   "mouseup",
-  //   compHubDataElementMouseUpEvent
-  // );
 };
