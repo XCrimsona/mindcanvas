@@ -30,6 +30,50 @@ export const MassInputDisabledText = ({
   );
 };
 
+export const MassInputEnabledTextArea = ({
+  id,
+  className,
+  placeholder,
+  value,
+  onChange,
+}: InputTextProps) => {
+  return (
+    <textarea
+      id={id}
+      minLength={1}
+      maxLength={10000}
+      autoComplete="off"
+      placeholder={placeholder}
+      className={className}
+      value={value}
+      onChange={onChange}
+      required
+    />
+  );
+};
+
+//Text Component Input
+export const MassInputDisabledTextArea = ({
+  id,
+  className,
+  value,
+  onChange,
+  onDoubleClick,
+}: InputTextProps) => {
+  return (
+    <textarea
+      id={id}
+      minLength={1}
+      maxLength={10000}
+      disabled
+      autoComplete="off"
+      className={className}
+      value={value}
+      onChange={onChange}
+    />
+  );
+};
+
 export const MassInputEnabledText = ({
   id,
   className,

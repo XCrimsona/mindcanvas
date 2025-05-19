@@ -388,43 +388,122 @@ $Gold: rgba(250, 186, 0, 0.7);
                     .data-text-component {
                         @include display-align(flex);
                         @include justify-content(center);
-                        @include align-items(center);
+                        @include align-items(flex-start);
                         @include margin-x-y($_0, $auto, $_0 , $auto );
                         @include background-color(#111);
                         @include border-bottom($_2, solid, #00FBA0B3);
-                        @include width(300px);
-                        @include height(300px);
+                        @include width(350px);
+                        @include height(120px);
                         transition: height .2s ease-in-out, width .2s ease-in-out;
 
-                        .mass-enabled-input-text-field {
-                            @include border-top($_2, solid, #111);
-                            @include border-bottom($_2, solid, #111);
-                            @include text-color(#fff);
-                            @include border-left($_2, solid, #111);
-                            @include border-right($_2, solid, #111);
-                            @include background-color(#111);
-                            // @include border-bottom($_2, solid, #00FBA0B3);
-                            @include width(330px);
-                            @include height(20px);
-                            outline: $_2 solid #111;
+                        .text-input-form {
+                            @include width(340px);
+
+                            .label-wrapper {
+                                @include margin-x-y($_10, $_0 , $_0 , $_0 );
+
+                                .text-component-data-input-label {
+                                    @include display-align(block);
+                                    @include margin-x-y($_0, $_0 , $_0 , $_0 );
+                                    @include width(120px);
+                                }
+                            }
+
+                            .text-container {
+                                @include display-align(flex);
+                                @include align-items(center);
+                                @include position(relative);
+
+                                .text-input-wrapper {
+                                    @include display-align(flex);
+                                    @include align-items(center);
+                                    @include position(relative);
+
+                                    .mass-enabled-input-text-field {
+                                        @include display-align(flex);
+                                        @include justify-content(left);
+                                        @include border-top($_2, solid, #111);
+                                        @include border-left($_2, solid, #00FBA0B3);
+                                        @include border-bottom($_2, solid, #00FBA0B3);
+                                        @include text-color(#fff);
+                                        @include border-right($_2, solid, #111);
+                                        @include background-color(#111);
+                                        // @include border-bottom($_2, solid, #00FBA0B3);
+                                        @include width(250px);
+                                        @include height(20px);
+                                        transition: height .2s ease-in-out;
+                                        resize: none;
+                                        outline: $_2 solid #111;
+                                        @include margin-x-y($_0, $auto , $_0 , $_2 );
+                                        // z-index: 5;
+                                    }
+
+                                    .mass-enabled-input-text-field:focus {
+                                        @include height(50px);
+
+                                    }
+
+                                    .btn-container {
+                                        @include display-align(flex);
+                                        @include flex-align(wrap);
+                                        @include align-items(center);
+                                        @include justify-content(center);
+                                        @include width(80px);
+                                        @include height(80px);
+
+                                        .text-selection-wrapper {
+                                            @include margin-x-y($_5, $auto , $_5, $auto );
+
+                                            .select-text-type {
+                                                @include width(70px);
+                                                outline: none;
+                                                @include background-color(#111);
+                                                @include text-color(#FBAA00);
+                                                @include border-top($_1, solid, #555);
+                                                @include border-bottom($_1, solid, #555);
+                                                @include border-left($_1, solid, #555);
+                                                @include border-right($_1, solid, #555);
+
+                                                // .text-type-option-one,
+                                                // .text-type-option-two {}
+                                            }
+                                        }
+
+                                        .text-submit-btn-container {
+                                            @include display-align(flex);
+                                            @include justify-content(right);
+                                            @include margin-x-y($_5, $auto , $_5, $auto );
+
+                                            // @include display-align(flex);
+                                            // @include justify-content(center);
+                                            // @include align-items(center);
+                                            .btn-wrapper {
+                                                @include height(20px);
+                                                @include width(70px);
+                                                outline: none;
+                                                @include background-color(#111);
+                                                @include text-color(#FBAA00);
+                                                @include border-top($_1, solid, #555);
+                                                @include border-bottom($_1, solid, #555);
+                                                @include border-left($_1, solid, #555);
+                                                @include border-right($_1, solid, #555);
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
 
-                    .dynamic-data-container {}
+                    //live data
+                    .data-component {
+                        @include background-color(#eee);
 
-                    .data-element {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
-                        background-color: green;
-                        box-shadow: inset 0px 0px 2px 2px #00aaffcc;
+                        .textarea {
+                            resize: none;
 
-                        //temp
-                        .p-tag {
-
-                            @include margin-x-y($_0, $auto, $_0 , $auto );
-                            background-color: skyblue;
-                            @include text-color(#fff);
                         }
-
                     }
 
                 }

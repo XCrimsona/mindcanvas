@@ -1,5 +1,7 @@
 import { getDB } from "@/lib/connnections/Connections";
+import textModel from "@/models/textModel";
 import UserModel from "@/models/userModel";
+import workspaceModel from "@/models/workspaceModel";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function OPTIONS() {
@@ -18,33 +20,120 @@ export async function OPTIONS() {
 export async function GET(request: NextRequest, { params }: any) {
   try {
     await getDB();
-    const { accountid }: any = await params;
-
+    const { accountid, workspacename, workspaceid }: any = await params;
+    if (!accountid || !workspacename || !workspaceid) {
+      return new NextResponse(
+        JSON.stringify({
+          error: "userid, workspacename or workspaceid is missing",
+        }),
+        { status: 404 }
+      );
+    }
     const user = await UserModel.findById(accountid);
     if (!user) {
       return new NextResponse(JSON.stringify({ error: "User not found" }), {
         status: 404,
       });
-    } else {
-      const sheetResponse = await fetch(
-        `http://localhost:3000/api/account/${user._id}/dashboard/data-management/sheet/[sheetid]/[sheetname]/`
+    }
+    const workspace = await workspaceModel.findOne({
+      createdBy: user._id,
+      _id: workspaceid,
+    });
+    if (!workspace) {
+      return new NextResponse(
+        JSON.stringify({ error: "Workspace not found" }),
+        {
+          status: 404,
+        }
       );
-      if (sheetResponse.ok) {
-        const sheetdata = await sheetResponse.json();
-        console.log("sheet Data: ", "Failed to retrive sheet data");
-        return new NextResponse(JSON.stringify({ data: sheetdata }), {
-          status: 200,
-        });
-      } else {
-        console.log("Failed to retrive sheet data");
+    } else {
+      const [texts] = await Promise.all([
+        textModel.find({ workspaceId: workspaceid, createdBy: user._id }),
+      ]);
+      if (texts.length === 0) {
         return new NextResponse(
-          JSON.stringify({ error: "Failed to retrieve sheet data" }),
+          JSON.stringify({
+            error:
+              "Create your own data so it can appear here retrieve workspaceData",
+          }),
           { status: 404 }
         );
+      } else {
+        console.log("Success retrieving workspaceData");
+        return new NextResponse(JSON.stringify({ data: texts }), {
+          status: 200,
+        });
       }
     }
     //main return
   } catch (err: any) {
-    console.warn("post error: ", err.message);
+    return new NextResponse(
+      JSON.stringify({ error: "server internal workspace error" }),
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(request: NextRequest, { params }: any) {
+  try {
+    await getDB();
+    const body = await request.json();
+    const { text, x, y, type } = body;
+    console.log(body);
+
+    const { accountid, workspacename, workspaceid }: any = await params;
+    if (!accountid || !workspacename || !workspaceid) {
+      return new NextResponse(
+        JSON.stringify({
+          error: "userid, workspacename or workspaceid is missing",
+        }),
+        { status: 404 }
+      );
+    }
+    const user = await UserModel.findById(accountid);
+    if (!user) {
+      return new NextResponse(JSON.stringify({ error: "User not found" }), {
+        status: 404,
+      });
+    }
+    const workspace = await workspaceModel.findOne({
+      createdBy: user._id,
+      _id: workspaceid,
+    });
+    if (!workspace) {
+      return new NextResponse(
+        JSON.stringify({ error: "Workspace not found" }),
+        {
+          status: 404,
+        }
+      );
+    }
+    if (!text || !x || !y || !type) {
+      return new NextResponse(
+        JSON.stringify({ error: "Input client data not found" }),
+        {
+          status: 404,
+        }
+      );
+    }
+    await textModel.create({
+      text: text,
+      type: type,
+      position: { x: x, y: y },
+      createdBy: user._id,
+      workspaceId: workspaceid,
+    });
+
+    return new NextResponse(
+      JSON.stringify({
+        message: "Created",
+      }),
+      { status: 201 }
+    );
+  } catch (err: any) {
+    return new NextResponse(
+      JSON.stringify({ error: "server internal workspace error" }),
+      { status: 500 }
+    );
   }
 }

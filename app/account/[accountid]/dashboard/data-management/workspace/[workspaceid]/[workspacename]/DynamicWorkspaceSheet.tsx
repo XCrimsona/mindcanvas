@@ -2,10 +2,10 @@
 import Div from "@/src/ui/Div";
 import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
 import AuthHeader from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/(header)/AuthWorkspaceHeader";
-import DataContainer from "./DataContainer";
-import PrimaryControlsAndDetails from "./(ComponentHubJSXStructure)/PrimaryControlsAndDetails";
-import WorkspaceCoreFunctionality from "./WorkspaceCoreFunctionality";
-import { WorkspaceSizeContextProvider } from "./DataComponents/WorkspaceControlsProvider/WorkspaceSizeContextProvider";
+import DataContainer from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataContainer";
+import PrimaryControlsAndDetails from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/(ComponentHubJSXStructure)/PrimaryControlsAndDetails";
+import WorkspaceCoreFunctionality from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/WorkspaceCoreFunctionality";
+import { WorkspaceContextProvider } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
 
 const DynamicWorkspaceSheet = ({ params }: any) => {
   try {
@@ -28,11 +28,11 @@ const DynamicWorkspaceSheet = ({ params }: any) => {
                 workspaceDataManagement["work-data-management-container"]
               }
             >
-              <PrimaryControlsAndDetails params={params} />
-              <WorkspaceSizeContextProvider>
+              <WorkspaceContextProvider params={params}>
+                <PrimaryControlsAndDetails params={params} />
                 <DataContainer params={params} />
                 <WorkspaceCoreFunctionality />
-              </WorkspaceSizeContextProvider>
+              </WorkspaceContextProvider>
             </Div>
           </Div>
         </Div>

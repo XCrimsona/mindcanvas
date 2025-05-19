@@ -21,7 +21,6 @@ import Link from "next/link";
 import RouteLink from "@/src/components/ProductSection/RouteLink";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { ConnectToDB } from "@/lib/connnections/Connections";
 
 const Signup = () => {
   const router = useRouter();
