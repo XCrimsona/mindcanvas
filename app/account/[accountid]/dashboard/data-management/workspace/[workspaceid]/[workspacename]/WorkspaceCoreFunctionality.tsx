@@ -23,7 +23,6 @@ const WorkspaceCoreFunctionality = () => {
       </ComponentHubStateProvider>
       <ZoomControls />
       <HelpButton />
-
       <WorkspaceSizeControls />
     </Div>
   );

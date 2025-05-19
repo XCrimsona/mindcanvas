@@ -4,13 +4,16 @@ const textSchema = new mongoose.Schema(
   {
     text: {
       type: String,
-      enum: ["paragraph", "list"],
-      default: "paragraph",
       minlength: [1, "Text content cannot be empty"],
       maxlength: [10000, "Text content too long (max 10 K characters)"],
       required: true,
     },
-    postition: {
+    type: {
+      type: String,
+      enum: ["text", "list"],
+      required: true,
+    },
+    position: {
       x: {
         type: String,
         required: [true, "X coordinate is required"],

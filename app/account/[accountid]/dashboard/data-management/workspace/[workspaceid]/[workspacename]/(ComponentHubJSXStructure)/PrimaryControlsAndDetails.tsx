@@ -6,23 +6,33 @@ import Div from "@/src/ui/Div";
 import Button from "@/src/components/form-elements/Button";
 import { InputDisabledText } from "@/src/components/form-elements/InputTypeInterfaces";
 import SVG from "@/src/SVG";
-import { useMaskSensitiveData } from "../MaskSensitiveData";
+import { useMaskSensitiveData } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/MaskSensitiveData";
+import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
 
 const PrimaryControlsAndDetails = ({ params }: any) => {
   try {
+    //refresh content without reload
+
+    const { updateWorkspaceData } = useWorkspaceContext();
+    const refresh = async () => {
+      // const getWorkspaceData = await fetch(
+      //   `http://localhost:3000/api/account/${params.accountid}/dashboard/data-management/workspace/${params.workspaceid}/${params.workspacename}/`
+      // );
+      // if (getWorkspaceData.ok) {
+      //   // const workspaceData = await getWorkspaceData.json();
+      //   // console.log(workspaceData);
+      updateWorkspaceData();
+      //   console.log("Success retrieving workspaceData");
+      //   // alert("Success retrieving workspaceData");
+      // } else {
+      //   console.log("Couldn't retrieve workspaceData");
+      //   alert("Couldn't retrieve workspaceData");
+      // }
+    };
+
     const { maskSensitiveData } = useMaskSensitiveData();
     //db button logic
     //refresh page to update workspace data
-    const refresh = () => {
-      alert("Refresh Logic");
-      return;
-    };
-
-    //save all data to cloud db
-    const save = () => {
-      alert("Refresh Logic");
-      return;
-    };
 
     //Clipboard features
     const copyWorkspaceName = (e: React.FormEvent<HTMLButtonElement>) => {
@@ -88,7 +98,7 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
               REFRESH
             </Button>
           </Div>
-          <Div
+          {/* <Div
             className={workspaceDataManagement["save-workspace-btn-wrapper"]}
           >
             <Button
@@ -98,7 +108,7 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
             >
               SAVE
             </Button>
-          </Div>
+          </Div> */}
         </Div>
         <Div className={workspaceDataManagement["workspace-details"]}>
           <Div className={workspaceDataManagement["workspace-name-wrapper"]}>

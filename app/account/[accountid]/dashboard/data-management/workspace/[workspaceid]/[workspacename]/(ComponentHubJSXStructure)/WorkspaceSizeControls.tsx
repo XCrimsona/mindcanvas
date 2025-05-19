@@ -1,3 +1,4 @@
+"use client";
 import {
   InputDisabledText,
   InputEnabledText,
@@ -6,7 +7,7 @@ import {
 import Div from "@/src/ui/Div";
 import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
 import LongText from "@/src/ui/LongText";
-import { useWorkspaceSizeContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/WorkspaceControlsProvider/WorkspaceSizeContextProvider";
+import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
 
 //Dynamic workspace width and height
 const WorkspaceSizeControls = () => {
@@ -18,7 +19,7 @@ const WorkspaceSizeControls = () => {
       updateDataBoardWorkspaceWidth,
       toggleWorkspaceSizePropertiesState,
       workspaceSizePropertiesToggleState,
-    } = useWorkspaceSizeContext();
+    } = useWorkspaceContext();
 
     return (
       <form
@@ -55,6 +56,7 @@ const WorkspaceSizeControls = () => {
               className={workspaceDataManagement["mutable-width"]}
               value={workspaceWidth ? workspaceWidth : ""}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                // e.preventDefault();
                 updateDataBoardWorkspaceWidth(e.target.value);
               }}
               placeholder="Update width"
@@ -72,7 +74,6 @@ const WorkspaceSizeControls = () => {
             id="toggle-visual-ops"
             className={workspaceDataManagement["toggle-visual-ops"]}
             onClick={() => {
-              // e.preventDefault();
               toggleWorkspaceSizePropertiesState(
                 workspaceSizePropertiesToggleState
               );

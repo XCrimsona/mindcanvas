@@ -13,6 +13,8 @@ const ComponentHub = () => {
   // const { sharedAudioState, setSharedAudioState } = useSharedAudioState();
   // const { sharedImageState, setSharedImageState } = useSharedImageState();
   // const { sharedVideoState, setSharedVideoState } = useSharedVideoState();
+  console.log("component hub sharedToggleState: ", sharedToggleState);
+
   return (
     sharedToggleState && (
       <Div
@@ -40,9 +42,7 @@ const ComponentHub = () => {
           <Div
             className={workspaceDataManagement["comp-hub-data-components-list"]}
           >
-            <TextContextProvider>
-              <TextButton />
-            </TextContextProvider>
+            <TextButton />
             <Button
               id="audio-comp"
               // onClick={}
