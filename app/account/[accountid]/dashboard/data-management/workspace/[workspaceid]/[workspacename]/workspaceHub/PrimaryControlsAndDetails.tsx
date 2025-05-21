@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
+import primaryControls from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/primary-controls.module.scss";
 import Div from "@/src/ui/Div";
 import Button from "@/src/components/form-elements/Button";
 import { InputDisabledText } from "@/src/components/form-elements/InputTypeInterfaces";
@@ -81,40 +81,36 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
     return (
       <Div
         className={
-          workspaceDataManagement[
-            "primary-workspace-controls-and-workspace-details"
-          ]
+          primaryControls["primary-workspace-controls-and-workspace-details"]
         }
       >
-        <Div className={workspaceDataManagement["primary-workspace-controls"]}>
-          <Div
-            className={workspaceDataManagement["refresh-workspace-btn-wrapper"]}
-          >
+        <Div className={primaryControls["primary-workspace-controls"]}>
+          <Div className={primaryControls["refresh-workspace-btn-wrapper"]}>
             <Button
               id="refresh-workspace-btn"
-              className={workspaceDataManagement["refresh-workspace-btn"]}
+              className={primaryControls["refresh-workspace-btn"]}
               onClick={refresh}
             >
               REFRESH
             </Button>
           </Div>
           {/* <Div
-            className={workspaceDataManagement["save-workspace-btn-wrapper"]}
+            className={primaryControls["save-workspace-btn-wrapper"]}
           >
             <Button
               id="save-workspacep-btn"
-              className={workspaceDataManagement["save-workspace-btn"]}
+              className={primaryControls["save-workspace-btn"]}
               onClick={save}
             >
               SAVE
             </Button>
           </Div> */}
         </Div>
-        <Div className={workspaceDataManagement["workspace-details"]}>
-          <Div className={workspaceDataManagement["workspace-name-wrapper"]}>
+        <Div className={primaryControls["workspace-details"]}>
+          <Div className={primaryControls["workspace-name-wrapper"]}>
             <InputDisabledText
               id=""
-              className={workspaceDataManagement["workspace-name"]}
+              className={primaryControls["workspace-name"]}
               value={
                 params.workspacename
                   ? `Name: ${
@@ -135,19 +131,19 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
                 toggleWorkspaceNameEye ? "Visible Eye icon" : "Hidden Eye Icon"
               }
               onClick={toggleSenstiveWorkspaceName}
-              className={workspaceDataManagement["eye-icon"]}
+              className={primaryControls["eye-icon"]}
             />
             <SVG
               src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746435210/copy-solid-white_cf5vfl.svg"
               alt="Clipboard icon"
               onClick={copyWorkspaceName}
-              className={workspaceDataManagement["clipboard-icon"]}
+              className={primaryControls["clipboard-icon"]}
             />
           </Div>
-          <Div className={workspaceDataManagement["workspace-id-wrapper"]}>
+          <Div className={primaryControls["workspace-id-wrapper"]}>
             <InputDisabledText
               id=""
-              className={workspaceDataManagement["workspace-id"]}
+              className={primaryControls["workspace-id"]}
               value={
                 params.workspaceid
                   ? `Id: ${
@@ -168,13 +164,13 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
                 toggleWorkspaceIdEye ? "Visible Eye icon" : "Hidden Eye Icon"
               }
               onClick={toggleSenstiveWorkspaceId}
-              className={workspaceDataManagement["eye-icon"]}
+              className={primaryControls["eye-icon"]}
             />
             <SVG
               src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746435210/copy-solid-white_cf5vfl.svg"
               alt="Clipboard icon"
               onClick={copyWorkspaceId}
-              className={workspaceDataManagement["clipboard-icon"]}
+              className={primaryControls["clipboard-icon"]}
             />
           </Div>
         </Div>

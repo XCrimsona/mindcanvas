@@ -1,0 +1,31 @@
+@import "_mixins";
+@import "_variables";
+
+.work-data-management-main-container {
+    @include height(100%);
+    @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
+    @include background-color(#000000);
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    z-index: 1;
+
+    .work-data-management-container-wrapper {
+        @include width(770px);
+        @include margin-x-y($_40, $auto, $_0 , $auto );
+        @include Angular-Gradient();
+
+        .work-data-management-container {
+            @include display-align(flex);
+            @include flex-align(wrap);
+            @include align-content(flex-start);
+            //temp width
+            @include width(700px);
+            @include align-text(center);
+            @include border-radius(6px);
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include min-height(820px);
+            @include max-height(820px);
+
+
+        }
+    }
+}

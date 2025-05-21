@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
-import Text from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data/absolute-data-components/Text";
-import Audio from "./absolute-data-components/Audio";
-import Image from "./absolute-data-components/Image";
-import Video from "./absolute-data-components/Video";
-import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
+import { ImmutableText } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data/absolute-data-components/Text";
+import { ImmutableList } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data/absolute-data-components/List";
+import { ImmutableAudio } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data/absolute-data-components/Audio";
+import { ImmutableImage } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data/absolute-data-components/Image";
+import { ImmutableVideo } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data/absolute-data-components/Video";
 import Div from "@/src/ui/Div";
+import ShortText from "@/src/ui/ShortText";
 
 const WorkspaceData = () => {
-  //updateWorkspaceData
+  //Display all workspace data including text, list, audio, image, video once submitted
   const { workspaceData } = useWorkspaceContext();
 
   return (
@@ -18,22 +19,26 @@ const WorkspaceData = () => {
       const renderDataByComponentType = (data: any) => {
         switch (data.type) {
           case "text":
-            return <Text data={data} />;
+            return <ImmutableText data={data} />;
           case "list":
-            return <Text data={data} />;
+            return <ImmutableList data={data} />;
           case "audio":
-            return <Audio data={data} />;
+            return <ImmutableAudio data={data} />;
           case "image":
-            return <Image data={data} />;
+            return <ImmutableImage data={data} />;
           case "video":
-            return <Video data={data} />;
+            return <ImmutableVideo data={data} />;
           default:
-            return <p>Unsupported Type</p>;
+            return (
+              <ShortText className={"unsupported-type-text"}>
+                Unsupported Type
+              </ShortText>
+            );
         }
       };
       return (
         <Div
-          className={workspaceDataManagement["data-component"]}
+          className={"data-component"}
           key={data._id}
           onStyle={{
             position: "absolute",

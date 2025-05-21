@@ -20,11 +20,11 @@ type TypeWorkspaceSizeContext = true | false;
 //component hub text button toggler values
 type TypeTextContext = true | false;
 //component hub Audio button toggler values
-// type TypeAudioContext = true | false;
+type TypeAudioContext = true | false;
 //component hub Image button toggler values
-// type TypeImageContext = true | false;
+type TypeImageContext = true | false;
 //component hub text button toggler values
-// type TypeVideoContext = true | false;
+type TypeVideoContext = true | false;
 
 type TypeWorkspaceData = any | null;
 //workspace data text input component types
@@ -32,20 +32,41 @@ type TypeWorkspaceInputContext = string | null;
 
 interface IWorkspaceContextType {
   dataScrollBoardRef: RefObject<HTMLDivElement | null>;
-  textInputOffSet: RefObject<{ x: number; y: number }>;
   globalDraggingRef: RefObject<TypeGlobalDragRefContext>;
+
+  //Global Text Component for data input
+  textInputOffSet: RefObject<{ x: number; y: number }>;
   textToggleState: TypeTextContext;
   toggleTextState: () => void;
-
   textInputCompRef: RefObject<HTMLDivElement | null>;
   textInputCompPosRef: RefObject<{ x: number; y: number }>;
-  // audioInputCompRef: RefObject<HTMLDivElement | null>;
-  // imageInputCompRef: RefObject<HTMLDivElement | null>;
-  // videoInputCompRef: RefObject<HTMLDivElement | null>;
 
-  //for mapping data
+  //Global Audio Component for data input
+  audioInputOffSet: RefObject<{ x: number; y: number }>;
+  audioToggleState: TypeAudioContext;
+  toggleAudioState: () => void;
+  audioInputCompPosRef: RefObject<{ x: number; y: number }>;
+  audioInputCompRef: RefObject<HTMLDivElement | null>;
+
+  //Global Image Component for data input
+  imageInputOffSet: RefObject<{ x: number; y: number }>;
+  imageToggleState: TypeImageContext;
+  toggleImageState: () => void;
+  imageInputCompPosRef: RefObject<{ x: number; y: number }>;
+  imageInputCompRef: RefObject<HTMLDivElement | null>;
+
+  //Global Video Component for data input
+  videoInputOffSet: RefObject<{ x: number; y: number }>;
+  videoToggleState: TypeVideoContext;
+  toggleVideoState: () => void;
+  videoInputCompPosRef: RefObject<{ x: number; y: number }>;
+  videoInputCompRef: RefObject<HTMLDivElement | null>;
+
+  //Global Data Component
+  //Element used to carry database and responsible for mapping
   workspaceData: TypeWorkspaceData;
   updateWorkspaceData: () => void;
+
   //workspace size, height and width
   workspaceSizePropertiesToggleState: TypeWorkspaceSizeContext;
   toggleWorkspaceSizePropertiesState: (value: boolean) => void;
@@ -71,11 +92,12 @@ export const WorkspaceContextProvider = ({
   //used as failsafe to prevent accidental drags
   const globalDraggingRef = useRef<TypeGlobalDragRefContext>(false);
 
-  const textInputOffSet = useRef<any>({ x: 0, y: 0 });
+  //Text Component
   //Workspace Text Button toggle logic on the ComponentHub popup box
+  const textInputOffSet = useRef<any>({ x: 0, y: 0 });
+
   const [textToggleState, setTextToggleState] =
     useState<TypeTextContext>(false);
-
   const toggleTextState = () => {
     setTextToggleState((prev) => (prev === false ? true : false));
   };
@@ -86,15 +108,55 @@ export const WorkspaceContextProvider = ({
   //for position reference
   const textInputCompPosRef = useRef<any>({ x: 0, y: 0 });
 
-  // const audioInputCompRef = useRef<HTMLDivElement | null>(null);
-  // const audioInputPosRef = useRef<HTMLDivElement | null>(null);
+  //Audio Component
+  //Workspace Audio Button toggle logic on the ComponentHub popup box
+  const audioInputOffSet = useRef<any>({ x: 0, y: 0 });
 
-  // const imageInputCompRef = useRef<HTMLDivElement | null>(null);
-  // const imageInputPosRef = useRef<HTMLDivElement | null>(null);
+  const [audioToggleState, setAudioToggleState] =
+    useState<TypeAudioContext>(false);
+  const toggleAudioState = () => {
+    setAudioToggleState((prev) => (prev === false ? true : false));
+  };
 
-  // const videoInputCompRef = useRef<HTMLDivElement | null>(null);
-  // const videoInputPosRef = useRef<HTMLDivElement | null>(null);
+  //find audio input component's dom reference and x,y position under the
+  //data-scroll-board component as absolute value
+  const audioInputCompRef = useRef<HTMLDivElement>(null)!;
+  //for position reference
+  const audioInputCompPosRef = useRef<any>({ x: 0, y: 0 });
 
+  //IMAGE Component
+  //Workspace Image Button toggle logic on the ComponentHub popup box
+  const imageInputOffSet = useRef<any>({ x: 0, y: 0 });
+
+  const [imageToggleState, setImageToggleState] =
+    useState<TypeImageContext>(false);
+  const toggleImageState = () => {
+    setImageToggleState((prev) => (prev === false ? true : false));
+  };
+
+  //find text input component's dom reference and x,y position under the
+  //data-scroll-board component as absolute value
+  const imageInputCompRef = useRef<HTMLDivElement>(null)!;
+  //for position reference
+  const imageInputCompPosRef = useRef<any>({ x: 0, y: 0 });
+
+  //VIDEO Component
+  //Workspace Image Button toggle logic on the ComponentHub popup box
+  const videoInputOffSet = useRef<any>({ x: 0, y: 0 });
+
+  const [videoToggleState, setVideoToggleState] =
+    useState<TypeVideoContext>(false);
+  const toggleVideoState = () => {
+    setVideoToggleState((prev) => (prev === false ? true : false));
+  };
+
+  //find text input component's dom reference and x,y position under the
+  //data-scroll-board component as absolute value
+  const videoInputCompRef = useRef<HTMLDivElement>(null)!;
+  //for position reference
+  const videoInputCompPosRef = useRef<any>({ x: 0, y: 0 });
+
+  //DATA
   //element used to carry database and responsible for mapping
   const [workspaceData, setWorkspaceData] = useState<any>(null);
 
@@ -159,6 +221,27 @@ export const WorkspaceContextProvider = ({
         textInputCompPosRef,
         textInputCompRef,
 
+        //Audio Button toggle functions
+        audioInputOffSet,
+        audioToggleState,
+        toggleAudioState,
+        audioInputCompRef,
+        audioInputCompPosRef,
+
+        //Image Button toggle functions
+        imageInputOffSet,
+        imageToggleState,
+        toggleImageState,
+        imageInputCompRef,
+        imageInputCompPosRef,
+
+        //Video Button toggle functions
+        videoInputOffSet,
+        videoToggleState,
+        toggleVideoState,
+        videoInputCompRef,
+        videoInputCompPosRef,
+
         //data
         workspaceData,
         updateWorkspaceData,
@@ -185,80 +268,3 @@ export const useWorkspaceContext = () => {
     );
   return context;
 };
-
-/*"use client";
-import { createContext, ReactNode, useContext, useState } from "react";
-
-type TypeWorkspaceSizeContext = true | false;
-type TypeWorkspaceInputContext = string | null;
-interface IWorkspaceSizeContextType {
-  workspaceSizePropertiesToggleState: TypeWorkspaceSizeContext;
-  toggleWorkspaceSizePropertiesState: (value: boolean) => void;
-  workspaceWidth: TypeWorkspaceInputContext;
-  workspaceHeight: TypeWorkspaceInputContext;
-  updateDataBoardWorkspaceHeight: (height: string) => void;
-  updateDataBoardWorkspaceWidth: (width: string) => void;
-}
-
-const WorkspaceSizeContext = createContext<
-  IWorkspaceSizeContextType | undefined
->(undefined);
-
-export const WorkspaceSizeContextProvider = ({
-  children,
-}: {
-  children: ReactNode;
-}) => {
-  const [
-    workspaceSizePropertiesToggleState,
-    setWorkspaceSizePropertiesToggleState,
-  ] = useState<TypeWorkspaceSizeContext>(false);
-
-  const toggleWorkspaceSizePropertiesState = () => {
-    setWorkspaceSizePropertiesToggleState((prev) =>
-      prev === false ? true : false
-    );
-  };
-
-  const [workspaceHeight, setWorkspaceSizeHeight] =
-    useState<TypeWorkspaceInputContext>("");
-  const updateDataBoardWorkspaceHeight = (height: string) => {
-    setWorkspaceSizeHeight((prev) =>
-      prev === workspaceHeight ? height : workspaceHeight
-    );
-  };
-
-  const [workspaceWidth, setWorkspaceSizeWidth] =
-    useState<TypeWorkspaceInputContext>("");
-  const updateDataBoardWorkspaceWidth = (width: string) => {
-    setWorkspaceSizeWidth((prev) =>
-      prev === workspaceWidth ? width : workspaceWidth
-    );
-  };
-
-  return (
-    <WorkspaceSizeContext.Provider
-      value={{
-        workspaceSizePropertiesToggleState,
-        toggleWorkspaceSizePropertiesState,
-        workspaceHeight,
-        workspaceWidth,
-        updateDataBoardWorkspaceHeight,
-        updateDataBoardWorkspaceWidth,
-      }}
-    >
-      {children}
-    </WorkspaceSizeContext.Provider>
-  );
-};
-
-export const useWorkspaceSizeContext = () => {
-  const context = useContext(WorkspaceSizeContext);
-  if (!context)
-    throw new Error(
-      "useSharedUseState must be used inside TextContextProvider"
-    );
-  return context;
-};
-
-*/

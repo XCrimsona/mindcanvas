@@ -5,7 +5,7 @@ import {
   InputSubmit,
 } from "@/src/components/form-elements/InputTypeInterfaces";
 import Div from "@/src/ui/Div";
-import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
+import workspaceSizeControls from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/workspace-controls.module.scss";
 import LongText from "@/src/ui/LongText";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
 
@@ -23,18 +23,18 @@ const WorkspaceSizeControls = () => {
 
     return (
       <form
-        className={workspaceDataManagement["workspace-size-controls"]}
+        className={workspaceSizeControls["workspace-size-controls"]}
         // onSubmit={() => {
         //save width and height to db
         //use comm notification lib to communicate
         // }}
       >
         {/* make height and width editable and immutable */}
-        <Div className={workspaceDataManagement["height-container"]}>
+        <Div className={workspaceSizeControls["height-container"]}>
           {workspaceSizePropertiesToggleState ? (
             <InputEnabledText
               id="mutable-height"
-              className={workspaceDataManagement["mutable-height"]}
+              className={workspaceSizeControls["mutable-height"]}
               value={workspaceHeight ? workspaceHeight : ""}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 updateDataBoardWorkspaceHeight(event.target.value);
@@ -44,16 +44,16 @@ const WorkspaceSizeControls = () => {
           ) : (
             <InputDisabledText
               id="immutable-height"
-              className={workspaceDataManagement["immutable-height"]}
+              className={workspaceSizeControls["immutable-height"]}
               value={workspaceHeight ? workspaceHeight : "No DB height"}
             />
           )}
         </Div>
-        <Div className={workspaceDataManagement["width-container"]}>
+        <Div className={workspaceSizeControls["width-container"]}>
           {workspaceSizePropertiesToggleState ? (
             <InputEnabledText
               id=""
-              className={workspaceDataManagement["mutable-width"]}
+              className={workspaceSizeControls["mutable-width"]}
               value={workspaceWidth ? workspaceWidth : ""}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 // e.preventDefault();
@@ -64,15 +64,15 @@ const WorkspaceSizeControls = () => {
           ) : (
             <InputDisabledText
               id=""
-              className={workspaceDataManagement["immutable-width"]}
+              className={workspaceSizeControls["immutable-width"]}
               value={workspaceWidth ? workspaceWidth : "No DB width"}
             />
           )}
         </Div>
-        <Div className={workspaceDataManagement["toggle-visual-ops-wrapper"]}>
+        <Div className={workspaceSizeControls["toggle-visual-ops-wrapper"]}>
           <div
             id="toggle-visual-ops"
-            className={workspaceDataManagement["toggle-visual-ops"]}
+            className={workspaceSizeControls["toggle-visual-ops"]}
             onClick={() => {
               toggleWorkspaceSizePropertiesState(
                 workspaceSizePropertiesToggleState
@@ -84,16 +84,14 @@ const WorkspaceSizeControls = () => {
               : "Edit Properies"}
           </div>
         </Div>
-        <Div className={workspaceDataManagement["update-spacing-btn-wrapper"]}>
+        <Div className={workspaceSizeControls["update-spacing-btn-wrapper"]}>
           <InputSubmit
             id="update"
-            className={workspaceDataManagement["update-spacing-btn"]}
+            className={workspaceSizeControls["update-spacing-btn"]}
             value="Update"
           />
         </Div>
-        <LongText
-          className={workspaceDataManagement["workspace-controls-text"]}
-        >
+        <LongText className={workspaceSizeControls["workspace-controls-text"]}>
           Workspace Size Properties
         </LongText>
       </form>

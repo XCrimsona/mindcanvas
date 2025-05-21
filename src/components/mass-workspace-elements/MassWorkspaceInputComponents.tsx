@@ -1,141 +1,274 @@
-interface InputTextProps {
+import LongText from "@/src/ui/LongText";
+
+interface ITextProps {
+  id: string;
+  className: string;
+  placeholder: string;
+  value: string;
+  onChange?: React.ReactEventHandler;
+  onDoubleClick?: React.ReactEventHandler;
+  children?: React.ReactNode;
+}
+
+//Text Component
+export const DisabledTextAreaInput = ({
+  className,
+  onDoubleClick,
+  children,
+}: ITextProps) => {
+  return (
+    <LongText onDoubleClick={onDoubleClick} className={className}>
+      {children}
+    </LongText>
+  );
+};
+
+export const EnabledTextAreaInput = ({
+  id,
+  className,
+  placeholder,
+  value,
+  onChange,
+}: ITextProps) => {
+  return (
+    <textarea
+      id={id}
+      minLength={1}
+      maxLength={10000}
+      autoComplete="off"
+      placeholder={placeholder}
+      className={className}
+      value={value}
+      onChange={onChange}
+      required
+    />
+  );
+};
+
+interface IAudioProps {
   id: string;
   className: string;
   placeholder?: string;
   value: string;
   onChange?: React.ReactEventHandler;
   onDoubleClick?: React.ReactEventHandler;
+  children?: React.ReactNode;
+}
+//Audio Component Input
+export const DisabledAudioInput = ({
+  className,
+  onDoubleClick,
+  children,
+}: IAudioProps) => {
+  return (
+    <audio controls onDoubleClick={onDoubleClick} className={className}>
+      {children}
+    </audio>
+  );
+};
+
+export const EnabledAudioInput = ({
+  id,
+  className,
+  placeholder,
+  value,
+  onChange,
+}: IAudioProps) => {
+  return (
+    <input
+      type="file"
+      id={id}
+      minLength={1}
+      accept="audio/*"
+      maxLength={10000}
+      autoComplete="off"
+      placeholder={placeholder}
+      className={className}
+      value={value}
+      onChange={onChange}
+      required
+    />
+  );
+};
+export const EnabledAudiosInput = ({
+  id,
+  className,
+  placeholder,
+  value,
+  onChange,
+}: IAudioProps) => {
+  return (
+    <input
+      type="file"
+      multiple
+      id={id}
+      minLength={1}
+      accept="audio/*"
+      maxLength={10000}
+      autoComplete="off"
+      placeholder={placeholder}
+      className={className}
+      value={value}
+      onChange={onChange}
+      required
+    />
+  );
+};
+
+interface IImageProps {
+  id: string;
+  className: string;
+  src?: string;
+  alt?: string;
+  onChange?: React.ReactEventHandler;
+  onDoubleClick?: React.ReactEventHandler;
 }
 
-//Text Component Input
-export const MassInputDisabledText = ({
+//Image Component
+export const DisabledImageInput = ({
   id,
   className,
-  value,
-  onChange,
+  src,
+  alt,
   onDoubleClick,
-}: InputTextProps) => {
+}: IImageProps) => {
   return (
-    <input
-      type="text"
+    <img
       id={id}
-      minLength={1}
-      maxLength={10000}
-      disabled
-      autoComplete="off"
+      src={src}
+      alt={alt}
       className={className}
-      value={value}
-      onChange={onChange}
+      onDoubleClick={onDoubleClick}
     />
   );
 };
 
-export const MassInputEnabledTextArea = ({
+export const EnabledImageInput = ({ id, className, onChange }: IImageProps) => {
+  return (
+    <input
+      type="file"
+      accept="image/*"
+      minLength={1}
+      maxLength={1}
+      autoComplete="off"
+      onChange={onChange}
+      id={id}
+      className={className}
+      required
+    />
+  );
+};
+
+//under construction
+export const DisabledImagesInput = ({
   id,
   className,
-  placeholder,
-  value,
-  onChange,
-}: InputTextProps) => {
+  src,
+  onDoubleClick,
+}: IImageProps) => {
   return (
-    <textarea
+    <img
       id={id}
-      minLength={1}
-      maxLength={10000}
-      autoComplete="off"
-      placeholder={placeholder}
+      src={src}
       className={className}
-      value={value}
+      onDoubleClick={onDoubleClick}
+    />
+  );
+};
+
+export const EnabledImagesInput = ({
+  id,
+  className,
+  onChange,
+}: IImageProps) => {
+  return (
+    <input
+      type="file"
+      accept="image/*"
+      multiple
+      minLength={1}
+      maxLength={1}
+      autoComplete="off"
+      onChange={onChange}
+      id={id}
+      className={className}
+      required
+    />
+  );
+};
+
+//Video Component
+interface IVideoProps {
+  id: string;
+  className: string;
+  src?: string;
+  alt?: string;
+  value?: string;
+  onChange?: React.ReactEventHandler;
+  onDoubleClick?: React.ReactEventHandler;
+}
+export const DisabledVideoInput = ({
+  id,
+  className,
+  src,
+  onDoubleClick,
+}: IVideoProps) => {
+  return (
+    <video
+      src={src}
+      id={id}
+      className={className}
+      onDoubleClick={onDoubleClick}
+    />
+  );
+};
+
+export const EnabledVideoInput = ({ id, className, onChange }: IVideoProps) => {
+  return (
+    <input
+      type="file"
+      id={id}
+      accept="video/*"
+      min={1}
+      max={100}
+      className={className}
       onChange={onChange}
       required
     />
   );
 };
 
-//Text Component Input
-export const MassInputDisabledTextArea = ({
+//under construction
+export const DisabledVideosInput = ({
   id,
   className,
-  value,
-  onChange,
+  src,
   onDoubleClick,
-}: InputTextProps) => {
+}: IVideoProps) => {
   return (
-    <textarea
+    <video
+      src={src}
       id={id}
-      minLength={1}
-      maxLength={10000}
-      disabled
-      autoComplete="off"
       className={className}
-      value={value}
-      onChange={onChange}
+      onDoubleClick={onDoubleClick}
     />
   );
 };
 
-export const MassInputEnabledText = ({
+export const EnabledVideosInputs = ({
   id,
   className,
-  placeholder,
-  value,
   onChange,
-}: InputTextProps) => {
+}: IVideoProps) => {
   return (
     <input
-      type="text"
+      type="file"
+      multiple
       id={id}
-      minLength={1}
-      maxLength={10000}
-      autoComplete="off"
-      placeholder={placeholder}
+      accept="video/*"
+      min={1}
+      max={100}
       className={className}
-      value={value}
-      onChange={onChange}
-      required
-    />
-  );
-};
-
-//Audio Component Input
-export const MassInputDisabledAudio = ({
-  id,
-  className,
-  value,
-  onChange,
-}: InputTextProps) => {
-  return (
-    <input
-      type="text"
-      id={id}
-      minLength={1}
-      maxLength={10000}
-      disabled
-      autoComplete="off"
-      className={className}
-      value={value}
-      onChange={onChange}
-    />
-  );
-};
-
-export const MassInputEnabled = ({
-  id,
-  className,
-  placeholder,
-  value,
-  onChange,
-}: InputTextProps) => {
-  return (
-    <input
-      type="text"
-      id={id}
-      minLength={1}
-      maxLength={10000}
-      autoComplete="off"
-      placeholder={placeholder}
-      className={className}
-      value={value}
       onChange={onChange}
       required
     />

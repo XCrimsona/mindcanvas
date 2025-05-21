@@ -1,0 +1,30 @@
+@import "../_mixins";
+@import "../_variables";
+
+.component-hub-container {
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    @include width(100px);
+    @include height(70px);
+    @include display-align(flex);
+    @include flex-align(wrap);
+    @include justify-content(center);
+    @include align-content(center);
+
+    .component-hub-btn-wrapper {
+        .component-hub-btn {
+            @include height(30px);
+            @include width(30px);
+            cursor: pointer;
+        }
+    }
+
+    .component-hub-text-wrapper {
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+
+        .longtext {
+            // @include height(30px);
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include font-size(15px);
+        }
+    }
+}

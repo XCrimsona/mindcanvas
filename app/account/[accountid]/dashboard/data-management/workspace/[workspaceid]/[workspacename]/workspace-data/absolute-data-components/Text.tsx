@@ -1,16 +1,18 @@
 "use client";
-import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
+import workspaceDataManagement from "@/app/account/[accountid/dashboard/data-management/workspace/[workspaceid/[workspacename/workspace-data-management.module.scss";
 import React from "react";
 
-const Text = ({ data }: any) => {
-  return (
-    <textarea
-      className={workspaceDataManagement["textarea"]}
-      disabled
-      value={data.text}
-    />
-    // </div>
-  );
+export const ImmutableText = ({ data }: any) => {
+  return <p className={"textarea"}>{data.text}</p>;
 };
 
-export default Text;
+export const MutableText = ({ data }: any) => {
+  return (
+    <textarea
+      className={"textarea"}
+      value={data.text}
+      minLength={1}
+      maxLength={10000}
+    />
+  );
+};

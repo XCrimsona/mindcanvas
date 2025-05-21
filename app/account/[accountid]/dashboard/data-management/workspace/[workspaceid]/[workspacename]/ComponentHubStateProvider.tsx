@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 type TypeSharedUseStateContext = true | false;
 interface ISharedUseStateContextType {
@@ -40,7 +34,7 @@ export const useComponentHubState = () => {
   const context = useContext(SharedUseStateContext);
   if (!context) {
     throw new Error(
-      "useSharedUseState must be used within SharedUseStateProvider "
+      "useComponentHubState must be used within SharedUseStateProvider "
     );
   }
   return context;

@@ -1,0 +1,99 @@
+@import "../_variables";
+@import "../_mixins";
+
+.data-text-component {
+    @include DataComponent;
+
+    .text-input-form {
+        @include width(340px);
+
+        .text-label-wrapper {
+            @include margin-x-y($_10, $_0 , $_0 , $_0 );
+
+            .list-label,
+            .text-label {
+                @include display-align(block);
+                @include margin-x-y($_0, $_0 , $_0 , $_0 );
+                @include width(120px);
+            }
+        }
+
+        .text-container {
+            @include display-align(flex);
+            @include align-items(center);
+            @include position(relative);
+
+            .text-input-wrapper {
+                @include display-align(flex);
+                @include align-items(center);
+                @include position(relative);
+
+                .enabled-list-input-field,
+                .enabled-text-input-field {
+                    @include display-align(flex);
+                    @include justify-content(left);
+                    @include border-top($_2, solid, #111);
+                    @include border-left($_2, solid, #00FBA0B3);
+                    @include border-bottom($_2, solid, #00FBA0B3);
+                    @include text-color(#fff);
+                    @include border-right($_2, solid, #111);
+                    @include background-color(#111);
+                    // @include border-bottom($_2, solid, #00FBA0B3);
+                    @include width(250px);
+                    @include height(20px);
+                    transition: height .2s ease-in-out;
+                    resize: none;
+                    outline: $_2 solid #111;
+                    @include margin-x-y($_0, $auto , $_0 , $_2 );
+                }
+
+                .enabled-list-input-field:focus,
+                .enabled-text-input-field:focus {
+                    @include height(50px);
+                }
+
+                .text-btn-container {
+                    @include display-align(flex);
+                    @include flex-align(wrap);
+                    @include align-items(center);
+                    @include justify-content(center);
+                    @include width(80px);
+                    @include height(80px);
+
+                    .text-submit-btn-container {
+                        @include display-align(flex);
+                        @include justify-content(right);
+                        @include margin-x-y($_5, $auto , $_5, $auto );
+
+                        .text-btn-submit {
+                            @include height(20px);
+                            @include width(70px);
+                            outline: none;
+                            @include background-color(#111);
+                            @include text-color(#FBAA00);
+                            @include border-top($_1, solid, #555);
+                            @include border-bottom($_1, solid, #555);
+                            @include border-left($_1, solid, #555);
+                            @include border-right($_1, solid, #555);
+                        }
+                    }
+
+                    .text-selection-wrapper {
+                        @include margin-x-y($_5, $auto , $_5, $auto );
+
+                        .select-text-type {
+                            @include width(70px);
+                            outline: none;
+                            @include background-color(#111);
+                            @include text-color(#FBAA00);
+                            @include border-top($_1, solid, #555);
+                            @include border-bottom($_1, solid, #555);
+                            @include border-left($_1, solid, #555);
+                            @include border-right($_1, solid, #555);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

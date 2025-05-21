@@ -3,10 +3,10 @@ import SVG from "@/src/SVG";
 import Div from "@/src/ui/Div";
 import React from "react";
 import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
-import { useSharedUseState } from "../SharedStateProvider";
+import { useComponentHubState } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/ComponentHubStateProvider";
 
-const SharedStateToggle = () => {
-  const { toggleSharedState } = useSharedUseState();
+const ComponentHubStateToggle = () => {
+  const { toggleSharedState } = useComponentHubState();
   return (
     <Div className={workspaceDataManagement["component-hub-btn-wrapper"]}>
       <SVG
@@ -19,4 +19,4 @@ const SharedStateToggle = () => {
   );
 };
 
-export default SharedStateToggle;
+export default ComponentHubStateToggle;

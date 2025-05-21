@@ -1,17 +1,18 @@
 "use client";
 import Button from "@/src/components/form-elements/Button";
+import videoComp from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/comp-hub-data-components.module.scss";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
-import textComp from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/comp-hub-data-components.module.scss";
-export const TextButton = () => {
+
+export const VideoButton = () => {
   // Toggles Text state true or false to display or hide text component in DataContainer component.
-  const { toggleTextState } = useWorkspaceContext();
+  const { toggleVideoState } = useWorkspaceContext();
   return (
     <Button
-      id="text-comp"
-      onClick={toggleTextState}
-      className={textComp["text-comp"]}
+      id="video-comp"
+      onClick={toggleVideoState}
+      className={videoComp["video-comp"]}
     >
-      Text
+      Video
     </Button>
   );
 };

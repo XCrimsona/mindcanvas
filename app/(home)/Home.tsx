@@ -14,25 +14,25 @@ const Home = () => {
   const content: any = {
     //Introduction Summary of Tools used by app features
     designedFor: [
-      "Analyzing complex data.",
+      // "Analyzing complex data.",
       "Security and Privacy.",
-      "Setting goals and personal milestones.",
       "Simple to Advanced notes.",
       "Limited Desk Space. ",
       "Complex data structures.",
       "Taking your work efficiency to the next level.",
-      "Tracking your overall health in fitness.",
+      // "Tracking your overall health in fitness.",
+      // "Setting goals and personal milestones.",
     ],
 
     //Distinct features avail when logged in
     features: [
       "Data Management Board Editor",
-      "Styling Hub | Image Editor",
-      "Daily to Yearly User Customized Planner",
-      "Built-in Fitness App",
+      "Styling Hub | Image Editor - COMING SOON",
+      "Daily to Yearly User Customized Planner - COMING SOON",
+      "Built-in Fitness App - COMING SOON",
     ],
     ["privacy-security"]: [
-      "Life Expansion use cookies to help you track your data. It stores your data with cloud providers such as mongoDB, and azure cloud. We have a privacy policy that states we stricly refuse to share any of your data with other third parties who sell personal data behind the scenes.",
+      // "Life Expansion use cookies to help you track your data. It stores your data with cloud providers such as mongoDB, and azure cloud. We have a privacy policy that states we stricly refuse to share any of your data with other third parties who sell personal data behind the scenes.",
       "Life Expansion\u2019s privacy rules protect all users and their information by encrypting data of all inidividual accounts that even the admins cannot access as the security key of all those accounts decrypting data is kept by the user.",
       "By having privacy rules in place, life expansion performs database operations that analyze metrics to monitor for unauthorized logins, offensive database commands that may indicate potential cyber attacks to break into accounts, attempying to gain access to copy, modify, or destroy information. Life expansion cannot scan your data in any way.",
       "Multi Factor Authentication is highly recommended.",
@@ -41,9 +41,10 @@ const Home = () => {
 
   return (
     <>
+      {/* 
       <Header id="home-header" className="home-header">
-        {/* select requires integration with the themeprovider */}
-        <select id="color-theme" className="color-theme">
+        select requires integration with the themeprovider */}
+      {/*<select id="color-theme" className="color-theme">
           <option>Select your preference</option>
           <optgroup>
             <option value={"system"}>system</option>
@@ -61,6 +62,7 @@ const Home = () => {
           </optgroup>
         </select>
       </Header>
+        */}
       <HeadingOne id="heading-one" className={home["heading-one"]}>
         Life Expansion
       </HeadingOne>
@@ -82,7 +84,6 @@ const Home = () => {
             </LongText>
           );
         })}
-        {/* <IntroTyped /> */}
       </Div>
       <HeadingTwo
         id="heading-two-features"
@@ -107,10 +108,10 @@ const Home = () => {
         measures{"\u003a"}
       </HeadingTwo>
       <UL className={home["list-security-privacy"]}>
-        {content["privacy-security"].map((priv: string, key: number) => {
+        {content["privacy-security"].map((list: string, key: number) => {
           return (
             <ListItem key={key} className={home["sec-priv-item"]}>
-              {priv}
+              {list}
             </ListItem>
           );
         })}
