@@ -1,0 +1,102 @@
+@import "../_variables";
+@import "../_mixins";
+
+.workspace-size-controls {
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    @include height(70px);
+    @include width(300px);
+    @include display-align(flex);
+    @include flex-align(wrap);
+    @include justify-content(center);
+
+    .height-container,
+    .width-container {
+        @include margin-x-y($_0, $_5, $_0 , $_5 );
+
+        .immutable-height,
+        .immutable-width,
+        .mutable-height,
+        .mutable-width {
+            @include display-align(block);
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include background-color(#000000B3);
+            @include border-top($_2, solid, #000000B3);
+            @include border-bottom($_2, solid, #FABB00DD);
+            @include border-left($_2, solid, #000000B3);
+            @include border-right($_2, solid, #000000B3);
+            @include width(120px);
+            @include text-color(#fff);
+            @include height(14px);
+        }
+
+        .mutable-height:focus,
+        .mutable-width:focus {
+            cursor: text;
+            @include background-color(#000000B3);
+            outline: $_2 solid #000000B3;
+            @include text-color(#fff);
+
+        }
+
+        .immutable-height:hover,
+        .immutable-width:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    .toggle-visual-ops-wrapper {
+        @include display-align(flex);
+        @include justify-content(center);
+        @include align-items(center);
+        @include margin-x-y($_0, $_5, $_0 , $_5 );
+        @include height(20px);
+
+        .toggle-visual-ops {
+            @include display-align(block);
+            @include background-color(#1C1C1C);
+            @include border-radius(4px);
+            box-shadow: inset 0px 0px 0px 2px #333;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include padding-x-y($_4, $_0, $_4, $_0 );
+            @include text-color(#fff);
+            @include width(128px);
+            @include font-size(12px);
+            cursor: pointer;
+        }
+    }
+
+    .update-spacing-btn-wrapper {
+        @include display-align(flex);
+        @include justify-content(center);
+        @include align-items(center);
+        @include margin-x-y($_0, $_5, $_0 , $_5 );
+        @include height(20px);
+
+        .update-spacing-btn {
+            @include display-align(block);
+            @include background-color(#1C1C1C);
+            @include border-radius(4px);
+            box-shadow: inset 0px 0px 0px 2px #333;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            @include border($_2, solid, none);
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include padding-x-y($_4, $_0, $_4, $_0 );
+            @include text-color(#fff);
+            @include width(128px);
+            @include font-size(12px);
+            cursor: pointer;
+        }
+    }
+
+    .workspace-controls-text {
+        @include display-align(block);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+    }
+}

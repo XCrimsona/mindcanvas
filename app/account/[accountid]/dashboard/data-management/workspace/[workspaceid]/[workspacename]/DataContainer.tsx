@@ -1,10 +1,14 @@
 "use client";
 import Div from "@/src/ui/Div";
 import React from "react";
-import workspaceDataManagement from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data-management.module.scss";
+import dataContainer from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/data-container.module.scss";
 import TextInputUnit from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/text/TextInputUnit";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
 import WorkspaceData from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspace-data/WorkspaceData";
+import AudioInputUnit from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/audio/AudioInputUnit";
+import ImageInputUnit from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/image/ImageInputUnit";
+import VideoInputUnit from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/video/VideoInputUnit";
+
 const DataContainer = ({ params }: any) => {
   // const { textComponentDisplayState } = useTextComponentDisplayState();
 
@@ -25,9 +29,9 @@ const DataContainer = ({ params }: any) => {
   // };
 
   return (
-    <Div className={workspaceDataManagement["data-container"]}>
+    <Div className={dataContainer["data-container"]}>
       <Div
-        className={workspaceDataManagement["data-scroll-board"]}
+        className={dataContainer["data-scroll-board"]}
         //dataScrollBoardRef as windowRef
         ref={dataScrollBoardRef}
         onStyle={{
@@ -36,10 +40,14 @@ const DataContainer = ({ params }: any) => {
           transition: "height .2s ease-in-out, width .2s ease-in-out",
         }}
       >
-        {/* Appears as tsx text form input when textToggleState is set to true */}
+        {/* Below InputUnits used for multi media submits */}
         <TextInputUnit params={params} />
+        <AudioInputUnit params={params} />
+        <ImageInputUnit params={params} />
+        <VideoInputUnit params={params} />
+
+        {/* display cloud data below */}
         <WorkspaceData />
-        {/* append data to the UI when thetComponent's display boolean state is true*/}
       </Div>
     </Div>
   );

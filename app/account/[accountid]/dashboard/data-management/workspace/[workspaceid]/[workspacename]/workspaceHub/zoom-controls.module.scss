@@ -1,0 +1,52 @@
+@import "../_variables";
+@import "../_mixins";
+
+.zoom-controls-container {
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    @include width(120px);
+    @include height(70px);
+    @include display-align(block);
+
+    .zoom-controls {
+        @include height(30px);
+        @include display-align(flex);
+        @include flex-align(wrap);
+        @include position(relative);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+
+        .zoom-in-wrapper {
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include width(50px);
+
+            .btn-zoom-in {
+                @include height(30px);
+                @include width(30px);
+                cursor: pointer;
+            }
+        }
+
+        .zoom-out-wrapper {
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include width(50px);
+
+            .btn-zoom-out {
+                @include height(30px);
+                @include width(30px);
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .zoom-controls-text-wrapper {
+        @include display-align(block);
+        @include margin-x-y($_10, $auto, $_0 , $auto );
+        @include height(20px);
+
+        .zoom-controls-text {
+            @include display-align(block);
+            @include align-text(center);
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+        }
+    }
+}

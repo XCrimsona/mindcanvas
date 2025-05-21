@@ -1,0 +1,18 @@
+@import "../_variables";
+@import "../_mixins";
+
+.workspace-core-functionalities {
+    @include height(100px);
+    @include display-align(flex);
+    @include flex-align(wrap);
+    @include justify-content(center);
+    @include align-items(center);
+    @include margin-x-y($_20, $auto, $_20 , $auto );
+    //temp width
+    @include width(700px);
+    @include text-color(#fff);
+    @include background-color(#000000B3);
+    @include border-radius(10px);
+    @include position(relative);
+    overflow: visible;
+}

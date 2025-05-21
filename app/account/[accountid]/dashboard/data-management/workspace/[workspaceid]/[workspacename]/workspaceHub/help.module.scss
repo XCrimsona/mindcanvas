@@ -1,0 +1,34 @@
+@import "../_variables";
+@import "../_mixins";
+
+.help-container {
+    @include display-align(block);
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    @include height(70px);
+
+    .help-btn-wrapper {
+        @include width(50px);
+        @include height(30px);
+        @include display-align(block);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+
+        .help-mark {
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include height(30px);
+            @include width(30px);
+            cursor: pointer;
+        }
+    }
+
+    .help-text-wrapper {
+        @include display-align(block);
+        @include margin-x-y($_10, $auto, $_0 , $auto );
+        @include height(20px);
+
+        .help-text {
+            @include display-align(block);
+            @include align-text(center);
+            @include margin-x-y($_0, $auto, $_0 , $auto );
+        }
+    }
+}

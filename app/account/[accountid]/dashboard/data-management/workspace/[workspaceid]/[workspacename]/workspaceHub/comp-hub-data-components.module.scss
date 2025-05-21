@@ -1,0 +1,81 @@
+@import "../_mixins";
+@import "../_variables";
+
+//this is the one not appearing
+//Comonent Hub child component functionality properties
+.comp-hub-data-components-container {
+    @include position(absolute);
+    @include display-align(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    @include top(-110px);
+    @include left(24px);
+    @include height(200px);
+    @include background-color(#000000);
+    z-index: 4;
+    //temp width
+    @include width(200px);
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    @include border-top($_2, solid, #FABB00DD);
+    @include border-bottom($_2, solid, #FABB00DD);
+    @include border-left($_2, solid, #FABB00DD);
+    @include border-right($_2, solid, #FABB00DD);
+    @include border-radius(10px);
+
+    .comp-hub-data-components-list-container {
+        @include position(relative);
+        @include height(200px);
+        @include width(200px);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include display-align(flex);
+        @include justify-content(center);
+        @include align-items(center);
+
+        @include margin-x-y($_0, $_0, $_0 , $_0 );
+
+        .close-icon-wrapper {
+            @include position(absolute);
+            @include display-align(flex);
+            @include justify-content(center);
+            @include align-items(center);
+            @include border-top($_2, solid, #000);
+            @include border-bottom($_2, solid, #000);
+            @include border-left($_2, solid, #000);
+            @include border-right($_2, solid, #000);
+            // @include margin-x-y($_0, $_0, $_0 , $auto );
+            @include top(10px);
+            @include right(6px);
+            @include width(28px);
+            @include height(28px);
+            transform: rotate(45deg);
+            cursor: pointer;
+            @include background-color(#000);
+
+            .close-icon {
+                @include border-radius(8px);
+                @include display-align(block);
+                @include width(20px);
+                @include height(20px);
+            }
+        }
+
+        .comp-hub-data-components-list {
+
+            .text-comp,
+            .audio-comp,
+            .image-comp,
+            .video-comp {
+                @include width(150px);
+                @include border-top($_2, solid, #000000B3);
+                @include border-bottom($_2, solid, #00BFA0B3);
+                @include border-left($_2, solid, #000000B3);
+                @include border-right($_2, solid, #000000B3);
+                @include border-radius(4px);
+                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include background-color(#141414B3);
+                @include text-color(#fff);
+                cursor: grab;
+            }
+        }
+    }
+}

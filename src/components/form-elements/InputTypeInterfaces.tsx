@@ -212,6 +212,7 @@ export const InputPassword = ({
       className={className}
       placeholder={placeholder}
       value={value}
+      required
       onChange={onChange}
     />
   );

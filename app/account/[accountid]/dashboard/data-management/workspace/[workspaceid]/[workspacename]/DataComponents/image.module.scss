@@ -1,0 +1,94 @@
+@import "../_variables";
+@import "../_mixins";
+
+.data-image-component {
+    @include DataComponent;
+
+    .image-input-form {
+        @include width(340px);
+
+        .image-label-wrapper {
+            @include margin-x-y($_10, $_0 , $_0 , $_0 );
+
+            .image-label,
+            .images-label {
+                @include display-align(block);
+                @include margin-x-y($_0, $_0 , $_0 , $_0 );
+                @include width(180px);
+            }
+        }
+
+        .image-container {
+            @include display-align(flex);
+            @include align-items(center);
+            @include position(relative);
+
+            .image-input-wrapper {
+                @include display-align(flex);
+                @include align-items(center);
+                @include position(relative);
+
+                .enabled-image-input-field,
+                .enabled-images-input-field {
+                    @include display-align(flex);
+                    @include justify-content(left);
+                    @include border-top($_2, solid, #111);
+                    @include border-left($_2, solid, #00FBA0B3);
+                    @include border-bottom($_2, solid, #00FBA0B3);
+                    @include text-color(#fff);
+                    @include border-right($_2, solid, #111);
+                    @include background-color(#111);
+                    // @include border-bottom($_2, solid, #00FBA0B3);
+                    @include width(250px);
+                    @include height(20px);
+                    transition: height .2s ease-in-out;
+                    resize: none;
+                    outline: $_2 solid #111;
+                    @include margin-x-y($_0, $auto , $_0 , $_2 );
+                }
+
+                .image-btn-container {
+                    @include display-align(flex);
+                    @include flex-align(wrap);
+                    @include align-items(center);
+                    @include justify-content(center);
+                    @include width(80px);
+                    @include height(80px);
+
+                    .image-submit-btn-container {
+                        @include display-align(flex);
+                        @include justify-content(right);
+                        @include margin-x-y($_5, $auto , $_5, $auto );
+
+                        .image-btn-submit {
+                            @include height(20px);
+                            @include width(70px);
+                            outline: none;
+                            @include background-color(#111);
+                            @include text-color(#FBAA00);
+                            @include border-top($_1, solid, #555);
+                            @include border-bottom($_1, solid, #555);
+                            @include border-left($_1, solid, #555);
+                            @include border-right($_1, solid, #555);
+                        }
+                    }
+
+                    .image-selection-wrapper {
+                        @include margin-x-y($_5, $auto , $_5, $auto );
+
+                        .select-image-type {
+                            @include width(70px);
+                            outline: none;
+                            @include background-color(#111);
+                            @include text-color(#FBAA00);
+                            @include border-top($_1, solid, #555);
+                            @include border-bottom($_1, solid, #555);
+                            @include border-left($_1, solid, #555);
+                            @include border-right($_1, solid, #555);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

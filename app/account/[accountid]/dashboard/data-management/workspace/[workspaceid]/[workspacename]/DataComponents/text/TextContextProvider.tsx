@@ -12,7 +12,7 @@ type TypeTextContext = true | false;
 interface ITextContextType {
   textToggleState: TypeTextContext;
   toggleTextState: () => void;
-  useInputCompref: RefObject<HTMLDivElement | null>;
+  textInputCompref: RefObject<HTMLDivElement | null>;
 }
 
 const TextContext = createContext<ITextContextType | undefined>(undefined);
@@ -25,10 +25,10 @@ export const TextContextProvider = ({ children }: { children: ReactNode }) => {
     setTextToggleState((prev) => (prev === false ? true : false));
   };
 
-  const useInputCompref = useRef<HTMLDivElement | null>(null);
+  const textInputCompref = useRef<HTMLDivElement | null>(null);
   return (
     <TextContext.Provider
-      value={{ textToggleState, toggleTextState, useInputCompref }}
+      value={{ textToggleState, toggleTextState, textInputCompref }}
     >
       {children}
     </TextContext.Provider>
@@ -38,8 +38,6 @@ export const TextContextProvider = ({ children }: { children: ReactNode }) => {
 export const useTextContext = () => {
   const context = useContext(TextContext);
   if (!context)
-    throw new Error(
-      "useSharedUseState must be used inside TextContextProvider"
-    );
+    throw new Error("useTextContext must be used inside TextContextProvider");
   return context;
 };
