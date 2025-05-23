@@ -12,27 +12,12 @@ import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-ma
 const PrimaryControlsAndDetails = ({ params }: any) => {
   try {
     //refresh content without reload
-
     const { updateWorkspaceData } = useWorkspaceContext();
     const refresh = async () => {
-      // const getWorkspaceData = await fetch(
-      //   `http://localhost:3000/api/account/${params.accountid}/dashboard/data-management/workspace/${params.workspaceid}/${params.workspacename}/`
-      // );
-      // if (getWorkspaceData.ok) {
-      //   // const workspaceData = await getWorkspaceData.json();
-      //   // console.log(workspaceData);
       updateWorkspaceData();
-      //   console.log("Success retrieving workspaceData");
-      //   // alert("Success retrieving workspaceData");
-      // } else {
-      //   console.log("Couldn't retrieve workspaceData");
-      //   alert("Couldn't retrieve workspaceData");
-      // }
     };
 
     const { maskSensitiveData } = useMaskSensitiveData();
-    //db button logic
-    //refresh page to update workspace data
 
     //Clipboard features
     const copyWorkspaceName = (e: React.FormEvent<HTMLButtonElement>) => {
@@ -94,17 +79,6 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
               REFRESH
             </Button>
           </Div>
-          {/* <Div
-            className={primaryControls["save-workspace-btn-wrapper"]}
-          >
-            <Button
-              id="save-workspacep-btn"
-              className={primaryControls["save-workspace-btn"]}
-              onClick={save}
-            >
-              SAVE
-            </Button>
-          </Div> */}
         </Div>
         <Div className={primaryControls["workspace-details"]}>
           <Div className={primaryControls["workspace-name-wrapper"]}>

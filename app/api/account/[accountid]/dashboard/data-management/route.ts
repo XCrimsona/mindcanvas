@@ -27,16 +27,24 @@ export async function GET(request: NextRequest, { params }: any): Promise<any> {
       return new NextResponse(JSON.stringify({ error: "User not found" }), {
         status: 404,
       });
-    }
+    } else {
+      const [workspaces] = await Promise.all([
+        await workspaceModel.find({ createdBy: user._id }),
+      ]);
 
-    const workspaces = await workspaceModel.find({ createdBy: user._id });
-    const userInfo = {
-      _id: user._id,
-      workspaces,
-    };
-    return new NextResponse(JSON.stringify({ data: userInfo }), {
-      status: 200,
-    });
+      if (workspaces.length === 0) {
+        return new NextResponse(
+          JSON.stringify({
+            error:
+              "Create a workspace so it can appear here retrieve workspace data",
+          }),
+          { status: 404 }
+        );
+      }
+      return new NextResponse(JSON.stringify({ data: workspaces }), {
+        status: 200,
+      });
+    }
   } catch (err: any) {
     console.warn("post error: ", err.stack);
   }
@@ -112,33 +120,49 @@ export async function PUT(request: NextRequest): Promise<any> {
     console.log(date);
     console.log(user);
 
-    const workspaceData: any = {};
-    if (workspacename) workspaceData.workspacename = workspacename;
-    if (workspacedescription)
-      workspaceData.workspacedescription = workspacedescription;
+    const workspace = await workspaceModel.findOne({
+      name: workspacename,
+      createdBy: user._id,
+    });
+    console.log(workspace);
 
-    if (workspacename && workspacedescription) {
-      // const newWorkspace =
-      const refactorWorkspaceName = workspacename
-        .toLowerCase()
-        .trim()
-        .replace(/[^a-z0-9\s-]/g, "")
-        .replace(/\s+/g, "-");
-      await workspaceModel.updateOne({
-        name: refactorWorkspaceName,
-        //above for urls
-        workspacename: workspacename,
-        description: workspacedescription,
-      });
-      // console.log(newWorkspace);
-
-      return NextResponse.json({ message: "ok" }, { status: 201 });
-    } else {
-      return NextResponse.json(
-        { error: "Fill in required fields" },
-        { status: 400 }
+    if (!workspace) {
+      return new NextResponse(
+        JSON.stringify({ error: "Specified workspace not found" }),
+        {
+          status: 404,
+        }
       );
     }
+    // else {
+    //   const workspaceData: any = {};
+    //   if (workspacename) workspaceData.workspacename = workspacename;
+    //   if (workspacedescription)
+    //     workspaceData.workspacedescription = workspacedescription;
+
+    //   if (workspacename && workspacedescription) {
+    //     // const newWorkspace =
+    //     const refactorWorkspaceName = workspacename
+    //       .toLowerCase()
+    //       .trim()
+    //       .replace(/[^a-z0-9\s-]/g, "")
+    //       .replace(/\s+/g, "-");
+    //     await workspaceModel.updateOne({
+    //       name: refactorWorkspaceName,
+    //       //above for urls
+    //       workspacename: workspacename,
+    //       description: workspacedescription,
+    //     });
+    //     // console.log(newWorkspace);
+
+    //     return NextResponse.json({ message: "ok" }, { status: 201 });
+    //   } else {
+    //     return NextResponse.json(
+    //       { error: "Fill in required fields" },
+    //       { status: 400 }
+    //     );
+    //   }
+    // }
   } catch (err: any) {
     console.warn("Error: ", err.message);
   }

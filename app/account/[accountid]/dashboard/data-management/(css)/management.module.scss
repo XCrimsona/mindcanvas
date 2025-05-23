@@ -1,188 +1,8 @@
-$_0: 0px;
-$_1: 1px;
-$_2: 2px;
-$_3: 3px;
-$_4: 4px;
-$_5: 5px;
-$_6: 6px;
-$_7: 7px;
-$_8: 8px;
-$_9: 9px;
-$_10: 10px;
-$_15: 15px;
-$_20: 20px;
-$_22: 22px;
-$_27: 27px;
-$_30: 30px;
-$_35: 35px;
-$_40: 40px;
-$_50: 50px;
-$_60: 60px;
-$_70: 70px;
-$_80: 80px;
-$_100: 100px;
-$_120: 120px;
-$_150: 150px;
-$_180: 180px;
-$_200: 200px;
-$_230: 230px;
-$_250: 250px;
-$_280: 280px;
-$_300: 300px;
-$_330: 330px;
-$_350: 350px;
-$_400: 400px;
-$_450: 450px;
-$_500: 500px;
-$_550: 550px;
-$_600: 600px;
-$_650: 650px;
-$_700: 700px;
-$_750: 750px;
-$_800: 800px;
-$_850: 850px;
-$_900: 900px;
-$_950: 950px;
-$_1000: 1000px;
-$auto: auto;
-
-@mixin display-align($Type) {
-    display: $Type;
-}
-
-@mixin justify-items($Type) {
-    justify-items: $Type;
-}
-
-@mixin justify-content($Type) {
-    justify-content: $Type;
-}
-
-@mixin align-content($Type) {
-    align-content: $Type;
-}
-
-@mixin align-items($Type) {
-    align-items: $Type;
-}
-
-@mixin flex-align($Type) {
-    flex-wrap: $Type;
-}
-
-@mixin margin-x-y($x1, $y1, $x2, $y2) {
-    margin: $x1 $y1 $x2 $y2;
-}
-
-@mixin padding-x-y($x1, $y1, $x2, $y2) {
-    padding: $x1 $y1 $x2 $y2;
-}
-
-@mixin align-text($Type) {
-    text-align: $Type;
-}
-
-@mixin text-color($color) {
-    color: $color;
-}
-
-@mixin background($Type) {
-    background: $Type;
-}
-
-@mixin background-color($color) {
-    background-color: $color;
-}
-
-@mixin width($width) {
-    width: $width;
-}
-
-@mixin height($height) {
-    height: $height;
-}
-
-@mixin min-height($min-height) {
-    min-height: $min-height;
-}
-
-@mixin max-height($max-height) {
-    max-height: $max-height;
-}
-
-@mixin font-size($size) {
-    font-size: $size;
-}
-
-@mixin border($thickness, $type, $color) {
-    border: $thickness $type $color;
-}
-
-@mixin border-top($thickness, $type, $color) {
-    border-top: $thickness $type $color;
-}
-
-@mixin border-bottom($thickness, $type, $color) {
-    border-bottom: $thickness $type $color;
-}
-
-@mixin border-left($thickness, $type, $color) {
-    border-left: $thickness $type $color;
-}
-
-@mixin border-right($thickness, $type, $color) {
-    border-right: $thickness $type $color;
-}
-
-@mixin border-radius($thickness) {
-    border-radius: $thickness;
-}
-
-@mixin position($position) {
-    position: $position;
-}
-
-@mixin top($position) {
-    top: $position;
-}
-
-@mixin bottom($position) {
-    bottom: $position;
-}
-
-@mixin left($position) {
-    left: $position;
-}
-
-@mixin right($position) {
-    right: $position;
-}
-
-@mixin url($url){
-background: url($url);
-}
-
-@mixin linearGradient($color1, $color2, $color3,
-    $color4, $color5,
-    $color6, $color7) {
-
-    background: conic-gradient(from -119deg at center center, $color1,
-            $color2,
-            $color3,
-            $color4, $color5,
-            $color6, $color7);
-}
-
-$darkAsdhBlack: rgb(12, 12, 12, 1);
-$Gold: rgba(250, 186, 0, 0.7);
-
-@mixin Angular-Gradient() {
-    @include linearGradient($Gold 0.2deg, $darkAsdhBlack 55.6deg, $darkAsdhBlack 116.8deg, $Gold 169.2deg, $darkAsdhBlack 257.8deg,
-        $darkAsdhBlack 313.6deg,
-        $Gold 345.6deg);
-}
+@import "_mixins";
+@import "_variables";
 
 .main-data-management-container {
+
     @include height(100%);
     @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
     @include background-color(#000000);
@@ -204,14 +24,13 @@ $Gold: rgba(250, 186, 0, 0.7);
         // @include margin-x-y($_0, $auto, $_0 , $auto );
         @include position(relative);
         @include border-radius($_10);
+        transition: width .2s ease-in-out, height .2s ease-in-out;
         //for portrait mode
 
         overflow-y: auto;
         @include Angular-Gradient();
 
         //for screen orientation landscape mode
-        // @include min-height(450px);
-        // @include max-height(650px);
 
         .workspace-sheets-wrapper {
             @include border-radius($_10);
@@ -219,274 +38,165 @@ $Gold: rgba(250, 186, 0, 0.7);
             @include background-color(rgba(0, 0, 0, 0.7));
             @include position(relative);
             @include margin-x-y($_10, $auto, $_10 , $auto );
+            transition: width .2s ease-in-out, height .2s ease-in-out;
 
             .workspace-sheets {
                 overflow-x: hidden;
                 overflow-y: scroll;
-
-                @include display-align(block);
+                transition: width .2s ease-in-out, height .2s ease-in-out;
+                @include display-align(flex);
+                flex-wrap: wrap;
                 @include margin-x-y($_0, $auto, $_0 , $auto );
+                justify-content: center;
 
-                .workspace-sheet-wrapper {
-                    @include display-align(block);
-                    @include background-color(#1c1c1c);
-                    @include border-radius($_10);
-                    box-shadow: $_0 $_4 $_6 $_3 #4c4c4c;
-                    @include margin-x-y($_20, $auto, $_20 , $auto );
-                    @include padding-x-y($_2, $_0, $_2 , $_0 );
-
-                    .workspace-sheet {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
-
-
-                        .workspace-sheet-forefront-data {
-                            @include margin-x-y($_20, $auto, $_10 , $auto );
-                            @include display-align(flex);
-                            @include flex-align(wrap);
-                            @include align-items(flex-start);
-                            @include justify-content(left);
-                            @include text-color(#fff);
-
-                            .dynamic-workspace-route {
-                                @include margin-x-y($_0, $_10, $_0 , $_0 );
-                                @include display-align(flex);
-                                @include justify-items(center);
-                                transform: rotate(180deg);
-                                @include align-items(center);
-
-                                .forward-to-workspace-icon {
-
-                                    @include margin-x-y($_0, $_0, $_0 , $_0 );
-                                    @include display-align(flex);
-                                    @include justify-content(center);
-                                    @include align-content(center);
-                                    @include width(30px);
-                                    @include height(30px);
-                                }
-                            }
-
-                            .workspace-name {
-                                @include height(20px);
-                                @include display-align(block);
-                                @include flex-align(wrap);
-                                @include justify-items(left);
-                                @include align-content(flex-start);
-                                transition: border .2s ease-in-out, height .2s ease-in-out;
-                                @include border-top ($_2, solid, transparent);
-                                @include border-left ($_2, solid, transparent);
-                                @include border-right ($_2, solid, transparent);
-                                @include border-bottom ($_2, solid, #FABB00DD);
-                                @include margin-x-y($_0, $_5, $_4, $_0);
-                                outline: $_2 solid #1c1c1c;
-                                @include background-color(#1c1c1c);
-                                @include text-color(#fff);
-                                cursor: pointer;
-                            }
-
-                            .workspace-name::placeholder {
-                                @include text-color(#fff);
-                            }
-
-                            .workspace-name:focus {
-                                @include height(40px);
-                                @include border-top ($_2, solid, #1c1c1c);
-                                @include border-left ($_2, solid, #1c1c1c);
-                                @include border-right ($_2, solid, #FABB00DD);
-                                @include border-bottom ($_2, solid, #FABB00DD);
-                                @include margin-x-y($_0, $_5, $_4, $_0);
-                                outline: $_2 solid #1c1c1c;
-                                @include background-color(#1c1c1c);
-                                @include text-color(#fff);
-                                cursor: pointer;
-                            }
-
-                            .workspace-description {
-                                @include height(18px);
-                                @include max-height(60px);
-                                @include display-align(flex);
-                                @include flex-align(wrap);
-                                @include align-items(flex-start);
-                                @include justify-items(left);
-                                transition: border .2s ease-in-out,
-                                    height .2s ease-in-out;
-                                @include border-top ($_2, solid, transparent);
-                                @include border-left ($_2, solid, transparent);
-                                @include border-right ($_2, solid, transparent);
-                                @include border-bottom ($_2, solid, #FABB00DD);
-                                @include margin-x-y($_0, $_0, $_4, $_10);
-                                outline: $_2 solid #1c1c1c;
-                                @include background-color(#1c1c1c);
-                                @include text-color(#fff);
-                                resize: vertical;
-                                cursor: pointer;
-                            }
-
-                            .workspace-description::placeholder {
-                                @include text-color(#fff);
-                            }
-
-                            .workspace-description:focus {
-                                @include height(100px);
-                                @include border-top ($_2, solid, #1c1c1c);
-                                @include border-left ($_2, solid, #1c1c1c);
-                                @include border-right ($_2, solid, #FABB00DD);
-                                @include border-bottom ($_2, solid, #FABB00DD);
-                                @include margin-x-y($_0, $_0, $_4, $_10);
-                                @include text-color(#fff);
-                                @include background-color(#1c1c1c);
-                                outline: $_2 solid #1c1c1c;
-                                cursor: pointer;
-                            }
-
-                            .create-workspace-sheet {
-                                @include margin-x-y($_2, $auto, $_2, $auto);
-                                @include text-color(#00BBFA);
-                                @include align-text(center);
-                                @include background-color(#1c1c1c);
-                                @include border-top ($_2, solid, #1c1c1c);
-                                @include border-left ($_2, solid, #1c1c1c);
-                                @include border-right ($_2, solid, #1c1c1c);
-                                @include border-bottom ($_2, solid, #1c1c1c);
-                                text-transform: uppercase;
-                                text-decoration: underline;
-                                cursor: pointer;
-                            }
-
-                            .update-workspace-sheet {
-                                @include margin-x-y($_2, $auto, $_2, $auto);
-                                @include text-color(#FABB00);
-                                @include align-text(center);
-                                @include background-color(#1c1c1c);
-                                @include border-top ($_2, solid, #1c1c1c);
-                                @include border-left ($_2, solid, #1c1c1c);
-                                @include border-right ($_2, solid, #1c1c1c);
-                                @include border-bottom ($_2, solid, #1c1c1c);
-                                text-transform: uppercase;
-                                text-decoration: underline;
-                                cursor: pointer;
-                            }
-                        }
-                    }
-                }
             }
 
-            .controls {
-                @include border-top($_2, solid, #ffffffdd);
-                @include position(absolute);
-                @include bottom($_0);
-                @include left($_0);
-                @include right($_0);
-                @include height(40px);
-                @include display-align(flex);
-                @include flex-align(wrap);
-                @include align-items(center);
-                @include justify-content(center);
-                @include padding-x-y($_20, $_0, $_10 , $_0 );
-                @include margin-x-y($_0, $auto, $_0 , $auto );
-                border-bottom-left-radius: $_10;
-                border-bottom-right-radius: $_10;
+            .workspace-sheets::-webkit-scrollbar {
+                @include background-color(rgba(0, 0, 0, 0.7));
+                @include border-radius($_10);
+                @include width($_10);
+            }
 
-                .button-wrapper {
-                    @include position(relative);
-                    @include display-align(flex);
-                    @include flex-align(wrap);
-                    @include align-items(center);
-                    @include justify-items(center);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+            .workspace-sheets::-webkit-scrollbar-track {
+                @include background-color(#555);
+                @include border-radius($_6);
+            }
 
-                    .create-new-workspace-sheet-button {
-                        @include display-align(flex);
-                        @include flex-align(wrap);
-                        @include align-content(center);
-                        @include justify-content(center);
-                        @include align-text(center);
-                        @include text-color(#fff);
-                        @include background-color(#1c1c1c);
-                        @include border-top ($_2, solid, #ffffff);
-                        @include border-left ($_2, solid, #ffffff);
-                        @include border-right ($_2, solid, #ffffff);
-                        @include border-bottom ($_2, solid, #ffffff);
-                        @include border-radius($_4);
-                        @include height(28px);
-                        cursor: pointer;
-                        @include width(30px);
-                        @include font-size(17pt);
-                    }
+            .workspace-sheets::-webkit-scrollbar-thumb {
+                @include background-color(#bbb);
+                @include border-radius($_10);
+            }
+        }
+    }
+
+
+}
+
+
+@media screen and (min-width:320px) and (max-width:425.9px) {
+    .main-data-management-container {
+        .heading-one {
+            @include width(300px);
+        }
+
+
+        .workspace-dashboard {
+            @include width(300px);
+            @include min-height(550px);
+            @include max-height(800px);
+
+            .workspace-sheets-wrapper {
+                @include width(290px);
+
+                .workspace-sheets {
+                    @include width(290px);
+                    @include min-height(410px);
+                    @include max-height(410px);
                 }
             }
         }
     }
 }
 
-
-@media screen and (min-width:320px) and (max-width:425.9px) {}
-
-@media screen and (min-width:426px) and (max-width:600.9px) {}
-
-@media screen and (min-width:601px) and (max-width:768.9px) {}
-
-@media screen and (min-width:769px) {
-
+@media screen and (min-width:426px) and (max-width:600.9px) {
     .main-data-management-container {
         .heading-one {
-            @include width(720px);
+            @include width(400px);
         }
 
 
         .workspace-dashboard {
-            @include width(720px);
+            @include width(420px);
             @include min-height(550px);
             @include max-height(800px);
 
             .workspace-sheets-wrapper {
-                @include width(700px);
+                @include width(400px);
 
                 .workspace-sheets {
-                    @include width(680px);
+                    @include width(400px);
                     @include min-height(410px);
                     @include max-height(410px);
-
-                    .workspace-sheet-wrapper {
-                        @include width(600px);
-
-                        .workspace-sheet {
-                            @include width(550px);
-
-                            .dynamic-workspace-route {
-                                @include width(40px);
-
-                                .forward-to-workspace-icon {}
-                            }
-
-                            .workspace-name {
-                                @include width(160px);
-                            }
-
-                            .workspace-name:focus {
-                                @include width(160px);
-                            }
-
-                            .workspace-description {
-                                @include width(250px);
-                            }
-
-                            .workspace-description:focus {
-                                @include width(250px);
-                            }
-                        }
-                    }
-                }
-
-                .controls {
-                    .button-wrapper {
-
-                        .create-new-workspace-sheet-button {}
-                    }
                 }
             }
         }
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:768.9px) {
+    .main-data-management-container {
+        .heading-one {
+            @include width(400px);
+        }
 
 
+        .workspace-dashboard {
+            @include width(480px);
+            @include min-height(550px);
+            @include max-height(800px);
 
+            .workspace-sheets-wrapper {
+                @include width(450px);
+
+                .workspace-sheets {
+                    @include width(450px);
+                    @include min-height(410px);
+                    @include max-height(410px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:769px) and (max-width:1440.9px) {
+
+    .main-data-management-container {
+        .heading-one {
+            @include width(400px);
+        }
+
+        .workspace-dashboard {
+            @include width(650px);
+            @include min-height(550px);
+            @include max-height(800px);
+            @include width(90%);
+
+            .workspace-sheets-wrapper {
+                @include width(620px);
+                @include width(98%);
+
+                .workspace-sheets {
+                    @include width(620px);
+                    @include min-height(410px);
+                    @include max-height(410px);
+                    @include width(98%);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1440px) {
+
+    .main-data-management-container {
+        .heading-one {
+            @include width(400px);
+        }
+
+        .workspace-dashboard {
+            @include width(90%);
+            @include min-height(550px);
+            @include max-height(800px);
+
+            .workspace-sheets-wrapper {
+                @include width(98%);
+
+                .workspace-sheets {
+                    @include width(98%);
+                    @include min-height(410px);
+                    @include max-height(410px);
+                }
+            }
+        }
     }
 }

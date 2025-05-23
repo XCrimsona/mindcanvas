@@ -6,7 +6,7 @@ import DataContainer from "@/app/account/[accountid]/dashboard/data-management/w
 import PrimaryControlsAndDetails from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/PrimaryControlsAndDetails";
 import WorkspaceCoreFunctionality from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/WorkspaceCoreFunctionality";
 import { WorkspaceContextProvider } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
-
+//23 may 2025 updating code to best practices
 const DynamicWorkspaceSheet = ({ params }: any) => {
   try {
     return (

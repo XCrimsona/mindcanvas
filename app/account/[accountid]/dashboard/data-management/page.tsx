@@ -11,7 +11,10 @@ const fetchSheetData = async (accountid: string) => {
     `http://localhost:3000/api/account/${accountid}/dashboard/data-management`
   );
   if (response.ok) {
-    return await response.json();
+    const data = await response.json();
+    console.log("Data retrieved successfully:", data);
+
+    return data;
   } else {
     return new NextResponse(
       JSON.stringify({ error: "Failed to retrieve accountid" }),
@@ -23,18 +26,23 @@ const fetchSheetData = async (accountid: string) => {
 const Page = async ({ params }: any) => {
   const { accountid } = await params;
   const info = await fetchSheetData(String(accountid));
+  const data = {
+    info,
+    accountid,
+  };
+  console.log("Data Object:", data);
 
   return (
     <Div className={management["main-data-management-container"]}>
       <AuthHeader />
       <Div className={management["heading-container"]}>
         <HeadingOne id="heading-one" className={management["heading-one"]}>
-          White Board Data Management
+          Workspace Management
         </HeadingOne>
       </Div>
       {/* pass fetch down here*/}
 
-      <DataManagement params={info} />
+      <DataManagement params={data} />
       <AuthFooter />
     </Div>
   );
