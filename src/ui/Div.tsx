@@ -2,6 +2,7 @@
 import { ReactNode } from "react";
 
 const Div = ({
+  id,
   className,
   children,
   onMouseDown,
@@ -10,6 +11,7 @@ const Div = ({
   onStyle,
   ref,
 }: {
+  id?: string;
   className: string;
   onMouseDown?: React.ReactEventHandler;
   onMouseMove?: React.ReactEventHandler;

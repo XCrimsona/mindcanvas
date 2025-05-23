@@ -1,0 +1,47 @@
+@import "_mixins";
+@import "_variables";
+
+.controls {
+    @include border-top($_2, solid, #ffffffdd);
+    @include position(absolute);
+    @include bottom($_0);
+    @include left($_0);
+    @include right($_0);
+    @include height(40px);
+    @include display-align(flex);
+    @include flex-align(wrap);
+    @include align-items(center);
+    @include justify-content(center);
+    @include padding-x-y($_20, $_0, $_10 , $_0 );
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    border-bottom-left-radius: $_10;
+    border-bottom-right-radius: $_10;
+
+    .button-wrapper {
+        @include position(relative);
+        @include display-align(flex);
+        @include flex-align(wrap);
+        @include align-items(center);
+        @include justify-items(center);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+
+        .create-new-workspace-sheet-button {
+            @include display-align(flex);
+            @include flex-align(wrap);
+            @include align-content(center);
+            @include justify-content(center);
+            @include align-text(center);
+            @include text-color(#fff);
+            @include background-color(#1c1c1c);
+            @include border-top ($_2, solid, #ffffff);
+            @include border-left ($_2, solid, #ffffff);
+            @include border-right ($_2, solid, #ffffff);
+            @include border-bottom ($_2, solid, #ffffff);
+            @include border-radius($_4);
+            @include height(28px);
+            cursor: pointer;
+            @include width(30px);
+            @include font-size(17pt);
+        }
+    }
+}
