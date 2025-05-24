@@ -10,6 +10,7 @@ const Div = ({
   onMouseUp,
   onStyle,
   ref,
+  onClick,
 }: {
   id?: string;
   className: string;
@@ -19,6 +20,7 @@ const Div = ({
   children: ReactNode;
   onStyle?: any;
   ref?: any;
+  onClick?: React.ReactEventHandler;
 }) => {
   return (
     <div

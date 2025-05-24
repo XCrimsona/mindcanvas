@@ -8,18 +8,14 @@ import Button from "@/src/components/form-elements/Button";
 import {
   InputSubmit,
   InputText,
+  InputTextReadOnly,
 } from "@/src/components/form-elements/InputTypeInterfaces";
 import RouteLink from "@/src/components/ProductSection/RouteLink";
-import { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import SVG from "@/src/SVG";
+import { EnabledTextAreaInput } from "@/src/components/mass-workspace-elements/MassWorkspaceInputComponents";
 
-interface IWorkspaceProps {
-  workspacename: string;
-  workspacedescription: string;
-}
 const DataManagement = ({ params }: { params: any }) => {
-  console.log("Params: ", params);
-
   //pull latest data from the cloud
   const [workspaceData, setWorkspaceData] = useState<any>([]);
   useEffect(() => {
@@ -37,6 +33,76 @@ const DataManagement = ({ params }: { params: any }) => {
       setWorkspaceData(data.data);
     } else {
       console.error("Failed to fetch workspace data");
+    }
+  };
+  // const updatedWorkspaceData: updatedWorkspaceProps = {
+  //   sub: params.info.data._id,
+  //   workspacename: "",
+  //   workspacedescription: "",
+  // };
+  //View and edit workspace button toggling logic
+  const toggleASingleWorkspace = (id: string) => {
+    setWorkspaceData((prev: any) =>
+      prev.map((workspace: any) =>
+        workspace._id === id
+          ? { ...workspace, viewMode: !workspace.viewMode }
+          : workspace
+      )
+    );
+  };
+
+  interface IWorkspaceProps {
+    sub?: string;
+    workspacename: string;
+    workspacedescription: string;
+  }
+
+  //used to capture the data to update the actual specified workspace
+  const [workspaceEdits, setWorkspaceEdits] = useState<
+    Record<string, IWorkspaceProps>
+  >({});
+
+  const updateWorkspace = async (e: any, workspaceId: string) => {
+    try {
+      e.preventDefault();
+      const updateFields: Partial<IWorkspaceProps> = {};
+
+      const edited = workspaceEdits[workspaceId];
+      const original = workspaceData?.find((w: any) => w._id === workspaceId);
+
+      if (!original || !edited) return;
+
+      if (original.workspacename !== edited.workspacename) {
+        updateFields.workspacename = edited.workspacename;
+      }
+      // Type 'IWorkspaceProps' is not assignable to type 'string'.
+      if (original.workspacedescription !== edited.workspacedescription) {
+        updateFields.workspacedescription = edited.workspacedescription;
+      }
+      console.log("updatedFields: ", updateFields);
+      console.log("orignal: ", original.workspacename);
+      console.log("ediited: ", edited.workspacename);
+
+      if (params.accountid) {
+        updateFields.sub = workspaceId;
+      }
+
+      const response = await fetch(
+        `http://localhost:3000/api/account/${params.accountid}/dashboard/data-management`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updateFields),
+        }
+      );
+      if (response.ok) {
+        fetchMoreData();
+        alert("Workspace updated!");
+      } else {
+        alert("Workspace not updated!");
+      }
+    } catch (err: any) {
+      console.warn("Management Update Error: ", err.message);
     }
   };
 
@@ -111,53 +177,6 @@ const DataManagement = ({ params }: { params: any }) => {
     }
   };
 
-  //used to update existing cloud data
-  const [updateAWorkspace, setUpdateAWorkspace] = useState<IWorkspaceProps>({
-    workspacename: "",
-    workspacedescription: "",
-  });
-
-  // const updatedWorkspaceData: updatedWorkspaceProps = {
-  //   sub: params.info.data._id,
-  //   workspacename: "",
-  //   workspacedescription: "",
-  // };
-
-  const updateWorkspace = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    // updating a specific workspace on at a time
-    setUpdateAWorkspace({
-      ...updateAWorkspace,
-      workspacename: e.target.value,
-      workspacedescription: e.target.value,
-    });
-
-    const anUpdateWorkspace: any = {};
-    if (params.accountid) {
-      workspaceData.sub = params.accountid;
-    }
-    if (updateAWorkspace.workspacename) {
-      workspaceData.workspacename = updateAWorkspace.workspacename;
-    }
-    if (updateAWorkspace.workspacedescription) {
-      workspaceData.workspacedescription =
-        updateAWorkspace.workspacedescription;
-    }
-
-    const response = await fetch(
-      `http://localhost:3000/api/account/${params.accountid}/dashboard/data-management`,
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(anUpdateWorkspace),
-      }
-    );
-    if (response.ok) {
-      alert("Workspace updated!");
-    } else {
-      alert("Workspace not updated!");
-    }
-  };
-
   return (
     <Div className={management["workspace-dashboard"]}>
       <Div className={management["workspace-sheets-wrapper"]}>
@@ -171,7 +190,7 @@ const DataManagement = ({ params }: { params: any }) => {
                   key={workspace._id}
                   className={workspacesheetWrapper["workspace-sheet-wrapper"]}
                 >
-                  <Div className={workspacesheetWrapper["workspace-sheet"]}>
+                  <form className={workspacesheetWrapper["workspace-sheet"]}>
                     <Div
                       className={
                         workspacesheetWrapper["workspace-sheet-forefront-data"]
@@ -191,53 +210,135 @@ const DataManagement = ({ params }: { params: any }) => {
                           }
                         />
                       </RouteLink>
-                      <InputText
-                        id={workspace._id}
-                        value={workspace.workspacename}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                          setUpdateAWorkspace({
-                            ...updateAWorkspace,
-                            workspacedescription: e.target.value,
-                          });
-                        }}
-                        placeholder={"Update workspace name"}
-                        className={workspacesheetWrapper["workspace-name"]}
-                      />
-                      {/* based on boolean expression for onfocus and off focus  */}
-                      <textarea
-                        cols={12}
-                        id={workspace.name}
-                        value={workspace.description}
-                        onChange={(
-                          e: React.ChangeEvent<HTMLTextAreaElement>
-                        ) => {
-                          setUpdateAWorkspace({
-                            ...updateAWorkspace,
-                            workspacedescription: e.target.value,
-                          });
-                        }}
-                        placeholder={"Update workspace description"}
-                        className={
-                          workspacesheetWrapper["workspace-description"]
-                        }
-                      />
+                      {workspace.viewMode === true ? (
+                        <InputText
+                          id={`new-temp-update-name-field-${workspace._id}`}
+                          value={
+                            workspaceEdits[workspace._id]?.workspacename || ""
+                          }
+                          onChange={(
+                            e: React.ChangeEvent<HTMLInputElement>
+                          ) => {
+                            e.preventDefault();
+                            // updating a specific workspace description
+                            setWorkspaceEdits((previous: any) => ({
+                              ...previous,
+                              [workspace._id]: {
+                                ...previous[workspace._id],
+                                workspacename: e.target.value,
+                              },
+                            }));
+                          }}
+                          placeholder={"Your new workspace name"}
+                          className={
+                            workspacesheetWrapper[
+                              "new-temp-update-description-field-workspace-name"
+                            ]
+                          }
+                        />
+                      ) : (
+                        <InputTextReadOnly
+                          id={workspace._id}
+                          value={workspace.workspacename}
+                          className={workspacesheetWrapper["workspace-name"]}
+                        />
+                      )}
+
+                      {workspace.viewMode === true ? (
+                        <InputText
+                          id={`new-temp-update-description-field-${workspace._id}`}
+                          value={
+                            workspaceEdits[workspace._id]
+                              ?.workspacedescription || ""
+                          }
+                          onChange={(
+                            e: React.ChangeEvent<HTMLInputElement>
+                          ) => {
+                            // updating a specific workspace description
+                            setWorkspaceEdits((previous: any) => ({
+                              ...previous,
+                              [workspace._id]: {
+                                ...previous[workspace._id],
+                                workspacedescription: e.target.value,
+                              },
+                            }));
+                          }}
+                          placeholder={"Your new workspace description"}
+                          className={
+                            workspacesheetWrapper[
+                              "new-temp-update-description-field-workspace-description"
+                            ]
+                          }
+                        />
+                      ) : (
+                        <textarea
+                          cols={12}
+                          id={workspace.name}
+                          readOnly
+                          value={workspace.description}
+                          placeholder={"Update workspace description"}
+                          className={
+                            workspacesheetWrapper["workspace-description"]
+                          }
+                        />
+                      )}
                     </Div>
                     <Div
                       className={
-                        workspacesheetWrapper["workspace-sheet-forefront-data"]
+                        workspacesheetWrapper["workspace-buttons-container"]
                       }
                     >
-                      <Button
-                        id="update-workspace-sheet"
+                      <Div
                         className={
-                          workspacesheetWrapper["update-workspace-sheet"]
+                          workspacesheetWrapper["workspace-toggle-edit-btns"]
                         }
-                        onClick={updateWorkspace}
                       >
-                        Update
-                      </Button>
+                        {workspace.viewMode === true ? (
+                          <Button
+                            id="view-mode"
+                            className={workspacesheetWrapper["view-mode"]}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              toggleASingleWorkspace(workspace._id);
+                            }}
+                          >
+                            View
+                          </Button>
+                        ) : (
+                          <Button
+                            id="edit-mode"
+                            className={workspacesheetWrapper["edit-mode"]}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              toggleASingleWorkspace(workspace._id);
+                            }}
+                          >
+                            Edit
+                          </Button>
+                        )}
+                      </Div>
+                      <Div
+                        className={
+                          workspacesheetWrapper[
+                            "workspace-sheet-forefront-data"
+                          ]
+                        }
+                      >
+                        <Button
+                          id="update-workspace-sheet"
+                          className={
+                            workspacesheetWrapper["update-workspace-sheet"]
+                          }
+                          onClick={(e) => {
+                            e.preventDefault();
+                            updateWorkspace(e, workspace._id);
+                          }}
+                        >
+                          Update
+                        </Button>
+                      </Div>
                     </Div>
-                  </Div>
+                  </form>
                 </Div>
               );
             })}
@@ -267,7 +368,7 @@ const DataManagement = ({ params }: { params: any }) => {
                     className={workspacesheetWrapper["workspace-name"]}
                   />
                   {/* based on boolean expression for onfocus and off focus */}
-                  <textarea
+                  <EnabledTextAreaInput
                     id="workspace-description"
                     value={newWorkspace.workspacedescription}
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {

@@ -3,7 +3,7 @@ import Dates from "@/lib/DateTimeModules";
 import UserModel from "@/models/userModel";
 import workspaceModel from "@/models/workspaceModel";
 import { NextRequest, NextResponse } from "next/server";
-
+import mongoose from "mongoose";
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 204,
@@ -99,32 +99,41 @@ export async function POST(request: NextRequest): Promise<any> {
   }
 }
 
-export async function PUT(request: NextRequest): Promise<any> {
+export async function PATCH(
+  request: NextRequest,
+  { params }: any
+): Promise<any> {
   try {
     await getDB();
-    // const { accountid }: any = await params;
+    const { accountid }: any = await params;
     const body = await request.json();
 
     const { sub, workspacename, workspacedescription } = body;
     // const Date = Dates;
-    console.log(sub, workspacename, workspacedescription);
+    console.log(
+      "sub type: ",
+      typeof sub,
+      " sub = workspaceid: ",
+      sub,
+      workspacename,
+      workspacedescription
+    );
 
     //find and assign userId
-    const user = await UserModel.findById(String(sub));
+    // const userId = accountid.toString();
+    const user = await UserModel.findById(accountid);
     if (!user) {
       return new NextResponse(JSON.stringify({ error: "User not found" }), {
         status: 404,
       });
     }
-    const date = Dates();
-    console.log(date);
-    console.log(user);
+    console.log("user: ", user);
 
     const workspace = await workspaceModel.findOne({
-      name: workspacename,
+      _id: sub,
       createdBy: user._id,
     });
-    console.log(workspace);
+    console.log("workspace: ", workspace);
 
     if (!workspace) {
       return new NextResponse(
@@ -134,35 +143,36 @@ export async function PUT(request: NextRequest): Promise<any> {
         }
       );
     }
-    // else {
-    //   const workspaceData: any = {};
-    //   if (workspacename) workspaceData.workspacename = workspacename;
-    //   if (workspacedescription)
-    //     workspaceData.workspacedescription = workspacedescription;
 
-    //   if (workspacename && workspacedescription) {
-    //     // const newWorkspace =
-    //     const refactorWorkspaceName = workspacename
-    //       .toLowerCase()
-    //       .trim()
-    //       .replace(/[^a-z0-9\s-]/g, "")
-    //       .replace(/\s+/g, "-");
-    //     await workspaceModel.updateOne({
-    //       name: refactorWorkspaceName,
-    //       //above for urls
-    //       workspacename: workspacename,
-    //       description: workspacedescription,
-    //     });
-    //     // console.log(newWorkspace);
+    const updatedPayload: any = {};
+    if (workspacename) {
+      updatedPayload.workspacename = workspacename;
 
-    //     return NextResponse.json({ message: "ok" }, { status: 201 });
-    //   } else {
-    //     return NextResponse.json(
-    //       { error: "Fill in required fields" },
-    //       { status: 400 }
-    //     );
-    //   }
-    // }
+      //workspacename with dashes for routing
+      const refactorWorkspaceName = workspacename
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-");
+      updatedPayload.name = refactorWorkspaceName;
+    }
+    if (workspacedescription) updatedPayload.description = workspacedescription;
+
+    const updatedWorkspace = await workspaceModel.updateOne(
+      { _id: workspace._id },
+      {
+        $set: updatedPayload,
+      }
+    );
+    console.log(updatedWorkspace);
+    if (updatedWorkspace.modifiedCount > 0) {
+      return NextResponse.json({ message: "ok" }, { status: 201 });
+    } else {
+      return NextResponse.json(
+        { error: "Fill in required fields" },
+        { status: 400 }
+      );
+    }
   } catch (err: any) {
     console.warn("Error: ", err.message);
   }

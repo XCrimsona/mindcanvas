@@ -12,7 +12,7 @@ const fetchSheetData = async (accountid: string) => {
   );
   if (response.ok) {
     const data = await response.json();
-    console.log("Data retrieved successfully:", data);
+    // console.log("Data retrieved successfully:", data);
 
     return data;
   } else {

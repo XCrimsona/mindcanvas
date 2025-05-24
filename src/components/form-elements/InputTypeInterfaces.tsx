@@ -56,7 +56,33 @@ interface InputTextProps {
   placeholder?: string;
   value: string;
   onChange?: React.ReactEventHandler;
+  readonly?: boolean;
 }
+
+export const InputTextReadOnly = ({
+  id,
+  className,
+  placeholder,
+  value,
+  onChange,
+}: InputTextProps) => {
+  return (
+    <input
+      type="text"
+      id={id}
+      readOnly
+      minLength={1}
+      maxLength={500}
+      className={className}
+      placeholder={placeholder}
+      value={value}
+      autoComplete="off"
+      onChange={onChange}
+      required
+    />
+  );
+};
+
 export const InputText = ({
   id,
   className,

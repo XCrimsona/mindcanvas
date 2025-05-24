@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const audioSchema = new mongoose.Schema(
   {
-    audioUrl: {
+    audioSrc: {
       type: String,
       required: true,
     },
@@ -11,9 +11,10 @@ const audioSchema = new mongoose.Schema(
       enum: ["mp3", "wav", "ogg"],
       default: "mp3",
     },
-    transcription: {
-      type: String,
-      maxlength: [20000, "Audio transcription  too long (20 K characters)"],
+    owner: {
+      type: mongoose.Types.ObjectId,
+      ref: "users",
+      required: true,
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
@@ -22,7 +23,7 @@ const audioSchema = new mongoose.Schema(
     },
     workspaceId: {
       type: mongoose.Types.ObjectId,
-      ref: "workspace",
+      ref: "workspaces",
       required: true,
     },
   },
@@ -32,3 +33,36 @@ const audioSchema = new mongoose.Schema(
 const audioModel =
   mongoose.models.audios || mongoose.model("audios", audioSchema);
 export default audioModel;
+
+audioSchema.pre("save", function (next) {
+  if (!this.isModified("owner")) {
+    return next(
+      new Error(
+        "The 'owner' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});
+
+audioSchema.pre("save", function (next) {
+  if (!this.isModified("createdBy")) {
+    return next(
+      new Error(
+        "The 'createdBy' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});
+
+audioSchema.pre("save", function (next) {
+  if (!this.isModified("workspaceId")) {
+    return next(
+      new Error(
+        "The 'workspaceId' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});
