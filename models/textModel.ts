@@ -25,6 +25,11 @@ const textSchema = new mongoose.Schema(
         min: 0,
       },
     },
+    owner: {
+      type: mongoose.Types.ObjectId,
+      ref: "users",
+      required: true,
+    },
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: "users",
@@ -32,7 +37,7 @@ const textSchema = new mongoose.Schema(
     },
     workspaceId: {
       type: mongoose.Types.ObjectId,
-      ref: "workspace",
+      ref: "workspaces",
       required: true,
     },
   },
@@ -41,3 +46,36 @@ const textSchema = new mongoose.Schema(
 
 const textModel = mongoose.models.texts || mongoose.model("texts", textSchema);
 export default textModel;
+
+textSchema.pre("save", function (next) {
+  if (!this.isModified("owner")) {
+    return next(
+      new Error(
+        "The 'owner' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});
+
+textSchema.pre("save", function (next) {
+  if (!this.isModified("createdBy")) {
+    return next(
+      new Error(
+        "The 'createdBy' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});
+
+textSchema.pre("save", function (next) {
+  if (!this.isModified("workspaceId")) {
+    return next(
+      new Error(
+        "The 'workspaceId' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});

@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const userschema = new mongoose.Schema(
   {
     firstname: {
@@ -22,6 +21,10 @@ const userschema = new mongoose.Schema(
       unique: true,
       maxlength: [50, "Email too long (max 50 characters)"],
       required: [true, "Please use a valid email address"],
+    },
+    workspaces: {
+      type: [{ type: mongoose.Types.ObjectId, ref: "workspaces" }],
+      default: [],
     },
     password: {
       type: String,

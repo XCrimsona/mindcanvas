@@ -19,6 +19,11 @@ const workspaceSchema = new mongoose.Schema(
       type: String,
       maxlength: [300, "Description is too long"],
     },
+    owner: {
+      type: mongoose.Types.ObjectId,
+      ref: "users",
+      required: true,
+    },
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: "users",
@@ -47,3 +52,25 @@ export default workspaceModel;
 //     type: Boolean,
 //     default: false
 //   }
+
+workspaceSchema.pre("save", function (next) {
+  if (!this.isModified("createdBy")) {
+    return next(
+      new Error(
+        "The 'createdBy' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});
+
+workspaceSchema.pre("save", function (next) {
+  if (!this.isModified("dateCreated")) {
+    return next(
+      new Error(
+        "The 'createdBy' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});

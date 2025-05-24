@@ -39,6 +39,7 @@
                 }
             }
 
+            .new-temp-update-description-field-workspace-name,
             .workspace-name {
                 @include height(20px);
                 @include display-align(block);
@@ -57,10 +58,12 @@
                 cursor: pointer;
             }
 
+            .new-temp-update-description-field-workspace-name::placeholder,
             .workspace-name::placeholder {
                 @include text-color(#fff);
             }
 
+            .new-temp-update-description-field-workspace-name:focus,
             .workspace-name:focus {
                 @include border-top ($_2, solid, #1c1c1c);
                 @include border-left ($_2, solid, #1c1c1c);
@@ -73,6 +76,7 @@
                 cursor: pointer;
             }
 
+            .new-temp-update-description-field-workspace-description,
             .workspace-description {
                 @include height(40px);
                 @include max-height(60px);
@@ -94,10 +98,12 @@
                 cursor: pointer;
             }
 
+            .new-temp-update-description-field-workspace-description::placeholder,
             .workspace-description::placeholder {
                 @include text-color(#fff);
             }
 
+            .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
                 @include border-top ($_2, solid, #1c1c1c);
                 @include border-left ($_2, solid, #1c1c1c);
@@ -109,7 +115,34 @@
                 outline: $_2 solid #1c1c1c;
                 cursor: pointer;
             }
+        }
 
+        .workspace-buttons-container {
+            @include display-align(flex);
+            @include align-content(center);
+            @include justify-content(center);
+
+            //view and edit workspace sheet buttons
+            .workspace-toggle-edit-btns {
+                @include margin-x-y($_0, $auto, $_0, $auto);
+
+                .edit-mode,
+                .view-mode {
+                    @include margin-x-y($_2, $auto, $_2, $auto);
+                    @include text-color(#FABB00);
+                    @include align-text(center);
+                    @include background-color(#1c1c1c);
+                    @include border-top ($_2, solid, #1c1c1c);
+                    @include border-left ($_2, solid, #1c1c1c);
+                    @include border-right ($_2, solid, #1c1c1c);
+                    @include border-bottom ($_2, solid, #1c1c1c);
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+
+            //to update workspace specifically edited data
             .update-workspace-sheet {
                 @include margin-x-y($_2, $auto, $_2, $auto);
                 @include text-color(#FABB00);
@@ -352,18 +385,22 @@
                 }
             }
 
+            .new-temp-update-description-field-workspace-name,
             .workspace-name {
                 @include width(250px);
             }
 
+            .new-temp-update-description-field-workspace-name:focus,
             .workspace-name:focus {
                 @include width(250px);
             }
 
+            .new-temp-update-description-field-workspace-description,
             .workspace-description {
                 @include width(290px);
             }
 
+            .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
                 @include width(290px);
             }
@@ -390,20 +427,38 @@
                 }
             }
 
+            .new-temp-update-description-field-workspace-name,
             .workspace-name {
                 @include width(218px);
             }
 
+
+
+            .new-temp-update-description-field-workspace-name:focus,
             .workspace-name:focus {
                 @include width(218px);
             }
 
+            .new-temp-update-description-field-workspace-description,
             .workspace-description {
                 @include width(250px);
             }
 
+            .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
                 @include width(250px);
+            }
+
+            .workspace-buttons-container {
+                @include width(250px);
+
+                .workspace-toggle-edit-btns {
+
+                    .edit-mode,
+                    .view-mode {
+                        @include width(100px);
+                    }
+                }
             }
         }
     }
