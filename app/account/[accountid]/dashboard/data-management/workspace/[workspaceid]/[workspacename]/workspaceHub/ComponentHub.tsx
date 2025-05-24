@@ -1,10 +1,8 @@
-"use client";
 import React from "react";
 import Div from "@/src/ui/Div";
 import SVG from "@/src/SVG";
 import Button from "@/src/components/form-elements/Button";
 import componentHub from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/comp-hub-data-components.module.scss";
-
 import { useComponentHubState } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/ComponentHubStateProvider";
 import { TextButton } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/text/TextButton";
 import { AudioButton } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/audio/AudioButton";
@@ -12,7 +10,6 @@ import { ImageButton } from "@/app/account/[accountid]/dashboard/data-management
 import { VideoButton } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/video/VideoButton";
 const ComponentHub = () => {
   const { sharedToggleState, toggleSharedState } = useComponentHubState();
-  console.log("component hub sharedToggleState: ", sharedToggleState);
 
   return (
     sharedToggleState && (

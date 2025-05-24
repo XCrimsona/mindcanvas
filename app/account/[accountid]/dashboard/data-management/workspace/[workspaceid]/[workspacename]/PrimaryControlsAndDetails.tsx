@@ -1,16 +1,18 @@
 "use client";
-
-import React, { useState } from "react";
-import primaryControls from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/primary-controls.module.scss";
+import React, { useEffect, useState } from "react";
+import primaryControls from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/primary-controls.module.scss";
 import Div from "@/src/ui/Div";
 import Button from "@/src/components/form-elements/Button";
 import { InputDisabledText } from "@/src/components/form-elements/InputTypeInterfaces";
 import SVG from "@/src/SVG";
 import { useMaskSensitiveData } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/MaskSensitiveData";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
+import { useWorkspaceDeletionContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/WorkspaceDeletion/WorkspaceDeletionOpsContext";
 
 const PrimaryControlsAndDetails = ({ params }: any) => {
   try {
+    const { workspaceDeletionToggle } = useWorkspaceDeletionContext();
+
     //refresh content without reload
     const { updateWorkspaceData } = useWorkspaceContext();
     const refresh = async () => {
@@ -70,6 +72,15 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
         }
       >
         <Div className={primaryControls["primary-workspace-controls"]}>
+          <Div className={primaryControls["refresh-workspace-btn-wrapper"]}>
+            <Button
+              id="refresh-workspace-btn"
+              className={primaryControls["refresh-workspace-btn"]}
+              onClick={workspaceDeletionToggle}
+            >
+              DELETE
+            </Button>
+          </Div>
           <Div className={primaryControls["refresh-workspace-btn-wrapper"]}>
             <Button
               id="refresh-workspace-btn"
