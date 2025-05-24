@@ -1,5 +1,5 @@
-@import "../_variables";
-@import "../_mixins";
+@import "_variables";
+@import "_mixins";
 
 .primary-workspace-controls-and-workspace-details {
     @include display-align(flex);

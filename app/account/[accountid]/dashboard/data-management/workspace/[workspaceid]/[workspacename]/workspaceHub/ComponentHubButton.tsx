@@ -1,10 +1,7 @@
-"use client";
 import React from "react";
 import componentHubContainer from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/component-hub-container.module.scss";
-
 import Div from "@/src/ui/Div";
 import SVG from "@/src/SVG";
-// import { compHubDataElementMouseDownEvent } from "../DataComponents/MouseEvents";
 import LongText from "@/src/ui/LongText";
 import { useComponentHubState } from "../ComponentHubStateProvider";
 

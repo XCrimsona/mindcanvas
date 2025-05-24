@@ -1,0 +1,80 @@
+@import "../_mixins";
+@import "../_variables";
+
+.workspace-deletion-interface {
+    @include position(absolute);
+    @include top(0px);
+    @include bottom(0px);
+    @include left(0px);
+    @include right(0px);
+    @include height(180px);
+    @include margin-x-y($auto, $auto, $auto, $auto);
+    @include background-color(#000);
+    @include border-radius(10px);
+    @include border($_2, solid, #ccc);
+
+    .text-deletion-warning {
+        @include display-align(flex);
+        @include justify-content(center);
+        @include align-items(center);
+        @include text-color(#fff);
+        @include margin-x-y($_20, $auto, $_20, $auto);
+        @include align-text(center);
+    }
+
+    .workspace-caution-ops {
+        @include display-align(flex);
+        @include justify-content(center);
+        @include align-items(center);
+
+        .delete-workspace-btn-wrapper,
+        .cancel-workspace-btn-wrapper {
+            @include display-align(flex);
+            @include justify-content(center);
+            @include align-items(center);
+            @include margin-x-y($_0, $auto, $_0, $auto);
+            @include height(40px);
+
+            .cancel-workspace-btn {
+                @include background-color(#090);
+                font-weight: 600;
+                @include border(2px, solid, #000);
+                @include padding-x-y($_4, $_10, $_4, $_10);
+                @include text-color(#fff);
+                cursor: pointer;
+            }
+
+            .delete-workspace-btn {
+                @include background-color(#900);
+                font-weight: 600;
+                @include border(2px, solid, #000);
+                @include padding-x-y($_4, $_10, $_4, $_10);
+                @include text-color(#fff);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:320px) {
+    .workspace-deletion-interface {
+        @include width(300px);
+
+        .text-deletion-warning {
+            @include width(250px);
+
+        }
+
+        .workspace-caution-ops {
+            @include width(300px);
+
+            .cancel-workspace-btn-wrapper {
+                @include width(80px);
+            }
+
+            .delete-workspace-btn-wrapper {
+                @include width(80px);
+            }
+        }
+    }
+}

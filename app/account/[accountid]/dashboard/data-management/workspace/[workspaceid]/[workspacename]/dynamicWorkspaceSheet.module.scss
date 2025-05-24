@@ -9,9 +9,10 @@
     z-index: 1;
 
     .work-data-management-container-wrapper {
-        @include width(770px);
+        @include width(90%);
         @include margin-x-y($_40, $auto, $_0 , $auto );
         @include Angular-Gradient();
+        @include position(relative);
 
         .work-data-management-container {
             @include display-align(flex);

@@ -1,6 +1,5 @@
 "use client";
 import Div from "@/src/ui/Div";
-
 import management from "@/app/account/[accountid]/dashboard/data-management/(css)/management.module.scss";
 import controls from "@/app/account/[accountid]/dashboard/data-management/(css)/data-workspace-board-controls.module.scss";
 import workspacesheetWrapper from "@/app/account/[accountid]/dashboard/data-management/(css)/workspace-board-sheet-wrapper.module.scss";
@@ -35,12 +34,6 @@ const DataManagement = ({ params }: { params: any }) => {
       console.error("Failed to fetch workspace data");
     }
   };
-  // const updatedWorkspaceData: updatedWorkspaceProps = {
-  //   sub: params.info.data._id,
-  //   workspacename: "",
-  //   workspacedescription: "",
-  // };
-  //View and edit workspace button toggling logic
   const toggleASingleWorkspace = (id: string) => {
     setWorkspaceData((prev: any) =>
       prev.map((workspace: any) =>
@@ -66,23 +59,16 @@ const DataManagement = ({ params }: { params: any }) => {
     try {
       e.preventDefault();
       const updateFields: Partial<IWorkspaceProps> = {};
-
       const edited = workspaceEdits[workspaceId];
       const original = workspaceData?.find((w: any) => w._id === workspaceId);
 
       if (!original || !edited) return;
-
       if (original.workspacename !== edited.workspacename) {
         updateFields.workspacename = edited.workspacename;
       }
-      // Type 'IWorkspaceProps' is not assignable to type 'string'.
       if (original.workspacedescription !== edited.workspacedescription) {
         updateFields.workspacedescription = edited.workspacedescription;
       }
-      console.log("updatedFields: ", updateFields);
-      console.log("orignal: ", original.workspacename);
-      console.log("ediited: ", edited.workspacename);
-
       if (params.accountid) {
         updateFields.sub = workspaceId;
       }
@@ -154,7 +140,7 @@ const DataManagement = ({ params }: { params: any }) => {
       workspacename: newWorkspace.workspacename,
       workspacedescription: newWorkspace.workspacedescription,
     };
-    console.log("sub: params.info.data._id", formData.sub);
+    // console.log("sub: params.info.data._id", formData.sub);
 
     if (!formData) {
       alert("Fill all the fields!");
