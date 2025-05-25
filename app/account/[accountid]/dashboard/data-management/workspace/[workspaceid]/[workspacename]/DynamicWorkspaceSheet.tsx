@@ -5,7 +5,7 @@ import AuthHeader from "@/app/account/[accountid]/dashboard/data-management/work
 import DataContainer from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataContainer";
 import PrimaryControlsAndDetails from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/PrimaryControlsAndDetails";
 import WorkspaceCoreFunctionality from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/WorkspaceCoreFunctionality";
-import { WorkspaceContextProvider } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
+import { WorkspaceContextProvider } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import DeleteWorkspace from "./WorkspaceDeletion/DeleteWorkspace";
 import { WorkspaceContextDeletionProvider } from "./WorkspaceDeletion/WorkspaceDeletionOpsContext";
 //23 may 2025 updating code to best practices
@@ -19,7 +19,6 @@ const DynamicWorkspaceSheet = ({ params }: any) => {
           }
         >
           <AuthHeader />
-          {/* below has angular gradient */}
           <Div
             className={
               dynamicWorkspaceSheet["work-data-management-container-wrapper"]
@@ -27,7 +26,6 @@ const DynamicWorkspaceSheet = ({ params }: any) => {
           >
             <WorkspaceContextDeletionProvider params={params}>
               <DeleteWorkspace />
-
               <Div
                 className={
                   dynamicWorkspaceSheet["work-data-management-container"]
@@ -36,7 +34,7 @@ const DynamicWorkspaceSheet = ({ params }: any) => {
                 <WorkspaceContextProvider params={params}>
                   <PrimaryControlsAndDetails params={params} />
                   <DataContainer params={params} />
-                  <WorkspaceCoreFunctionality />
+                  <WorkspaceCoreFunctionality params={params} />
                 </WorkspaceContextProvider>
               </Div>
             </WorkspaceContextDeletionProvider>

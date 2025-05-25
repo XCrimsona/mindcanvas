@@ -7,7 +7,7 @@
     @include height(70px);
 
     .help-btn-wrapper {
-        @include width(50px);
+        @include width(60px);
         @include height(30px);
         @include display-align(block);
         @include margin-x-y($_0, $auto, $_0 , $auto );

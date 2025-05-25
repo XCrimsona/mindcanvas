@@ -6,10 +6,11 @@ import {
 import Div from "@/src/ui/Div";
 import workspaceSizeControls from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/workspace-controls.module.scss";
 import LongText from "@/src/ui/LongText";
-import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
+import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
+import { useState } from "react";
 
 //Dynamic workspace width and height
-const WorkspaceSizeControls = () => {
+const WorkspaceSizeControls = ({ params }: { params: any }) => {
   try {
     const {
       workspaceHeight,
@@ -20,13 +21,47 @@ const WorkspaceSizeControls = () => {
       workspaceSizePropertiesToggleState,
     } = useWorkspaceContext();
 
+    const [updatedHeight, setUpdatedHeight] = useState<string>("");
+    const [updatedWidth, setUpdatedWidth] = useState<string>("");
+    const sendWorkspacePropertyUpdate = async () => {
+      if (!updatedHeight || !updatedWidth) {
+        alert("Something is broken...");
+        return;
+      } else {
+        const newData: any = {};
+        if (updatedHeight) newData.newHeight = updatedHeight;
+        if (updatedWidth) newData.newWidth = updatedWidth;
+        const response = await fetch(
+          `http://localhost:3000/api/account/${params.accountid}/dashboard/data-management/workspace/${params.workspaceid}/${params.workspacename}`,
+          {
+            method: "PACTH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newData),
+          }
+        );
+        if (response.ok) {
+          alert("Workspace properties updated.");
+        } else {
+          alert("Workspace properties NOT updated.");
+        }
+      }
+    };
     return (
       <form
         className={workspaceSizeControls["workspace-size-controls"]}
-        // onSubmit={() => {
-        //save width and height to db
-        //use comm notification lib to communicate
-        // }}
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (!workspaceHeight || !workspaceWidth) {
+            alert("Complete the workspace size fields");
+            return;
+          } else {
+            sendWorkspacePropertyUpdate();
+          }
+          // save width and height to db
+          // use comm notification lib to communicate
+        }}
       >
         {/* make height and width editable and immutable */}
         <Div className={workspaceSizeControls["height-container"]}>
@@ -37,6 +72,7 @@ const WorkspaceSizeControls = () => {
               value={workspaceHeight ? workspaceHeight : ""}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 updateDataBoardWorkspaceHeight(event.target.value);
+                setUpdatedHeight(event.target.value);
               }}
               placeholder="Update height"
             />
@@ -51,18 +87,19 @@ const WorkspaceSizeControls = () => {
         <Div className={workspaceSizeControls["width-container"]}>
           {workspaceSizePropertiesToggleState ? (
             <InputEnabledText
-              id=""
+              id="mutable-width"
               className={workspaceSizeControls["mutable-width"]}
               value={workspaceWidth ? workspaceWidth : ""}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                // e.preventDefault();
-                updateDataBoardWorkspaceWidth(e.target.value);
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                event.preventDefault();
+                updateDataBoardWorkspaceWidth(event.target.value);
+                setUpdatedWidth(event.target.value);
               }}
               placeholder="Update width"
             />
           ) : (
             <InputDisabledText
-              id=""
+              id="immutable-width"
               className={workspaceSizeControls["immutable-width"]}
               value={workspaceWidth ? workspaceWidth : "No DB width"}
             />
@@ -72,7 +109,8 @@ const WorkspaceSizeControls = () => {
           <div
             id="toggle-visual-ops"
             className={workspaceSizeControls["toggle-visual-ops"]}
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               toggleWorkspaceSizePropertiesState(
                 workspaceSizePropertiesToggleState
               );

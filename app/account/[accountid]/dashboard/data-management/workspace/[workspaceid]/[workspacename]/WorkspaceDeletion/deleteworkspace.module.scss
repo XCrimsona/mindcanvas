@@ -12,6 +12,7 @@
     @include background-color(#000);
     @include border-radius(10px);
     @include border($_2, solid, #ccc);
+    z-index: 5;
 
     .text-deletion-warning {
         @include display-align(flex);

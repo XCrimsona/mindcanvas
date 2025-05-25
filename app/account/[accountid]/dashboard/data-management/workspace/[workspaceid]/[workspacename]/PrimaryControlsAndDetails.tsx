@@ -6,7 +6,7 @@ import Button from "@/src/components/form-elements/Button";
 import { InputDisabledText } from "@/src/components/form-elements/InputTypeInterfaces";
 import SVG from "@/src/SVG";
 import { useMaskSensitiveData } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/MaskSensitiveData";
-import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
+import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import { useWorkspaceDeletionContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/WorkspaceDeletion/WorkspaceDeletionOpsContext";
 
 const PrimaryControlsAndDetails = ({ params }: any) => {
@@ -94,7 +94,7 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
         <Div className={primaryControls["workspace-details"]}>
           <Div className={primaryControls["workspace-name-wrapper"]}>
             <InputDisabledText
-              id=""
+              id="disabled-workspace-name"
               className={primaryControls["workspace-name"]}
               value={
                 params.workspacename
@@ -127,7 +127,7 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
           </Div>
           <Div className={primaryControls["workspace-id-wrapper"]}>
             <InputDisabledText
-              id=""
+              id="disabled-workspace-id"
               className={primaryControls["workspace-id"]}
               value={
                 params.workspaceid

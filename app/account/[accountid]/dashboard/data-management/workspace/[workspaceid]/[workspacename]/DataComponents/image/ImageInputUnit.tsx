@@ -7,7 +7,7 @@ import {
   EnabledImagesInput,
 } from "@/src/components/mass-workspace-elements/MassWorkspaceInputComponents";
 import Label from "@/src/components/form-elements/Label";
-import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-controls-provider/WorkspaceContextProvider";
+import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import Select from "@/src/ui/selection/Select";
 import imageStyle from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/DataComponents/image.module.scss";
 

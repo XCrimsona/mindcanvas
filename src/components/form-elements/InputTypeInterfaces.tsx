@@ -146,6 +146,7 @@ export const InputEnabledText = ({
       className={className}
       value={value}
       onChange={onChange}
+      required
     />
   );
 };
@@ -342,10 +343,24 @@ interface InputSubmitProps {
   id: string;
   className: string;
   value: string;
+  onClick?: React.ReactEventHandler;
 }
 
-export const InputSubmit = ({ id, className, value }: InputSubmitProps) => {
-  return <input type="submit" id={id} className={className} value={value} />;
+export const InputSubmit = ({
+  id,
+  className,
+  onClick,
+  value,
+}: InputSubmitProps) => {
+  return (
+    <input
+      type="submit"
+      id={id}
+      className={className}
+      onClick={onClick}
+      value={value}
+    />
+  );
 };
 
 interface InputFileProps {
