@@ -2,17 +2,39 @@
 @import "../_mixins";
 
 .workspace-core-functionalities {
-    @include height(100px);
     @include display-align(flex);
-    @include flex-align(wrap);
     @include justify-content(center);
     @include align-items(center);
     @include margin-x-y($_20, $auto, $_20 , $auto );
-    //temp width
-    @include width(700px);
     @include text-color(#fff);
     @include background-color(#000000B3);
     @include border-radius(10px);
     @include position(relative);
     overflow: visible;
+    transition: width .2s ease-in-out, height .2s ease-in-out;
+}
+
+@media screen and (min-width:320px)and (max-width:600.9px) {
+    .workspace-core-functionalities {
+        @include width(300px);
+        @include height(230px);
+        @include display-align(flex);
+        @include flex-align(wrap);
+        @include justify-content(center);
+        @include align-items(center);
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:1439.9px) {
+    .workspace-core-functionalities {
+        @include width(600px);
+        @include height(100px);
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .workspace-core-functionalities {
+        max-width: 2500px;
+        max-height: 1400px;
+    }
 }

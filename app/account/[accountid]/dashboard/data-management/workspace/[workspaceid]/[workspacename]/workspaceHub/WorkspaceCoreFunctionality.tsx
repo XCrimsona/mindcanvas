@@ -3,12 +3,12 @@ import React from "react";
 import ComponentHub from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/ComponentHub";
 import Div from "@/src/ui/Div";
 import ZoomControls from "./ZoomControls";
-import HelpButton from "./HelpButton";
+import HelpButton from "./help/HelpButton";
 import WorkspaceSizeControls from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/WorkspaceSizeControls";
 import ComponentHubButton from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/workspaceHub/ComponentHubButton";
 import { ComponentHubStateProvider } from "@/app/account/[accountid]/dashboard/data-management/workspace/[workspaceid]/[workspacename]/ComponentHubStateProvider";
 
-const WorkspaceCoreFunctionality = () => {
+const WorkspaceCoreFunctionality = ({ params }: { params: any }) => {
   return (
     <Div
       className={workspaceCoreFunctionalities["workspace-core-functionalities"]}
@@ -19,7 +19,7 @@ const WorkspaceCoreFunctionality = () => {
       </ComponentHubStateProvider>
       <ZoomControls />
       <HelpButton />
-      <WorkspaceSizeControls />
+      <WorkspaceSizeControls params={params} />
     </Div>
   );
 };

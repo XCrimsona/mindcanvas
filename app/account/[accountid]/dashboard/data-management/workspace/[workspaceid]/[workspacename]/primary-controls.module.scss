@@ -4,11 +4,7 @@
 .primary-workspace-controls-and-workspace-details {
     @include display-align(flex);
     @include flex-align(wrap);
-    // @include justify-content(center);
-    // @include align-content(center);
     @include margin-x-y($_0, $auto, $_0 , $_0 );
-    @include width(700px);
-    @include height(100px);
 
     .primary-workspace-controls {
         @include display-align(flex);
@@ -17,6 +13,7 @@
         @include align-content(center);
         @include margin-x-y($_0, $auto, $_0 , $_0 );
         @include width(120px);
+        transition: width .2s ease-in-out, height .2s ease-in-out;
 
         .refresh-workspace-btn-wrapper {
             @include display-align(flex);
@@ -77,8 +74,7 @@
         @include flex-align(wrap);
         @include justify-content(flex-end);
         @include align-content(center);
-        @include width(280px);
-        @include margin-x-y($_0, $_0, $_0 , $auto );
+        @include margin-x-y($_0, $auto, $_0 , $auto );
 
 
         .workspace-id-wrapper,
@@ -96,7 +92,6 @@
                 @include border-radius($_4);
                 @include margin-x-y($_5, $_0, $_5 , $_0 );
                 @include padding-x-y($_4, $_20, $_4 , $_4 );
-                @include width(210px);
             }
 
             .clipboard-icon {
@@ -118,7 +113,6 @@
                 @include border-radius($_4);
                 @include margin-x-y($_5, $_0, $_5 , $_0 );
                 @include padding-x-y($_4, $_20, $_4 , $_4 );
-                @include width(210px);
             }
 
             .eye-icon {
@@ -148,5 +142,95 @@
             }
         }
 
+    }
+}
+
+@media screen and (min-width:320px) and (max-width: 600.9px) {
+    .primary-workspace-controls-and-workspace-details {
+        @include width(300px);
+        @include height(200px);
+        @include margin-x-y($_0, $auto, $_0,
+            $auto);
+
+        .primary-workspace-controls {
+            @include width(300px);
+            @include justify-content(center);
+
+            .refresh-workspace-btn-wrapper {
+                @include display-align(block);
+                @include margin-x-y($_5, $auto, $_5,
+                    $auto);
+
+                .refresh-workspace-btn {
+                    @include width(280px);
+                    @include margin-x-y($_5, $_0, $_5 , $_0 );
+                }
+
+                .save-workspace-btn-wrapper {
+                    @include width(280px);
+                    @include margin-x-y($_5, $_0, $_5 , $_0 );
+                }
+            }
+        }
+
+        .workspace-details {
+            @include width(300px);
+            @include justify-content(center);
+
+            .workspace-id-wrapper,
+            .workspace-name-wrapper {
+
+                .workspace-name,
+                .workspace-id {
+                    @include padding-x-y($_4, $_0, $_4 , $_4 );
+                    @include width(230px);
+
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:601px) {
+    .primary-workspace-controls-and-workspace-details {
+        @include width(500px);
+        @include height(150px);
+        @include margin-x-y($_0, $auto, $_0,
+            $auto);
+
+        .primary-workspace-controls {
+            @include width(120px);
+            @include margin-x-y($_0, $auto, $_0,
+                $auto);
+
+            .refresh-workspace-btn-wrapper,
+            .save-workspace-btn-wrapper {
+                @include width(120px);
+
+                .refresh-workspace-btn {
+                    @include width(100px);
+                }
+
+                .save-workspace-btn {
+                    @include width(100px);
+                }
+            }
+        }
+
+        .workspace-details {
+            @include width(300px);
+            @include justify-content(center);
+
+            .workspace-id-wrapper,
+            .workspace-name-wrapper {
+
+                .workspace-name,
+                .workspace-id {
+                    @include padding-x-y($_4, $_0, $_4 , $_4 );
+                    @include width(230px);
+
+                }
+            }
+        }
     }
 }

@@ -4,7 +4,6 @@ import help from "@/app/account/[accountid]/dashboard/data-management/workspace/
 import Div from "@/src/ui/Div";
 import SVG from "@/src/SVG";
 import ShortText from "@/src/ui/ShortText";
-
 const HelpButton = () => {
   return (
     <Div className={help["help-container"]}>

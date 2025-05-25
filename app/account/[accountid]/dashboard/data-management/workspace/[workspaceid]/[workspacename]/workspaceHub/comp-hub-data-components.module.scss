@@ -13,7 +13,6 @@
     @include height(200px);
     @include background-color(#000000);
     z-index: 4;
-    //temp width
     @include width(200px);
     @include margin-x-y($_0, $auto, $_0 , $auto );
     @include border-top($_2, solid, #FABB00DD);
