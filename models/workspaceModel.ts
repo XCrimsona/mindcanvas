@@ -54,6 +54,17 @@ export default workspaceModel;
 //   }
 
 workspaceSchema.pre("save", function (next) {
+  if (!this.isModified("owner")) {
+    return next(
+      new Error(
+        "The 'owner' field data is immutable and cannot be changed once set."
+      )
+    );
+  }
+  next();
+});
+
+workspaceSchema.pre("save", function (next) {
   if (!this.isModified("createdBy")) {
     return next(
       new Error(

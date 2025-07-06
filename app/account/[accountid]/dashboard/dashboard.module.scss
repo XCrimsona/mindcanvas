@@ -1,5 +1,5 @@
-@import "./data-management//workspace//[workspaceid]/[workspacename]/mixins";
-@import "./data-management//workspace//[workspaceid]/[workspacename]/variables";
+@import "./workspace-management/workspace/[workspaceid]/[workspacename]/mixins";
+@import "./workspace-management/workspace/[workspaceid]/[workspacename]/variables";
 
 .account-dashboard {
     @include background-color(#222);

@@ -5,10 +5,10 @@ import authstyles from "@/app/auth/auth.module.scss";
 
 export const metadata: Metadata = {
   title: "Signin Page",
-  description: "Sign in for more access of life expansion's features",
+  description: "Sign in for more access of workspace manager\u2019s features",
   robots: "noindex, nofollow",
   alternates: {
-    canonical: "https://vercel.life-expansion.app/login",
+    canonical: "",
   },
   icons: {
     icon: "favicon.ico",

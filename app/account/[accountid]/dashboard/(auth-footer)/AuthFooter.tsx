@@ -8,7 +8,7 @@ const AuthFooter = () => {
     <Footer id="auth-footer" className={authFooter["auth-footer"]}>
       <Div className={authFooter["creator"]}>
         <ShortText className={authFooter["project-creator"]}>
-          Created by Christeen Fabian | MysteriousTechLady
+          Created by Christeen Fabian | The Code Hashira
         </ShortText>
       </Div>
     </Footer>

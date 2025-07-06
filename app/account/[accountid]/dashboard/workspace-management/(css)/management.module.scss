@@ -1,0 +1,202 @@
+@import "_mixins";
+@import "_variables";
+
+.main-workspace-management-container {
+
+    @include height(100%);
+    @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
+    @include background-color(#000000);
+    @include margin-x-y($_0, $auto, $_0 , $auto );
+    z-index: 1;
+
+    .heading-one {
+        @include text-color(#ffffff);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include padding-x-y($_30, $_0, $_30 , $_0 );
+        @include align-text(center);
+    }
+
+    .workspace-dashboard {
+        overflow-y: scroll;
+        @include display-align(flex);
+        @include justify-content(center);
+        @include margin-x-y($_0, $auto, $_0 , $auto );
+        // @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include position(relative);
+        @include border-radius($_10);
+        transition: width .2s ease-in-out, height .2s ease-in-out;
+        //for portrait mode
+
+        overflow-y: auto;
+        @include Angular-Gradient();
+
+        //for screen orientation landscape mode
+
+        .workspace-sheets-wrapper {
+            @include border-radius($_10);
+            @include display-align(block);
+            @include background-color(rgba(0, 0, 0, 0.7));
+            @include position(relative);
+            @include margin-x-y($_10, $auto, $_10 , $auto );
+            transition: width .2s ease-in-out, height .2s ease-in-out;
+
+            .workspace-sheets {
+                overflow-x: hidden;
+                overflow-y: scroll;
+                transition: width .2s ease-in-out, height .2s ease-in-out;
+                @include display-align(flex);
+                flex-wrap: wrap;
+                @include margin-x-y($_0, $auto, $_0 , $auto );
+                justify-content: center;
+
+            }
+
+            .workspace-sheets::-webkit-scrollbar {
+                @include background-color(rgba(0, 0, 0, 0.7));
+                @include border-radius($_10);
+                @include width($_10);
+            }
+
+            .workspace-sheets::-webkit-scrollbar-track {
+                @include background-color(#555);
+                @include border-radius($_6);
+            }
+
+            .workspace-sheets::-webkit-scrollbar-thumb {
+                @include background-color(#bbb);
+                @include border-radius($_10);
+            }
+        }
+    }
+
+
+}
+
+
+@media screen and (min-width:320px) and (max-width:425.9px) {
+    .main-workspace-management-container {
+        .heading-one {
+            @include width(300px);
+        }
+
+
+        .workspace-dashboard {
+            @include width(300px);
+            @include min-height(550px);
+            @include max-height(800px);
+
+            .workspace-sheets-wrapper {
+                @include width(290px);
+
+                .workspace-sheets {
+                    @include width(290px);
+                    @include min-height(410px);
+                    @include max-height(410px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:426px) and (max-width:600.9px) {
+    .main-workspace-management-container {
+        .heading-one {
+            @include width(400px);
+        }
+
+
+        .workspace-dashboard {
+            @include width(420px);
+            @include min-height(550px);
+            @include max-height(800px);
+
+            .workspace-sheets-wrapper {
+                @include width(400px);
+
+                .workspace-sheets {
+                    @include width(400px);
+                    @include min-height(410px);
+                    @include max-height(410px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:768.9px) {
+    .main-workspace-management-container {
+        .heading-one {
+            @include width(400px);
+        }
+
+
+        .workspace-dashboard {
+            @include width(480px);
+            @include min-height(550px);
+            @include max-height(800px);
+
+            .workspace-sheets-wrapper {
+                @include width(450px);
+
+                .workspace-sheets {
+                    @include width(450px);
+                    @include min-height(410px);
+                    @include max-height(410px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:769px) and (max-width:1440.9px) {
+
+    .main-workspace-management-container {
+        .heading-one {
+            @include width(400px);
+        }
+
+        .workspace-dashboard {
+            @include width(650px);
+            @include min-height(550px);
+            @include max-height(800px);
+            @include width(90%);
+
+            .workspace-sheets-wrapper {
+                @include width(620px);
+                @include width(98%);
+
+                .workspace-sheets {
+                    @include width(620px);
+                    @include min-height(410px);
+                    @include max-height(410px);
+                    @include width(98%);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1440px) {
+
+    .main-workspace-management-container {
+        .heading-one {
+            @include width(400px);
+        }
+
+        .workspace-dashboard {
+            @include width(90%);
+            @include min-height(550px);
+            @include max-height(800px);
+
+            .workspace-sheets-wrapper {
+                @include width(98%);
+
+                .workspace-sheets {
+                    @include width(98%);
+                    @include min-height(410px);
+                    @include max-height(410px);
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,4 @@
 "use client";
-import PageFooter from "@/app/(home)/(components)/PageFooter";
 import RouteLink from "@/src/components/ProductSection/RouteLink";
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
@@ -19,29 +18,10 @@ const Dashboard = () => {
     },
     {
       routeData: {
-        route: "/account-analysis",
-        text: "Content Analysis",
-      },
-    },
-    {
-      routeData: {
-        route: "/data-management",
+        route: "/workspace-management",
         text: "Data Management",
       },
     },
-    {
-      routeData: {
-        route: "/image-editing",
-        text: "Image Editing",
-      },
-    },
-    {
-      routeData: {
-        route: "/account-fitness-tracking",
-        text: "Fitness Tracking",
-      },
-    },
-    { routeData: { route: "/planner", text: "Planner" } },
   ];
 
   return (
