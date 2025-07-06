@@ -168,7 +168,6 @@ const Info = ({ params }: any) => {
                     }}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState firstname to help control view and edit modes. This one disables field editing*/}
                   <Button
                     id="disable-firstname-editing"
                     className={info["disable-firstname-editing"]}
@@ -196,7 +195,6 @@ const Info = ({ params }: any) => {
                     }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState data.firstname to help control view and edit modes. This one enables field editing*/}
                   <Button
                     id="enable-firstname-editing"
                     className={info["enable-firstname-editing"]}
@@ -232,7 +230,6 @@ const Info = ({ params }: any) => {
                     }}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState lastname to help control view and edit modes. This one disables field editing*/}
                   <Button
                     id="disable-firstname-editing"
                     className={info["disable-lastname-editing"]}
@@ -260,7 +257,6 @@ const Info = ({ params }: any) => {
                     }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState lastname to help control view and edit modes. This one enables field editing*/}
                   <Button
                     id="enable-lastname-editing"
                     className={info["enable-lastname-editing"]}
@@ -304,7 +300,6 @@ const Info = ({ params }: any) => {
                   </select>
 
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState gender to help control view and edit modes. This one disables field editing*/}
                   <Button
                     id="disable-gender-editing"
                     className={info["disable-gender-editing"]}
@@ -330,7 +325,6 @@ const Info = ({ params }: any) => {
                     }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState gender to help control view and edit modes. This one enables field editing*/}
                   <Button
                     id="enable-gender-editing"
                     className={info["enable-gender-editing"]}
@@ -361,7 +355,6 @@ const Info = ({ params }: any) => {
                     }}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one disables field editing*/}
                   <Button
                     id="disable-dob-editing"
                     className={info["disable-dob-editing"]}
@@ -385,7 +378,6 @@ const Info = ({ params }: any) => {
                     value={params.data.dob ? params.data.dob : "Not assigned"}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState dob to help control view and edit modes. This one enables field editing*/}
                   <Button
                     id="enable-dob-editing"
                     className={info["enable-dob-editing"]}
@@ -409,7 +401,6 @@ const Info = ({ params }: any) => {
                 text="Email"
               />
               {formFieldToggle.email ? (
-                // appear when form field email boolean state is true
                 <Div className={info["data-control-container"]}>
                   <InputEnabledText
                     id="email"
@@ -422,7 +413,6 @@ const Info = ({ params }: any) => {
                     }}
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState email to help control view and edit modes. This one disables field editing*/}
                   <Button
                     id="disable-email-editing"
                     className={info["disable-email-editing"]}
@@ -449,7 +439,6 @@ const Info = ({ params }: any) => {
                     }
                   />
                   <PipeSpan className={info["form-pipe-span"]} />
-                  {/* Button below is soleply programmed for updating useState email to help control view and edit modes. This one enables field editing*/}
                   <Button
                     id="enable-email-editing"
                     className={info["enable-email-editing"]}

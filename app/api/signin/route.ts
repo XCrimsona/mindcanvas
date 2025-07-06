@@ -19,6 +19,7 @@ export async function OPTIONS() {
 export async function GET(request: NextRequest) {
   try {
     await getDB();
+    return NextResponse.json({ status: 200 });
   } catch (err: any) {
     return NextResponse.json(
       { error: err.message || "Unexpected connection error" },

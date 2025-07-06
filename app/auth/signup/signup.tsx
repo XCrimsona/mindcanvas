@@ -14,7 +14,7 @@ import {
   InputSubmit,
   InputText,
 } from "@/src/components/form-elements/InputTypeInterfaces";
-import Contact from "@/src/components/ProductSection/Contact";
+
 import LongText from "@/src/ui/LongText";
 import Button from "@/src/components/form-elements/Button";
 import Link from "next/link";

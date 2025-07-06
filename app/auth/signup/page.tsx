@@ -6,10 +6,10 @@ import Signup from "./signup";
 export const metadata: Metadata = {
   title: "Signup Page",
   description:
-    "Need a flexible work environment? Life Expansion provides powerful tools help you streamline your workflow. Contact admins to sign up today",
+    "Need a serious work environment upgrade? Workspace Manager provides a powerful tool to help you streamline your workflow.",
   robots: "noindex, nofollow",
   alternates: {
-    canonical: "https://vercel.life-expansion.app/auth/sign-up-page",
+    canonical: "",
   },
   icons: {
     icon: "favicon.ico",

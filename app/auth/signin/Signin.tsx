@@ -51,7 +51,9 @@ const Signin = () => {
         //for real-time notifcations to check login success or failed to verify
         if (response.ok) {
           const data: any = await response.json();
-          router.push(`/account/${data.data._id}/dashboard`);
+          router.push(
+            `http://localhost:3000/account/${data.data._id}/dashboard/workspace-management`
+          );
         } else {
           const error = await response.json();
           console.warn("frontend sigin error: ", error);

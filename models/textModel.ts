@@ -10,17 +10,17 @@ const textSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum: ["text", "list"],
+      enum: ["Text", "List"],
       required: true,
     },
     position: {
       x: {
-        type: String,
+        type: Number,
         required: [true, "X coordinate is required"],
         min: 0,
       },
       y: {
-        type: String,
+        type: Number,
         required: [true, "Y coordinate is required"],
         min: 0,
       },
