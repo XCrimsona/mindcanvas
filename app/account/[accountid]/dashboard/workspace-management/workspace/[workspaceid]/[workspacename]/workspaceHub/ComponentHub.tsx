@@ -23,7 +23,7 @@ const ComponentHub = () => {
           >
             <SVG
               className={componentHub["close-icon"]}
-              src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746739182/close_icon_oos3ju.svg"
+              src="/close-icon.svg"
               alt="Close Icon"
               onClick={toggleSharedState}
             />

@@ -11,7 +11,7 @@ const ComponentHubButton = () => {
     <Div className={componentHubContainer["component-hub-container"]}>
       <Div className={componentHubContainer["component-hub-btn-wrapper"]}>
         <SVG
-          src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746546115/component-hub_sijuzu.svg"
+          src="/component-hub.svg"
           className={componentHubContainer["component-hub-btn"]}
           alt="Component Hub Icon"
           onClick={toggleSharedState}

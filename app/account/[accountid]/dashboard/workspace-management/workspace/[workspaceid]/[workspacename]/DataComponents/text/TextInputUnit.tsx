@@ -135,7 +135,7 @@ const TextInputUnit = ({ params }: any) => {
         textInputComp.style.transform = `translate(${newValueX}px, ${newValueY}px)`;
       }
     };
-    const processTextMouseUp = (event: React.MouseEvent) => {
+    const processTextMouseUp = () => {
       globalDraggingRef.current = false;
       document.removeEventListener<any>("mousemove", processTextMouseMove);
       document.removeEventListener<any>("mouseup", processTextMouseUp);

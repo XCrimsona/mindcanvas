@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     canonical: "",
   },
   icons: {
-    icon: "favicon.ico",
+    icon: "/favicon.ico",
   },
 };
 

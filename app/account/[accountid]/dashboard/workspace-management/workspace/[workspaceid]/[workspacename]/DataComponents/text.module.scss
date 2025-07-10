@@ -1,95 +1,125 @@
-@import "../_variables";
-@import "../_mixins";
+@use '@/app/styles/index' as style;
+
+
+@mixin linearGradient($color1, $color2, $color3,
+    $color4, $color5,
+    $color6, $color7) {
+
+    background: conic-gradient(from -119deg at center center, $color1,
+            $color2,
+            $color3,
+            $color4, $color5,
+            $color6, $color7);
+}
+
+@mixin DataComponent {
+    @include style.display-align(flex);
+    @include style.justify-content(center);
+    @include style.align-items(flex-start);
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
+    @include style.background-color(#111);
+    @include style.border-bottom(style.$space-2, solid, #00FBA0B3);
+    @include style.width(350px);
+    @include style.height(120px);
+    transition: height .2s ease-in-out, width .2s ease-in-out;
+}
+
+
+@mixin Angular-Gradient() {
+    @include style.linearGradient(style.$Gold 0.2deg, style.$darkAsdhBlack 55.6deg, style.$darkAsdhBlack 116.8deg, style.$Gold 169.2deg, style.$darkAsdhBlack 257.8deg,
+        style.$darkAsdhBlack 313.6deg,
+        style.$Gold 345.6deg);
+}
 
 .data-text-component {
     @include DataComponent;
 
     .text-input-form {
-        @include width(340px);
+        @include style.width(340px);
 
         .text-label-wrapper {
-            @include margin-x-y($_10, $_0 , $_0 , $_0 );
+            @include style.margin-x-y(style.$space-10, style.$space-0 , style.$space-0 , style.$space-0 );
 
             .list-label,
             .text-label {
-                @include display-align(block);
-                @include margin-x-y($_0, $_0 , $_0 , $_0 );
-                @include width(120px);
+                @include style.display-align(block);
+                @include style.margin-x-y(style.$space-0, style.$space-0 , style.$space-0 , style.$space-0 );
+                @include style.width(120px);
             }
         }
 
         .text-container {
-            @include display-align(flex);
-            @include align-items(center);
-            @include position(relative);
+            @include style.display-align(flex);
+            @include style.align-items(center);
+            @include style.position(relative);
 
             .text-input-wrapper {
-                @include display-align(flex);
-                @include align-items(center);
-                @include position(relative);
+                @include style.display-align(flex);
+                @include style.align-items(center);
+                @include style.position(relative);
 
                 .enabled-list-input-field,
                 .enabled-text-input-field {
-                    @include display-align(flex);
-                    @include justify-content(left);
-                    @include border-top($_2, solid, #111);
-                    @include border-left($_2, solid, #00FBA0B3);
-                    @include border-bottom($_2, solid, #00FBA0B3);
-                    @include text-color(#fff);
-                    @include border-right($_2, solid, #111);
-                    @include background-color(#111);
-                    // @include border-bottom($_2, solid, #00FBA0B3);
-                    @include width(250px);
-                    @include height(20px);
+                    @include style.display-align(flex);
+                    @include style.justify-content(left);
+                    @include style.border-top(style.$space-2, solid, #111);
+                    @include style.border-left(style.$space-2, solid, #00FBA0B3);
+                    @include style.border-bottom(style.$space-2, solid, #00FBA0B3);
+                    @include style.text-color(#fff);
+                    @include style.border-right(style.$space-2, solid, #111);
+                    @include style.background-color(#111);
+                    // @include style.border-bottom(style.$space-2, solid, #00FBA0B3);
+                    @include style.width(250px);
+                    @include style.height(20px);
                     transition: height .2s ease-in-out;
                     resize: none;
-                    outline: $_2 solid #111;
-                    @include margin-x-y($_0, $auto , $_0 , $_2 );
+                    outline: style.$space-2 solid #111;
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$space-2 );
                 }
 
                 .enabled-list-input-field:focus,
                 .enabled-text-input-field:focus {
-                    @include height(50px);
+                    @include style.height(50px);
                 }
 
                 .text-btn-container {
-                    @include display-align(flex);
-                    @include flex-align(wrap);
-                    @include align-items(center);
-                    @include justify-content(center);
-                    @include width(80px);
-                    @include height(80px);
+                    @include style.display-align(flex);
+                    @include style.flex-align(wrap);
+                    @include style.align-items(center);
+                    @include style.justify-content(center);
+                    @include style.width(80px);
+                    @include style.height(80px);
 
                     .text-submit-btn-container {
-                        @include display-align(flex);
-                        @include justify-content(right);
-                        @include margin-x-y($_5, $auto , $_5, $auto );
+                        @include style.display-align(flex);
+                        @include style.justify-content(right);
+                        @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5, style.$auto);
 
                         .text-btn-submit {
-                            @include height(20px);
-                            @include width(70px);
+                            @include style.height(20px);
+                            @include style.width(70px);
                             outline: none;
-                            @include background-color(#111);
-                            @include text-color(#FBAA00);
-                            @include border-top($_1, solid, #555);
-                            @include border-bottom($_1, solid, #555);
-                            @include border-left($_1, solid, #555);
-                            @include border-right($_1, solid, #555);
+                            @include style.background-color(#111);
+                            @include style.text-color(#FBAA00);
+                            @include style.border-top(style.$space-1, solid, #555);
+                            @include style.border-bottom(style.$space-1, solid, #555);
+                            @include style.border-left(style.$space-1, solid, #555);
+                            @include style.border-right(style.$space-1, solid, #555);
                         }
                     }
 
                     .text-selection-wrapper {
-                        @include margin-x-y($_5, $auto , $_5, $auto );
+                        @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5, style.$auto);
 
                         .select-text-type {
-                            @include width(70px);
+                            @include style.width(70px);
                             outline: none;
-                            @include background-color(#111);
-                            @include text-color(#FBAA00);
-                            @include border-top($_1, solid, #555);
-                            @include border-bottom($_1, solid, #555);
-                            @include border-left($_1, solid, #555);
-                            @include border-right($_1, solid, #555);
+                            @include style.background-color(#111);
+                            @include style.text-color(#FBAA00);
+                            @include style.border-top(style.$space-1, solid, #555);
+                            @include style.border-bottom(style.$space-1, solid, #555);
+                            @include style.border-left(style.$space-1, solid, #555);
+                            @include style.border-right(style.$space-1, solid, #555);
                         }
                     }
                 }

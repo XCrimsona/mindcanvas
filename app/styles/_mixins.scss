@@ -1,5 +1,3 @@
-@import "_variables";
-
 @mixin display-align($Type) {
     display: $Type;
 }
@@ -126,34 +124,4 @@ background: url($url);
 
 @mixin text-style($style) {
     text-decoration: $style;
-}
-
-@mixin linearGradient($color1, $color2, $color3,
-    $color4, $color5,
-    $color6, $color7) {
-
-    background: conic-gradient(from -119deg at center center, $color1,
-            $color2,
-            $color3,
-            $color4, $color5,
-            $color6, $color7);
-}
-
-@mixin DataComponent {
-    @include display-align(flex);
-    @include justify-content(center);
-    @include align-items(flex-start);
-    @include margin-x-y($_0, $auto, $_0 , $auto );
-    @include background-color(#111);
-    @include border-bottom($_2, solid, #00FBA0B3);
-    @include width(350px);
-    @include height(120px);
-    transition: height .2s ease-in-out, width .2s ease-in-out;
-}
-
-
-@mixin Angular-Gradient() {
-    @include linearGradient($Gold 0.2deg, $darkAsdhBlack 55.6deg, $darkAsdhBlack 116.8deg, $Gold 169.2deg, $darkAsdhBlack 257.8deg,
-        $darkAsdhBlack 313.6deg,
-        $Gold 345.6deg);
 }

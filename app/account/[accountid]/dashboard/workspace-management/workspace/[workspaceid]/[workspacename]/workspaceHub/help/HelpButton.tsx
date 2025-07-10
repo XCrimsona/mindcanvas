@@ -10,7 +10,7 @@ const HelpButton = () => {
       <Div className={help["help-btn-wrapper"]}>
         <SVG
           className={help["help-mark"]}
-          src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746698405/question-mark-solid-white_zqjxbt.png"
+          src="/question-mark-solid-white.svg"
           alt="Help Question Mark"
           // onClick={}
         />

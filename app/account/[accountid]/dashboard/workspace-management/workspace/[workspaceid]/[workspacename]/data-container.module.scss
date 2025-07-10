@@ -1,33 +1,32 @@
-@import "_variables";
-@import "_mixins";
+@use '@/app/styles/index' as style;
 
 //where data is displayed
 .data-container {
-    @include border-radius(10px);
-    @include margin-x-y($_0, $auto, $_0 , $auto );
-    @include background-color(rgba(0, 0, 0, 0.7));
+    @include style.border-radius(10px);
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+    @include style.background-color(rgba(0, 0, 0, 0.7));
     overflow: scroll;
     white-space: none;
     transition: width .2s ease-in-out, height .2s ease-in-out;
 
     .data-container::-webkit-scrollbar {
-        @include background-color(rgba(0, 0, 0, 0.7));
-        @include border-radius($_10);
-        @include width($_10);
+        @include style.background-color(rgba(0, 0, 0, 0.7));
+        @include style.border-radius(style.$space-10);
+        @include style.width(style.$space-10);
     }
 
     .data-container::-webkit-scrollbar-track {
-        @include background-color(#555);
-        @include border-radius($_6);
+        @include style.background-color(#555);
+        @include style.border-radius(style.$space-6);
     }
 
     .data-container::-webkit-scrollbar-thumb {
-        @include background-color(#bbb);
-        @include border-radius($_10);
+        @include style.background-color(#bbb);
+        @include style.border-radius(style.$space-10);
     }
 
     .data-scroll-board {
-        @include position(relative);
+        @include style.position(relative);
     }
 
 
@@ -36,54 +35,54 @@
 
 @media screen and (min-width:320px) and (max-width:600.9px) {
     .data-container {
-        @include height(550px);
-        @include width(98%);
+        @include style.height(550px);
+        @include style.width(98%);
     }
 
     .data-container::-webkit-scrollbar {
-        @include background-color(rgba(0, 0, 0, 0.7));
-        @include border-radius($_10);
-        @include width($_10);
+        @include style.background-color(rgba(0, 0, 0, 0.7));
+        @include style.border-radius(style.$space-10);
+        @include style.width(style.$space-10);
     }
 
     .data-container::-webkit-scrollbar-track {
-        @include background-color(#555);
-        @include border-radius($_6);
+        @include style.background-color(#555);
+        @include style.border-radius(style.$space-6);
     }
 
     .data-container::-webkit-scrollbar-thumb {
-        @include background-color(#bbb);
-        @include border-radius($_10);
+        @include style.background-color(#bbb);
+        @include style.border-radius(style.$space-10);
     }
 }
 
 @media screen and (min-width:601px) {
     .data-container {
-        @include height(500px);
-        @include width(98%);
+        @include style.height(500px);
+        @include style.width(98%);
     }
 
     .data-container::-webkit-scrollbar {
-        @include background-color(rgba(0, 0, 0, 0.7));
-        @include border-radius($_10);
-        @include width($_15);
-        @include height($_15);
+        @include style.background-color(rgba(0, 0, 0, 0.7));
+        @include style.border-radius(style.$space-10);
+        @include style.width(style.$space-15);
+        @include style.height(style.$space-15);
     }
 
     .data-container::-webkit-scrollbar-track {
-        @include background-color(#555);
-        @include border-radius($_6);
+        @include style.background-color(#555);
+        @include style.border-radius(style.$space-6);
     }
 
     .data-container::-webkit-scrollbar-track-piece {
-        // @include background-color(#FFBB00B3);
-        @include border-radius($_6);
-        @include background-color(#555);
+        // @include style.background-color(#FFBB00B3);
+        @include style.border-radius(style.$space-6);
+        @include style.background-color(#555);
 
     }
 
     .data-container::-webkit-scrollbar-thumb {
-        @include background-color(#bbb);
-        @include border-radius($_6);
+        @include style.background-color(#bbb);
+        @include style.border-radius(style.$space-6);
     }
 }

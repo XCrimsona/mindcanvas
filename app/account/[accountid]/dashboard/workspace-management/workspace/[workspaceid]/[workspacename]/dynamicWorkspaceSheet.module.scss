@@ -1,27 +1,57 @@
-@import "_mixins";
-@import "_variables";
+@use '@/app/styles/index' as style;
+
+
+@mixin linearGradient($color1, $color2, $color3,
+    $color4, $color5,
+    $color6, $color7) {
+
+    background: conic-gradient(from -119deg at center center, $color1,
+            $color2,
+            $color3,
+            $color4, $color5,
+            $color6, $color7);
+}
+
+// @mixin DataComponent {
+//     @include display-align(flex);
+//     @include justify-content(center);
+//     @include align-items(flex-start);
+//     @include margin-x-y($space-0, style.$auto, style.$space-0 , style.$auto );
+//     @include style.background-color(#111);
+//     @include style.border-bottom($space-2, solid, #00FBA0B3);
+//     @include style.width(350px);
+//     @include style.height(120px);
+//     transition: height .2s ease-in-out, width .2s ease-in-out;
+// }
+
+
+@mixin Angular-Gradient() {
+    @include linearGradient(style.$Gold 0.2deg, style.$darkAsdhBlack 55.6deg, style.$darkAsdhBlack 116.8deg, style.$Gold 169.2deg, style.$darkAsdhBlack 257.8deg,
+        style.$darkAsdhBlack 313.6deg,
+        style.$Gold 345.6deg);
+}
 
 .work-workspace-management-main-container {
-    @include height(100%);
-    @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
-    @include background-color(#000000);
-    @include margin-x-y($_0, $auto, $_0 , $auto );
+    @include style.height(100%);
+    @include style.url("/golden-cube4d.png");
+    @include style.background-color(#000000);
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
     z-index: 1;
-    overflow-y: auto;
+    overflow-y: style.$auto;
 
     .work-workspace-management-container-wrapper {
-        @include margin-x-y($_40, $auto, $_0 , $auto );
+        @include style.margin-x-y(style.$space-40, style.$auto, style.$space-0 , style.$auto );
         @include Angular-Gradient();
-        @include position(relative);
+        @include style.position(relative);
 
         .work-workspace-management-container {
-            @include display-align(flex);
-            @include flex-align(wrap);
-            @include align-content(flex-start);
-            @include align-text(center);
-            @include border-radius(6px);
-            @include margin-x-y($_0, $auto, $_0 , $auto );
-            @include min-height(820px);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
+            @include style.align-content(flex-start);
+            @include style.align-text(center);
+            @include style.border-radius(6px);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            @include style.min-height(820px);
         }
     }
 }
@@ -29,11 +59,11 @@
 @media screen and (min-width:320px) {
     .work-workspace-management-main-container {
         .work-workspace-management-container-wrapper {
-            @include width(98%);
+            @include style.width(98%);
 
             .work-workspace-management-container {
-                @include min-height(520px);
-                @include width(98%);
+                @include style.min-height(520px);
+                @include style.width(98%);
             }
         }
     }
@@ -42,7 +72,7 @@
 @media screen and (min-width:320px) and (max-width:600.9px) {
     .work-workspace-management-main-container {
         .work-workspace-management-container {
-            @include display-align(block);
+            @include style.display-align(block);
         }
     }
 }
@@ -50,12 +80,12 @@
 @media screen and (min-width:1440px) {
     .work-workspace-management-main-container {
         .work-workspace-management-container-wrapper {
-            @include max-width(2500px);
-            @include max-height(2500px);
+            @include style.max-width(2500px);
+            @include style.max-height(2500px);
 
             .work-workspace-management-container {
-                @include max-width(2500px);
-                @include max-height(2500px);
+                @include style.max-width(2500px);
+                @include style.max-height(2500px);
             }
         }
     }

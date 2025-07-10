@@ -1,37 +1,36 @@
-@import "../_variables";
-@import "../_mixins";
+@use '@/app/styles/index' as style;
 
 .zoom-controls-container {
-    @include margin-x-y($_0, $auto, $_0 , $auto );
-    @include width(120px);
-    @include height(70px);
-    @include display-align(block);
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+    @include style.width(120px);
+    @include style.height(70px);
+    @include style.display-align(block);
 
     .zoom-controls {
-        @include height(30px);
-        @include display-align(flex);
-        @include flex-align(wrap);
-        @include position(relative);
-        @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include style.height(30px);
+        @include style.display-align(flex);
+        @include style.flex-align(wrap);
+        @include style.position(relative);
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
         .zoom-in-wrapper {
-            @include margin-x-y($_0, $auto, $_0 , $auto );
-            @include width(50px);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            @include style.width(50px);
 
             .btn-zoom-in {
-                @include height(30px);
-                @include width(30px);
+                @include style.height(30px);
+                @include style.width(30px);
                 cursor: pointer;
             }
         }
 
         .zoom-out-wrapper {
-            @include margin-x-y($_0, $auto, $_0 , $auto );
-            @include width(50px);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            @include style.width(50px);
 
             .btn-zoom-out {
-                @include height(30px);
-                @include width(30px);
+                @include style.height(30px);
+                @include style.width(30px);
                 cursor: pointer;
             }
         }
@@ -39,14 +38,14 @@
     }
 
     .zoom-controls-text-wrapper {
-        @include display-align(block);
-        @include margin-x-y($_10, $auto, $_0 , $auto );
-        @include height(20px);
+        @include style.display-align(block);
+        @include style.margin-x-y(style.$space-10, style.$auto, style.$space-0 , style.$auto );
+        @include style.height(20px);
 
         .zoom-controls-text {
-            @include display-align(block);
-            @include align-text(center);
-            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include style.display-align(block);
+            @include style.align-text(center);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
         }
     }
 }
