@@ -11,14 +11,14 @@ const ZoomControls = () => {
       <Div className={zoomControls["zoom-controls"]}>
         <Div className={zoomControls["zoom-in-wrapper"]}>
           <SVG
-            src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746546631/zoom_in_etq0i2.svg"
+            src="/zoom-in.svg"
             className={zoomControls["btn-zoom-in"]}
             alt="Component Hub Icon"
           />
         </Div>
         <Div className={zoomControls["zoom-out-wrapper"]}>
           <SVG
-            src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746546631/zoom_out_y1c8zq.svg"
+            src="/zoom-out.svg"
             className={zoomControls["btn-zoom-out"]}
             alt="Component Hub Icon"
           />

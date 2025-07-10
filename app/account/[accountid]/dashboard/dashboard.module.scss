@@ -1,59 +1,58 @@
-@import "./workspace-management/workspace/[workspaceid]/[workspacename]/mixins";
-@import "./workspace-management/workspace/[workspaceid]/[workspacename]/variables";
+@use '@/app/styles/index' as style;
 
 .account-dashboard {
-    @include background-color(#222);
-    @include height(100%);
-    @include display-align(block);
-    @include position(relative);
+    @include style.background-color(#222);
+    @include style.height(100%);
+    @include style.display-align(block);
+    @include style.position(relative);
 
     .account-dashboard-content {
-        @include margin-x-y($_0, $auto , $_0, $auto );
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0, style.$auto);
 
         .heading-one {
-            @include margin-x-y($_0, $auto , $_0, $auto );
-            @include padding-x-y($_50, $_0 , $_50, $_0 );
-            @include align-text(center);
-            @include text-color(#fff);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0, style.$auto);
+            @include style.padding-x-y(style.$space-50, style.$space-0 , style.$space-50, style.$space-0 );
+            @include style.align-text(center);
+            @include style.text-color(#fff);
         }
 
         .dashboard-link-component {
-            @include margin-x-y($_10, $auto , $_10, $auto );
-            @include padding-x-y($_5, $_5 , $_5, $_5 );
-            @include align-text(center);
-            @include text-color(#fff);
-            @include border-radius($_10);
-            @include border($_2, solid, #333);
+            @include style.margin-x-y(style.$space-10, style.$auto, style.$space-10, style.$auto);
+            @include style.padding-x-y(style.$space-5, style.$space-5 , style.$space-5, style.$space-5 );
+            @include style.align-text(center);
+            @include style.text-color(#fff);
+            @include style.border-radius(style.$space-10);
+            @include style.border(style.$space-2, solid, #333);
 
 
             .auth-link-component-built-in-app {
-                @include border-radius($_6);
-                @include background-color(#444);
-                @include display-align(block);
-                @include margin-x-y($_0, $auto , $_0, $auto );
-                @include padding-x-y($_10, $_0 , $_10, $_0 );
-                @include align-text(center);
-                @include text-color(#fff);
+                @include style.border-radius(style.$space-6);
+                @include style.background-color(#444);
+                @include style.display-align(block);
+                @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0, style.$auto);
+                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10, style.$space-0 );
+                @include style.align-text(center);
+                @include style.text-color(#fff);
 
             }
         }
     }
 
     .dashboard-footer {
-        @include margin-x-y($_0, $auto, $_0 , $auto );
-        @include display-align(block);
-        @include position(absolute);
-        @include bottom($_0);
-        @include right($_0);
-        @include left($_0);
-        @include background-color(#222);
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
+        @include style.display-align(block);
+        @include style.position(absolute);
+        @include style.bottom(style.$space-0);
+        @include style.right(style.$space-0);
+        @include style.left(style.$space-0);
+        @include style.background-color(#222);
 
         .project-creator {
-            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
 
             .creator {
-                @include align-text(center);
-                @include text-color(#fff);
+                @include style.align-text(center);
+                @include style.text-color(#fff);
             }
         }
     }
@@ -62,23 +61,23 @@
 @media screen and (min-width:320px) and (max-width:425.9px) {
     .account-dashboard {
         .account-dashboard-content {
-            @include width(300px);
+            @include style.width(300px);
 
             .heading-one {
-                @include width(200px);
+                @include style.width(200px);
 
             }
 
             .dashboard-link-component {
-                @include width(200px);
+                @include style.width(200px);
             }
         }
 
         .dashboard-footer {
-            @include width(300px);
+            @include style.width(300px);
 
             .project-creator {
-                @include width(250px);
+                @include style.width(250px);
             }
         }
     }
@@ -87,22 +86,22 @@
 @media screen and (min-width:426px) and (max-width:600.9px) {
     .account-dashboard {
         .account-dashboard-content {
-            @include width(400px);
+            @include style.width(400px);
 
             .heading-one {
-                @include width(300px);
+                @include style.width(300px);
             }
 
             .dashboard-link-component {
-                @include width(300px);
+                @include style.width(300px);
             }
         }
 
         .dashboard-footer {
-            @include width(400px);
+            @include style.width(400px);
 
             .project-creator {
-                @include width(300px);
+                @include style.width(300px);
             }
         }
     }
@@ -111,22 +110,22 @@
 @media screen and (min-width:601px) and (max-width:768.9px) {
     .account-dashboard {
         .account-dashboard-content {
-            @include width(500px);
+            @include style.width(500px);
 
             .heading-one {
-                @include width(400px);
+                @include style.width(400px);
             }
 
             .dashboard-link-component {
-                @include width(400px);
+                @include style.width(400px);
             }
         }
 
         .dashboard-footer {
-            @include width(500px);
+            @include style.width(500px);
 
             .project-creator {
-                @include width(400px);
+                @include style.width(400px);
             }
         }
     }
@@ -135,22 +134,22 @@
 @media screen and (min-width:769px) {
     .account-dashboard {
         .account-dashboard-content {
-            @include width(500px);
+            @include style.width(500px);
 
             .heading-one {
-                @include width(400px);
+                @include style.width(400px);
             }
 
             .dashboard-link-component {
-                @include width(400px);
+                @include style.width(400px);
             }
         }
 
         .dashboard-footer {
-            @include width(500px);
+            @include style.width(500px);
 
             .project-creator {
-                @include width(400px);
+                @include style.width(400px);
             }
         }
     }

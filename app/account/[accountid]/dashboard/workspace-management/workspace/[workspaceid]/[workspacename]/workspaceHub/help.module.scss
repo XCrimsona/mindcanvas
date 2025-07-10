@@ -1,34 +1,33 @@
-@import "../_variables";
-@import "../_mixins";
+@use '@/app/styles/index' as style;
 
 .help-container {
-    @include display-align(block);
-    @include margin-x-y($_0, $auto, $_0 , $auto );
-    @include height(70px);
+    @include style.display-align(block);
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+    @include style.height(70px);
 
     .help-btn-wrapper {
-        @include width(60px);
-        @include height(30px);
-        @include display-align(block);
-        @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include style.width(60px);
+        @include style.height(30px);
+        @include style.display-align(block);
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
         .help-mark {
-            @include margin-x-y($_0, $auto, $_0 , $auto );
-            @include height(30px);
-            @include width(30px);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            @include style.height(30px);
+            @include style.width(30px);
             cursor: pointer;
         }
     }
 
     .help-text-wrapper {
-        @include display-align(block);
-        @include margin-x-y($_10, $auto, $_0 , $auto );
-        @include height(20px);
+        @include style.display-align(block);
+        @include style.margin-x-y(style.$space-10, style.$auto, style.$space-0 , style.$auto );
+        @include style.height(20px);
 
         .help-text {
-            @include display-align(block);
-            @include align-text(center);
-            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include style.display-align(block);
+            @include style.align-text(center);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
         }
     }
 }

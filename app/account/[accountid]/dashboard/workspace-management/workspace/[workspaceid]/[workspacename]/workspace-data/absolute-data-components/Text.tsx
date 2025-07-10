@@ -1,9 +1,15 @@
 "use client";
-import workspaceDataManagement from "@/app/account/[accountid/dashboard/workspace-management/workspace/[workspaceid/[workspacename/workspace-workspace-management.module.scss";
+import LongText from "@/src/ui/LongText";
+import TextStyling from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspace-data/absolute-data-components/text-data-styling.module.scss";
+// import compHubDataComponents from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/comp-hub-data-components.module.scss";
 import React from "react";
 
 export const ImmutableText = ({ data }: any) => {
-  return <p className={"textarea"}>{data.text}</p>;
+  return (
+    <LongText className={TextStyling["textarea-live-text"]}>
+      {data.text}
+    </LongText>
+  );
 };
 
 export const MutableText = ({ data }: any) => {

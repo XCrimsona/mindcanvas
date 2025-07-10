@@ -1,170 +1,8 @@
-$_0: 0px;
-$_1: 1px;
-$_2: 2px;
-$_3: 3px;
-$_4: 4px;
-$_5: 5px;
-$_6: 6px;
-$_7: 7px;
-$_8: 8px;
-$_9: 9px;
-$_10: 10px;
-$_15: 15px;
-$_20: 20px;
-$_22: 22px;
-$_27: 27px;
-$_30: 30px;
-$_35: 35px;
-$_40: 40px;
-$_50: 50px;
-$_60: 60px;
-$_70: 70px;
-$_80: 80px;
-$_100: 100px;
-$_120: 120px;
-$_150: 150px;
-$_180: 180px;
-$_200: 200px;
-$_230: 230px;
-$_250: 250px;
-$_280: 280px;
-$_300: 300px;
-$_330: 330px;
-$_350: 350px;
-$_400: 400px;
-$_450: 450px;
-$_500: 500px;
-$_550: 550px;
-$_600: 600px;
-$_650: 650px;
-$_700: 700px;
-$_750: 750px;
-$_800: 800px;
-$_850: 850px;
-$_900: 900px;
-$_950: 950px;
-$_1000: 1000px;
-$auto: auto;
-
-@mixin display-align($Type) {
-    display: $Type;
-}
-
-@mixin justify-items($Type) {
-    justify-items: $Type;
-}
-
-@mixin justify-content($Type) {
-    justify-content: $Type;
-}
-
-@mixin align-content($Type) {
-    align-content: $Type;
-}
-
-@mixin align-items($Type) {
-    align-items: $Type;
-}
-
-@mixin flex-align($Type) {
-    flex-wrap: $Type;
-}
-
-@mixin margin-x-y($x1, $y1, $x2, $y2) {
-    margin: $x1 $y1 $x2 $y2;
-}
-
-@mixin padding-x-y($x1, $y1, $x2, $y2) {
-    padding: $x1 $y1 $x2 $y2;
-}
-
-@mixin align-text($Type) {
-    text-align: $Type;
-}
-
-@mixin text-color($color) {
-    color: $color;
-}
-
-@mixin background($Type) {
-    background: $Type;
-}
-
-@mixin background-color($color) {
-    background-color: $color;
-}
-
-@mixin width($width) {
-    width: $width;
-}
-
-@mixin height($height) {
-    height: $height;
-}
-
-@mixin min-height($min-height) {
-    min-height: $min-height;
-}
-
-@mixin max-height($max-height) {
-    max-height: $max-height;
-}
-
-@mixin font-size($size) {
-    font-size: $size;
-}
-
-@mixin border($thickness, $type, $color) {
-    border: $thickness $type $color;
-}
-
-@mixin border-top($thickness, $type, $color) {
-    border-top: $thickness $type $color;
-}
-
-@mixin border-bottom($thickness, $type, $color) {
-    border-bottom: $thickness $type $color;
-}
-
-@mixin border-left($thickness, $type, $color) {
-    border-left: $thickness $type $color;
-}
-
-@mixin border-right($thickness, $type, $color) {
-    border-right: $thickness $type $color;
-}
-
-@mixin border-radius($thickness) {
-    border-radius: $thickness;
-}
-
-@mixin position($position) {
-    position: $position;
-}
-
-@mixin top($position) {
-    top: $position;
-}
-
-@mixin bottom($position) {
-    bottom: $position;
-}
-
-@mixin left($position) {
-    left: $position;
-}
-
-@mixin right($position) {
-    right: $position;
-}
-
-@mixin url($url){
-background: url($url);
-}
+@use '@/app/styles/index' as style;
 
 .account-info {
     @include position(relative);
-    @include url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
+    @include style.url("/golden-cube4d.png");
     @include background-color(#000);
     z-index: 1;
     @include height(100%);
@@ -172,29 +10,29 @@ background: url($url);
     .account-info-content {
         z-index: 2;
         @include background-color(#000000dd);
-        @include margin-x-y($_50, $auto, $_50 , $auto );
-        @include border($_2, solid, #333333);
+        @include margin-x-y(style.$space-50, style.$auto, style.$space-50 , style.$auto );
+        @include border(style.$space-2, solid, #333333);
         @include border-radius(3px);
-        @include padding-x-y($_3, $_15, $_3, $_15 );
+        @include padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
 
         .heading-one {
             @include text-color(#fff);
             @include align-text(center);
-            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
         }
 
         .account-info-form {
             @include display-align(block);
-            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
             .firstname-container {
                 @include display-align(flex);
                 @include flex-align(wrap);
-                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-firstname {
                     @include text-color(#fff);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     @include align-content(center);
                     @include justify-content(left);
                 }
@@ -203,47 +41,47 @@ background: url($url);
                     @include display-align(flex);
                     @include justify-content(center);
                     @include align-items(center);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .firstname-input {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000000);
                         @include text-color(#ffffff);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
-                        @include padding-x-y($_3, $_0, $_3, $_2 );
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
                     }
 
                     .firstname-input:focus {
-                        outline: $_2 solid transparent;
+                        outline: style.$space-2 solid transparent;
                     }
 
                     .firstname-input::placeholder {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000);
                         @include text-color(#ffffff);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include padding-x-y($_3, $_0, $_3, $_0 );
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                     }
 
                     .form-pipe-span {
                         @include display-align(inline-block);
                         // color is temp
                         @include text-color(#fff);
-                        @include margin-x-y($auto, $auto, $auto, $auto );
+                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
                         @include align-text(center);
                     }
 
                     .disable-firstname-editing {
 
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
 
                     .enable-firstname-editing {
 
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     }
                 }
@@ -252,11 +90,11 @@ background: url($url);
             .lastname-container {
                 @include display-align(flex);
                 @include flex-align(wrap);
-                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-lastname {
                     @include text-color(#fff);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     @include align-content(center);
                     @include justify-content(left);
                 }
@@ -265,49 +103,49 @@ background: url($url);
                     @include display-align(flex);
                     @include justify-content(center);
                     @include align-items(center);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .lastname-input {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000000);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
                         @include text-color(#ffffff);
-                        @include padding-x-y($_3, $_0, $_3, $_2 );
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
                     }
 
 
                     .lastname-input::placeholder {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000000);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
                         @include text-color(#ffffff);
-                        @include padding-x-y($_3, $_0, $_3, $_0 );
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                     }
 
                     .lastname-input:focus {
-                        outline: $_2 solid transparent;
+                        outline: style.$space-2 solid transparent;
                     }
 
                     .form-pipe-span {
                         @include display-align(inline-block);
                         // color is temp
                         @include text-color(#ffffff);
-                        @include margin-x-y($auto, $auto, $auto, $auto );
+                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
                         @include align-text(center);
                     }
 
                     .disable-lastname-editing {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
 
                     .enable-lastname-editing {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     }
                 }
@@ -317,61 +155,61 @@ background: url($url);
                 @include display-align(flex);
                 @include flex-align(wrap);
                 @include align-items(center);
-                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-gender {
                     @include text-color(#ffffff);
                     @include align-content(center);
                     @include justify-content(left);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                 }
 
                 .data-control-container {
                     @include display-align(flex);
                     @include justify-content(center);
                     @include align-items(center);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .gender-input-disabled {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000);
                         @include text-color(#ffffff);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
-                        @include padding-x-y($_3, $_0, $_3, $_3 );
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-3 );
                     }
 
                     .gender-input {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000);
                         @include text-color(#ffffff);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
-                        @include padding-x-y($_0, $_0, $_0, $_0 );
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
+                        @include padding-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0 );
                     }
 
                     .gender-input:focus {
-                        outline: $_2 solid transparent;
+                        outline: style.$space-2 solid transparent;
                     }
 
                     .form-pipe-span {
                         @include display-align(inline-block);
                         // color is temp
                         @include text-color(#fff);
-                        @include margin-x-y($auto, $auto, $auto, $auto );
+                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
                         @include align-text(center);
                     }
 
                     .disable-gender-editing {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
 
                     .enable-gender-editing {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
                 }
             }
@@ -379,62 +217,62 @@ background: url($url);
             .dob-container {
                 @include display-align(flex);
                 @include flex-align(wrap);
-                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-dob {
                     @include text-color(#fff);
                     @include align-content(center);
                     @include justify-content(left);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                 }
 
                 .data-control-container {
                     @include display-align(flex);
                     @include justify-content(center);
                     @include align-items(center);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .dob-input {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000);
                         @include text-color(#ffffff);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
-                        @include padding-x-y($_3, $_0, $_3, $_3 );
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-3 );
                     }
 
                     .dob-input:focus {
-                        outline: $_2 solid transparent;
+                        outline: style.$space-2 solid transparent;
                     }
 
                     .dob-input::placeholder {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000);
                         @include text-color(#ffffff);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
-                        @include padding-x-y($_3, $_0, $_3, $_0 );
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                     }
 
                     .form-pipe-span {
                         @include display-align(inline-block);
                         // color is temp
                         @include text-color(#fff);
-                        @include margin-x-y($auto, $auto, $auto, $auto );
+                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
                         @include align-text(center);
                     }
 
                     .disable-dob-editing {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
 
                     .enable-dob-editing {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
                 }
 
@@ -443,63 +281,63 @@ background: url($url);
             .email-container {
                 @include display-align(flex);
                 @include flex-align(wrap);
-                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-email {
                     @include text-color(#fff);
                     @include align-content(center);
                     @include justify-content(left);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                 }
 
                 .data-control-container {
                     @include display-align(flex);
                     @include justify-content(center);
                     @include align-items(center);
-                    @include margin-x-y($_0, $auto, $_0 , $auto );
+                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .email-input {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000);
                         @include text-color(#ffffff);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
-                        @include padding-x-y($_3, $_0, $_3, $_2 );
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
                     }
 
 
                     .email-input::placeholder {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                         @include background-color(#000);
                         @include text-color(#ffffff);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #000000);
-                        @include padding-x-y($_3, $_0, $_3, $_0 );
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #000000);
+                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                     }
 
                     .email-input:focus {
-                        outline: $_2 solid transparent;
+                        outline: style.$space-2 solid transparent;
                     }
 
                     .form-pipe-span {
                         @include display-align(inline-block);
                         // color is temp
                         @include text-color(#fff);
-                        @include margin-x-y($auto, $auto, $auto, $auto );
+                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
                         @include align-text(center);
                     }
 
                     .disable-email-editing {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     }
 
                     .enable-email-editing {
-                        @include margin-x-y($_0, $auto, $_0 , $auto );
+                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
                 }
             }
@@ -509,30 +347,30 @@ background: url($url);
                 @include justify-content(left);
                 @include align-items(center);
                 @include flex-align(wrap);
-                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .current-password {
                     @include text-color(#fff);
                     @include justify-content(left);
-                    @include margin-x-y($_0, $_0, $_0 , $_0 );
+                    @include margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
                 }
 
                 .current-password-input,
                 .current-password-input::placeholder {
                     @include display-align(block);
-                    @include margin-x-y($_0, $_2, $_0 , $_2 );
-                    @include padding-x-y($_1, $_0, $_1 , $_2 );
+                    @include margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
+                    @include padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
                     @include background-color(#000);
                     @include text-color(#ffffff);
-                    @include border-top($_2, solid, #000000);
-                    @include border-bottom($_2, solid, #FABB00);
-                    @include border-right($_2, solid, #000000);
-                    @include border-left($_2, solid, #000000);
-                    @include padding-x-y($_3, $_0, $_3, $_0 );
+                    @include border-top(style.$space-2, solid, #000000);
+                    @include border-bottom(style.$space-2, solid, #FABB00);
+                    @include border-right(style.$space-2, solid, #000000);
+                    @include border-left(style.$space-2, solid, #000000);
+                    @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                 }
 
                 .current-password-input:focus {
-                    outline: $_2 solid transparent;
+                    outline: style.$space-2 solid transparent;
                 }
             }
 
@@ -541,30 +379,30 @@ background: url($url);
                 @include justify-content(left);
                 @include align-items(center);
                 @include flex-align(wrap);
-                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .new-password {
                     @include text-color(#fff);
                     @include justify-content(left);
-                    @include margin-x-y($_0, $_0, $_0 , $_0 );
+                    @include margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
                 }
 
                 .new-password-input,
                 .new-password-input::placeholder {
                     @include display-align(block);
-                    @include margin-x-y($_0, $_2, $_0 , $_2 );
-                    @include padding-x-y($_1, $_0, $_1 , $_2 );
+                    @include margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
+                    @include padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
                     @include background-color(#000);
                     @include text-color(#ffffff);
-                    @include border-top($_2, solid, #000000);
-                    @include border-bottom($_2, solid, #FABB00);
-                    @include border-right($_2, solid, #000000);
-                    @include border-left($_2, solid, #000000);
-                    @include padding-x-y($_3, $_0, $_3, $_0 );
+                    @include border-top(style.$space-2, solid, #000000);
+                    @include border-bottom(style.$space-2, solid, #FABB00);
+                    @include border-right(style.$space-2, solid, #000000);
+                    @include border-left(style.$space-2, solid, #000000);
+                    @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                 }
 
                 .new-password-input:focus {
-                    outline: $_2 solid transparent;
+                    outline: style.$space-2 solid transparent;
                 }
             }
 
@@ -573,30 +411,30 @@ background: url($url);
                 @include justify-content(left);
                 @include align-items(center);
                 @include flex-align(wrap);
-                @include margin-x-y($_5, $auto, $_5 , $auto );
+                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .confirm-new-password {
                     @include text-color(#fff);
-                    @include margin-x-y($_0, $_0, $_0 , $_0 );
+                    @include margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
                 }
 
                 .confirm-new-password-input,
                 .confirm-new-password-input::placeholder {
                     @include display-align(block);
-                    @include margin-x-y($_0, $_2, $_0 , $_2 );
-                    @include padding-x-y($_1, $_0, $_1 , $_2 );
+                    @include margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
+                    @include padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
                     @include background-color(#000);
-                    outline: $_2 solid transparent;
+                    outline: style.$space-2 solid transparent;
                     @include text-color(#ffffff);
-                    @include border-top($_2, solid, #000000);
-                    @include border-bottom($_2, solid, #FABB00);
-                    @include border-right($_2, solid, #000000);
-                    @include border-left($_2, solid, #000000);
-                    @include padding-x-y($_3, $_0, $_3, $_0 );
+                    @include border-top(style.$space-2, solid, #000000);
+                    @include border-bottom(style.$space-2, solid, #FABB00);
+                    @include border-right(style.$space-2, solid, #000000);
+                    @include border-left(style.$space-2, solid, #000000);
+                    @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                 }
 
                 .confirm-new-password-input:focus {
-                    outline: $_2 solid transparent;
+                    outline: style.$space-2 solid transparent;
                 }
 
             }
@@ -608,27 +446,27 @@ background: url($url);
 
                 .submit-container {
                     @include display-align(block);
-                    @include margin-x-y($_10, $_10, $_10 , $_10 );
+                    @include margin-x-y(style.$space-10, style.$space-10, style.$space-10 , style.$space-10 );
 
                     .submit-btn {
                         @include background-color(#111111);
                         @include text-color(#FABB00);
-                        @include border($_2, solid, #333333);
+                        @include border(style.$space-2, solid, #333333);
                         @include border-radius(3px);
-                        @include padding-x-y($_3, $_15, $_3, $_15 );
+                        @include padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
                     }
                 }
 
                 .cancel-container {
                     @include display-align(block);
-                    @include margin-x-y($_10, $_10, $_10 , $_10 );
+                    @include margin-x-y(style.$space-10, style.$space-10, style.$space-10 , style.$space-10 );
 
                     .cancel-submit {
                         @include background-color(#111111);
                         @include text-color(#FABB00);
-                        @include border($_2, solid, #333333);
+                        @include border(style.$space-2, solid, #333333);
                         @include border-radius(3px);
-                        @include padding-x-y($_3, $_15, $_3, $_15 );
+                        @include padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
                     }
                 }
             }
@@ -653,7 +491,7 @@ background: url($url);
                     @include width(280px);
 
                     .update-firstname {
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                         @include width(100px);
                     }
 
@@ -661,13 +499,13 @@ background: url($url);
                         @include width(280px);
 
                         .firstname-input {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
                             @include width(160px);
                             @include height(13px);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                         }
 
 
@@ -694,20 +532,20 @@ background: url($url);
                     .update-lastname {
                         @include width(100px);
                         @include height(23px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
                         @include width(280px);
 
                         .lastname-input {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
                             @include width(160px);
                             @include height(13px);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                         }
 
                         .form-pipe-span {
@@ -734,30 +572,30 @@ background: url($url);
                     .update-gender {
                         @include width(100px);
                         @include height(23px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
                         @include width(280px);
 
                         .gender-input {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
                             @include width(167px);
                             @include height(23px);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                         }
 
                         .gender-input-disabled {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
                             @include width(160px);
                             @include height(13px);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
 
                         }
 
@@ -785,18 +623,18 @@ background: url($url);
                     .update-dob {
                         @include width(100px);
                         @include height(23px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
                         @include width(280px);
 
                         .dob-input {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                             @include width(160px);
                             @include height(13px);
                         }
@@ -825,7 +663,7 @@ background: url($url);
                     .update-email {
                         @include width(100px);
                         @include height(23px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
@@ -834,11 +672,11 @@ background: url($url);
                         .email-input {
                             @include width(160px);
                             @include height(13px);
-                            @include margin-x-y($_5, $_0, $_5, $_1);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                         }
 
 
@@ -864,17 +702,17 @@ background: url($url);
 
                     .current-password {
                         @include width(200px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .current-password-input {
                         @include width(200px);
                         @include height(17px);
-                        @include margin-x-y($_5, $_0, $_5, $_1);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #FABB00);
+                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #FABB00);
 
                     }
                 }
@@ -884,15 +722,15 @@ background: url($url);
 
                     .new-password {
                         @include width(200px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .new-password-input {
-                        @include margin-x-y($_5, $_0, $_5, $_1);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #FABB00);
+                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #FABB00);
                         @include width(200px);
                         @include height(17px);
                     }
@@ -903,17 +741,17 @@ background: url($url);
 
                     .confirm-new-password {
                         @include width(200px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .confirm-new-password-input {
                         @include width(200px);
                         @include height(17px);
-                        @include margin-x-y($_5, $_0, $_5, $_1);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #FABB00);
+                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #FABB00);
                     }
                 }
             }
@@ -937,7 +775,7 @@ background: url($url);
                     @include width(300px);
 
                     .update-firstname {
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                         @include width(100px);
                     }
 
@@ -945,13 +783,13 @@ background: url($url);
                         @include width(300px);
 
                         .firstname-input {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
                             @include width(160px);
                             @include height(13px);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                         }
 
 
@@ -978,20 +816,20 @@ background: url($url);
                     .update-lastname {
                         @include width(100px);
                         @include height(23px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
                         @include width(300px);
 
                         .lastname-input {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
                             @include width(160px);
                             @include height(13px);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                         }
 
                         .form-pipe-span {
@@ -1018,30 +856,30 @@ background: url($url);
                     .update-gender {
                         @include width(100px);
                         @include height(23px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
                         @include width(300px);
 
                         .gender-input {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
                             @include width(167px);
                             @include height(23px);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                         }
 
                         .gender-input-disabled {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
                             @include width(160px);
                             @include height(13px);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
 
                         }
 
@@ -1069,18 +907,18 @@ background: url($url);
                     .update-dob {
                         @include width(100px);
                         @include height(23px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
                         @include width(300px);
 
                         .dob-input {
-                            @include margin-x-y($_5, $_0, $_5, $_1);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                             @include width(160px);
                             @include height(13px);
                         }
@@ -1109,7 +947,7 @@ background: url($url);
                     .update-email {
                         @include width(100px);
                         @include height(23px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
@@ -1118,11 +956,11 @@ background: url($url);
                         .email-input {
                             @include width(160px);
                             @include height(13px);
-                            @include margin-x-y($_5, $_0, $_5, $_1);
-                            @include border-top($_2, solid, #000000);
-                            @include border-bottom($_2, solid, #FABB00);
-                            @include border-right($_2, solid, #000000);
-                            @include border-left($_2, solid, #FABB00);
+                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include border-top(style.$space-2, solid, #000000);
+                            @include border-bottom(style.$space-2, solid, #FABB00);
+                            @include border-right(style.$space-2, solid, #000000);
+                            @include border-left(style.$space-2, solid, #FABB00);
                         }
 
 
@@ -1148,17 +986,17 @@ background: url($url);
 
                     .current-password {
                         @include width(200px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .current-password-input {
                         @include width(200px);
                         @include height(17px);
-                        @include margin-x-y($_5, $_0, $_5, $_1);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #FABB00);
+                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #FABB00);
 
                     }
                 }
@@ -1168,15 +1006,15 @@ background: url($url);
 
                     .new-password {
                         @include width(200px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .new-password-input {
-                        @include margin-x-y($_5, $_0, $_5, $_1);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #FABB00);
+                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #FABB00);
                         @include width(200px);
                         @include height(17px);
                     }
@@ -1187,17 +1025,17 @@ background: url($url);
 
                     .confirm-new-password {
                         @include width(200px);
-                        @include margin-x-y($_0, $_0, $_0, $_0);
+                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .confirm-new-password-input {
                         @include width(200px);
                         @include height(17px);
-                        @include margin-x-y($_5, $_0, $_5, $_1);
-                        @include border-top($_2, solid, #000000);
-                        @include border-bottom($_2, solid, #FABB00);
-                        @include border-right($_2, solid, #000000);
-                        @include border-left($_2, solid, #FABB00);
+                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include border-top(style.$space-2, solid, #000000);
+                        @include border-bottom(style.$space-2, solid, #FABB00);
+                        @include border-right(style.$space-2, solid, #000000);
+                        @include border-left(style.$space-2, solid, #FABB00);
                     }
                 }
             }

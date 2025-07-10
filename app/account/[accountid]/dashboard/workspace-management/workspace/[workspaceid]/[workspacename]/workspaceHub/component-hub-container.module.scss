@@ -1,30 +1,30 @@
-@import "../_mixins";
-@import "../_variables";
+@use '@/app/styles/index' as style;
+
 
 .component-hub-container {
-    @include margin-x-y($_0, $auto, $_0 , $auto );
-    @include width(100px);
-    @include height(70px);
-    @include display-align(flex);
-    @include flex-align(wrap);
-    @include justify-content(center);
-    @include align-content(center);
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+    @include style.width(100px);
+    @include style.height(70px);
+    @include style.display-align(flex);
+    @include style.flex-align(wrap);
+    @include style.justify-content(center);
+    @include style.align-content(center);
 
     .component-hub-btn-wrapper {
         .component-hub-btn {
-            @include height(30px);
-            @include width(30px);
+            @include style.height(30px);
+            @include style.width(30px);
             cursor: pointer;
         }
     }
 
     .component-hub-text-wrapper {
-        @include margin-x-y($_0, $auto, $_0 , $auto );
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
         .longtext {
-            // @include height(30px);
-            @include margin-x-y($_0, $auto, $_0 , $auto );
-            @include font-size(15px);
+            // @include style.height(30px);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            @include style.font-size(15px);
         }
     }
 }

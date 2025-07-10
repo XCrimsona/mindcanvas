@@ -1,5 +1,4 @@
 "use client";
-import workspaceDataManagement from "@/app/account/[accountid/dashboard/workspace-management/workspace/[workspaceid/[workspacename/workspace-workspace-management.module.scss";
 import Div from "@/src/ui/Div";
 import React from "react";
 

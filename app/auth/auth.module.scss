@@ -1,246 +1,131 @@
-$_0: 0px;
-$_1: 1px;
-$_2: 2px;
-$_3: 3px;
-$_4: 4px;
-$_5: 5px;
-$_6: 6px;
-$_7: 7px;
-$_8: 8px;
-$_9: 9px;
-$_10: 10px;
-$_15: 15px;
-$_20: 20px;
-$_22: 22px;
-$_27: 27px;
-$_30: 30px;
-$_35: 35px;
-$_40: 40px;
-$_50: 50px;
-$_60: 60px;
-$_70: 70px;
-$_80: 80px;
-$_100: 100px;
-$_120: 120px;
-$_150: 150px;
-$_180: 180px;
-$_200: 200px;
-$_230: 230px;
-$_250: 250px;
-$_280: 280px;
-$_300: 300px;
-$_330: 330px;
-$_350: 350px;
-$_400: 400px;
-$_450: 450px;
-$_500: 500px;
-$_550: 550px;
-$_600: 600px;
-$_650: 650px;
-$_700: 700px;
-$_750: 750px;
-$_800: 800px;
-$_850: 850px;
-$_900: 900px;
-$_950: 950px;
-$_1000: 1000px;
-$auto: auto;
-
-@mixin display-align($Type) {
-    display: $Type;
-}
-
-@mixin justify-items($Type) {
-    justify-items: $Type;
-}
-
-@mixin justify-content($Type) {
-    justify-content: $Type;
-}
-
-@mixin align-content($Type) {
-    align-content: $Type;
-}
-
-@mixin align-items($Type) {
-    align-items: $Type;
-}
-
-@mixin flex-align($Type) {
-    flex-wrap: $Type;
-}
-
-@mixin margin-x-y($x1, $y1, $x2, $y2) {
-    margin: $x1 $y1 $x2 $y2;
-}
-
-@mixin padding-x-y($x1, $y1, $x2, $y2) {
-    padding: $x1 $y1 $x2 $y2;
-}
-
-@mixin align-text($Type) {
-    text-align: $Type;
-}
-
-@mixin text-color($color) {
-    color: $color;
-}
-
-@mixin background($Type) {
-    background: $Type;
-}
-
-@mixin background-color($color) {
-    background-color: $color;
-}
-
-@mixin width($width) {
-    width: $width;
-}
-
-@mixin height($height) {
-    height: $height;
-}
-
-@mixin min-height($min-height) {
-    min-height: $min-height;
-}
-
-@mixin max-height($max-height) {
-    max-height: $max-height;
-}
-
-@mixin url($url){
-background: url($url);
-}
-
+@use '@/app/styles/index' as style;
 
 .auth-layout {
     position: relative;
     z-index: 1;
-    @include display-align(flex);
-    @include justify-content(center);
-    @include align-items(center);
-    @include height(100%);
+    @include style.display-align(flex);
+    @include style.justify-content(center);
+    @include style.align-items(center);
+    @include style.height(100%);
     background-attachment: fixed;
     background-size: cover;
-    background: url("https://res.cloudinary.com/djjvj73xa/image/upload/v1744216363/turqoise-triags_xmiedg.png");
-    @include background-color(#000);
-    // @include background(radial-gradient(#000000 75%, #fabb00aa));
+    @include style.url("/golden-cube4d.png");
+    @include style.background-color(#000);
+    // @include style.background(radial-gradient(#000000 75%, #fabb00aa));
     font-family: calibri, Arial, Helvetica, sans-serif;
-    @include margin-x-y($_0 , $auto, $_0 , $auto );
-    @include padding-x-y($_0 ,
-        $_0,
-        $_0 ,
-        $_0);
+    @include style.margin-x-y(style.$space-0 , style.$auto, style.$space-0 , style.$auto );
+    @include style.padding-x-y(style.$space-0 ,
+        style.$space-0,
+        style.$space-0 ,
+        style.$space-0);
 
     .sign-in-page,
     .sign-up-page {
-        @include margin-x-y($_0 , $auto, $_0 , $auto );
-        @include padding-x-y($_0 ,
-            $_0,
-            $_0,
-            $_0);
+        @include style.margin-x-y(style.$space-0 , style.$auto, style.$space-0 , style.$auto );
+        @include style.padding-x-y(style.$space-0 ,
+            style.$space-0,
+            style.$space-0,
+            style.$space-0);
 
         .sign-in-block,
         .sign-up-block {
             //signin styling
-            border: $_2 solid #FABB00aa;
-            @include background-color(#111);
-            @include margin-x-y($_0 , $auto, $_0 , $auto );
-            @include padding-x-y($_6 ,
-                $_6,
-                $_6 ,
-                $_6 );
+            border: style.$space-2 solid #FABB00aa;
+            @include style.background-color(#111);
+            @include style.margin-x-y(style.$space-0 , style.$auto, style.$space-0 , style.$auto );
+            @include style.padding-x-y(style.$space-6 ,
+                style.$space-6,
+                style.$space-6 ,
+                style.$space-6 );
             border-radius: 10px;
-            box-shadow: $_0 $_1 $_10 $_3 #000;
+            box-shadow: style.$space-0 style.$space-1 style.$space-10 style.$space-3 #000;
 
             .heading-one {
-                @include display-align(block);
-                @include margin-x-y($_30 , $auto, $_30 , $auto );
-                @include padding-x-y($_0 ,
-                    $_0,
-                    $_0,
-                    $_0 );
-                @include text-color(#FFFFFF);
+                @include style.display-align(block);
+                @include style.margin-x-y(style.$space-30 , style.$auto, style.$space-30 , style.$auto );
+                @include style.padding-x-y(style.$space-0 ,
+                    style.$space-0,
+                    style.$space-0,
+                    style.$space-0 );
+                @include style.text-color(#FFFFFF);
             }
 
             .form-sign-in {
-                @include margin-x-y($_0, $auto , $_0 , $auto );
+                @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
 
                 .form-data-container {
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
-                    @include text-color(#FFFFFF);
-                    @include margin-x-y($_0, $auto , $_0 , $auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
+                    @include style.text-color(#FFFFFF);
+                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
 
                     .sign-in-label {
-                        @include display-align(block);
-                        @include margin-x-y($_2, $auto , $_2 , $auto );
+                        @include style.display-align(block);
+                        @include style.margin-x-y(style.$space-2, style.$auto , style.$space-2 , style.$auto );
                     }
 
                     .email-input,
                     .password-input {
-                        @include display-align(block);
-                        @include margin-x-y($_2, $auto , $_2 , $auto );
-                        outline: $_2 solid #111;
-                        @include background-color(#111);
-                        border: $_2 solid #111;
-                        border-bottom: $_2 solid #FABB00;
-                        @include text-color(#FFFFFF);
+                        @include style.display-align(block);
+                        @include style.margin-x-y(style.$space-2, style.$auto , style.$space-2 , style.$auto );
+                        outline: style.$space-2 solid #111;
+                        @include style.background-color(#111);
+                        border: style.$space-2 solid #111;
+                        border-bottom: style.$space-2 solid #FABB00;
+                        @include style.text-color(#FFFFFF);
                     }
 
                     .email-input:focus,
                     .password-input:focus {
-                        outline: $_2 solid #111;
-                        @include background-color(#111);
+                        outline: style.$space-2 solid #111;
+                        @include style.background-color(#111);
                     }
 
                     .email-input::placeholder,
                     .password-input::placeholder {
-                        @include text-color(#FFFFFF);
-                        @include background-color(#111);
-                        border: $_2 solid #111;
+                        @include style.text-color(#FFFFFF);
+                        @include style.background-color(#111);
+                        border: style.$space-2 solid #111;
                     }
                 }
 
                 .submit-btn-wrapper {
-                    @include margin-x-y($_0, $auto , $_0 , $auto );
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
 
                     .submit {
-                        border-radius: $_10;
+                        border-radius: style.$space-10;
                         cursor: pointer;
-                        @include margin-x-y($_10, $auto , $_5 , $auto );
+                        @include style.margin-x-y(style.$space-10, style.$auto , style.$space-5 , style.$auto );
                         font-weight: 600;
-                        border: $_2 solid #FABB00;
-                        @include background-color(#000);
-                        @include text-color(#FABB00);
+                        border: style.$space-2 solid #FABB00;
+                        @include style.background-color(#000);
+                        @include style.text-color(#FABB00);
                         text-transform: uppercase
                     }
                 }
 
                 .cancel-btn-wrapper {
-                    @include margin-x-y($_0, $auto , $_0 , $auto );
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
 
                     .cancel-verification {
-                        border-radius: $_10;
+                        border-radius: style.$space-10;
                         cursor: pointer;
-                        @include margin-x-y($_5, $auto , $_10 , $auto );
-                        @include background-color(#000);
-                        border: $_2 solid #FABB00;
+                        @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
+                        @include style.background-color(#000);
+                        border: style.$space-2 solid #FABB00;
 
                         a {
                             text-transform: uppercase;
                             text-decoration: none;
                             font-weight: 600;
-                            @include text-color(#FABB00);
+                            @include style.text-color(#FABB00);
                         }
                     }
                 }
@@ -249,15 +134,15 @@ background: url($url);
             //signup styling
             .form-sign-up {
                 .form-data-container {
-                    @include display-align(flex);
-                    // @include justify-content(center);
-                    @include align-items(center);
-                    @include text-color(#FFFFFF);
-                    @include margin-x-y($_0, $auto , $_0 , $auto );
+                    @include style.display-align(flex);
+                    // @include style.justify-content(center);
+                    @include style.align-items(center);
+                    @include style.text-color(#FFFFFF);
+                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
 
                     .sign-up-label {
-                        @include display-align(block);
-                        @include margin-x-y($_2, $auto , $_2 , $auto );
+                        @include style.display-align(block);
+                        @include style.margin-x-y(style.$space-2, style.$auto , style.$space-2 , style.$auto );
                     }
 
                     .firstname-input,
@@ -267,13 +152,13 @@ background: url($url);
                     .email-input,
                     .password-input,
                     .confirm-password-input {
-                        @include display-align(block);
-                        @include margin-x-y($_2, $auto , $_2 , $auto );
-                        outline: $_2 solid #111;
-                        @include background-color(#111);
-                        border: $_2 solid #111;
-                        border-bottom: $_2 solid #FABB00;
-                        @include text-color(#FFFFFF);
+                        @include style.display-align(block);
+                        @include style.margin-x-y(style.$space-2, style.$auto , style.$space-2 , style.$auto );
+                        outline: style.$space-2 solid #111;
+                        @include style.background-color(#111);
+                        border: style.$space-2 solid #111;
+                        border-bottom: style.$space-2 solid #FABB00;
+                        @include style.text-color(#FFFFFF);
                     }
 
 
@@ -285,8 +170,8 @@ background: url($url);
                     .email-input:focus,
                     .password-input:focus,
                     .confirm-password-input:focus {
-                        outline: $_2 solid #111;
-                        @include background-color(#111);
+                        outline: style.$space-2 solid #111;
+                        @include style.background-color(#111);
                     }
 
                     .firstname-input::placeholder,
@@ -296,48 +181,48 @@ background: url($url);
                     .email-input::placeholder,
                     .password-input::placeholder,
                     .confirm-password-input::placeholder {
-                        @include text-color(#FFFFFF);
-                        @include background-color(#111);
-                        border: $_2 solid #111;
+                        @include style.text-color(#FFFFFF);
+                        @include style.background-color(#111);
+                        border: style.$space-2 solid #111;
                     }
                 }
 
                 .submit-btn-wrapper {
-                    @include margin-x-y($_0, $auto , $_0 , $auto );
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
 
                     .submit {
-                        border-radius: $_10;
+                        border-radius: style.$space-10;
                         cursor: pointer;
-                        @include margin-x-y($_10, $auto , $_5 , $auto );
+                        @include style.margin-x-y(style.$space-10, style.$auto , style.$space-5 , style.$auto );
                         font-weight: 600;
-                        border: $_2 solid #FABB00;
-                        @include background-color(#000);
-                        @include text-color(#FABB00);
+                        border: style.$space-2 solid #FABB00;
+                        @include style.background-color(#000);
+                        @include style.text-color(#FABB00);
                         text-transform: uppercase
                     }
                 }
 
                 .cancel-btn-wrapper {
-                    @include margin-x-y($_0, $auto , $_0 , $auto );
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
 
                     .cancel-signup {
-                        border-radius: $_10;
+                        border-radius: style.$space-10;
                         cursor: pointer;
-                        @include margin-x-y($_5, $auto , $_10 , $auto );
-                        @include background-color(#000);
-                        border: $_2 solid #FABB00;
+                        @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
+                        @include style.background-color(#000);
+                        border: style.$space-2 solid #FABB00;
 
                         a {
                             text-transform: uppercase;
                             text-decoration: none;
                             font-weight: 600;
-                            @include text-color(#FABB00);
+                            @include style.text-color(#FABB00);
                         }
                     }
                 }
@@ -345,45 +230,45 @@ background: url($url);
 
             //for signin and signup
             .may-need-account {
-                @include margin-x-y($_5, $auto , $_10 , $auto );
-                @include display-align(block);
-                @include text-color(#FFFFFF);
+                @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
+                @include style.display-align(block);
+                @include style.text-color(#FFFFFF);
 
                 .no-account {
-                    @include margin-x-y($_15, $auto , $_15 , $auto );
-                    @include align-text(center);
+                    @include style.margin-x-y(style.$space-15, style.$auto , style.$space-15 , style.$auto );
+                    @include style.align-text(center);
                 }
 
                 .get-access {
-                    @include margin-x-y($_5, $auto , $_15 , $auto );
-                    @include justify-content(center);
-                    @include align-text(center);
+                    @include style.margin-x-y(style.$space-5, style.$auto , style.$space-15 , style.$auto );
+                    @include style.justify-content(center);
+                    @include style.align-text(center);
 
                     .contact {
                         cursor: pointer;
-                        @include margin-x-y($_5, $auto , $_10 , $auto );
-                        @include text-color(#FFF);
+                        @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
+                        @include style.text-color(#FFF);
                     }
                 }
 
                 .have-an-account {
-                    @include margin-x-y($_15, $auto , $_15 , $auto );
-                    @include align-text(center);
+                    @include style.margin-x-y(style.$space-15, style.$auto , style.$space-15 , style.$auto );
+                    @include style.align-text(center);
                 }
 
                 .login-access {
-                    @include display-align(block);
-                    @include margin-x-y($_15, $auto , $_15 , $auto );
-                    border-radius: $_10;
+                    @include style.display-align(block);
+                    @include style.margin-x-y(style.$space-15, style.$auto , style.$space-15 , style.$auto );
+                    border-radius: style.$space-10;
                     cursor: pointer;
-                    @include margin-x-y($_5, $auto , $_10 , $auto );
-                    @include background-color(#000);
-                    border: $_2 solid #FABB00;
-                    @include align-text(center);
+                    @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
+                    @include style.background-color(#000);
+                    border: style.$space-2 solid #FABB00;
+                    @include style.align-text(center);
 
                     .login-route-link {
-                        @include margin-x-y($_15, $auto , $_15 , $auto );
-                        @include text-color(#FABB00);
+                        @include style.margin-x-y(style.$space-15, style.$auto , style.$space-15 , style.$auto );
+                        @include style.text-color(#FABB00);
                         text-transform: uppercase;
                         text-decoration: none;
                         font-weight: 600;
@@ -405,63 +290,63 @@ background: url($url);
             .sign-in-block,
             .sign-up-block {
                 overflow-y: scroll;
-                @include height(auto);
-                @include max-height(500px);
-                @include width(250px);
+                @include style.height(auto);
+                @include style.max-height(500px);
+                @include style.width(250px);
 
                 .heading-one {
-                    @include align-text(center);
+                    @include style.align-text(center);
                 }
 
                 .form-sign-in {
-                    @include width(250px);
+                    @include style.width(250px);
 
                     .form-data-container {
-                        @include display-align(block);
-                        // @include justify-content(left);
-                        // @include align-items(center);
-                        @include width(180px);
+                        @include style.display-align(block);
+                        // @include style.justify-content(left);
+                        // @include style.align-items(center);
+                        @include style.width(180px);
 
                         .sign-in-label {
-                            @include width(120px);
-                            @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                            @include style.width(120px);
+                            @include style.margin-x-y(style.$space-15, style.$space-0 , style.$space-5 , style.$space-0 );
                         }
 
                         .email-input,
                         .password-input {
-                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                            @include width(160px);
-                            border-left: $_2 solid #FABB00;
+                            @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                            @include style.width(160px);
+                            border-left: style.$space-2 solid #FABB00;
                         }
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-verification {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
                 }
 
                 .form-sign-up {
-                    @include width(250px);
+                    @include style.width(250px);
 
                     .form-data-container {
-                        @include display-align(block);
-                        @include width(200px);
+                        @include style.display-align(block);
+                        @include style.width(200px);
 
                         .sign-up-label {
-                            @include width(200px);
-                            @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                            @include style.width(200px);
+                            @include style.margin-x-y(style.$space-15, style.$space-0 , style.$space-5 , style.$space-0 );
                         }
 
                         .firstname-input,
@@ -470,32 +355,32 @@ background: url($url);
                         .email-input,
                         .password-input,
                         .confirm-password-input {
-                            @include width(180px);
-                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                            border-left: $_2 solid #FABB00;
+                            @include style.width(180px);
+                            @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                            border-left: style.$space-2 solid #FABB00;
                         }
 
                         .gender-input {
-                            @include width(188px);
-                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                            border-left: $_2 solid #FABB00;
+                            @include style.width(188px);
+                            @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                            border-left: style.$space-2 solid #FABB00;
                         }
 
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-signup {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
                 }
@@ -509,11 +394,11 @@ background: url($url);
 
                     .get-access {
                         font-size: 12px;
-                        @include width(180px);
+                        @include style.width(180px);
                     }
 
                     .login-access {
-                        @include width(180px);
+                        @include style.width(180px);
 
                     }
                 }
@@ -531,63 +416,63 @@ background: url($url);
             .sign-in-block,
             .sign-up-block {
                 overflow-y: scroll;
-                @include height(auto);
-                @include max-height(500px);
-                @include width(250px);
+                @include style.height(auto);
+                @include style.max-height(500px);
+                @include style.width(250px);
 
                 .heading-one {
-                    @include align-text(center);
+                    @include style.align-text(center);
                 }
 
                 .form-sign-in {
-                    @include width(250px);
+                    @include style.width(250px);
 
                     .form-data-container {
-                        @include display-align(block);
-                        // @include justify-content(left);
-                        // @include align-items(center);
-                        @include width(180px);
+                        @include style.display-align(block);
+                        // @include style.justify-content(left);
+                        // @include style.align-items(center);
+                        @include style.width(180px);
 
                         .sign-in-label {
-                            @include width(120px);
-                            @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                            @include style.width(120px);
+                            @include style.margin-x-y(style.$space-15, style.$space-0 , style.$space-5 , style.$space-0 );
                         }
 
                         .email-input,
                         .password-input {
-                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                            @include width(160px);
-                            border-left: $_2 solid #FABB00;
+                            @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                            @include style.width(160px);
+                            border-left: style.$space-2 solid #FABB00;
                         }
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-verification {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
                 }
 
                 .form-sign-up {
-                    @include width(250px);
+                    @include style.width(250px);
 
                     .form-data-container {
-                        @include display-align(block);
-                        @include width(200px);
+                        @include style.display-align(block);
+                        @include style.width(200px);
 
                         .sign-up-label {
-                            @include width(200px);
-                            @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                            @include style.width(200px);
+                            @include style.margin-x-y(style.$space-15, style.$space-0 , style.$space-5 , style.$space-0 );
                         }
 
                         .firstname-input,
@@ -596,32 +481,32 @@ background: url($url);
                         .email-input,
                         .password-input,
                         .confirm-password-input {
-                            @include width(180px);
-                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                            border-left: $_2 solid #FABB00;
+                            @include style.width(180px);
+                            @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                            border-left: style.$space-2 solid #FABB00;
                         }
 
                         .gender-input {
-                            @include width(188px);
-                            @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                            border-left: $_2 solid #FABB00;
+                            @include style.width(188px);
+                            @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                            border-left: style.$space-2 solid #FABB00;
                         }
 
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-signup {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
                 }
@@ -635,11 +520,11 @@ background: url($url);
 
                     .get-access {
                         font-size: 12px;
-                        @include width(180px);
+                        @include style.width(180px);
                     }
 
                     .login-access {
-                        @include width(180px);
+                        @include style.width(180px);
 
                     }
                 }
@@ -657,41 +542,41 @@ background: url($url);
             .sign-in-block,
             .sign-up-block {
                 overflow-y: scroll;
-                @include height(auto);
-                @include max-height(500px);
-                @include width(300px);
+                @include style.height(auto);
+                @include style.max-height(500px);
+                @include style.width(300px);
 
                 .heading-one {
-                    @include align-text(center);
+                    @include style.align-text(center);
                 }
 
                 .form-sign-in {
                     .form-data-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .sign-in-label {
-                            @include width(80px);
+                            @include style.width(80px);
                         }
 
                         .email-input,
                         .password-input {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-verification {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
                 }
@@ -699,13 +584,13 @@ background: url($url);
                 .form-sign-up {
 
                     .form-data-container {
-                        @include width(300px);
-                        @include display-align(block);
+                        @include style.width(300px);
+                        @include style.display-align(block);
 
                         .label-wrapper {
-                            @include margin-x-y($_15, $auto , $_5 , $auto );
+                            @include style.margin-x-y(style.$space-15, style.$auto , style.$space-5 , style.$auto );
 
-                            @include width(200px);
+                            @include style.width(200px);
 
                             .sign-up-label-firstname,
                             .sign-up-label-lasttname,
@@ -713,18 +598,18 @@ background: url($url);
                             .sign-up-label-dob,
                             .sign-up-label-password,
                             .sign-up-label-confirm-password {
-                                @include display-align(flex);
-                                @include justify-content(left);
-                                @include align-items(center);
-                                @include width(190px);
-                                @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                                @include style.display-align(flex);
+                                @include style.justify-content(left);
+                                @include style.align-items(center);
+                                @include style.width(190px);
+                                @include style.margin-x-y(style.$space-15, style.$space-0 , style.$space-5 , style.$space-0 );
                             }
                         }
 
                         .input-wrapper {
 
-                            @include margin-x-y($_15, $auto , $_5 , $auto );
-                            @include width(200px);
+                            @include style.margin-x-y(style.$space-15, style.$auto , style.$space-5 , style.$auto );
+                            @include style.width(200px);
 
                             .firstname-input,
                             .lastname-input,
@@ -732,32 +617,32 @@ background: url($url);
                             .email-input,
                             .password-input,
                             .confirm-password-input {
-                                @include width(190px);
-                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                                border-left: $_2 solid #FABB00;
+                                @include style.width(190px);
+                                @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                                border-left: style.$space-2 solid #FABB00;
                             }
 
                             .gender-input {
-                                @include width(198px);
-                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                                border-left: $_2 solid #FABB00;
+                                @include style.width(198px);
+                                @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                                border-left: style.$space-2 solid #FABB00;
                             }
                         }
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-signup {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
                 }
@@ -771,12 +656,12 @@ background: url($url);
 
                     .get-access {
                         font-size: 12px;
-                        @include width(180px);
+                        @include style.width(180px);
                     }
 
                     .login-access {
                         font-size: 14px;
-                        @include width(180px);
+                        @include style.width(180px);
 
                     }
                 }
@@ -792,39 +677,39 @@ background: url($url);
         .sign-up-page {
 
             .sign-in-block {
-                @include width(300px);
+                @include style.width(300px);
 
                 .heading-one {
-                    @include align-text(center);
+                    @include style.align-text(center);
                 }
 
                 .form-sign-in {
                     .form-data-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .sign-in-label {
-                            @include width(80px);
+                            @include style.width(80px);
                         }
 
                         .email-input,
                         .password-input {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-verification {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
                 }
@@ -838,12 +723,12 @@ background: url($url);
 
                     .get-access {
                         font-size: 12px;
-                        @include width(180px);
+                        @include style.width(180px);
                     }
 
                     .login-access {
                         font-size: 14px;
-                        @include width(180px);
+                        @include style.width(180px);
 
                     }
                 }
@@ -851,20 +736,20 @@ background: url($url);
 
             .sign-up-block {
                 .heading-one {
-                    @include align-text(center);
+                    @include style.align-text(center);
                 }
 
                 .form-sign-up {
-                    @include width(500px);
-                    @include margin-x-y($_0, $auto , $_0 , $auto );
+                    @include style.width(500px);
+                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
 
                     .form-data-container {
-                        @include width(350px);
+                        @include style.width(350px);
 
                         .label-wrapper {
-                            @include margin-x-y($_0, $auto , $_0 , $auto );
+                            @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
 
-                            @include width(150px);
+                            @include style.width(150px);
 
                             .sign-up-label-firstname,
                             .sign-up-label-lastname,
@@ -873,18 +758,18 @@ background: url($url);
                             .sign-up-label-email,
                             .sign-up-label-password,
                             .sign-up-label-confirm-password {
-                                @include display-align(flex);
-                                @include justify-content(left);
-                                @include align-content(center);
-                                @include width(160px);
-                                @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                                @include style.display-align(flex);
+                                @include style.justify-content(left);
+                                @include style.align-content(center);
+                                @include style.width(160px);
+                                @include style.margin-x-y(style.$space-15, style.$space-0 , style.$space-5 , style.$space-0 );
                             }
                         }
 
                         .input-wrapper {
 
-                            @include margin-x-y($_15, $auto , $_5 , $auto );
-                            @include width(200px);
+                            @include style.margin-x-y(style.$space-15, style.$auto , style.$space-5 , style.$auto );
+                            @include style.width(200px);
 
                             .firstname-input,
                             .lastname-input,
@@ -892,32 +777,32 @@ background: url($url);
                             .email-input,
                             .password-input,
                             .confirm-password-input {
-                                @include width(190px);
-                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                                border-left: $_2 solid #FABB00;
+                                @include style.width(190px);
+                                @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                                border-left: style.$space-2 solid #FABB00;
                             }
 
                             .gender-input {
-                                @include width(198px);
-                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                                border-left: $_2 solid #FABB00;
+                                @include style.width(198px);
+                                @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                                border-left: style.$space-2 solid #FABB00;
                             }
                         }
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-signup {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
                 }
@@ -931,12 +816,12 @@ background: url($url);
 
                     .get-access {
                         font-size: 12px;
-                        @include width(180px);
+                        @include style.width(180px);
                     }
 
                     .login-access {
                         font-size: 14px;
-                        @include width(180px);
+                        @include style.width(180px);
 
                     }
                 }
@@ -952,39 +837,39 @@ background: url($url);
         .sign-up-page {
 
             .sign-in-block {
-                @include width(300px);
+                @include style.width(300px);
 
                 .heading-one {
-                    @include align-text(center);
+                    @include style.align-text(center);
                 }
 
                 .form-sign-in {
                     .form-data-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .sign-in-label {
-                            @include width(80px);
+                            @include style.width(80px);
                         }
 
                         .email-input,
                         .password-input {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-verification {
-                            @include width(150px);
+                            @include style.width(150px);
                         }
                     }
                 }
@@ -992,20 +877,20 @@ background: url($url);
 
             .sign-up-block {
                 .heading-one {
-                    @include align-text(center);
+                    @include style.align-text(center);
                 }
 
                 .form-sign-up {
-                    @include width(500px);
-                    @include margin-x-y($_0, $auto , $_0 , $auto );
+                    @include style.width(500px);
+                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
 
                     .form-data-container {
-                        @include width(350px);
+                        @include style.width(350px);
 
                         .label-wrapper {
-                            @include margin-x-y($_0, $auto , $_0 , $auto );
+                            @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
 
-                            @include width(150px);
+                            @include style.width(150px);
 
                             .sign-up-label-firstname,
                             .sign-up-label-lastname,
@@ -1014,18 +899,18 @@ background: url($url);
                             .sign-up-label-email,
                             .sign-up-label-password,
                             .sign-up-label-confirm-password {
-                                @include display-align(flex);
-                                @include justify-content(left);
-                                @include align-content(center);
-                                @include width(160px);
-                                @include margin-x-y($_15, $_0 , $_5 , $_0 );
+                                @include style.display-align(flex);
+                                @include style.justify-content(left);
+                                @include style.align-content(center);
+                                @include style.width(160px);
+                                @include style.margin-x-y(style.$space-15, style.$space-0 , style.$space-5 , style.$space-0 );
                             }
                         }
 
                         .input-wrapper {
 
-                            @include margin-x-y($_15, $auto , $_5 , $auto );
-                            @include width(200px);
+                            @include style.margin-x-y(style.$space-15, style.$auto , style.$space-5 , style.$auto );
+                            @include style.width(200px);
 
                             .firstname-input,
                             .lastname-input,
@@ -1033,32 +918,32 @@ background: url($url);
                             .email-input,
                             .password-input,
                             .confirm-password-input {
-                                @include width(190px);
-                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                                border-left: $_2 solid #FABB00;
+                                @include style.width(190px);
+                                @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                                border-left: style.$space-2 solid #FABB00;
                             }
 
                             .gender-input {
-                                @include width(198px);
-                                @include margin-x-y($_5, $_0 , $_10 , $_0 );
-                                border-left: $_2 solid #FABB00;
+                                @include style.width(198px);
+                                @include style.margin-x-y(style.$space-5, style.$space-0 , style.$space-10 , style.$space-0 );
+                                border-left: style.$space-2 solid #FABB00;
                             }
                         }
                     }
 
                     .submit-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .submit {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
 
                     .cancel-btn-wrapper {
-                        @include width(200px);
+                        @include style.width(200px);
 
                         .cancel-signup {
-                            @include width(180px);
+                            @include style.width(180px);
                         }
                     }
                 }
@@ -1072,12 +957,12 @@ background: url($url);
 
                     .get-access {
                         font-size: 12px;
-                        @include width(180px);
+                        @include style.width(180px);
                     }
 
                     .login-access {
                         font-size: 14px;
-                        @include width(180px);
+                        @include style.width(180px);
 
                     }
                 }
@@ -1092,11 +977,11 @@ background: url($url);
 
 //     .sign-up-block,
 //     .sign-in-block {
-//         @include height(600px);
+//         @include style.height(600px);
 //         overflow-y: scroll;
-//         @include height(auto);
-//         @include max-height(300px);
+//         @include style.height(auto);
+//         @include style.max-height(300px);
 
-//         @include height(600px)
+//         @include style.height(600px)
 //     }
 // }

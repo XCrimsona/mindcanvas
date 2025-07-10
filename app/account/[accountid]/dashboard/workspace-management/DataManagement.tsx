@@ -269,7 +269,7 @@ const DataManagement = ({ params }: { params: any }) => {
                         }
                       >
                         <SVG
-                          src="https://res.cloudinary.com/djjvj73xa/image/upload/v1745662977/backward-solid_1_dpek7z.svg"
+                          src="/backwards-solid.svg"
                           alt="double forward icon"
                           className={
                             workspacesheetWrapper["forward-to-workspace-icon"]

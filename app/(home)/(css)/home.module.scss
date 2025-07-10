@@ -1,202 +1,60 @@
-$_0: 0px;
-$_1: 1px;
-$_2: 2px;
-$_3: 3px;
-$_4: 4px;
-$_5: 5px;
-$_6: 6px;
-$_7: 7px;
-$_8: 8px;
-$_9: 9px;
-$_10: 10px;
-$_15: 15px;
-$_20: 20px;
-$_22: 22px;
-$_27: 27px;
-$_30: 30px;
-$_35: 35px;
-$_40: 40px;
-$_50: 50px;
-$_60: 60px;
-$_70: 70px;
-$_80: 80px;
-$_100: 100px;
-$_120: 120px;
-$_150: 150px;
-$_180: 180px;
-$_200: 200px;
-$_230: 230px;
-$_250: 250px;
-$_280: 280px;
-$_300: 300px;
-$_330: 330px;
-$_350: 350px;
-$_400: 400px;
-$_450: 450px;
-$_500: 500px;
-$_550: 550px;
-$_600: 600px;
-$_650: 650px;
-$_700: 700px;
-$_750: 750px;
-$_800: 800px;
-$_850: 850px;
-$_900: 900px;
-$_950: 950px;
-$_1000: 1000px;
-$auto: auto;
-
-@mixin display-align($Type) {
-    display: $Type;
-}
-
-@mixin justify-items($Type) {
-    justify-items: $Type;
-}
-
-@mixin justify-content($Type) {
-    justify-content: $Type;
-}
-
-@mixin align-content($Type) {
-    align-content: $Type;
-}
-
-@mixin align-items($Type) {
-    align-items: $Type;
-}
-
-@mixin flex-align($Type) {
-    flex-wrap: $Type;
-}
-
-@mixin margin-x-y($x1, $y1, $x2, $y2) {
-    margin: $x1 $y1 $x2 $y2;
-}
-
-@mixin padding-x-y($x1, $y1, $x2, $y2) {
-    padding: $x1 $y1 $x2 $y2;
-}
-
-@mixin align-text($Type) {
-    text-align: $Type;
-}
-
-@mixin text-color($color) {
-    color: $color;
-}
-
-@mixin background($Type) {
-    background: $Type;
-}
-
-@mixin background-color($color) {
-    background-color: $color;
-}
-
-@mixin width($width) {
-    width: $width;
-}
-
-@mixin height($height) {
-    height: $height;
-}
-
-@mixin min-height($min-height) {
-    min-height: $min-height;
-}
-
-@mixin max-height($max-height) {
-    max-height: $max-height;
-}
-
-@mixin font-size($size) {
-    font-size: $size;
-}
-
-@mixin border($thickness, $type, $color) {
-    border: $thickness $type $color;
-}
-
-@mixin border-radius($thickness) {
-    border-radius: $thickness;
-}
-
-@mixin position($position) {
-    position: $position;
-}
-
-@mixin top($position) {
-    top: $position;
-}
-
-@mixin bottom($position) {
-    bottom: $position;
-}
-
-@mixin left($position) {
-    left: $position;
-}
-
-@mixin right($position) {
-    right: $position;
-}
+@use '@/app/styles/index' as style;
 
 .page {
     letter-spacing: 1px;
     font-family: calibri, Arial, Helvetica, sans-serif;
     //temp bg color until global localstorage for color background color is istalled
-    @include background-color(#222);
-    @include text-color(#fff);
-    @include margin-x-y($_0, $auto, $_0, $auto );
-    @include padding-x-y($_0, $_0, $_10, $_0 );
-    @include position(relative);
+    @include style.background-color(#222);
+    @include style.text-color(#fff);
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0, style.$auto);
+    @include style.padding-x-y(style.$space-0, style.$space-0, style.$space-10, style.$space-0 );
+    @include style.position(relative);
 
     .heading-one,
     .heading-two {
-        @include margin-x-y($_0, $auto , $_0 , $auto );
-        @include align-text(center);
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
+        @include style.align-text(center);
     }
 
     .paragraph {
-        @include margin-x-y($_20, $auto , $_60 , $auto );
+        @include style.margin-x-y(style.$space-20, style.$auto, style.$space-60 , style.$auto);
     }
 
 
     .list-designed-for {
-        @include display-align(block);
-        @include margin-x-y($_0, $auto , $_0 , $auto );
+        @include style.display-align(block);
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
 
         .design {
-            @include background-color(#555);
-            border: $_2 solid #333;
+            @include style.background-color(#555);
+            border: style.$space-2 solid #333;
             border-radius: 10px;
-            @include text-color(#fff);
+            @include style.text-color(#fff);
             box-shadow: 0px 0px 5px 3px #333;
-            @include align-text(center);
+            @include style.align-text(center);
         }
     }
 
     .list-features {
         .features {
             //background is temp until color foundation theme is completed
-            @include background-color(#555);
-            border: $_2 solid #333;
+            @include style.background-color(#555);
+            border: style.$space-2 solid #333;
             border-radius: 10px;
-            @include text-color(#fff);
+            @include style.text-color(#fff);
             box-shadow: 0px 0px 5px 3px #333;
-            @include align-text(center);
+            @include style.align-text(center);
         }
     }
 
     .list-privacy-statements {
-        @include margin-x-y($_0, $auto , $_0 , $auto );
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
 
     }
 
     .list-security-privacy {
-        @include margin-x-y($_0, $auto , $_0 , $auto );
-        // @include display-align(block);
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
+        // @include style.display-align(block);
 
         padding-left: 0px;
 
@@ -204,36 +62,36 @@ $auto: auto;
 
     .sign-in-container {
         //background is temp until color foundation theme is completed
-        @include display-align(block);
-        @include background-color(#555);
-        border: $_2 solid #333;
+        @include style.display-align(block);
+        @include style.background-color(#555);
+        border: style.$space-2 solid #333;
         border-radius: 10px;
-        @include text-color(#fff);
+        @include style.text-color(#fff);
         box-shadow: 0px 0px 5px 7px #333;
-        @include align-text(center);
-        @include margin-x-y($_50, $auto, $_50 , $auto );
+        @include style.align-text(center);
+        @include style.margin-x-y(style.$space-50, style.$auto, style.$space-50 , style.$auto);
 
         .route-link {
-            @include display-align(block);
-            @include padding-x-y($_10, $_0 , $_10 , $_0 );
+            @include style.display-align(block);
+            @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10 , style.$space-0 );
         }
     }
 
     .home-footer {
-        @include margin-x-y($_0, $auto, $_0 , $auto );
-        @include display-align(block);
-        @include position(fixed);
-        @include bottom($_0);
-        @include right($_0);
-        @include left($_0);
-        @include background-color(#222);
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
+        @include style.display-align(block);
+        @include style.position(fixed);
+        @include style.bottom(style.$space-0);
+        @include style.right(style.$space-0);
+        @include style.left(style.$space-0);
+        @include style.background-color(#222);
 
         .project-creator {
-            @include margin-x-y($_0, $auto, $_0 , $auto );
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
 
             .creator {
-                @include align-text(center);
-                @include text-color(#fff);
+                @include style.align-text(center);
+                @include style.text-color(#fff);
             }
         }
     }
@@ -242,91 +100,91 @@ $auto: auto;
 @media screen and (min-width:320px) and (max-width:425.9px) {
     .page {
         .heading-one {
-            @include font-size(40px);
-            @include padding-x-y($_80,
-                $_0 ,
-                $_20 ,
-                $_0);
-            @include width(250px);
+            @include style.font-size(40px);
+            @include style.padding-x-y(style.$space-80,
+                style.$space-0 ,
+                style.$space-20 ,
+                style.$space-0);
+            @include style.width(250px);
 
         }
 
         .paragraph {
-            @include width(250px);
+            @include style.width(250px);
         }
 
         .heading-two-designedfor {
-            @include margin-x-y($_40, $auto , $_10 , $auto );
-            @include width(250px);
-            @include font-size(30px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-40, style.$auto, style.$space-10 , style.$auto);
+            @include style.width(250px);
+            @include style.font-size(30px);
+            @include style.align-text(center);
         }
 
 
         .list-designed-for {
-            @include margin-x-y($_20, $auto , $_80 , $auto );
-            @include width(250px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-20, style.$auto, style.$space-80 , style.$auto);
+            @include style.width(250px);
+            @include style.align-text(center);
 
             .design {
-                @include padding-x-y($_10, $_0 , $_10 , $_0);
-                @include width(250px);
+                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10 , style.$space-0);
+                @include style.width(250px);
 
             }
         }
 
 
         .heading-two-features {
-            @include margin-x-y($_40, $auto , $_10 , $auto );
-            @include width(250px);
-            @include align-text(center);
-            @include font-size(30px);
+            @include style.margin-x-y(style.$space-40, style.$auto, style.$space-10 , style.$auto);
+            @include style.width(250px);
+            @include style.align-text(center);
+            @include style.font-size(30px);
         }
 
         .list-features {
-            @include margin-x-y($_10, $auto , $_40 , $auto );
-            @include width(250px);
-            @include align-text(center);
-            @include display-align(flex);
-            @include flex-align(wrap);
+            @include style.margin-x-y(style.$space-10, style.$auto, style.$space-40 , style.$auto);
+            @include style.width(250px);
+            @include style.align-text(center);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
 
             .features {
-                @include margin-x-y($_10, $auto , $_10 , $auto );
-                @include padding-x-y($_10, $_10 , $_10 , $_10 );
-                @include justify-content(center);
-                @include width(250px);
+                @include style.margin-x-y(style.$space-10, style.$auto, style.$space-10 , style.$auto);
+                @include style.padding-x-y(style.$space-10, style.$space-10 , style.$space-10 , style.$space-10 );
+                @include style.justify-content(center);
+                @include style.width(250px);
             }
         }
 
         .heading-two-sec-and-priv {
-            @include margin-x-y($_60, $auto , $_20 , $auto );
-            @include width(250px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-60, style.$auto, style.$space-20 , style.$auto);
+            @include style.width(250px);
+            @include style.align-text(center);
 
         }
 
         .list-security-privacy {
-            @include width(250px);
-            @include display-align(flex);
-            @include flex-align(wrap);
-            @include align-text(left);
+            @include style.width(250px);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
+            @include style.align-text(left);
 
             .sec-priv-item {
 
-                @include margin-x-y($_5, $auto, $_5, $auto);
-                @include font-size(14px);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5, style.$auto);
+                @include style.font-size(14px);
             }
         }
 
         .sign-in-container {
-            @include align-text(center);
-            @include width(250px);
+            @include style.align-text(center);
+            @include style.width(250px);
             border-radius: 10px;
 
             .route-link {
-                @include display-align(block);
-                @include text-color(#fff);
-                @include font-size($_20);
+                @include style.display-align(block);
+                @include style.text-color(#fff);
+                @include style.font-size(style.$space-20);
             }
         }
     }
@@ -335,88 +193,88 @@ $auto: auto;
 @media screen and (min-width:426px) and (max-width:600.9px) {
     .page {
         .heading-one {
-            @include font-size(40px);
-            @include padding-x-y($_80,
-                $_0 ,
-                $_20 ,
-                $_0);
-            @include width(350px);
+            @include style.font-size(40px);
+            @include style.padding-x-y(style.$space-80,
+                style.$space-0 ,
+                style.$space-20 ,
+                style.$space-0);
+            @include style.width(350px);
 
         }
 
         .paragraph {
-            @include width(350px);
+            @include style.width(350px);
         }
 
         .heading-two-designedfor {
-            @include margin-x-y($_40, $auto , $_10 , $auto );
-            @include width(350px);
-            @include font-size(30px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-40, style.$auto, style.$space-10 , style.$auto);
+            @include style.width(350px);
+            @include style.font-size(30px);
+            @include style.align-text(center);
         }
 
         .list-designed-for {
-            @include margin-x-y($_20, $auto , $_80 , $auto );
-            @include width(350px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-20, style.$auto, style.$space-80 , style.$auto);
+            @include style.width(350px);
+            @include style.align-text(center);
 
             .design {
-                @include padding-x-y($_10, $_0 , $_10 , $_0);
-                @include width(350px);
+                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10 , style.$space-0);
+                @include style.width(350px);
 
             }
         }
 
         .heading-two-features {
-            @include margin-x-y($_40, $auto , $_10 , $auto );
-            @include width(350px);
-            @include align-text(center);
-            @include font-size(30px);
+            @include style.margin-x-y(style.$space-40, style.$auto, style.$space-10 , style.$auto);
+            @include style.width(350px);
+            @include style.align-text(center);
+            @include style.font-size(30px);
         }
 
         .list-features {
-            @include margin-x-y($_0, $auto , $_0 , $auto );
-            @include width(350px);
-            @include align-text(center);
-            @include display-align(flex);
-            @include flex-align(wrap);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
+            @include style.width(350px);
+            @include style.align-text(center);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
 
             .features {
-                @include margin-x-y($_10, $auto , $_10 , $auto );
-                @include padding-x-y($_10, $_0 , $_10 , $_0);
-                @include justify-content(center);
-                @include width(350px);
+                @include style.margin-x-y(style.$space-10, style.$auto, style.$space-10 , style.$auto);
+                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10 , style.$space-0);
+                @include style.justify-content(center);
+                @include style.width(350px);
             }
         }
 
         .heading-two-sec-and-priv {
-            @include margin-x-y($_60, $auto , $_20 , $auto );
-            @include width(350px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-60, style.$auto, style.$space-20 , style.$auto);
+            @include style.width(350px);
+            @include style.align-text(center);
         }
 
         .list-security-privacy {
-            @include width(340px);
-            @include display-align(flex);
-            @include flex-align(wrap);
-            @include align-text(left);
+            @include style.width(340px);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
+            @include style.align-text(left);
 
             .sec-priv-item {
-                @include width(330px);
-                @include margin-x-y($_5, $auto, $_5, $auto);
-                @include font-size(14px);
+                @include style.width(330px);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5, style.$auto);
+                @include style.font-size(14px);
             }
         }
 
         .sign-in-container {
-            @include align-text(center);
-            @include width(300px);
-            @include border-radius(10px);
+            @include style.align-text(center);
+            @include style.width(300px);
+            @include style.border-radius(10px);
 
             .route-link {
-                @include display-align(block);
-                @include text-color(#fff);
-                @include font-size($_20);
+                @include style.display-align(block);
+                @include style.text-color(#fff);
+                @include style.font-size(style.$space-20);
             }
         }
     }
@@ -425,90 +283,90 @@ $auto: auto;
 @media screen and (min-width:601px) and (max-width:768.9px) {
     .page {
         .heading-one {
-            @include font-size(40px);
-            @include padding-x-y($_80,
-                $_0 ,
-                $_20 ,
-                $_0);
-            @include width(500px);
+            @include style.font-size(40px);
+            @include style.padding-x-y(style.$space-80,
+                style.$space-0 ,
+                style.$space-20 ,
+                style.$space-0);
+            @include style.width(500px);
 
         }
 
         .paragraph {
-            @include width(500px);
+            @include style.width(500px);
         }
 
         .heading-two-designedfor {
-            @include margin-x-y($_40, $auto , $_10 , $auto );
-            @include width(500px);
-            @include font-size(30px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-40, style.$auto, style.$space-10 , style.$auto);
+            @include style.width(500px);
+            @include style.font-size(30px);
+            @include style.align-text(center);
         }
 
         .list-designed-for {
-            @include margin-x-y($_20, $auto , $_80 , $auto );
-            @include width(500px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-20, style.$auto, style.$space-80 , style.$auto);
+            @include style.width(500px);
+            @include style.align-text(center);
 
             .design {
-                @include margin-x-y($_20, $auto , $_20 , $auto );
-                @include padding-x-y($_10, $_0 , $_10 , $_0);
-                @include width(470px);
+                @include style.margin-x-y(style.$space-20, style.$auto, style.$space-20 , style.$auto);
+                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10 , style.$space-0);
+                @include style.width(470px);
             }
         }
 
 
         .heading-two-features {
-            @include margin-x-y($_40, $auto , $_10 , $auto );
-            @include width(500px);
-            @include align-text(center);
-            @include font-size(30px);
+            @include style.margin-x-y(style.$space-40, style.$auto, style.$space-10 , style.$auto);
+            @include style.width(500px);
+            @include style.align-text(center);
+            @include style.font-size(30px);
         }
 
         .list-features {
-            @include margin-x-y($_0, $auto , $_0 , $auto );
-            @include width(500px);
-            @include align-text(center);
-            @include display-align(flex);
-            @include flex-align(wrap);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
+            @include style.width(500px);
+            @include style.align-text(center);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
 
             .features {
-                @include margin-x-y($_10, $auto , $_10 , $auto );
-                @include justify-content(center);
-                @include width(470px);
-                @include padding-x-y($_10, $_0 , $_10 , $_0 );
+                @include style.margin-x-y(style.$space-10, style.$auto, style.$space-10 , style.$auto);
+                @include style.justify-content(center);
+                @include style.width(470px);
+                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10 , style.$space-0 );
             }
         }
 
         .heading-two-sec-and-priv {
-            @include margin-x-y($_60, $auto , $_20 , $auto );
-            @include width(500px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-60, style.$auto, style.$space-20 , style.$auto);
+            @include style.width(500px);
+            @include style.align-text(center);
         }
 
         .list-security-privacy {
-            @include width(500px);
-            @include display-align(flex);
-            @include flex-align(wrap);
-            @include align-text(left);
+            @include style.width(500px);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
+            @include style.align-text(left);
 
 
             .sec-priv-item {
-                @include width(470px);
-                @include margin-x-y($_5, $auto, $_5, $auto);
-                @include font-size(14px);
+                @include style.width(470px);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5, style.$auto);
+                @include style.font-size(14px);
             }
         }
 
         .sign-in-container {
-            @include align-text(center);
-            @include width(330px);
+            @include style.align-text(center);
+            @include style.width(330px);
             border-radius: 10px;
 
             .route-link {
-                @include display-align(block);
-                @include text-color(#fff);
-                @include font-size($_20);
+                @include style.display-align(block);
+                @include style.text-color(#fff);
+                @include style.font-size(style.$space-20);
             }
         }
     }
@@ -517,90 +375,90 @@ $auto: auto;
 @media screen and (min-width:769px) {
     .page {
         .heading-one {
-            @include font-size(40px);
-            @include padding-x-y($_80,
-                $_0 ,
-                $_20 ,
-                $_0);
-            @include width(500px);
+            @include style.font-size(40px);
+            @include style.padding-x-y(style.$space-80,
+                style.$space-0 ,
+                style.$space-20 ,
+                style.$space-0);
+            @include style.width(500px);
 
         }
 
         .paragraph {
-            @include width(500px);
+            @include style.width(500px);
         }
 
         .heading-two-designedfor {
-            @include margin-x-y($_40, $auto , $_10 , $auto );
-            @include width(500px);
-            @include font-size(30px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-40, style.$auto, style.$space-10 , style.$auto);
+            @include style.width(500px);
+            @include style.font-size(30px);
+            @include style.align-text(center);
         }
 
         .list-designed-for {
-            @include margin-x-y($_20, $auto , $_80 , $auto );
-            @include width(500px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-20, style.$auto, style.$space-80 , style.$auto);
+            @include style.width(500px);
+            @include style.align-text(center);
 
             .design {
-                @include margin-x-y($_20, $auto , $_20 , $auto );
-                @include padding-x-y($_10, $_0 , $_10 , $_0);
-                @include width(470px);
+                @include style.margin-x-y(style.$space-20, style.$auto, style.$space-20 , style.$auto);
+                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10 , style.$space-0);
+                @include style.width(470px);
             }
         }
 
 
         .heading-two-features {
-            @include margin-x-y($_40, $auto , $_10 , $auto );
-            @include width(500px);
-            @include align-text(center);
-            @include font-size(30px);
+            @include style.margin-x-y(style.$space-40, style.$auto, style.$space-10 , style.$auto);
+            @include style.width(500px);
+            @include style.align-text(center);
+            @include style.font-size(30px);
         }
 
         .list-features {
-            @include margin-x-y($_0, $auto , $_0 , $auto );
-            @include width(500px);
-            @include align-text(center);
-            @include display-align(flex);
-            @include flex-align(wrap);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
+            @include style.width(500px);
+            @include style.align-text(center);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
 
             .features {
-                @include margin-x-y($_10, $auto , $_10 , $auto );
-                @include justify-content(center);
-                @include width(470px);
-                @include padding-x-y($_10, $_0 , $_10 , $_0 );
+                @include style.margin-x-y(style.$space-10, style.$auto, style.$space-10 , style.$auto);
+                @include style.justify-content(center);
+                @include style.width(470px);
+                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10 , style.$space-0 );
             }
         }
 
         .heading-two-sec-and-priv {
-            @include margin-x-y($_60, $auto , $_20 , $auto );
-            @include width(500px);
-            @include align-text(center);
+            @include style.margin-x-y(style.$space-60, style.$auto, style.$space-20 , style.$auto);
+            @include style.width(500px);
+            @include style.align-text(center);
 
         }
 
         .list-security-privacy {
-            @include width(500px);
-            @include display-align(flex);
-            @include flex-align(wrap);
-            @include align-text(left);
+            @include style.width(500px);
+            @include style.display-align(flex);
+            @include style.flex-align(wrap);
+            @include style.align-text(left);
 
 
             .sec-priv-item {
-                @include width(470px);
-                @include margin-x-y($_5, $auto, $_5, $auto);
-                @include font-size(14px);
+                @include style.width(470px);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5, style.$auto);
+                @include style.font-size(14px);
             }
         }
 
         .sign-in-container {
-            @include align-text(center);
-            @include width(300px);
+            @include style.align-text(center);
+            @include style.width(300px);
             border-radius: 10px;
 
             .route-link {
-                @include text-color(#fff);
-                @include font-size($_20);
+                @include style.text-color(#fff);
+                @include style.font-size(style.$space-20);
             }
         }
     }

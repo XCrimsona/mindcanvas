@@ -1,50 +1,4 @@
-$_0: 0px;
-$_1: 1px;
-$_2: 2px;
-$_3: 3px;
-$_4: 4px;
-$_5: 5px;
-$_6: 6px;
-$_7: 7px;
-$_8: 8px;
-$_9: 9px;
-$_10: 10px;
-$_15: 15px;
-$_20: 20px;
-$_22: 22px;
-$_27: 27px;
-$_30: 30px;
-$_35: 35px;
-$_40: 40px;
-$_50: 50px;
-$_60: 60px;
-$_70: 70px;
-$_80: 80px;
-$_100: 100px;
-$_120: 120px;
-$_150: 150px;
-$_180: 180px;
-$_200: 200px;
-$_230: 230px;
-$_250: 250px;
-$_280: 280px;
-$_300: 300px;
-$_330: 330px;
-$_350: 350px;
-$_400: 400px;
-$_450: 450px;
-$_500: 500px;
-$_550: 550px;
-$_600: 600px;
-$_650: 650px;
-$_700: 700px;
-$_750: 750px;
-$_800: 800px;
-$_850: 850px;
-$_900: 900px;
-$_950: 950px;
-$_1000: 1000px;
-$auto: auto;
+@use '@/app/styles/index' as style;
 
 @mixin display-align($Type) {
     display: $Type;
@@ -149,17 +103,17 @@ background: url($url);
 .auth-header {
     @include width(100%);
     @include background-color(#000000ee);
-    @include height($_60);
+    @include height(style.$space-60);
     @include position(relative);
-    border-bottom: $_2 solid #333333;
+    border-bottom: style.$space-2 solid #333333;
 
     .auth-route {
         @include display-align(flex);
         @include position(absolute);
-        @include top($_0);
-        @include bottom($_0);
+        @include top(style.$space-0);
+        @include bottom(style.$space-0);
         @include align-items(center);
-        @include left($_20);
+        @include left(style.$space-20);
 
 
         .auth-go-back-route {
@@ -174,7 +128,7 @@ background: url($url);
                 @include display-align(flex);
                 @include align-items(center);
                 @include position(relative);
-                @include padding-x-y($_0, $_0, $_0 , $_10 );
+                @include padding-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-10 );
 
 
                 .backward-icon {

@@ -151,7 +151,7 @@ a.secondary {
   }
 
   a.secondary {
-    min-width: auto;
+    min-width: style.$auto;
   }
 
   .footer {
