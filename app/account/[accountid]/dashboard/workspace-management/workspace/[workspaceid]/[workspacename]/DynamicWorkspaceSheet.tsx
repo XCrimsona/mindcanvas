@@ -8,13 +8,10 @@ import WorkspaceCoreFunctionality from "@/app/account/[accountid]/dashboard/work
 import { WorkspaceContextProvider } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import DeleteWorkspace from "./WorkspaceDeletion/DeleteWorkspace";
 import { WorkspaceContextDeletionProvider } from "./WorkspaceDeletion/WorkspaceDeletionOpsContext";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import AuthFooter from "../../../../(auth-footer)/AuthFooter";
+// import { useRouter } from "next/navigation";
+// import AuthFooter from "../../../../(auth-footer)/AuthFooter";
 const DynamicWorkspaceSheet = ({ params }: any) => {
   try {
-    const router = useRouter();
-
     return (
       <>
         <Div
@@ -39,13 +36,12 @@ const DynamicWorkspaceSheet = ({ params }: any) => {
               >
                 <WorkspaceContextProvider params={params}>
                   <PrimaryControlsAndDetails params={params} />
-                  <DataContainer params={params} />
                   <WorkspaceCoreFunctionality params={params} />
+                  <DataContainer params={params} />
                 </WorkspaceContextProvider>
               </Div>
             </WorkspaceContextDeletionProvider>
           </Div>
-          <AuthFooter />
         </Div>
       </>
     );

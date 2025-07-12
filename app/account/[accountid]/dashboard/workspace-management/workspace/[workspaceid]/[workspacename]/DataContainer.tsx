@@ -10,11 +10,8 @@ import ImageInputUnit from "@/app/account/[accountid]/dashboard/workspace-manage
 import VideoInputUnit from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/video/VideoInputUnit";
 
 const DataContainer = ({ params }: any) => {
-  // const { textComponentDisplayState } = useTextComponentDisplayState();
-
   const { dataScrollBoardRef, workspaceHeight, workspaceWidth } =
     useWorkspaceContext();
-
   return (
     <Div className={dataContainer["data-container"]}>
       <Div
@@ -32,7 +29,6 @@ const DataContainer = ({ params }: any) => {
         <AudioInputUnit params={params} />
         <ImageInputUnit params={params} />
         <VideoInputUnit params={params} />
-
         {/* display cloud data below */}
         <WorkspaceData />
       </Div>

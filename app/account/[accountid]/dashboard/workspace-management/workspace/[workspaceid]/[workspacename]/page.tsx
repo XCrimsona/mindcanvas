@@ -4,6 +4,11 @@ import dynamicWorkspaceSheet from "@/app/account/[accountid]/dashboard/workspace
 import AuthHeader from "./(header)/AuthWorkspaceHeader";
 import AuthFooter from "../../../../(auth-footer)/AuthFooter";
 import Div from "@/src/ui/Div";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Canva Workspace | MindCanvas",
+};
 
 const fetchWorkspaceData = async (
   accountid: string,
@@ -14,8 +19,6 @@ const fetchWorkspaceData = async (
     `http://localhost:3000/api/account/${accountid}/dashboard/workspace-management/workspace/${workspaceid}/${workspacename}`
   );
   const data = await response.json();
-  console.log("workspace management page.tsx ", data);
-
   if (data.success !== true) {
     switch (data.code) {
       case "NO_WORKSPACE_DATA":
@@ -59,13 +62,11 @@ const Page = async ({ params }: any) => {
         className={dynamicWorkspaceSheet["main-workspace-management-container"]}
       >
         <AuthHeader />
-
         <LongText
           className={dynamicWorkspaceSheet["workspace-data-error-text"]}
         >
           {wsRes.message}
         </LongText>
-
         <AuthFooter />
       </Div>
     );
@@ -76,13 +77,11 @@ const Page = async ({ params }: any) => {
         className={dynamicWorkspaceSheet["main-workspace-management-container"]}
       >
         <AuthHeader />
-
         <LongText
           className={dynamicWorkspaceSheet["workspace-data-error-text"]}
         >
           {wsRes.message}
         </LongText>
-
         <AuthFooter />
       </Div>
     );

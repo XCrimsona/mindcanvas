@@ -1,57 +1,57 @@
 @use '@/app/styles/index' as style;
 
 .account-info {
-    @include position(relative);
+    @include style.position(relative);
     @include style.url("/golden-cube4d.png");
-    @include background-color(#000);
+    @include style.background-color(#000);
     z-index: 1;
-    @include height(100%);
+    @include style.height(100%);
 
     .account-info-content {
         z-index: 2;
-        @include background-color(#000000dd);
-        @include margin-x-y(style.$space-50, style.$auto, style.$space-50 , style.$auto );
-        @include border(style.$space-2, solid, #333333);
-        @include border-radius(3px);
-        @include padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
+        @include style.background-color(#000000dd);
+        @include style.margin-x-y(style.$space-50, style.$auto, style.$space-50 , style.$auto );
+        @include style.border(style.$space-2, solid, #333333);
+        @include style.border-radius(3px);
+        @include style.padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
 
         .heading-one {
-            @include text-color(#fff);
-            @include align-text(center);
-            @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            @include style.text-color(#fff);
+            @include style.align-text(center);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
         }
 
         .account-info-form {
-            @include display-align(block);
-            @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            @include style.display-align(block);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
             .firstname-container {
-                @include display-align(flex);
-                @include flex-align(wrap);
-                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
+                @include style.display-align(flex);
+                @include style.flex-align(wrap);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-firstname {
-                    @include text-color(#fff);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                    @include align-content(center);
-                    @include justify-content(left);
+                    @include style.text-color(#fff);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.align-content(center);
+                    @include style.justify-content(left);
                 }
 
                 .data-control-container {
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .firstname-input {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000000);
-                        @include text-color(#ffffff);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000000);
+                        @include style.text-color(#ffffff);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
                     }
 
                     .firstname-input:focus {
@@ -59,73 +59,73 @@
                     }
 
                     .firstname-input::placeholder {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000);
-                        @include text-color(#ffffff);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000);
+                        @include style.text-color(#ffffff);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                     }
 
                     .form-pipe-span {
-                        @include display-align(inline-block);
+                        @include style.display-align(inline-block);
                         // color is temp
-                        @include text-color(#fff);
-                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
-                        @include align-text(center);
+                        @include style.text-color(#fff);
+                        @include style.margin-x-y(style.$auto, style.$auto, style.$auto, style.$auto );
+                        @include style.align-text(center);
                     }
 
                     .disable-firstname-editing {
 
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
 
                     .enable-firstname-editing {
 
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     }
                 }
             }
 
             .lastname-container {
-                @include display-align(flex);
-                @include flex-align(wrap);
-                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
+                @include style.display-align(flex);
+                @include style.flex-align(wrap);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-lastname {
-                    @include text-color(#fff);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                    @include align-content(center);
-                    @include justify-content(left);
+                    @include style.text-color(#fff);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.align-content(center);
+                    @include style.justify-content(left);
                 }
 
                 .data-control-container {
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .lastname-input {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000000);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include text-color(#ffffff);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000000);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.text-color(#ffffff);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
                     }
 
 
                     .lastname-input::placeholder {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000000);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include text-color(#ffffff);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000000);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.text-color(#ffffff);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                     }
 
                     .lastname-input:focus {
@@ -133,63 +133,63 @@
                     }
 
                     .form-pipe-span {
-                        @include display-align(inline-block);
+                        @include style.display-align(inline-block);
                         // color is temp
-                        @include text-color(#ffffff);
-                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
-                        @include align-text(center);
+                        @include style.text-color(#ffffff);
+                        @include style.margin-x-y(style.$auto, style.$auto, style.$auto, style.$auto );
+                        @include style.align-text(center);
                     }
 
                     .disable-lastname-editing {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
 
                     .enable-lastname-editing {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     }
                 }
             }
 
             .gender-container {
-                @include display-align(flex);
-                @include flex-align(wrap);
-                @include align-items(center);
-                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
+                @include style.display-align(flex);
+                @include style.flex-align(wrap);
+                @include style.align-items(center);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-gender {
-                    @include text-color(#ffffff);
-                    @include align-content(center);
-                    @include justify-content(left);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.text-color(#ffffff);
+                    @include style.align-content(center);
+                    @include style.justify-content(left);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                 }
 
                 .data-control-container {
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .gender-input-disabled {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000);
-                        @include text-color(#ffffff);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-3 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000);
+                        @include style.text-color(#ffffff);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-3 );
                     }
 
                     .gender-input {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000);
-                        @include text-color(#ffffff);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include padding-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000);
+                        @include style.text-color(#ffffff);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.padding-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0 );
                     }
 
                     .gender-input:focus {
@@ -197,50 +197,50 @@
                     }
 
                     .form-pipe-span {
-                        @include display-align(inline-block);
+                        @include style.display-align(inline-block);
                         // color is temp
-                        @include text-color(#fff);
-                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
-                        @include align-text(center);
+                        @include style.text-color(#fff);
+                        @include style.margin-x-y(style.$auto, style.$auto, style.$auto, style.$auto );
+                        @include style.align-text(center);
                     }
 
                     .disable-gender-editing {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
 
                     .enable-gender-editing {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
                 }
             }
 
             .dob-container {
-                @include display-align(flex);
-                @include flex-align(wrap);
-                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
+                @include style.display-align(flex);
+                @include style.flex-align(wrap);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-dob {
-                    @include text-color(#fff);
-                    @include align-content(center);
-                    @include justify-content(left);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.text-color(#fff);
+                    @include style.align-content(center);
+                    @include style.justify-content(left);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                 }
 
                 .data-control-container {
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .dob-input {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000);
-                        @include text-color(#ffffff);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-3 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000);
+                        @include style.text-color(#ffffff);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-3 );
                     }
 
                     .dob-input:focus {
@@ -248,75 +248,75 @@
                     }
 
                     .dob-input::placeholder {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000);
-                        @include text-color(#ffffff);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000);
+                        @include style.text-color(#ffffff);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                     }
 
                     .form-pipe-span {
-                        @include display-align(inline-block);
+                        @include style.display-align(inline-block);
                         // color is temp
-                        @include text-color(#fff);
-                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
-                        @include align-text(center);
+                        @include style.text-color(#fff);
+                        @include style.margin-x-y(style.$auto, style.$auto, style.$auto, style.$auto );
+                        @include style.align-text(center);
                     }
 
                     .disable-dob-editing {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
 
                     .enable-dob-editing {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
                 }
 
             }
 
             .email-container {
-                @include display-align(flex);
-                @include flex-align(wrap);
-                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
+                @include style.display-align(flex);
+                @include style.flex-align(wrap);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .update-email {
-                    @include text-color(#fff);
-                    @include align-content(center);
-                    @include justify-content(left);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.text-color(#fff);
+                    @include style.align-content(center);
+                    @include style.justify-content(left);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                 }
 
                 .data-control-container {
-                    @include display-align(flex);
-                    @include justify-content(center);
-                    @include align-items(center);
-                    @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                    @include style.display-align(flex);
+                    @include style.justify-content(center);
+                    @include style.align-items(center);
+                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     .email-input {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000);
-                        @include text-color(#ffffff);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000);
+                        @include style.text-color(#ffffff);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-2 );
                     }
 
 
                     .email-input::placeholder {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-                        @include background-color(#000);
-                        @include text-color(#ffffff);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #000000);
-                        @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.background-color(#000);
+                        @include style.text-color(#ffffff);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #000000);
+                        @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                     }
 
                     .email-input:focus {
@@ -324,49 +324,49 @@
                     }
 
                     .form-pipe-span {
-                        @include display-align(inline-block);
+                        @include style.display-align(inline-block);
                         // color is temp
-                        @include text-color(#fff);
-                        @include margin-x-y($auto, style.$auto, style.$auto, style.$auto );
-                        @include align-text(center);
+                        @include style.text-color(#fff);
+                        @include style.margin-x-y(style.$auto, style.$auto, style.$auto, style.$auto );
+                        @include style.align-text(center);
                     }
 
                     .disable-email-editing {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
 
                     }
 
                     .enable-email-editing {
-                        @include margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+                        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
                     }
                 }
             }
 
             .current-password-container {
-                @include display-align(flex);
-                @include justify-content(left);
-                @include align-items(center);
-                @include flex-align(wrap);
-                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
+                @include style.display-align(flex);
+                @include style.justify-content(left);
+                @include style.align-items(center);
+                @include style.flex-align(wrap);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .current-password {
-                    @include text-color(#fff);
-                    @include justify-content(left);
-                    @include margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
+                    @include style.text-color(#fff);
+                    @include style.justify-content(left);
+                    @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
                 }
 
                 .current-password-input,
                 .current-password-input::placeholder {
-                    @include display-align(block);
-                    @include margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
-                    @include padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
-                    @include background-color(#000);
-                    @include text-color(#ffffff);
-                    @include border-top(style.$space-2, solid, #000000);
-                    @include border-bottom(style.$space-2, solid, #FABB00);
-                    @include border-right(style.$space-2, solid, #000000);
-                    @include border-left(style.$space-2, solid, #000000);
-                    @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
+                    @include style.display-align(block);
+                    @include style.margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
+                    @include style.padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
+                    @include style.background-color(#000);
+                    @include style.text-color(#ffffff);
+                    @include style.border-top(style.$space-2, solid, #000000);
+                    @include style.border-bottom(style.$space-2, solid, #FABB00);
+                    @include style.border-right(style.$space-2, solid, #000000);
+                    @include style.border-left(style.$space-2, solid, #000000);
+                    @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                 }
 
                 .current-password-input:focus {
@@ -375,30 +375,30 @@
             }
 
             .new-password-container {
-                @include display-align(flex);
-                @include justify-content(left);
-                @include align-items(center);
-                @include flex-align(wrap);
-                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
+                @include style.display-align(flex);
+                @include style.justify-content(left);
+                @include style.align-items(center);
+                @include style.flex-align(wrap);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .new-password {
-                    @include text-color(#fff);
-                    @include justify-content(left);
-                    @include margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
+                    @include style.text-color(#fff);
+                    @include style.justify-content(left);
+                    @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
                 }
 
                 .new-password-input,
                 .new-password-input::placeholder {
-                    @include display-align(block);
-                    @include margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
-                    @include padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
-                    @include background-color(#000);
-                    @include text-color(#ffffff);
-                    @include border-top(style.$space-2, solid, #000000);
-                    @include border-bottom(style.$space-2, solid, #FABB00);
-                    @include border-right(style.$space-2, solid, #000000);
-                    @include border-left(style.$space-2, solid, #000000);
-                    @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
+                    @include style.display-align(block);
+                    @include style.margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
+                    @include style.padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
+                    @include style.background-color(#000);
+                    @include style.text-color(#ffffff);
+                    @include style.border-top(style.$space-2, solid, #000000);
+                    @include style.border-bottom(style.$space-2, solid, #FABB00);
+                    @include style.border-right(style.$space-2, solid, #000000);
+                    @include style.border-left(style.$space-2, solid, #000000);
+                    @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                 }
 
                 .new-password-input:focus {
@@ -407,30 +407,30 @@
             }
 
             .confirm-new-password-container {
-                @include display-align(flex);
-                @include justify-content(left);
-                @include align-items(center);
-                @include flex-align(wrap);
-                @include margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
+                @include style.display-align(flex);
+                @include style.justify-content(left);
+                @include style.align-items(center);
+                @include style.flex-align(wrap);
+                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
 
                 .confirm-new-password {
-                    @include text-color(#fff);
-                    @include margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
+                    @include style.text-color(#fff);
+                    @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
                 }
 
                 .confirm-new-password-input,
                 .confirm-new-password-input::placeholder {
-                    @include display-align(block);
-                    @include margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
-                    @include padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
-                    @include background-color(#000);
+                    @include style.display-align(block);
+                    @include style.margin-x-y(style.$space-0, style.$space-2, style.$space-0 , style.$space-2 );
+                    @include style.padding-x-y(style.$space-1, style.$space-0, style.$space-1 , style.$space-2 );
+                    @include style.background-color(#000);
                     outline: style.$space-2 solid transparent;
-                    @include text-color(#ffffff);
-                    @include border-top(style.$space-2, solid, #000000);
-                    @include border-bottom(style.$space-2, solid, #FABB00);
-                    @include border-right(style.$space-2, solid, #000000);
-                    @include border-left(style.$space-2, solid, #000000);
-                    @include padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
+                    @include style.text-color(#ffffff);
+                    @include style.border-top(style.$space-2, solid, #000000);
+                    @include style.border-bottom(style.$space-2, solid, #FABB00);
+                    @include style.border-right(style.$space-2, solid, #000000);
+                    @include style.border-left(style.$space-2, solid, #000000);
+                    @include style.padding-x-y(style.$space-3, style.$space-0, style.$space-3, style.$space-0 );
                 }
 
                 .confirm-new-password-input:focus {
@@ -440,33 +440,35 @@
             }
 
             .form-processing-btn {
-                @include display-align(flex);
-                @include justify-content(center);
-                @include align-items(center);
+                @include style.display-align(flex);
+                @include style.justify-content(center);
+                @include style.align-items(center);
 
                 .submit-container {
-                    @include display-align(block);
-                    @include margin-x-y(style.$space-10, style.$space-10, style.$space-10 , style.$space-10 );
+                    @include style.display-align(block);
+                    @include style.margin-x-y(style.$space-10, style.$space-10, style.$space-10 , style.$space-10 );
 
                     .submit-btn {
-                        @include background-color(#111111);
-                        @include text-color(#FABB00);
-                        @include border(style.$space-2, solid, #333333);
-                        @include border-radius(3px);
-                        @include padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
+                        @include style.background-color(#111111);
+                        @include style.text-color(#FABB00);
+                        @include style.border(style.$space-2, solid, #333333);
+                        @include style.border-radius(3px);
+                        @include style.padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
+                        cursor: pointer;
                     }
                 }
 
                 .cancel-container {
-                    @include display-align(block);
-                    @include margin-x-y(style.$space-10, style.$space-10, style.$space-10 , style.$space-10 );
+                    @include style.display-align(block);
+                    @include style.margin-x-y(style.$space-10, style.$space-10, style.$space-10 , style.$space-10 );
 
                     .cancel-submit {
-                        @include background-color(#111111);
-                        @include text-color(#FABB00);
-                        @include border(style.$space-2, solid, #333333);
-                        @include border-radius(3px);
-                        @include padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
+                        @include style.background-color(#111111);
+                        @include style.text-color(#FABB00);
+                        @include style.border(style.$space-2, solid, #333333);
+                        @include style.border-radius(3px);
+                        cursor: pointer;
+                        @include style.padding-x-y(style.$space-3, style.$space-15, style.$space-3, style.$space-15 );
                     }
                 }
             }
@@ -478,88 +480,88 @@
 @media screen and (min-width:320px) and (max-width:425.9px) {
     .account-info {
         .account-info-content {
-            @include width(280px);
+            @include style.width(280px);
 
             .heading-one {
-                @include width(280px);
+                @include style.width(280px);
             }
 
             .account-info-form {
-                @include width(280px);
+                @include style.width(280px);
 
                 .firstname-container {
-                    @include width(280px);
+                    @include style.width(280px);
 
                     .update-firstname {
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
-                        @include width(100px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
                     }
 
                     .data-control-container {
-                        @include width(280px);
+                        @include style.width(280px);
 
                         .firstname-input {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include width(160px);
-                            @include height(13px);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.width(160px);
+                            @include style.height(13px);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-firstname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-firstname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .lastname-container {
-                    @include width(280px);
+                    @include style.width(280px);
 
                     .update-lastname {
-                        @include width(100px);
-                        @include height(23px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
+                        @include style.height(23px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
-                        @include width(280px);
+                        @include style.width(280px);
 
                         .lastname-input {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include width(160px);
-                            @include height(13px);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.width(160px);
+                            @include style.height(13px);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
                         }
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-lastname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-lastname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
@@ -567,191 +569,191 @@
                 }
 
                 .gender-container {
-                    @include width(280px);
+                    @include style.width(280px);
 
                     .update-gender {
-                        @include width(100px);
-                        @include height(23px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
+                        @include style.height(23px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
-                        @include width(280px);
+                        @include style.width(280px);
 
                         .gender-input {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include width(167px);
-                            @include height(23px);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.width(167px);
+                            @include style.height(23px);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
                         }
 
                         .gender-input-disabled {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include width(160px);
-                            @include height(13px);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.width(160px);
+                            @include style.height(13px);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
 
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-gender-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-gender-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .dob-container {
-                    @include width(280px);
+                    @include style.width(280px);
 
                     .update-dob {
-                        @include width(100px);
-                        @include height(23px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
+                        @include style.height(23px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
-                        @include width(280px);
+                        @include style.width(280px);
 
                         .dob-input {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-dob-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-dob-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .email-container {
-                    @include width(280px);
+                    @include style.width(280px);
 
                     .update-email {
-                        @include width(100px);
-                        @include height(23px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
+                        @include style.height(23px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
-                        @include width(280px);
+                        @include style.width(280px);
 
                         .email-input {
-                            @include width(160px);
-                            @include height(13px);
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.width(160px);
+                            @include style.height(13px);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-email-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-email-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .current-password-container {
-                    @include width(280px);
+                    @include style.width(280px);
 
                     .current-password {
-                        @include width(200px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(200px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .current-password-input {
-                        @include width(200px);
-                        @include height(17px);
-                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #FABB00);
+                        @include style.width(200px);
+                        @include style.height(17px);
+                        @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #FABB00);
 
                     }
                 }
 
                 .new-password-container {
-                    @include width(280px);
+                    @include style.width(280px);
 
                     .new-password {
-                        @include width(200px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(200px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .new-password-input {
-                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #FABB00);
-                        @include width(200px);
-                        @include height(17px);
+                        @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #FABB00);
+                        @include style.width(200px);
+                        @include style.height(17px);
                     }
                 }
 
                 .confirm-new-password-container {
-                    @include width(280px);
+                    @include style.width(280px);
 
                     .confirm-new-password {
-                        @include width(200px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(200px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .confirm-new-password-input {
-                        @include width(200px);
-                        @include height(17px);
-                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #FABB00);
+                        @include style.width(200px);
+                        @include style.height(17px);
+                        @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #FABB00);
                     }
                 }
             }
@@ -762,88 +764,88 @@
 @media screen and (min-width:426px) and (max-width:600.9px) {
     .account-info {
         .account-info-content {
-            @include width(350px);
+            @include style.width(350px);
 
             .heading-one {
-                @include width(300px);
+                @include style.width(300px);
             }
 
             .account-info-form {
-                @include width(300px);
+                @include style.width(300px);
 
                 .firstname-container {
-                    @include width(300px);
+                    @include style.width(300px);
 
                     .update-firstname {
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
-                        @include width(100px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .firstname-input {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include width(160px);
-                            @include height(13px);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.width(160px);
+                            @include style.height(13px);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-firstname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-firstname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .lastname-container {
-                    @include width(300px);
+                    @include style.width(300px);
 
                     .update-lastname {
-                        @include width(100px);
-                        @include height(23px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
+                        @include style.height(23px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .lastname-input {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include width(160px);
-                            @include height(13px);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.width(160px);
+                            @include style.height(13px);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
                         }
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-lastname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-lastname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
@@ -851,191 +853,191 @@
                 }
 
                 .gender-container {
-                    @include width(300px);
+                    @include style.width(300px);
 
                     .update-gender {
-                        @include width(100px);
-                        @include height(23px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
+                        @include style.height(23px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .gender-input {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include width(167px);
-                            @include height(23px);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.width(167px);
+                            @include style.height(23px);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
                         }
 
                         .gender-input-disabled {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include width(160px);
-                            @include height(13px);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.width(160px);
+                            @include style.height(13px);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
 
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-gender-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-gender-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .dob-container {
-                    @include width(300px);
+                    @include style.width(300px);
 
                     .update-dob {
-                        @include width(100px);
-                        @include height(23px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
+                        @include style.height(23px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .dob-input {
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-dob-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-dob-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .email-container {
-                    @include width(300px);
+                    @include style.width(300px);
 
                     .update-email {
-                        @include width(100px);
-                        @include height(23px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(100px);
+                        @include style.height(23px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .email-input {
-                            @include width(160px);
-                            @include height(13px);
-                            @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                            @include border-top(style.$space-2, solid, #000000);
-                            @include border-bottom(style.$space-2, solid, #FABB00);
-                            @include border-right(style.$space-2, solid, #000000);
-                            @include border-left(style.$space-2, solid, #FABB00);
+                            @include style.width(160px);
+                            @include style.height(13px);
+                            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                            @include style.border-top(style.$space-2, solid, #000000);
+                            @include style.border-bottom(style.$space-2, solid, #FABB00);
+                            @include style.border-right(style.$space-2, solid, #000000);
+                            @include style.border-left(style.$space-2, solid, #FABB00);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-email-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-email-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .current-password-container {
-                    @include width(300px);
+                    @include style.width(300px);
 
                     .current-password {
-                        @include width(200px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(200px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .current-password-input {
-                        @include width(200px);
-                        @include height(17px);
-                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #FABB00);
+                        @include style.width(200px);
+                        @include style.height(17px);
+                        @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #FABB00);
 
                     }
                 }
 
                 .new-password-container {
-                    @include width(300px);
+                    @include style.width(300px);
 
                     .new-password {
-                        @include width(200px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(200px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .new-password-input {
-                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #FABB00);
-                        @include width(200px);
-                        @include height(17px);
+                        @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #FABB00);
+                        @include style.width(200px);
+                        @include style.height(17px);
                     }
                 }
 
                 .confirm-new-password-container {
-                    @include width(300px);
+                    @include style.width(300px);
 
                     .confirm-new-password {
-                        @include width(200px);
-                        @include margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
+                        @include style.width(200px);
+                        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0, style.$space-0);
                     }
 
                     .confirm-new-password-input {
-                        @include width(200px);
-                        @include height(17px);
-                        @include margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
-                        @include border-top(style.$space-2, solid, #000000);
-                        @include border-bottom(style.$space-2, solid, #FABB00);
-                        @include border-right(style.$space-2, solid, #000000);
-                        @include border-left(style.$space-2, solid, #FABB00);
+                        @include style.width(200px);
+                        @include style.height(17px);
+                        @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5, style.$space-1);
+                        @include style.border-top(style.$space-2, solid, #000000);
+                        @include style.border-bottom(style.$space-2, solid, #FABB00);
+                        @include style.border-right(style.$space-2, solid, #000000);
+                        @include style.border-left(style.$space-2, solid, #FABB00);
                     }
                 }
             }
@@ -1046,76 +1048,76 @@
 @media screen and (min-width:601px) and (max-width:768.9px) {
     .account-info {
         .account-info-content {
-            @include width(500px);
+            @include style.width(500px);
 
             .heading-one {
-                @include width(300px);
+                @include style.width(300px);
             }
 
             .account-info-form {
-                @include width(500px);
+                @include style.width(500px);
 
                 .firstname-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-firstname {
-                        @include width(100px);
+                        @include style.width(100px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .firstname-input {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-firstname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-firstname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .lastname-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-lastname {
-                        @include width(100px);
-                        @include height(23px);
+                        @include style.width(100px);
+                        @include style.height(23px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .lastname-input {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-lastname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-lastname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
@@ -1123,150 +1125,150 @@
                 }
 
                 .gender-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-gender {
-                        @include width(100px);
-                        @include height(23px);
+                        @include style.width(100px);
+                        @include style.height(23px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .gender-input {
-                            @include width(168px);
-                            @include height(23px);
+                            @include style.width(168px);
+                            @include style.height(23px);
                         }
 
                         .gender-input-disabled {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-gender-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-gender-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .dob-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-dob {
-                        @include width(100px);
-                        @include height(23px);
+                        @include style.width(100px);
+                        @include style.height(23px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .dob-input {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-dob-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-dob-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .email-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-email {
-                        @include width(100px);
-                        @include height(23px);
+                        @include style.width(100px);
+                        @include style.height(23px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .email-input {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
 
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-email-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-email-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .current-password-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .current-password {
-                        @include width(100px);
+                        @include style.width(100px);
                     }
 
                     .current-password-input {
-                        @include width(200px);
-                        @include height(17px);
+                        @include style.width(200px);
+                        @include style.height(17px);
 
                     }
                 }
 
                 .new-password-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .new-password {
-                        @include width(100px);
+                        @include style.width(100px);
                     }
 
                     .new-password-input {
-                        @include width(200px);
-                        @include height(17px);
+                        @include style.width(200px);
+                        @include style.height(17px);
                     }
                 }
 
                 .confirm-new-password-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .confirm-new-password {
-                        @include width(100px);
+                        @include style.width(100px);
                     }
 
                     .confirm-new-password-input {
-                        @include width(200px);
-                        @include height(17px);
+                        @include style.width(200px);
+                        @include style.height(17px);
                     }
                 }
             }
@@ -1277,76 +1279,76 @@
 @media screen and (min-width:769px) {
     .account-info {
         .account-info-content {
-            @include width(500px);
+            @include style.width(500px);
 
             .heading-one {
-                @include width(300px);
+                @include style.width(300px);
             }
 
             .account-info-form {
-                @include width(500px);
+                @include style.width(500px);
 
                 .firstname-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-firstname {
-                        @include width(100px);
+                        @include style.width(100px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .firstname-input {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-firstname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-firstname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .lastname-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-lastname {
-                        @include width(100px);
-                        @include height(23px);
+                        @include style.width(100px);
+                        @include style.height(23px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .lastname-input {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-lastname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-lastname-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
@@ -1354,149 +1356,149 @@
                 }
 
                 .gender-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-gender {
-                        @include width(100px);
-                        @include height(23px);
+                        @include style.width(100px);
+                        @include style.height(23px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .gender-input {
-                            @include width(168px);
-                            @include height(23px);
+                            @include style.width(168px);
+                            @include style.height(23px);
                         }
 
                         .gender-input-disabled {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-gender-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-gender-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .dob-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-dob {
-                        @include width(100px);
-                        @include height(23px);
+                        @include style.width(100px);
+                        @include style.height(23px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .dob-input {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-dob-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-dob-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .email-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .update-email {
-                        @include width(100px);
-                        @include height(23px);
+                        @include style.width(100px);
+                        @include style.height(23px);
                     }
 
                     .data-control-container {
-                        @include width(300px);
+                        @include style.width(300px);
 
                         .email-input {
-                            @include width(160px);
-                            @include height(13px);
+                            @include style.width(160px);
+                            @include style.height(13px);
                         }
 
 
                         .form-pipe-span {
-                            @include width(20px);
+                            @include style.width(20px);
                         }
 
                         .disable-email-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
                         }
 
                         .enable-email-editing {
-                            @include height(23px);
-                            @include width(100px);
+                            @include style.height(23px);
+                            @include style.width(100px);
 
                         }
                     }
                 }
 
                 .current-password-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .current-password {
-                        @include width(100px);
+                        @include style.width(100px);
                     }
 
                     .current-password-input {
-                        @include width(200px);
-                        @include height(17px);
+                        @include style.width(200px);
+                        @include style.height(17px);
 
                     }
                 }
 
                 .new-password-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .new-password {
-                        @include width(100px);
+                        @include style.width(100px);
                     }
 
                     .new-password-input {
-                        @include width(200px);
-                        @include height(17px);
+                        @include style.width(200px);
+                        @include style.height(17px);
                     }
                 }
 
                 .confirm-new-password-container {
-                    @include width(400px);
+                    @include style.width(400px);
 
                     .confirm-new-password {
-                        @include width(100px);
+                        @include style.width(100px);
                     }
 
                     .confirm-new-password-input {
-                        @include width(200px);
-                        @include height(17px);
+                        @include style.width(200px);
+                        @include style.height(17px);
                     }
                 }
             }

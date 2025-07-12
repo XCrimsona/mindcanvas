@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import dashboardStyling from "@/app/account/[accountid]/dashboard/dashboard.module.scss";
 
 export const metadata: Metadata = {
-  title: "Account Dashboard",
+  title: "Dashboard | MindCanvas",
 };
 
 const Page = () => {

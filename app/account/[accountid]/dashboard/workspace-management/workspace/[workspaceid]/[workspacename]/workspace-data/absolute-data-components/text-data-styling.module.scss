@@ -3,6 +3,8 @@
 .textarea-live-text {
     background-color: transparent;
     min-width: 150px;
+    cursor: default;
     max-width: 250px;
     border: style.$space-2 solid #ffffff40;
+    z-index: 3;
 }

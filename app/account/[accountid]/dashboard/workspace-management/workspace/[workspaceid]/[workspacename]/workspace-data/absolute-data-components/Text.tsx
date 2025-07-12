@@ -6,7 +6,12 @@ import React from "react";
 
 export const ImmutableText = ({ data }: any) => {
   return (
-    <LongText className={TextStyling["textarea-live-text"]}>
+    <LongText
+      onDoubleClick={() => {
+        console.log(data);
+      }}
+      className={TextStyling["textarea-live-text"]}
+    >
       {data.text}
     </LongText>
   );

@@ -11,7 +11,6 @@ import ShortText from "@/src/ui/ShortText";
 
 const WorkspaceData = () => {
   // Display all workspace data including text, list, audio, image, video once submitted
-
   const { workspaceData } = useWorkspaceContext();
   // console.log("workspaceData: ", workspaceData.workspaceData);
 

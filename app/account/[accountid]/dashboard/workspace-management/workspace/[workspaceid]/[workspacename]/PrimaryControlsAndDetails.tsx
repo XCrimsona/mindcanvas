@@ -22,14 +22,16 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
     const { maskSensitiveData } = useMaskSensitiveData();
 
     //Clipboard features
-    const copyWorkspaceName = (e: React.FormEvent<HTMLButtonElement>) => {
+    const copyWorkspaceName = async (e: React.FormEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      alert("Must copy Name to clipboard");
+      await window.navigator.clipboard.writeText(params.workspacename);
+      alert("Copied to clipboard");
       return;
     };
-    const copyWorkspaceId = (e: React.FormEvent<HTMLButtonElement>) => {
+    const copyWorkspaceId = async (e: React.FormEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      alert("Must copy Id to clipboard");
+      await window.navigator.clipboard.writeText(params.workspaceid);
+      alert("Copied to clipboard");
       return;
     };
 
@@ -60,10 +62,6 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
       setToggleWorkspaceIdEye(!toggleWorkspaceIdEye);
       setSecurityVisualToggleId(!securityVisualToggleId);
     };
-
-    {
-      /* Clipboard needs to be created !!!!!!!!!!*/
-    }
 
     return (
       <Div
@@ -109,8 +107,8 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
             <SVG
               src={
                 toggleWorkspaceNameEye
-                  ? "https://res.cloudinary.com/djjvj73xa/image/upload/v1746525549/eye-solid-white_gka3ki.svg"
-                  : "https://res.cloudinary.com/djjvj73xa/image/upload/v1746527176/eye-slash-solid-white_yclegi.svg"
+                  ? "/eye-solid-white.svg"
+                  : "/eye-slash-solid-white.svg"
               }
               alt={
                 toggleWorkspaceNameEye ? "Visible Eye icon" : "Hidden Eye Icon"
@@ -119,7 +117,7 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
               className={primaryControls["eye-icon"]}
             />
             <SVG
-              src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746435210/copy-solid-white_cf5vfl.svg"
+              src="/copy-solid-white.svg"
               alt="Clipboard icon"
               onClick={copyWorkspaceName}
               className={primaryControls["clipboard-icon"]}
@@ -142,8 +140,8 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
             <SVG
               src={
                 toggleWorkspaceIdEye
-                  ? "https://res.cloudinary.com/djjvj73xa/image/upload/v1746525549/eye-solid-white_gka3ki.svg"
-                  : "https://res.cloudinary.com/djjvj73xa/image/upload/v1746527176/eye-slash-solid-white_yclegi.svg"
+                  ? "/eye-solid-white.svg"
+                  : "/eye-slash-solid-white.svg"
               }
               alt={
                 toggleWorkspaceIdEye ? "Visible Eye icon" : "Hidden Eye Icon"
@@ -152,7 +150,7 @@ const PrimaryControlsAndDetails = ({ params }: any) => {
               className={primaryControls["eye-icon"]}
             />
             <SVG
-              src="https://res.cloudinary.com/djjvj73xa/image/upload/v1746435210/copy-solid-white_cf5vfl.svg"
+              src="/copy-solid-white.svg"
               alt="Clipboard icon"
               onClick={copyWorkspaceId}
               className={primaryControls["clipboard-icon"]}

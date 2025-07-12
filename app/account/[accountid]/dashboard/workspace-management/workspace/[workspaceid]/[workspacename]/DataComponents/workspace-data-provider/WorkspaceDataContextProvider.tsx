@@ -165,7 +165,7 @@ export const WorkspaceContextProvider = ({
       `http://localhost:3000/api/account/${params.accountid}/dashboard/workspace-management/workspace/${params.workspaceid}/${params.workspacename}`
     );
     const response: any = await routeResponse.json();
-    console.log("workspace management page.tsx ", response);
+    // console.log("workspace management page.tsx ", response);
 
     if (response.success !== true) {
       switch (response.code) {
@@ -196,8 +196,6 @@ export const WorkspaceContextProvider = ({
           };
       }
     }
-    console.log("data try: ", response);
-    //       console.log("data try 2: ", data.workspaceData);
     setWorkspaceData(response);
 
     return {

@@ -14,28 +14,34 @@ const Home = () => {
   const content: any = {
     //Introduction Summary of Tools used by app features
     designedFor: [
-      "Simple to advanced content.",
-      "Organizing your work and ideas.",
+      "Content creation.",
       "Security and Privacy.",
-      "Pysically limited desk space. ",
+      "Physically limited desk space. ",
     ],
 
     //Distinct features avail when logged in
-    features: ["Data Management Editor"],
+    features: [
+      "Up to 10k characters in a single data item.",
+      "Draggable User Content",
+      "Editable User Content",
+      "Multimedia type support",
+    ],
     ["privacy-security"]: [
-      "Virtual Workspace Manager\u2019s privacy rules protect all users and their information by encrypting data of all inidividual accounts that even the admins cannot access.",
+      "MindCanvas\u2019s privacy rules protect all users and their information by encrypting data of all inidividual accounts that even the admins cannot access. This means if you cannot reset your password with your custom  security questions you chose, your account is practically locked, therefore MindCanvas will not be liable for such events.",
     ],
   };
 
   return (
     <>
       <HeadingOne id="heading-one" className={home["heading-one"]}>
-        Workspace Manager
+        MindCanvas
       </HeadingOne>
       <LongText className={home["paragraph"]}>
-        The platform that focuses on your work efficiency needs, scoring back
-        your time by bringing all your work, ideas to a transformative
-        application that helps you organize your content to your liking.
+        The app that helps you bring efficiency and orgranization to your
+        created data. MindCanvas is designed to transform your raw complex data
+        into valueable, readble data using a range of different ways to display
+        your information on your own terms from its built-in data oraganization
+        features.
       </LongText>
       <HeadingTwo
         id="heading-two-designedfor"
@@ -71,8 +77,7 @@ const Home = () => {
         id="heading-two-sec-and-priv"
         className={home["heading-two-sec-and-priv"]}
       >
-        Workspace Manager prioritizes privacy and security through the following
-        measures{"\u003a"}
+        Kind Reminder{"\u003a"}
       </HeadingTwo>
       <UL className={home["list-security-privacy"]}>
         {content["privacy-security"].map((list: string, key: number) => {

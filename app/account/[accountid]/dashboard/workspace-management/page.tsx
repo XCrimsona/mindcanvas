@@ -11,8 +11,6 @@ const fetchSheetData = async (accountid: string) => {
     `http://localhost:3000/api/account/${accountid}/dashboard/workspace-management`
   );
   const data = await response.json();
-  console.log("workspace management page.tsx ", data);
-
   if (data.success !== true) {
     switch (data.code) {
       case "NO_WORKSPACE_DATA":
@@ -63,11 +61,9 @@ const Page = async ({ params }: any) => {
     return (
       <Div className={management["main-workspace-management-container"]}>
         <AuthHeader />
-
         <LongText className={management["workspace-data-error-text"]}>
           {info.message}
         </LongText>
-
         <AuthFooter />
       </Div>
     );
@@ -77,14 +73,12 @@ const Page = async ({ params }: any) => {
     info,
     accountid,
   };
-  // console.log("Data Object:", data);
-
   return (
     <Div className={management["main-workspace-management-container"]}>
       <AuthHeader />
       <Div className={management["heading-container"]}>
         <HeadingOne id="heading-one" className={management["heading-one"]}>
-          Workspace Management
+          Canvas Management
         </HeadingOne>
       </Div>
       <DataManagement params={data} />

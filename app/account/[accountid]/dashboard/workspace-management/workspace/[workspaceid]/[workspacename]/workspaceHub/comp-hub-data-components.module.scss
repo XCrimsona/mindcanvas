@@ -8,8 +8,8 @@
     @include style.display-align(flex);
     @include style.justify-content(center);
     @include style.align-items(center);
-    @include style.top(-110px);
-    @include style.left(24px);
+    @include style.top(110px);
+    @include style.left(0px);
     @include style.height(200px);
     @include style.background-color(#000000);
     z-index: 4;

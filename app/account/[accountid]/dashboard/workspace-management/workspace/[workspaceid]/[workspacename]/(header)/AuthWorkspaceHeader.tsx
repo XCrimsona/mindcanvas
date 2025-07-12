@@ -9,11 +9,6 @@ import SVG from "@/src/SVG";
 
 const AuthHeader = () => {
   const params = useParams<{ accountid: string }>();
-  // const [sideBarState, setSideBarState] = useState<Boolean>(false);
-  // const handleSideBarState = () => {
-  //   setSideBarState(!sideBarState);
-  // };
-
   return (
     <Header id="auth-header" className={authHeader["auth-header"]}>
       <Div className={authHeader["auth-route"]}>
@@ -23,11 +18,8 @@ const AuthHeader = () => {
         >
           Workspace Dashboard
           <i className={authHeader["auth-route-icon"]}>
-            {/* color of icons will chagen depending on the theme chosen later on */}
             <SVG
-              src={
-                "https://res.cloudinary.com/djjvj73xa/image/upload/v1745662977/backward-solid_1_dpek7z.svg"
-              }
+              src={"/backwards-solid.svg"}
               className={authHeader["backward-icon"]}
               alt="backward-icon"
             />

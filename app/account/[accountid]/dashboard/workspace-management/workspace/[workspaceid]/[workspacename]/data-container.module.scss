@@ -3,8 +3,8 @@
 //where data is displayed
 .data-container {
     @include style.border-radius(10px);
-    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-    @include style.background-color(rgba(0, 0, 0, 0.7));
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-30 , style.$auto );
+    @include style.background-color(rgba(0, 0, 0, 0.85));
     overflow: scroll;
     white-space: none;
     transition: width .2s ease-in-out, height .2s ease-in-out;
@@ -28,8 +28,6 @@
     .data-scroll-board {
         @include style.position(relative);
     }
-
-
 }
 
 
