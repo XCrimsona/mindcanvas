@@ -1,4 +1,4 @@
-<h1>The ultimate content reation tool to set ablaze your imagination into reality.</h1>
+<h1>The ultimate content creation tool to set ablaze your imagination into reality.</h1>
 
 <h2>Software Toolkit:</h2>
 <ul>  
