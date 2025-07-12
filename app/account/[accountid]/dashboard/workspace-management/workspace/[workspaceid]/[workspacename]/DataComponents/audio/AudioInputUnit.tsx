@@ -41,7 +41,7 @@ const AudioInputUnit = ({ params }: any) => {
       const audioFormData: any = {};
       if (newAudioComponent.files)
         audioFormData.files = newAudioComponent.files;
-      console.log(newAudioComponent.files);
+      // console.log(newAudioComponent.files);
 
       if (selectedType) audioFormData.type = selectedType;
 

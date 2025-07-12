@@ -25,8 +25,6 @@ const DataManagement = ({ params }: { params: any }) => {
     );
 
     const data = await response.json();
-    console.log("workspace management DataManagement.tsx ", data);
-
     if (data.success !== true) {
       switch (data.code) {
         case "NO_WORKSPACE_DATA":
@@ -52,11 +50,7 @@ const DataManagement = ({ params }: { params: any }) => {
           };
       }
     } else {
-      // console.log("data try 1: ", data);
-      // console.log("data try 2: ", data.data);
-
       setWorkspaceData(data.data);
-
       return {
         status: "success",
         message: data.data,
@@ -68,7 +62,6 @@ const DataManagement = ({ params }: { params: any }) => {
     const data = params.info.data;
     setWorkspaceData(data);
   }, []);
-  console.log(" testing workspace.map response: ", workspaceData);
 
   const toggleASingleWorkspace = (id: string) => {
     setWorkspaceData((prev: any) =>
@@ -126,8 +119,6 @@ const DataManagement = ({ params }: { params: any }) => {
       }
 
       const data = await response.json();
-      console.log("workspace management DataManagement.tsx ", data);
-
       if (data.success !== true) {
         switch (data.code) {
           case "MISSING_WORKSPACE_DATA":
@@ -149,17 +140,12 @@ const DataManagement = ({ params }: { params: any }) => {
               message: data.message,
             };
           default:
-            // console.log("route error");
-
             return {
               status: "error",
               message: data.message || "Unhandled backend condition.",
             };
         }
       } else {
-        // console.log("data try 1: ", data);
-        // console.log("data try 2: ", data.data);
-
         setWorkspaceData(data.data);
         alert(data.code);
         return {

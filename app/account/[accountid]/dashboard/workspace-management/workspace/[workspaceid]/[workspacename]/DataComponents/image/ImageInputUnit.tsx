@@ -66,8 +66,8 @@ const ImageInputUnit = ({ params }: any) => {
       return;
     } else {
       //test imageFormData.image
-      console.log("imageFormData: ", imageFormData.image);
-      console.log("imageFormData: ", imageFormData);
+      // console.log("imageFormData: ", imageFormData.image);
+      // console.log("imageFormData: ", imageFormData);
 
       const files = await fetch(
         `http://localhost:3000/api/account/${params.accountid}/dashboard/workspace-management/workspace/${params.workspaceid}/${params.workspacename}`,

@@ -39,14 +39,14 @@ const TextInputUnit = ({ params }: any) => {
       //Checks if textInputCompPosRef,newTextComponent and selectedType are not null
       const textFormData: any = {};
       if (newTextComponent.text) textFormData.text = newTextComponent.text;
-      console.log(textFormData.text);
+      // console.log(textFormData.text);
 
       if (selectedType) textFormData.type = selectedType;
-      console.log(textFormData.type);
+      // console.log(textFormData.type);
 
       if (textInputCompPosRef.current.x >= 0) {
         textFormData.x = textInputCompPosRef.current.x;
-        console.log("textFormData.x: ", textFormData.x);
+        // console.log("textFormData.x: ", textFormData.x);
         // console.log(
         //   "textInputCompPosRef.current.x: ",
         //   textInputCompPosRef.current.x
@@ -54,7 +54,7 @@ const TextInputUnit = ({ params }: any) => {
       }
       if (textInputCompPosRef.current.y >= 0) {
         textFormData.y = textInputCompPosRef.current.y;
-        console.log("textFormData.y: ", textFormData.y);
+        // console.log("textFormData.y: ", textFormData.y);
         // console.log(
         //   "textInputCompPosRef.current.y: ",
         //   textInputCompPosRef.current.y
@@ -70,14 +70,14 @@ const TextInputUnit = ({ params }: any) => {
         alert("Text Component must be filled with relevant data");
         return;
       } else {
-        console.log(
-          "textInputCompPosRef.current.x: ",
-          typeof textInputCompPosRef.current.x
-        );
-        console.log(
-          "textInputCompPosRef.current.y: ",
-          typeof textInputCompPosRef.current.y
-        );
+        // console.log(
+        //   "textInputCompPosRef.current.x: ",
+        //   typeof textInputCompPosRef.current.x
+        // );
+        // console.log(
+        //   "textInputCompPosRef.current.y: ",
+        //   typeof textInputCompPosRef.current.y
+        // );
         const text = await fetch(
           `http://localhost:3000/api/account/${params.accountid}/dashboard/workspace-management/workspace/${params.workspaceid}/${params.workspacename}`,
           {
