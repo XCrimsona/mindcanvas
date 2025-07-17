@@ -195,8 +195,9 @@ export const WorkspaceContextProvider = ({
             message: response.message || "Unhandled backend condition.",
           };
       }
+    } else {
+      setWorkspaceData(response);
     }
-    setWorkspaceData(response);
 
     return {
       status: "success",

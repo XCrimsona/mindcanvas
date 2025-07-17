@@ -1,0 +1,33 @@
+@use '@/app/styles/index' as style;
+
+.window-modifications-window-container {
+    position: absolute;
+    background-color: #79674E40;
+    top: 0px;
+    left: 105%;
+    @include style.width(200px);
+    height: fit-content;
+    box-shadow: inset 0px 0px 4px 2px #FAAA0040,
+        0px 0px 4px 0px #FAAA0040;
+
+    cursor: default;
+
+    .edit-button,
+    .delete-button {
+        cursor: pointer;
+        @include style.width(150px);
+        @include style.background-color(#1C1C1C);
+        @include style.border(style.$space-2, solid, #555555);
+        @include style.text-color(#fff);
+    }
+
+    .edit-button {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .delete-button {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}
