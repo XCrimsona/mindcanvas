@@ -8,6 +8,7 @@ import WorkspaceData from "@/app/account/[accountid]/dashboard/workspace-managem
 import AudioInputUnit from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/audio/AudioInputUnit";
 import ImageInputUnit from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/image/ImageInputUnit";
 import VideoInputUnit from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/video/VideoInputUnit";
+import { ModificationUseStateContextProvider } from "./workspace-data/DataModificationWindowContextProvider";
 
 const DataContainer = ({ params }: any) => {
   const { dataScrollBoardRef, workspaceHeight, workspaceWidth } =
@@ -30,7 +31,9 @@ const DataContainer = ({ params }: any) => {
         <ImageInputUnit params={params} />
         <VideoInputUnit params={params} />
         {/* display cloud data below */}
-        <WorkspaceData />
+        <ModificationUseStateContextProvider>
+          <WorkspaceData />
+        </ModificationUseStateContextProvider>
       </Div>
     </Div>
   );
