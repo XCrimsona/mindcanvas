@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/src/components/form-elements/Button";
-import audioComp from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/comp-hub-data-components.module.scss";
+import audioComp from "@/app/style-files/comp-hub-data-components.module.scss";
 
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 

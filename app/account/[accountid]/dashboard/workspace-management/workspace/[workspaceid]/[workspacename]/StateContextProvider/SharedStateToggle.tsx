@@ -2,7 +2,7 @@
 import SVG from "@/src/SVG";
 import Div from "@/src/ui/Div";
 import React from "react";
-import workspaceDataManagement from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspace-workspace-management.module.scss";
+import workspaceDataManagement from "@/app/style-files/workspace-workspace-management.module.scss";
 import { useComponentHubState } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/ComponentHubStateProvider";
 
 const ComponentHubStateToggle = () => {

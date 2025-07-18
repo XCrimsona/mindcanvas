@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import help from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/help.module.scss";
+import help from "@/app/style-files/help.module.scss";
 import Div from "@/src/ui/Div";
 import SVG from "@/src/SVG";
 import ShortText from "@/src/ui/ShortText";

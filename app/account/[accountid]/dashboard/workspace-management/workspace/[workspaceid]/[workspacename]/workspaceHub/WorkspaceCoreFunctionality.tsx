@@ -1,4 +1,4 @@
-import workspaceCoreFunctionalities from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/workspace-core-functionalities.module.scss";
+import workspaceCoreFunctionalities from "@/app/style-files/workspace-core-functionalities.module.scss";
 import React from "react";
 import ComponentHub from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/ComponentHub";
 import Div from "@/src/ui/Div";

@@ -1,7 +1,7 @@
 "use client";
 import Div from "@/src/ui/Div";
 import React from "react";
-import dataContainer from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/data-container.module.scss";
+import dataContainer from "@/app/style-files/data-container.module.scss";
 import TextInputUnit from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/text/TextInputUnit";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import WorkspaceData from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspace-data/WorkspaceData";

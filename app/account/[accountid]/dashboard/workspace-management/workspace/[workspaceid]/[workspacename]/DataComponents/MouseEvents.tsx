@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import { useDataScrollBoardRef } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataScrollBoardRef";
+import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 
 const draggingIdRef = useRef<string | null>(null);
 const offSetRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
 //the parent div holding all the draggable content
-const dataScrollBoardRef = useDataScrollBoardRef();
+const { dataScrollBoardRef } = useWorkspaceContext();
 
 //Dynamic Data Component
 export const compHubDataElementMouseDownEvent = (

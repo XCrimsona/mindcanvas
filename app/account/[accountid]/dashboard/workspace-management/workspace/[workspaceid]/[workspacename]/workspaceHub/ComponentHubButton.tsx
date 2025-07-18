@@ -1,5 +1,5 @@
 import React from "react";
-import componentHubContainer from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/component-hub-container.module.scss";
+import componentHubContainer from "@/app/style-files/component-hub-container.module.scss";
 import Div from "@/src/ui/Div";
 import SVG from "@/src/SVG";
 import LongText from "@/src/ui/LongText";

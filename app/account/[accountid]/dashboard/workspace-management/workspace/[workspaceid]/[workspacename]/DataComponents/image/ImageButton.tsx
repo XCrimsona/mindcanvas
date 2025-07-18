@@ -1,7 +1,6 @@
 "use client";
 import Button from "@/src/components/form-elements/Button";
-import imageComp from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/comp-hub-data-components.module.scss";
-
+import imageComp from "@/app/style-files/comp-hub-data-components.module.scss";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 
 export const ImageButton = () => {

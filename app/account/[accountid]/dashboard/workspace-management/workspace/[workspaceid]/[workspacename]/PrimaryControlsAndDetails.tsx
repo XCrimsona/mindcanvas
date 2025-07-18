@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import primaryControls from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/primary-controls.module.scss";
+import React, { useState } from "react";
+import primaryControls from "@/app/style-files/primary-controls.module.scss";
 import Div from "@/src/ui/Div";
 import Button from "@/src/components/form-elements/Button";
 import { InputDisabledText } from "@/src/components/form-elements/InputTypeInterfaces";

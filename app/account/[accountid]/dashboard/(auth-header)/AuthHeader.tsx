@@ -4,7 +4,7 @@ import Div from "@/src/ui/Div";
 // import { useState } from "react";
 import { useParams } from "next/navigation";
 import RouteLink from "@/src/components/ProductSection/RouteLink";
-import authHeader from "@/app/account/[accountid]/dashboard/(auth-header)/auth-header.module.scss";
+import authHeader from "@/app/style-files/auth-header.module.scss";
 import SVG from "@/src/SVG";
 
 const AuthHeader = () => {
