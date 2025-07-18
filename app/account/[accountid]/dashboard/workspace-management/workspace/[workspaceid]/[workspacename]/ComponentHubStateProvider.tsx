@@ -1,15 +1,18 @@
 "use client";
-
 import { createContext, ReactNode, useContext, useState } from "react";
 
+//for toggling
 type TypeSharedUseStateContext = true | false;
 interface ISharedUseStateContextType {
   sharedToggleState: TypeSharedUseStateContext;
   toggleSharedState: React.ReactEventHandler;
 }
+
+// Context for managing shared state across components
 const SharedUseStateContext = createContext<
   ISharedUseStateContextType | undefined
 >(undefined);
+
 export const ComponentHubStateProvider = ({
   children,
 }: {

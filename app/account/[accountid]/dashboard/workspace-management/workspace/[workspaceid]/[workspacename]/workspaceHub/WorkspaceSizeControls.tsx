@@ -4,7 +4,7 @@ import {
   InputSubmit,
 } from "@/src/components/form-elements/InputTypeInterfaces";
 import Div from "@/src/ui/Div";
-import workspaceSizeControls from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/workspace-controls.module.scss";
+import workspaceSizeControls from "@/app/style-files/workspace-controls.module.scss";
 import LongText from "@/src/ui/LongText";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import { useState } from "react";

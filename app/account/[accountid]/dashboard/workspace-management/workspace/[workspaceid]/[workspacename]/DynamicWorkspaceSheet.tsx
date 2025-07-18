@@ -1,11 +1,11 @@
 "use client";
 import Div from "@/src/ui/Div";
-import dynamicWorkspaceSheet from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/dynamicWorkspaceSheet.module.scss";
+import dynamicWorkspaceSheet from "@/app/style-files/dynamicWorkspaceSheet.module.scss";
 import AuthHeader from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/(header)/AuthWorkspaceHeader";
 import DataContainer from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataContainer";
 import PrimaryControlsAndDetails from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/PrimaryControlsAndDetails";
 import WorkspaceCoreFunctionality from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/WorkspaceCoreFunctionality";
-import { WorkspaceContextProvider } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
+import { WorkspaceContextProvider } from "./DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import DeleteWorkspace from "./WorkspaceDeletion/DeleteWorkspace";
 import { WorkspaceContextDeletionProvider } from "./WorkspaceDeletion/WorkspaceDeletionOpsContext";
 // import { useRouter } from "next/navigation";

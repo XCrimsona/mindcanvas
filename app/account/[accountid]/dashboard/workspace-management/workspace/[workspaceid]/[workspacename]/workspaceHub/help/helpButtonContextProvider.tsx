@@ -8,8 +8,6 @@ import {
   useState,
 } from "react";
 
-//
-
 //for all draggable items inside the data-scroll-board
 type TypeGlobalDragRefContext = true | false;
 

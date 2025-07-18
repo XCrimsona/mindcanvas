@@ -1,8 +1,8 @@
 "use client";
 import Div from "@/src/ui/Div";
-import management from "@/app/account/[accountid]/dashboard/workspace-management/(css)/management.module.scss";
-import controls from "@/app/account/[accountid]/dashboard/workspace-management/(css)/data-workspace-board-controls.module.scss";
-import workspacesheetWrapper from "@/app/account/[accountid]/dashboard/workspace-management/(css)/workspace-board-sheet-wrapper.module.scss";
+import management from "@/app/style-files/management.module.scss";
+import controls from "@/app/style-files/data-workspace-board-controls.module.scss";
+import workspacesheetWrapper from "@/app/style-files/workspace-board-sheet-wrapper.module.scss";
 import Button from "@/src/components/form-elements/Button";
 import {
   InputSubmit,
@@ -10,7 +10,7 @@ import {
   InputTextReadOnly,
 } from "@/src/components/form-elements/InputTypeInterfaces";
 import RouteLink from "@/src/components/ProductSection/RouteLink";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SVG from "@/src/SVG";
 import { EnabledTextAreaInput } from "@/src/components/mass-workspace-elements/MassWorkspaceInputComponents";
 

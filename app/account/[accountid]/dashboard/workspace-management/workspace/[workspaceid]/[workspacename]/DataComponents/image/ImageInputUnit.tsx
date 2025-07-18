@@ -9,7 +9,7 @@ import {
 import Label from "@/src/components/form-elements/Label";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import Select from "@/src/ui/selection/Select";
-import imageStyle from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/image.module.scss";
+import imageStyle from "@/app/style-files/image.module.scss";
 
 const ImageInputUnit = ({ params }: any) => {
   //activates image input form

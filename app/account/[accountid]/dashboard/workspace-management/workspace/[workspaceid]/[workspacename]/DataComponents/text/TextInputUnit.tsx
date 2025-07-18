@@ -6,7 +6,7 @@ import { EnabledTextAreaInput } from "@/src/components/mass-workspace-elements/M
 import Label from "@/src/components/form-elements/Label";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import Select from "@/src/ui/selection/Select";
-import textStyle from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/text.module.scss";
+import textStyle from "@/app/style-files/text.module.scss";
 const TextInputUnit = ({ params }: any) => {
   try {
     //activates text input form

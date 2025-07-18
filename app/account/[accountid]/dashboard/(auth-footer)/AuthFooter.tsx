@@ -2,7 +2,7 @@
 import Footer from "@/src/components/Footer";
 import Div from "@/src/ui/Div";
 import ShortText from "@/src/ui/ShortText";
-import authFooter from "@/app/account/[accountid]/dashboard/(auth-footer)/auth-footer.module.scss";
+import authFooter from "@/app/style-files/auth-footer.module.scss";
 const AuthFooter = () => {
   return (
     <Footer id="auth-footer" className={authFooter["auth-footer"]}>

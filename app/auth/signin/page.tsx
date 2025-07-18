@@ -1,7 +1,7 @@
 import Div from "@/src/ui/Div";
 import { Metadata } from "next";
 import Signin from "./Signin";
-import authstyles from "@/app/auth/auth.module.scss";
+import authstyles from "@/app/style-files/auth.module.scss";
 
 export const metadata: Metadata = {
   title: "Signin Page",

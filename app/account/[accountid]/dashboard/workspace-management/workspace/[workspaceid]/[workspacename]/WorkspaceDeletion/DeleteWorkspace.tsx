@@ -3,7 +3,7 @@ import Div from "@/src/ui/Div";
 import React from "react";
 import { useWorkspaceDeletionContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/WorkspaceDeletion/WorkspaceDeletionOpsContext";
 import Button from "@/src/components/form-elements/Button";
-import deleteWorkspaceCSS from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/WorkspaceDeletion/deleteworkspace.module.scss";
+import deleteWorkspaceCSS from "@/app/style-files/deleteworkspace.module.scss";
 import LongText from "@/src/ui/LongText";
 
 const DeleteWorkspace = () => {

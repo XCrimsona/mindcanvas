@@ -3,7 +3,7 @@ import RouteLink from "@/src/components/ProductSection/RouteLink";
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
 import { useParams } from "next/navigation";
-import dashboardStyling from "@/app/account/[accountid]/dashboard/dashboard.module.scss";
+import dashboardStyling from "@/app/style-files/dashboard.module.scss";
 import Footer from "@/src/components/Footer";
 import ShortText from "@/src/ui/ShortText";
 
