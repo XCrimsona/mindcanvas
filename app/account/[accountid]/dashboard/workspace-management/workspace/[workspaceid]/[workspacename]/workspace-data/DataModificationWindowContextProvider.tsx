@@ -4,7 +4,7 @@ import Div from "@/src/ui/Div";
 //This file is used to toggle the element based on its id and location selected on the canvas workspace
 //double click or doubletap to toggle the window to view or modify data
 import { createContext, ReactNode, useContext, useState } from "react";
-import style from "./modification-window.module.scss";
+import style from "@/app/style-files/modification-window.module.scss";
 type TypeModificationContext = true | false;
 interface IModificationUseStateContextType {
   //state being toggled

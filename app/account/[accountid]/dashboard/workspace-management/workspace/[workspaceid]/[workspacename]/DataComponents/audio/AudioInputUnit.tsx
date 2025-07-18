@@ -9,7 +9,7 @@ import {
 import Label from "@/src/components/form-elements/Label";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import Select from "@/src/ui/selection/Select";
-import audioStyle from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/audio.module.scss";
+import audioStyle from "@/app/style-files/audio.module.scss";
 
 const AudioInputUnit = ({ params }: any) => {
   try {

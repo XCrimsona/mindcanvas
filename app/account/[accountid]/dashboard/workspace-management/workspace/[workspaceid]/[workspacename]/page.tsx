@@ -1,6 +1,6 @@
 import LongText from "@/src/ui/LongText";
 import DynamicWorkspaceSheet from "./DynamicWorkspaceSheet";
-import dynamicWorkspaceSheet from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/dynamicWorkspaceSheet.module.scss";
+import dynamicWorkspaceSheet from "@/app/style-files/dynamicWorkspaceSheet.module.scss";
 import AuthHeader from "./(header)/AuthWorkspaceHeader";
 import AuthFooter from "../../../../(auth-footer)/AuthFooter";
 import Div from "@/src/ui/Div";

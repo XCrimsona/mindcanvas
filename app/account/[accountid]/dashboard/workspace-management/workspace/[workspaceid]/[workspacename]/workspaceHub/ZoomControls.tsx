@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import zoomControls from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspaceHub/zoom-controls.module.scss";
+import zoomControls from "@/app/style-files/zoom-controls.module.scss";
 import Div from "@/src/ui/Div";
 import LongText from "@/src/ui/LongText";
 import SVG from "@/src/SVG";

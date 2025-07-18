@@ -9,7 +9,7 @@ import {
 import Label from "@/src/components/form-elements/Label";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import Select from "@/src/ui/selection/Select";
-import videoStyle from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/video.module.scss";
+import videoStyle from "@/app/style-files/video.module.scss";
 
 const VideoInputUnit = ({ params }: any) => {
   //activates video input form

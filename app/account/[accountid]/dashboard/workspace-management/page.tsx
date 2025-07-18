@@ -2,7 +2,7 @@ import Div from "@/src/ui/Div";
 import DataManagement from "./DataManagement";
 import HeadingOne from "@/src/ui/HeadingOne";
 import AuthHeader from "../(auth-header)/AuthHeader";
-import management from "@/app/account/[accountid]/dashboard/workspace-management/(css)/management.module.scss";
+import management from "@/app/style-files/management.module.scss";
 import AuthFooter from "../(auth-footer)/AuthFooter";
 import LongText from "@/src/ui/LongText";
 

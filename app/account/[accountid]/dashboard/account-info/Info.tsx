@@ -2,7 +2,7 @@
 import Div from "@/src/ui/Div";
 import HeadingOne from "@/src/ui/HeadingOne";
 import AuthHeader from "@/app/account/[accountid]/dashboard/(auth-header)/AuthHeader";
-import info from "@/app/account/[accountid]/dashboard/account-info/(css)/info.module.scss";
+import info from "@/app/style-files/info.module.scss";
 import ShortText from "@/src/ui/ShortText";
 import Footer from "@/src/components/Footer";
 import {

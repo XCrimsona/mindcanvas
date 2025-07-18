@@ -3,7 +3,7 @@ import Div from "@/src/ui/Div";
 import Section from "@/src/ui/Section";
 import Label from "@/src/components/form-elements/Label";
 import HeadingOne from "@/src/ui/HeadingOne";
-import authstyles from "@/app/auth/auth.module.scss";
+import authstyles from "@/app/style-files/auth.module.scss";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import {
   InputConfirmPassword,
