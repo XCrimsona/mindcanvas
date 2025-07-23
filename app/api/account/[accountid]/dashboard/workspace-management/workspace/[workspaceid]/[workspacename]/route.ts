@@ -28,11 +28,11 @@ export async function GET(request: NextRequest, { params }: any) {
       return new NextResponse(
         JSON.stringify({
           success: false,
-          code: "MISSING_ROUTE_DATA",
-          status: 404,
-          message: "User id, workspacename or workspaceid is missing",
+          code: "NOT_AUTHORIZED",
+          status: 401,
+          message: "User not logged in",
         }),
-        { status: 404 }
+        { status: 401 }
       );
     } else {
       const user = await UserModel.findById(accountid);
@@ -126,12 +126,17 @@ export async function POST(request: NextRequest, { params }: any) {
     await getDB();
     const body = await request.json();
     const { text, type, x, y } = body;
-    console.log(text, type, x, y);
 
     const { accountid, workspacename, workspaceid }: any = await params;
     if (!accountid || !workspacename || !workspaceid) {
-      return NextResponse.redirect(
-        new URL(`http://localhost:3000/auth/signin`, request.url)
+      return new NextResponse(
+        JSON.stringify({
+          success: false,
+          code: "NOT_AUTHORIZED",
+          status: 401,
+          message: "User not logged in",
+        }),
+        { status: 401 }
       );
     } else {
       const user = await UserModel.findById(accountid);
@@ -144,6 +149,7 @@ export async function POST(request: NextRequest, { params }: any) {
           createdBy: user._id,
           _id: workspaceid,
         });
+
         if (!workspace) {
           return new NextResponse(
             JSON.stringify({
@@ -170,27 +176,159 @@ export async function POST(request: NextRequest, { params }: any) {
               }
             );
           } else {
-            await textModel.create({
+            //check point
+            const createChecker = await textModel.create({
               text: text,
               type: type,
-              owner: user._id,
               position: { x: x, y: y },
+              owner: user._id,
               createdBy: user._id,
               workspaceId: workspaceid,
+              //the url name of the canva workspace
+              name: workspacename,
+              workspacename: workspacename,
             });
 
-            return new NextResponse(
-              JSON.stringify({
-                success: true,
-                code: "COMPONENT_CREATED",
-                status: 201,
-                message: "Created",
-              }),
-              { status: 201 }
-            );
+            if (!createChecker) {
+              return new NextResponse(
+                JSON.stringify({
+                  success: true,
+                  code: "COMPONENT_CREATION_FAILED",
+                  status: 500,
+                  message: "Not Created",
+                }),
+                { status: 500 }
+              );
+            } else {
+              return new NextResponse(
+                JSON.stringify({
+                  success: true,
+                  code: "COMPONENT_CREATED",
+                  status: 201,
+                  message: "Created",
+                }),
+                { status: 201 }
+              );
+            }
           }
         }
       }
+    }
+  } catch (err: any) {
+    return new NextResponse(
+      JSON.stringify({
+        success: false,
+        code: "SERVER_WORKSPACE_ERROR",
+        status: 500,
+        message: "The server side workspace has issues",
+      }),
+      { status: 500 }
+    );
+  }
+}
+
+export async function PATCH(request: NextRequest, { params }: any) {
+  try {
+    await getDB();
+    const { accountid, workspacename, workspaceid }: any = await params;
+    if (!accountid || !workspaceid || !workspacename) {
+      return new NextResponse(
+        JSON.stringify({
+          success: false,
+          code: "NOT_AUTHORIZED",
+          status: 401,
+          message: "User not logged in",
+        }),
+        { status: 401 }
+      );
+    }
+    const body = await request.json();
+    const { owner, _id, type } = body;
+    if (!owner || !_id || !type) {
+      return new NextResponse(
+        JSON.stringify({
+          success: false,
+          code: "INSUFFICIENT_DATA",
+          status: 400,
+          message: "Insufficient data",
+        }),
+        {
+          status: 400,
+        }
+      );
+    } else {
+      const user = await UserModel.findById(accountid);
+      if (!user) {
+        return new NextResponse(
+          JSON.stringify({
+            success: false,
+            code: "USER_NOT_FOUND",
+            status: 404,
+            message: "User is not authorized",
+          }),
+          {
+            status: 404,
+          }
+        );
+      } else {
+        const workspace = await workspaceModel.findOne({
+          createdBy: user._id,
+          _id: workspaceid,
+        });
+        if (!workspace) {
+          return new NextResponse(
+            JSON.stringify({
+              success: false,
+              code: "REQUESTED_WORKSPACE_NOT_FOUND",
+              status: 404,
+              message: "Requested workspace not found",
+            }),
+            {
+              status: 404,
+            }
+          );
+        } else {
+          const updatedComponent: any = {};
+
+          if (workspaceid) updatedComponent.workspaceid = workspaceid;
+          if (owner) updatedComponent.owner = owner;
+          if (_id) updatedComponent._id = _id;
+          if (type) updatedComponent.type = type;
+          if (type === "Text") {
+            const editedData = await UserModel.updateOne(
+              { _id: user._id },
+              {
+                $set: updatedComponent,
+              },
+              { new: true }
+            );
+
+            if (!editedData.acknowledged) {
+              return new NextResponse(
+                JSON.stringify({
+                  success: false,
+                  code: "TEXT_UPDATE_REQUESTED_FAILED",
+                  status: 404,
+                  message: "Requested text component data not available",
+                }),
+                { status: 404 }
+              );
+            } else {
+              new NextResponse(
+                JSON.stringify({
+                  success: true,
+                  code: "TEXT_UPDATE_REQUEST_COMPLETE",
+                  status: 404,
+                  message: "Requested text has been updated",
+                }),
+                { status: 404 }
+              );
+            }
+          }
+        }
+      }
+
+      // if(type ==="")
     }
   } catch (err: any) {
     return new NextResponse(
@@ -209,17 +347,33 @@ export async function DELETE(request: NextRequest, { params }: any) {
   try {
     await getDB();
     const { accountid, workspacename, workspaceid }: any = await params;
-    if (!accountid || !workspacename || !workspaceid) {
-      return NextResponse.redirect(
-        new URL(`http://localhost:3000/auth/signin`, request.url)
-      );
-    }
-    const user = await UserModel.findById(accountid);
-    if (!user) {
-      NextResponse.redirect(
-        new URL(`http://localhost:3000/auth/signin`, request.url)
+    if (!accountid || !workspaceid || !workspacename) {
+      return new NextResponse(
+        JSON.stringify({
+          success: false,
+          code: "NOT_AUTHORIZED",
+          status: 401,
+          message: "User not logged in",
+        }),
+        { status: 401 }
       );
     } else {
+      const user = await UserModel.findById(accountid);
+      if (!user) {
+        return new NextResponse(
+          JSON.stringify({
+            success: false,
+            code: "USER_NOT_FOUND",
+            status: 404,
+            message: "User is not authorized",
+          }),
+          {
+            status: 404,
+          }
+        );
+      }
+      console.log("user check: ", user);
+
       const workspace = await workspaceModel.findOne({
         createdBy: user._id,
         _id: workspaceid,
@@ -236,33 +390,141 @@ export async function DELETE(request: NextRequest, { params }: any) {
             status: 404,
           }
         );
-      } else {
-        const workspaceDeletion = await workspaceModel.deleteOne({
-          _id: workspaceid,
-          createdBy: user._id,
-        });
-        if (workspaceDeletion.deletedCount === 0) {
+      }
+      console.log(workspace);
+
+      const body = await request.json();
+      const { type } = body;
+      console.log("type: ", type);
+
+      if (!type) {
+        return new NextResponse(
+          JSON.stringify({
+            success: false,
+            code: "INSUFFICIENT_DATA",
+            status: 400,
+            message: "Insufficient data",
+          }),
+          {
+            status: 400,
+          }
+        );
+      }
+
+      if (type === "Text") {
+        const { _id } = body;
+        // console.log("owner: ", owner, " ", "_id: ", _id);
+
+        if (!_id) {
           return new NextResponse(
             JSON.stringify({
               success: false,
-              code: "REQUESTED_WORKSPACE_NOT_FOUND",
+              code: "INSUFFICIENT_COMPONENT_DATA",
+              status: 400,
+              message: "Insufficient component data",
+            }),
+            {
+              status: 400,
+            }
+          );
+        } else {
+          // const updatedComponent: any = {};
+          // if (workspaceid) updatedComponent.workspaceid = workspaceid;
+          // if (owner) updatedComponent.owner = owner;
+          // if (_id) updatedComponent._id = _id;
+          // if (type) updatedComponent.type = type;
+          const reqToDeleteTextComponent = await textModel.deleteOne({
+            //component's id
+            _id,
+            //user data
+            // owner: user._id,
+            createdBy: user._id,
+          });
+
+          if (!reqToDeleteTextComponent) {
+            return new NextResponse(
+              JSON.stringify({
+                success: false,
+                code: "TEXT_UPDATE_REQUESTED_FAILED",
+                status: 404,
+                message: "Requested text component data not available",
+              }),
+              { status: 404 }
+            );
+          } else {
+            return new NextResponse(
+              JSON.stringify({
+                success: true,
+                code: "TEXT_UPDATE_REQUEST_COMPLETE",
+                status: 200,
+                message: "Requested text has been updated",
+              }),
+              { status: 200 }
+            );
+          }
+        }
+      }
+
+      if (type === "Workspace") {
+        console.log("workspace within type logic");
+
+        const reqToDeleteTextComponents = await textModel.deleteMany({
+          //component's id
+          //user data
+          // owner: user._id,
+          workspaceId: workspace._id,
+          createdBy: user._id,
+        });
+
+        if (!reqToDeleteTextComponents) {
+          return new NextResponse(
+            JSON.stringify({
+              success: false,
+              code: "WORKSPACE_DATA_DELETION_FAILED",
               status: 404,
-              message: "Requested workspace not found",
+              message: "Failed to delete the requested workspace data",
             }),
             { status: 404 }
           );
         } else {
-          return new NextResponse(
-            JSON.stringify({
-              success: true,
-              code: "REQUESTED_WORKSPACE_DELETED",
-              status: 200,
-              message: "Requested workspace deleted",
-            }),
-            { status: 200 }
-          );
+          const reqToDeleteTextComponent = await workspaceModel.deleteOne({
+            //component's id
+            _id: workspaceid,
+            //user data
+            owner: user._id,
+            createdBy: user._id,
+          });
+          if (!reqToDeleteTextComponent) {
+            return new NextResponse(
+              JSON.stringify({
+                success: false,
+                code: "WORKSPACE_DELETION_FAILED",
+                status: 404,
+                message: "Failed to delete the requested workspace",
+              }),
+              { status: 404 }
+            );
+          } else
+            return new NextResponse(
+              JSON.stringify({
+                success: true,
+                code: "WORKSPACE_DELETED",
+                status: 200,
+                message: "Workspace has been deleted",
+              }),
+              { status: 200 }
+            );
         }
       }
+      return new NextResponse(
+        JSON.stringify({
+          success: true,
+          code: "NO_OPERATION_PERFORMED",
+          status: 200,
+          message: "Nothing is deleted but the api is ok",
+        }),
+        { status: 200 }
+      );
     }
   } catch (err: any) {
     return new NextResponse(

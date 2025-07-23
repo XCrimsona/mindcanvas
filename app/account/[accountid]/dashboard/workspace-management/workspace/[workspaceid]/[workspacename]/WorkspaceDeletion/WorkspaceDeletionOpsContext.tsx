@@ -8,6 +8,8 @@ interface IWorkspaceDeletionContext {
   workspaceDeletionState: TypeWorkspaceDeletionOpsContext;
   workspaceDeletionToggle: () => void;
   hitClickDelete: () => void;
+  workspaceName: string;
+  setWorkspaceName: (workspacename: string) => void;
 }
 
 const WorkspaceContextDeletionType = createContext<
@@ -25,10 +27,13 @@ export const WorkspaceContextDeletionProvider = ({
   const [workspaceDeletionState, setConfirmDeletionState] =
     useState<TypeWorkspaceDeletionOpsContext>(false);
 
+  const [workspaceName, setWorkspaceName] = useState<string>("");
   const workspaceDeletionToggle = async () => {
     setConfirmDeletionState((prev) => (prev === false ? true : false));
   };
+
   const hitClickDelete = async () => {
+    const deleteWorkspace = { type: "Workspace" };
     const response = await fetch(
       `http://localhost:3000/api/account/${params.accountid}/dashboard/workspace-management/workspace/${params.workspaceid}/${params.workspacename}`,
       {
@@ -36,9 +41,12 @@ export const WorkspaceContextDeletionProvider = ({
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify(deleteWorkspace),
       }
     );
     if (response.ok) {
+      setWorkspaceName("");
+      workspaceDeletionToggle();
       alert("Workspace deleted. You'll be redirected");
       router.push(
         `http://localhost:3000/account/${params.accountid}/dashboard/workspace-management`
@@ -53,6 +61,8 @@ export const WorkspaceContextDeletionProvider = ({
         workspaceDeletionState,
         workspaceDeletionToggle,
         hitClickDelete,
+        workspaceName,
+        setWorkspaceName,
       }}
     >
       {children}

@@ -5,35 +5,33 @@ import Div from "@/src/ui/Div";
 //double click or doubletap to toggle the window to view or modify data
 import { createContext, ReactNode, useContext, useState } from "react";
 import style from "@/app/style-files/modification-window.module.scss";
-import { useEditComponent } from "../edit-data/EditDataComponentContext";
-import { useWorkspaceContext } from "../DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 type TypeModificationContext = true | false;
 interface IModificationUseStateContextType {
   //state being toggled
-  modificationToggleState: TypeModificationContext;
+  toggleEditState: TypeModificationContext;
 
   //toggle modification window
-  toggleModificationState: () => void;
+  toggleEditStateFunc: () => void;
 
   //tracks which component is being double clciked and
   // only work with the toggled element for editing data
   dataComponent: Record<string, number>;
   setDataComponent: (componentData: any) => void;
-  ModificationWindow: (data: any) => ReactNode;
+  EditWindow: (data: any) => ReactNode;
 }
 
-const ModificationUseStateContext = createContext<
+const EditUseStateContext = createContext<
   IModificationUseStateContextType | undefined
 >(undefined);
 
-export const ModificationUseStateContextProvider = ({
+export const EditUseStateContextProvider = ({
   children,
 }: {
   children: ReactNode;
 }) => {
-  const [modificationToggleState, setModificationToggleState] =
+  const [toggleEditState, setModificationToggleState] =
     useState<TypeModificationContext>(false);
-  const toggleModificationState = () => {
+  const toggleEditStateFunc = () => {
     setModificationToggleState((prev) => (prev === false ? true : false));
   };
 
@@ -83,51 +81,7 @@ export const ModificationUseStateContextProvider = ({
     }
   };
 
-  const { updateWorkspaceData } = useWorkspaceContext();
-  const deleteLiveDataElement = async (
-    owner: string,
-    _id: string,
-    workspaceId: string,
-    workspacename: string,
-    //component type
-    type: string
-  ) => {
-    try {
-      console.log("owner: ", owner);
-      // console.log("_id: ", _id);
-      console.log("workspaceid: ", workspaceId);
-      console.log("workspacename: ", workspacename);
-
-      const deleteRequest = await fetch(
-        `http://localhost:3000/api/account/${owner}/dashboard/workspace-management/workspace/${workspaceId}/${workspacename}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            // _id is the information component displayed from the database which the user created
-            _id,
-            //component type
-            type,
-          }),
-        }
-      );
-      if (deleteRequest.ok) {
-        updateWorkspaceData();
-        return;
-      } else {
-        alert("Component deletion failed");
-        return;
-      }
-    } catch (error: any) {
-      console.log("edit error: ", error.message);
-      return;
-    }
-  };
-
-  const { toggleEditStateFunc } = useEditComponent();
-  const ModificationWindow = (componentData: any) => {
+  const EditWindow = (componentData: any) => {
     const { data } = componentData;
     // console.log(data);
 
@@ -140,46 +94,38 @@ export const ModificationUseStateContextProvider = ({
           className={style["edit-button"]}
           id="edit-button"
           onClick={() => {
+            // _id is the componont being edited
             editLiveDataElement(owner, _id, workspaceId, workspacename, type);
-            toggleEditStateFunc();
+            console.log(data);
+            // console.log("edit with id access", data);
+            // editLiveDataElement();
           }}
         >
-          Edit
+          Update
         </Button>
         <hr style={{ width: "94%", marginLeft: "auto", marginRight: "auto" }} />
-        <Button
-          className={style["delete-button"]}
-          id="delete-button"
-          onClick={() => {
-            deleteLiveDataElement(owner, _id, workspaceId, workspacename, type);
-          }}
-        >
-          Delete
-        </Button>
       </Div>
     );
   };
   return (
-    <ModificationUseStateContext.Provider
+    <EditUseStateContext.Provider
       value={{
-        modificationToggleState,
-        toggleModificationState,
+        toggleEditState,
+        toggleEditStateFunc,
         dataComponent,
         setDataComponent,
-        ModificationWindow,
+        EditWindow,
       }}
     >
       {children}
-    </ModificationUseStateContext.Provider>
+    </EditUseStateContext.Provider>
   );
 };
 
-export const useModificationUseState = () => {
-  const context = useContext(ModificationUseStateContext);
+export const useEditComponent = () => {
+  const context = useContext(EditUseStateContext);
   if (!context) {
-    throw new Error(
-      "useModificationUseState must be used within ModificationUseStateContext"
-    );
+    throw new Error("useEditComponent must be used within EditUseStateContext");
   }
   return context;
 };

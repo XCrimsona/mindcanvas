@@ -8,8 +8,7 @@ import WorkspaceCoreFunctionality from "@/app/account/[accountid]/dashboard/work
 import { WorkspaceContextProvider } from "./DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
 import DeleteWorkspace from "./WorkspaceDeletion/DeleteWorkspace";
 import { WorkspaceContextDeletionProvider } from "./WorkspaceDeletion/WorkspaceDeletionOpsContext";
-// import { useRouter } from "next/navigation";
-// import AuthFooter from "../../../../(auth-footer)/AuthFooter";
+import { EditUseStateContextProvider } from "./edit-data/EditDataComponentContext";
 const DynamicWorkspaceSheet = ({ params }: any) => {
   try {
     return (
@@ -27,20 +26,22 @@ const DynamicWorkspaceSheet = ({ params }: any) => {
               ]
             }
           >
-            <WorkspaceContextDeletionProvider params={params}>
-              <DeleteWorkspace />
-              <Div
-                className={
-                  dynamicWorkspaceSheet["work-workspace-management-container"]
-                }
-              >
-                <WorkspaceContextProvider params={params}>
-                  <PrimaryControlsAndDetails params={params} />
-                  <WorkspaceCoreFunctionality params={params} />
-                  <DataContainer params={params} />
-                </WorkspaceContextProvider>
-              </Div>
-            </WorkspaceContextDeletionProvider>
+            <EditUseStateContextProvider>
+              <WorkspaceContextDeletionProvider params={params}>
+                <DeleteWorkspace params={params} />
+                <Div
+                  className={
+                    dynamicWorkspaceSheet["work-workspace-management-container"]
+                  }
+                >
+                  <WorkspaceContextProvider params={params}>
+                    <PrimaryControlsAndDetails params={params} />
+                    <WorkspaceCoreFunctionality params={params} />
+                    <DataContainer params={params} />
+                  </WorkspaceContextProvider>
+                </Div>
+              </WorkspaceContextDeletionProvider>
+            </EditUseStateContextProvider>
           </Div>
         </Div>
       </>

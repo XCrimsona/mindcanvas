@@ -106,6 +106,7 @@ export async function POST(request: NextRequest): Promise<any> {
         //above for urls
         workspacename: workspacename,
         description: workspacedescription,
+        type: "Workspace",
         owner: user._id,
         collaborators: [],
         createdBy: user._id,
