@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const textSchema = new mongoose.Schema(
   {
+    //component definitions
     text: {
       type: String,
       minlength: [1, "Text content cannot be empty"],
@@ -25,6 +26,7 @@ const textSchema = new mongoose.Schema(
         min: 0,
       },
     },
+    //user references
     owner: {
       type: mongoose.Types.ObjectId,
       ref: "users",
@@ -35,8 +37,19 @@ const textSchema = new mongoose.Schema(
       ref: "users",
       required: true,
     },
+    // Workspace references
     workspaceId: {
       type: mongoose.Types.ObjectId,
+      ref: "workspaces",
+      required: true,
+    },
+    name: {
+      type: String,
+      ref: "workspaces",
+      required: true,
+    },
+    workspacename: {
+      type: String,
       ref: "workspaces",
       required: true,
     },
@@ -48,29 +61,21 @@ const textModel = mongoose.models.texts || mongoose.model("texts", textSchema);
 export default textModel;
 
 textSchema.pre("save", function (next) {
-  if (!this.isModified("owner")) {
+  if (this.isModified("owner")) {
     return next(
       new Error(
         "The 'owner' field data is immutable and cannot be changed once set."
       )
     );
   }
-  next();
-});
-
-textSchema.pre("save", function (next) {
-  if (!this.isModified("createdBy")) {
+  if (this.isModified("createdBy")) {
     return next(
       new Error(
         "The 'createdBy' field data is immutable and cannot be changed once set."
       )
     );
   }
-  next();
-});
-
-textSchema.pre("save", function (next) {
-  if (!this.isModified("workspaceId")) {
+  if (this.isModified("workspaceId")) {
     return next(
       new Error(
         "The 'workspaceId' field data is immutable and cannot be changed once set."

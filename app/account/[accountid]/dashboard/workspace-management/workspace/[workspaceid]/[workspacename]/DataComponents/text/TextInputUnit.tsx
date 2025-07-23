@@ -78,6 +78,10 @@ const TextInputUnit = ({ params }: any) => {
         //   "textInputCompPosRef.current.y: ",
         //   typeof textInputCompPosRef.current.y
         // );
+        // console.log(params.accountid, params.workspaceid, params.workspacename);
+
+        console.log(textFormData);
+
         const text = await fetch(
           `http://localhost:3000/api/account/${params.accountid}/dashboard/workspace-management/workspace/${params.workspaceid}/${params.workspacename}`,
           {

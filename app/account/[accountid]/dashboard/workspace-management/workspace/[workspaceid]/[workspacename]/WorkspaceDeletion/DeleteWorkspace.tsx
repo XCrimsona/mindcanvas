@@ -6,15 +6,15 @@ import Button from "@/src/components/form-elements/Button";
 import deleteWorkspaceCSS from "@/app/style-files/deleteworkspace.module.scss";
 import LongText from "@/src/ui/LongText";
 
-const DeleteWorkspace = () => {
+const DeleteWorkspace = ({ params }: { params: any }) => {
   const { workspaceDeletionState, hitClickDelete, workspaceDeletionToggle } =
     useWorkspaceDeletionContext();
   return (
     workspaceDeletionState && (
       <Div className={deleteWorkspaceCSS["workspace-deletion-interface"]}>
         <LongText className={deleteWorkspaceCSS["text-deletion-warning"]}>
-          You are about to delete your workspace "worksapce name". Carefully
-          decide as this operation cannot be reversed.
+          You are about to delete your workspace, {params.workspacename}.
+          Carefully decide as this operation cannot be reversed.
         </LongText>
         <Div className={deleteWorkspaceCSS["workspace-caution-ops"]}>
           <Div className={deleteWorkspaceCSS["cancel-workspace-btn-wrapper"]}>

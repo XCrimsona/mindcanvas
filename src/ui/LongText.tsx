@@ -2,20 +2,22 @@
 import { ReactNode } from "react";
 
 interface LongTextProps {
+  id?: string;
   className: string;
   children: ReactNode;
-  onDoubleClick?: () => void;
-  onClick?: React.ReactEventHandler;
+  onDoubleClick?: React.ReactEventHandler;
+  // onClick?: React.ReactEventHandler;
   onChange?: React.ReactEventHandler;
 }
 const LongText = ({
+  id,
   className,
   children,
-  onClick,
+  // onClick,
   onDoubleClick,
 }: LongTextProps) => {
   return (
-    <p className={className} onDoubleClick={onDoubleClick}>
+    <p id={id} className={className} onDoubleClick={onDoubleClick}>
       {children}
     </p>
   );
