@@ -9,7 +9,14 @@
 <li>Sass</li>
 </ul>
 
-<p>MindCanvas is a visual content creation tool that empowers users to build and organize diverse types of data using customizable layout.</p>
-<p>It’s designed to simulate a canvas workspace where ideas, notes, and structured content can be freely arranged, edited, and saved—ideal for creators, learners, and knowledge architects.</p>
+<p><b>MindCanvas is a visual content creation tool</b> that <em>empowers users to build and organize</em> diverse types of data using built-in layouts.</p>
+
+<p>Ideal for:</p> 
+<ul>
+<li>Creators</li>
+<li>Students</li>
+<li>Schools | Colleges | Universities</li>
+<li>Very structurized based minds.</li>
+</ul>
 
 <p>Stay tuned for more...</p>
