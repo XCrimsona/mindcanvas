@@ -5,6 +5,11 @@ import AuthHeader from "../(auth-header)/AuthHeader";
 import management from "@/app/style-files/management.module.scss";
 import AuthFooter from "../(auth-footer)/AuthFooter";
 import LongText from "@/src/ui/LongText";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Canva Management | MindCanvas",
+};
 
 const fetchSheetData = async (accountid: string) => {
   const response = await fetch(

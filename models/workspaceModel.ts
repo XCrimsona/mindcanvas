@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const workspaceSchema = new mongoose.Schema(
   {
+    // Workspace definitions
     name: {
       type: String,
       required: true,
@@ -19,6 +20,12 @@ const workspaceSchema = new mongoose.Schema(
       type: String,
       maxlength: [300, "Description is too long"],
     },
+    type: {
+      type: String,
+      enum: ["Workspace"],
+      required: true,
+    },
+    //user references
     owner: {
       type: mongoose.Types.ObjectId,
       ref: "users",
