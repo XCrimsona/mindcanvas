@@ -34,6 +34,7 @@ export const WorkspaceContextDeletionProvider = ({
 
   const hitClickDelete = async () => {
     const deleteWorkspace = { type: "Workspace" };
+
     const response = await fetch(
       `http://localhost:3000/api/account/${params.accountid}/dashboard/workspace-management/workspace/${params.workspaceid}/${params.workspacename}`,
       {
@@ -47,7 +48,7 @@ export const WorkspaceContextDeletionProvider = ({
     if (response.ok) {
       setWorkspaceName("");
       workspaceDeletionToggle();
-      alert("Workspace deleted. You'll be redirected");
+      // alert("Moving you to the canva redirected");
       router.push(
         `http://localhost:3000/account/${params.accountid}/dashboard/workspace-management`
       );
