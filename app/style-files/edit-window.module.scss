@@ -1,0 +1,48 @@
+@use '@/app/styles/index' as style;
+
+.edit-window-container {
+    position: absolute;
+    display: block;
+    flex-wrap: wrap;
+    background-color: #79674E40;
+    top: 0px;
+    left: 105%;
+    @include style.width(500px);
+    height: fit-content;
+    box-shadow: inset 0px 0px 4px 2px #FAAA0040,
+        0px 0px 4px 0px #FAAA0040;
+    cursor: default;
+
+    .box-one {
+        width: 100px;
+        font-size: 10px;
+    }
+
+    .box-two {
+        width: 200px;
+        font-size: 10px;
+    }
+
+    .box-three {
+        width: 200px;
+        font-size: 10px;
+    }
+
+    .update-button {
+        cursor: pointer;
+        @include style.width(150px);
+        @include style.background-color(#1C1C1C);
+        @include style.border(style.$space-2, solid, #555555);
+        @include style.text-color(#fff);
+    }
+
+    .change-windows {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .delete-button {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}

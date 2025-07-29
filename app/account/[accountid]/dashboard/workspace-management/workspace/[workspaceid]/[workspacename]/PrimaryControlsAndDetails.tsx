@@ -7,7 +7,7 @@ import { InputDisabledText } from "@/src/components/form-elements/InputTypeInter
 import SVG from "@/src/SVG";
 import { useMaskSensitiveData } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/MaskSensitiveData";
 import { useWorkspaceContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/DataComponents/workspace-data-provider/WorkspaceDataContextProvider";
-import { useWorkspaceDeletionContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/WorkspaceDeletion/WorkspaceDeletionOpsContext";
+import { useWorkspaceDeletionContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/edit-data/WorkspaceDeletionOpsContext";
 
 const PrimaryControlsAndDetails = ({ params }: any) => {
   try {
