@@ -3,31 +3,20 @@ import LongText from "@/src/ui/LongText";
 //text input unit. Not the output styling
 import TextfieldStyling from "@/app/style-files/text.module.scss";
 import React, { useState } from "react";
-import { useModificationUseState } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspace-data/DataModificationWindowContextProvider";
+import { useModificationUseState } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/workspace-data/InfoModificationContextProvider";
 import Div from "@/src/ui/Div";
 import style from "@/app/style-files/text-data-styling.module.scss";
 export const ImmutableText = ({ data }: { data: any }) => {
   const {
-    modificationToggleState,
+    modificationState,
     ModificationWindow,
-    toggleModificationState,
+    selectedComp,
+    mouseDoubleClick,
   } = useModificationUseState();
 
+  const { editState, EditWindow } = useModificationUseState();
   //extract _id from data object
   const { _id } = data;
-
-  const [selectedComp, setSelectedComp] = useState<string>("");
-  const mouseDoubleClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
-    const clickedElement = (e.target as HTMLElement).id;
-    setSelectedComp((prev) => {
-      if (prev === clickedElement) {
-        return "";
-      }
-      return clickedElement;
-    });
-    toggleModificationState();
-    return;
-  };
 
   return (
     <Div className={style["textarea-live-text-wrapper"]}>
@@ -38,9 +27,10 @@ export const ImmutableText = ({ data }: { data: any }) => {
       >
         {data.text}
       </LongText>
-      {modificationToggleState && selectedComp === _id && (
+      {modificationState && selectedComp === _id && (
         <ModificationWindow data={data} />
       )}
+      {editState && selectedComp === _id && <EditWindow data={data} />}
     </Div>
   );
 };

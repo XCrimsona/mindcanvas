@@ -1,7 +1,7 @@
 "use client";
 import Div from "@/src/ui/Div";
 import React from "react";
-import { useWorkspaceDeletionContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/WorkspaceDeletion/WorkspaceDeletionOpsContext";
+import { useWorkspaceDeletionContext } from "@/app/account/[accountid]/dashboard/workspace-management/workspace/[workspaceid]/[workspacename]/edit-data/WorkspaceDeletionOpsContext";
 import Button from "@/src/components/form-elements/Button";
 import deleteWorkspaceCSS from "@/app/style-files/deleteworkspace.module.scss";
 import LongText from "@/src/ui/LongText";
