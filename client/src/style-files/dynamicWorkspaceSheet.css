@@ -1,0 +1,43 @@
+.work-workspace-management-main-container {
+  height: 100%;
+  background: url("/golden-cube4d.png");
+  background-color: #000000;
+  margin: 0px auto 0px auto;
+  z-index: 1;
+  overflow-y: auto;
+}
+.work-workspace-management-main-container .work-workspace-management-container-wrapper {
+  margin: 0px auto 0px auto;
+  background: conic-gradient(from -119deg at center center, rgba(250, 186, 0, 0.7) 0.2deg, rgb(12, 12, 12) 55.6deg, rgb(12, 12, 12) 116.8deg, rgba(250, 186, 0, 0.7) 169.2deg, rgb(12, 12, 12) 257.8deg, rgb(12, 12, 12) 313.6deg, rgba(250, 186, 0, 0.7) 345.6deg);
+  position: relative;
+}
+.work-workspace-management-main-container .work-workspace-management-container-wrapper .work-workspace-management-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  text-align: center;
+  border-radius: 4px;
+  margin: 0px auto 0px auto;
+  min-height: 820px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600.9px) {
+  .work-workspace-management-main-container .work-workspace-management-container-wrapper {
+    height: 100%;
+    width: 100%;
+  }
+  .work-workspace-management-main-container .work-workspace-management-container-wrapper .work-workspace-management-container {
+    width: 98%;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .work-workspace-management-main-container .work-workspace-management-container-wrapper {
+    height: 100%;
+    width: 100%;
+  }
+  .work-workspace-management-main-container .work-workspace-management-container-wrapper .work-workspace-management-container {
+    width: 98%;
+    height: 100%;
+  }
+}/*# sourceMappingURL=dynamicWorkspaceSheet.css.map */
