@@ -1,0 +1,30 @@
+@use '../styles/index' as style;
+
+
+.component-hub-container {
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+    @include style.width(100px);
+    @include style.height(70px);
+    @include style.display-align(flex);
+    @include style.flex-align(wrap);
+    @include style.justify-content(center);
+    @include style.align-content(center);
+
+    .component-hub-btn-wrapper {
+        .component-hub-btn {
+            @include style.height(30px);
+            @include style.width(30px);
+            cursor: pointer;
+        }
+    }
+
+    .component-hub-text-wrapper {
+        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+
+        .longtext {
+            // @include style.height(30px);
+            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            @include style.font-size(15px);
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.component-hub-container {
+  margin: 0px auto 0px auto;
+  width: 100px;
+  height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+.component-hub-container .component-hub-btn-wrapper .component-hub-btn {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.component-hub-container .component-hub-text-wrapper {
+  margin: 0px auto 0px auto;
+}
+.component-hub-container .component-hub-text-wrapper .longtext {
+  margin: 0px auto 0px auto;
+  font-size: 15px;
+}/*# sourceMappingURL=component-hub-container.css.map */

@@ -1,0 +1,173 @@
+@use '../styles/index' as style;
+
+.modifications-window-container {
+    position: absolute;
+    background-color: #79674E40;
+    top: 0px;
+    left: 105%;
+    @include style.width(200px);
+    height: fit-content;
+    box-shadow: inset 0px 0px 4px 2px #FAAA0040,
+        0px 0px 4px 0px #FAAA0040;
+
+    cursor: default;
+    z-index: 6;
+
+    .edit-button,
+    .delete-button {
+        cursor: pointer;
+        @include style.width(150px);
+        @include style.background-color(#1C1C1C);
+        @include style.border(style.$space-2, solid, #555555);
+        @include style.text-color(#fff);
+    }
+
+    .edit-button {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .delete-button {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+
+.edit-window-container {
+    position: absolute;
+    display: block;
+    cursor: default;
+    top: 0px;
+    left: 105%;
+    height: fit-content;
+    // background-color: #79674E40;
+    background-color: #3b3326;
+    box-shadow: inset 0px 0px 4px 2px #FAAA0040,
+        0px 0px 4px 0px #FAAA0040;
+    @include style.width(500px);
+
+    .update-box {
+        display: flex;
+        flex-wrap: wrap;
+        @include style.width(500px);
+        // justify-content: center;
+        align-items: flex-start;
+        padding-bottom: 10px;
+
+        height: 184px;
+
+        .box-one {
+            width: 230px;
+            font-size: 10px;
+            margin-left: 4px;
+            margin-right: 4px;
+
+            padding-bottom: 4px;
+            border-bottom: 1px solid #79674E;
+
+            .pulled-data {
+                border: none;
+                // background-color: #79674E;
+                background-color: #3b3326;
+                color: white;
+                width: 180px;
+                resize: none;
+                outline: none;
+                cursor: text;
+                height: 130px;
+            }
+
+            .pulled-data::selection {
+                background-color: #79674E;
+                color: white;
+            }
+
+            .pulled-data:focus {
+                outline: none;
+            }
+
+            .change-windows {
+                // padding: 4px 3px;
+                margin-top: 10px;
+                margin-bottom: 0px;
+
+                cursor: pointer;
+                @include style.width(150px);
+                // @include style.border(style.$space-2, solid, #555555);
+                @include style.text-color(#fff);
+                padding: 4px 3px;
+                // background-color: #79674E40;
+                // @include style.background-color(#4f4433);
+                @include style.background-color(#3b3326);
+                box-shadow: inset 0px 0px 4px 2px #FAAA0040,
+                    0px 0px 4px 0px #FAAA0040;
+                border: none;
+            }
+        }
+
+        .style-div {
+            width: 1px;
+            height: 168px;
+            background-color: #79674E;
+        }
+
+        .box-two {
+            width: 230px;
+            font-size: 10px;
+            margin-left: 4px;
+            margin-right: 4px;
+
+            padding-bottom: 4px;
+            border-bottom: 1px solid #79674E;
+
+            .new-text {
+                .new-data {
+                    // background-color: ;
+                    @include style.background-color(#3b3326);
+                    color: white;
+                    width: 170px;
+                    resize: none;
+                    outline: none;
+                    cursor: text;
+                    height: 130px;
+                }
+
+                .new-data:focus {
+                    outline: none;
+                }
+
+                .new-data::selection {
+                    background-color: #79674E;
+                    color: white;
+                }
+            }
+
+            .update-button {
+                // padding: 4px 3px;
+                margin-top: 10px;
+                margin-bottom: 0px;
+
+                cursor: pointer;
+                @include style.width(150px);
+                // @include style.border(style.$space-2, solid, #555555);
+                @include style.text-color(#fff);
+                padding: 4px 3px;
+                // background-color: #79674E40;
+                // @include style.background-color(#4f4433);
+                @include style.background-color(#3b3326);
+                box-shadow: inset 0px 0px 4px 2px #FAAA0040,
+                    0px 0px 4px 0px #FAAA0040;
+                border: none;
+            }
+        }
+
+
+
+
+        // .delete-button {
+        //     margin-top: 0px;
+        //     margin-bottom: 10px;
+        // }
+    }
+}

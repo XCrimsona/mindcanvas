@@ -1,0 +1,25 @@
+.textarea-live-text-wrapper {
+  position: relative;
+  display: block;
+  width: 200px;
+  z-index: 4;
+}
+.textarea-live-text-wrapper .textarea-live-text {
+  background-color: #4f4433;
+  word-wrap: break-word;
+  font-size: 10pt;
+  cursor: default;
+  width: 190px;
+  min-height: 20px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 5px 8px;
+  z-index: 3;
+  box-shadow: inset 0px 0px 4px 2px rgba(250, 170, 0, 0.2509803922), 0px 0px 4px 0px rgba(250, 170, 0, 0.2509803922);
+}
+.textarea-live-text-wrapper .textarea-live-text::-moz-selection {
+  background-color: transparent;
+}
+.textarea-live-text-wrapper .textarea-live-text::selection {
+  background-color: transparent;
+}/*# sourceMappingURL=text-data-styling.css.map */

@@ -1,0 +1,358 @@
+.page {
+  letter-spacing: 1px;
+  font-family: calibri, Arial, Helvetica, sans-serif;
+  background-color: #222;
+  color: #fff;
+  margin: 0px auto 0px auto;
+  padding: 0px 0px 10px 0px;
+  position: relative;
+}
+.page .heading-one,
+.page .heading-two {
+  margin: 0px auto 0px auto;
+  text-align: center;
+}
+.page .paragraph {
+  margin: 20px auto 60px auto;
+}
+.page .list-designed-for {
+  display: block;
+  margin: 0px auto 0px auto;
+}
+.page .list-designed-for .design {
+  background-color: #555;
+  border: 2px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0px 0px 5px 3px #333;
+  text-align: center;
+}
+.page .list-features .features {
+  background-color: #555;
+  border: 2px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0px 0px 5px 3px #333;
+  text-align: center;
+}
+.page .list-privacy-statements {
+  margin: 0px auto 0px auto;
+}
+.page .list-security-privacy {
+  margin: 0px auto 0px auto;
+  padding-left: 0px;
+}
+.page .sign-in-container {
+  display: block;
+  background-color: #555;
+  border: 2px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0px 0px 5px 7px #333;
+  text-align: center;
+  margin: 50px auto 50px auto;
+}
+.page .sign-in-container .route-link {
+  display: block;
+  padding: 10px 0px 10px 0px;
+}
+.page .home-footer {
+  margin: 0px auto 0px auto;
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: #222;
+}
+.page .home-footer .project-creator {
+  margin: 0px auto 0px auto;
+}
+.page .home-footer .project-creator .creator {
+  text-align: center;
+  color: #fff;
+}
+
+@media screen and (min-width: 320px) and (max-width: 425.9px) {
+  .page .heading-one {
+    font-size: 40px;
+    padding: 80px 0px 20px 0px;
+    width: 250px;
+  }
+  .page .paragraph {
+    width: 250px;
+  }
+  .page .heading-two-designedfor {
+    margin: 40px auto 10px auto;
+    width: 250px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .page .list-designed-for {
+    margin: 20px auto 80px auto;
+    width: 250px;
+    text-align: center;
+  }
+  .page .list-designed-for .design {
+    padding: 10px 0px 10px 0px;
+    width: 250px;
+  }
+  .page .heading-two-features {
+    margin: 40px auto 10px auto;
+    width: 250px;
+    text-align: center;
+    font-size: 30px;
+  }
+  .page .list-features {
+    margin: 10px auto 40px auto;
+    width: 250px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .page .list-features .features {
+    margin: 10px auto 10px auto;
+    padding: 10px 10px 10px 10px;
+    justify-content: center;
+    width: 250px;
+  }
+  .page .heading-two-sec-and-priv {
+    margin: 60px auto 20px auto;
+    width: 250px;
+    text-align: center;
+  }
+  .page .list-security-privacy {
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  .page .list-security-privacy .sec-priv-item {
+    margin: 5px auto 5px auto;
+    font-size: 14px;
+  }
+  .page .sign-in-container {
+    text-align: center;
+    width: 250px;
+    border-radius: 10px;
+  }
+  .page .sign-in-container .route-link {
+    display: block;
+    color: #fff;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 426px) and (max-width: 600.9px) {
+  .page .heading-one {
+    font-size: 40px;
+    padding: 80px 0px 20px 0px;
+    width: 350px;
+  }
+  .page .paragraph {
+    width: 350px;
+  }
+  .page .heading-two-designedfor {
+    margin: 40px auto 10px auto;
+    width: 350px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .page .list-designed-for {
+    margin: 20px auto 80px auto;
+    width: 350px;
+    text-align: center;
+  }
+  .page .list-designed-for .design {
+    padding: 10px 0px 10px 0px;
+    width: 350px;
+  }
+  .page .heading-two-features {
+    margin: 40px auto 10px auto;
+    width: 350px;
+    text-align: center;
+    font-size: 30px;
+  }
+  .page .list-features {
+    margin: 0px auto 0px auto;
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .page .list-features .features {
+    margin: 10px auto 10px auto;
+    padding: 10px 0px 10px 0px;
+    justify-content: center;
+    width: 350px;
+  }
+  .page .heading-two-sec-and-priv {
+    margin: 60px auto 20px auto;
+    width: 350px;
+    text-align: center;
+  }
+  .page .list-security-privacy {
+    width: 340px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  .page .list-security-privacy .sec-priv-item {
+    width: 330px;
+    margin: 5px auto 5px auto;
+    font-size: 14px;
+  }
+  .page .sign-in-container {
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+  }
+  .page .sign-in-container .route-link {
+    display: block;
+    color: #fff;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 768.9px) {
+  .page .heading-one {
+    font-size: 40px;
+    padding: 80px 0px 20px 0px;
+    width: 500px;
+  }
+  .page .paragraph {
+    width: 500px;
+  }
+  .page .heading-two-designedfor {
+    margin: 40px auto 10px auto;
+    width: 500px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .page .list-designed-for {
+    margin: 20px auto 80px auto;
+    width: 500px;
+    text-align: center;
+  }
+  .page .list-designed-for .design {
+    margin: 20px auto 20px auto;
+    padding: 10px 0px 10px 0px;
+    width: 470px;
+  }
+  .page .heading-two-features {
+    margin: 40px auto 10px auto;
+    width: 500px;
+    text-align: center;
+    font-size: 30px;
+  }
+  .page .list-features {
+    margin: 0px auto 0px auto;
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .page .list-features .features {
+    margin: 10px auto 10px auto;
+    justify-content: center;
+    width: 470px;
+    padding: 10px 0px 10px 0px;
+  }
+  .page .heading-two-sec-and-priv {
+    margin: 60px auto 20px auto;
+    width: 500px;
+    text-align: center;
+  }
+  .page .list-security-privacy {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  .page .list-security-privacy .sec-priv-item {
+    width: 470px;
+    margin: 5px auto 5px auto;
+    font-size: 14px;
+  }
+  .page .sign-in-container {
+    text-align: center;
+    width: 330px;
+    border-radius: 10px;
+  }
+  .page .sign-in-container .route-link {
+    display: block;
+    color: #fff;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .page {
+    width: 100%;
+  }
+  .page .heading-one {
+    font-size: 40px;
+    padding: 80px 0px 20px 0px;
+    width: 500px;
+  }
+  .page .paragraph {
+    width: 500px;
+  }
+  .page .heading-two-designedfor {
+    margin: 40px auto 10px auto;
+    width: 500px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .page .list-designed-for {
+    margin: 20px auto 80px auto;
+    width: 500px;
+    text-align: center;
+  }
+  .page .list-designed-for .design {
+    margin: 20px auto 20px auto;
+    padding: 10px 0px 10px 0px;
+    width: 470px;
+  }
+  .page .heading-two-features {
+    margin: 40px auto 10px auto;
+    width: 500px;
+    text-align: center;
+    font-size: 30px;
+  }
+  .page .list-features {
+    margin: 0px auto 0px auto;
+    width: 500px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .page .list-features .features {
+    margin: 10px auto 10px auto;
+    justify-content: center;
+    width: 470px;
+    padding: 10px 0px 10px 0px;
+  }
+  .page .heading-two-sec-and-priv {
+    margin: 60px auto 20px auto;
+    width: 500px;
+    text-align: center;
+  }
+  .page .list-security-privacy {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  .page .list-security-privacy .sec-priv-item {
+    width: 470px;
+    margin: 5px auto 5px auto;
+    font-size: 14px;
+  }
+  .page .sign-in-container {
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+  }
+  .page .sign-in-container .route-link {
+    color: #fff;
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=home.css.map */
