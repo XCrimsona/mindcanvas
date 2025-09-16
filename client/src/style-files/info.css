@@ -1,0 +1,1254 @@
+.account-info {
+  position: relative;
+  background: url("/golden-cube4d.png");
+  background-color: #000;
+  z-index: 1;
+  height: 100%;
+}
+.account-info .account-info-content {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8666666667);
+  margin: 50px auto 50px auto;
+  border: 2px solid #333333;
+  border-radius: 3px;
+  padding: 3px 15px 3px 15px;
+}
+.account-info .account-info-content .heading-one {
+  color: #fff;
+  text-align: center;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form {
+  display: block;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .firstname-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px auto 5px auto;
+}
+.account-info .account-info-content .account-info-form .firstname-container .update-firstname {
+  color: #fff;
+  margin: 0px auto 0px auto;
+  align-content: center;
+  justify-content: left;
+}
+.account-info .account-info-content .account-info-form .firstname-container .data-control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input {
+  margin: 0px auto 0px auto;
+  background-color: #000000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 2px;
+}
+.account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input:focus {
+  outline: 2px solid transparent;
+}
+.account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input::-moz-placeholder {
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-bottom: 2px solid #FABB00;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input::placeholder {
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-bottom: 2px solid #FABB00;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .firstname-container .data-control-container .form-pipe-span {
+  display: inline-block;
+  color: #fff;
+  margin: auto auto auto auto;
+  text-align: center;
+}
+.account-info .account-info-content .account-info-form .firstname-container .data-control-container .disable-firstname-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .firstname-container .data-control-container .enable-firstname-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .lastname-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px auto 5px auto;
+}
+.account-info .account-info-content .account-info-form .lastname-container .update-lastname {
+  color: #fff;
+  margin: 0px auto 0px auto;
+  align-content: center;
+  justify-content: left;
+}
+.account-info .account-info-content .account-info-form .lastname-container .data-control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input {
+  margin: 0px auto 0px auto;
+  background-color: #000000;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  color: #ffffff;
+  padding: 3px 0px 3px 2px;
+}
+.account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input::-moz-placeholder {
+  margin: 0px auto 0px auto;
+  background-color: #000000;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  color: #ffffff;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input::placeholder {
+  margin: 0px auto 0px auto;
+  background-color: #000000;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  color: #ffffff;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input:focus {
+  outline: 2px solid transparent;
+}
+.account-info .account-info-content .account-info-form .lastname-container .data-control-container .form-pipe-span {
+  display: inline-block;
+  color: #ffffff;
+  margin: auto auto auto auto;
+  text-align: center;
+}
+.account-info .account-info-content .account-info-form .lastname-container .data-control-container .disable-lastname-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .lastname-container .data-control-container .enable-lastname-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .gender-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5px auto 5px auto;
+}
+.account-info .account-info-content .account-info-form .gender-container .update-gender {
+  color: #ffffff;
+  align-content: center;
+  justify-content: left;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .gender-container .data-control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input-disabled {
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 3px;
+}
+.account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input {
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 0px 0px 0px 0px;
+}
+.account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input:focus {
+  outline: 2px solid transparent;
+}
+.account-info .account-info-content .account-info-form .gender-container .data-control-container .form-pipe-span {
+  display: inline-block;
+  color: #fff;
+  margin: auto auto auto auto;
+  text-align: center;
+}
+.account-info .account-info-content .account-info-form .gender-container .data-control-container .disable-gender-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .gender-container .data-control-container .enable-gender-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .dob-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px auto 5px auto;
+}
+.account-info .account-info-content .account-info-form .dob-container .update-dob {
+  color: #fff;
+  align-content: center;
+  justify-content: left;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .dob-container .data-control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input {
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 3px;
+}
+.account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input:focus {
+  outline: 2px solid transparent;
+}
+.account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input::-moz-placeholder {
+  margin: 0px auto 0px auto;
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input::placeholder {
+  margin: 0px auto 0px auto;
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .dob-container .data-control-container .form-pipe-span {
+  display: inline-block;
+  color: #fff;
+  margin: auto auto auto auto;
+  text-align: center;
+}
+.account-info .account-info-content .account-info-form .dob-container .data-control-container .disable-dob-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .dob-container .data-control-container .enable-dob-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .email-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px auto 5px auto;
+}
+.account-info .account-info-content .account-info-form .email-container .update-email {
+  color: #fff;
+  align-content: center;
+  justify-content: left;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .email-container .data-control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .email-container .data-control-container .email-input {
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 2px;
+}
+.account-info .account-info-content .account-info-form .email-container .data-control-container .email-input::-moz-placeholder {
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .email-container .data-control-container .email-input::placeholder {
+  margin: 0px auto 0px auto;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .email-container .data-control-container .email-input:focus {
+  outline: 2px solid transparent;
+}
+.account-info .account-info-content .account-info-form .email-container .data-control-container .form-pipe-span {
+  display: inline-block;
+  color: #fff;
+  margin: auto auto auto auto;
+  text-align: center;
+}
+.account-info .account-info-content .account-info-form .email-container .data-control-container .disable-email-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .email-container .data-control-container .enable-email-editing {
+  margin: 0px auto 0px auto;
+}
+.account-info .account-info-content .account-info-form .current-password-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px auto 5px auto;
+}
+.account-info .account-info-content .account-info-form .current-password-container .current-password {
+  color: #fff;
+  justify-content: left;
+  margin: 0px 0px 0px 0px;
+}
+.account-info .account-info-content .account-info-form .current-password-container .current-password-input::-moz-placeholder {
+  display: block;
+  margin: 0px 2px 0px 2px;
+  padding: 1px 0px 1px 2px;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .current-password-container .current-password-input,
+.account-info .account-info-content .account-info-form .current-password-container .current-password-input::placeholder {
+  display: block;
+  margin: 0px 2px 0px 2px;
+  padding: 1px 0px 1px 2px;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .current-password-container .current-password-input:focus {
+  outline: 2px solid transparent;
+}
+.account-info .account-info-content .account-info-form .new-password-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px auto 5px auto;
+}
+.account-info .account-info-content .account-info-form .new-password-container .new-password {
+  color: #fff;
+  justify-content: left;
+  margin: 0px 0px 0px 0px;
+}
+.account-info .account-info-content .account-info-form .new-password-container .new-password-input::-moz-placeholder {
+  display: block;
+  margin: 0px 2px 0px 2px;
+  padding: 1px 0px 1px 2px;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .new-password-container .new-password-input,
+.account-info .account-info-content .account-info-form .new-password-container .new-password-input::placeholder {
+  display: block;
+  margin: 0px 2px 0px 2px;
+  padding: 1px 0px 1px 2px;
+  background-color: #000;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .new-password-container .new-password-input:focus {
+  outline: 2px solid transparent;
+}
+.account-info .account-info-content .account-info-form .confirm-new-password-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px auto 5px auto;
+}
+.account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password {
+  color: #fff;
+  margin: 0px 0px 0px 0px;
+}
+.account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input::-moz-placeholder {
+  display: block;
+  margin: 0px 2px 0px 2px;
+  padding: 1px 0px 1px 2px;
+  background-color: #000;
+  outline: 2px solid transparent;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input,
+.account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input::placeholder {
+  display: block;
+  margin: 0px 2px 0px 2px;
+  padding: 1px 0px 1px 2px;
+  background-color: #000;
+  outline: 2px solid transparent;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #FABB00;
+  border-right: 2px solid #000000;
+  border-left: 2px solid #000000;
+  padding: 3px 0px 3px 0px;
+}
+.account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input:focus {
+  outline: 2px solid transparent;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn .submit-container {
+  display: block;
+  margin: 10px 10px 10px 10px;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn .submit-container .submit-btn {
+  background-color: #111111;
+  color: #FABB00;
+  border: 2px solid #333333;
+  border-radius: 3px;
+  padding: 3px 15px 3px 15px;
+  cursor: pointer;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
+  display: block;
+  margin: 10px 10px 10px 10px;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .cancel-submit {
+  background-color: #111111;
+  color: #FABB00;
+  border: 2px solid #333333;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 3px 15px 3px 15px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 425.9px) {
+  .account-info .account-info-content {
+    width: 280px;
+  }
+  .account-info .account-info-content .heading-one {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .update-firstname {
+    margin: 0px 0px 0px 0px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input {
+    margin: 5px 0px 5px 1px;
+    width: 160px;
+    height: 13px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .disable-firstname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .enable-firstname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .update-lastname {
+    width: 100px;
+    height: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input {
+    margin: 5px 0px 5px 1px;
+    width: 160px;
+    height: 13px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .disable-lastname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .enable-lastname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .update-gender {
+    width: 100px;
+    height: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input {
+    margin: 5px 0px 5px 1px;
+    width: 167px;
+    height: 23px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input-disabled {
+    margin: 5px 0px 5px 1px;
+    width: 160px;
+    height: 13px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .disable-gender-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .enable-gender-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .update-dob {
+    width: 100px;
+    height: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input {
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .disable-dob-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .enable-dob-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .email-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .update-email {
+    width: 100px;
+    height: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .email-input {
+    width: 160px;
+    height: 13px;
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .disable-email-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .enable-email-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container .current-password {
+    width: 200px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container .current-password-input {
+    width: 200px;
+    height: 17px;
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container .new-password {
+    width: 200px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container .new-password-input {
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+    width: 200px;
+    height: 17px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password {
+    width: 200px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input {
+    width: 200px;
+    height: 17px;
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+}
+@media screen and (min-width: 426px) and (max-width: 600.9px) {
+  .account-info .account-info-content {
+    width: 350px;
+  }
+  .account-info .account-info-content .heading-one {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .update-firstname {
+    margin: 0px 0px 0px 0px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input {
+    margin: 5px 0px 5px 1px;
+    width: 160px;
+    height: 13px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .disable-firstname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .enable-firstname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .update-lastname {
+    width: 100px;
+    height: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input {
+    margin: 5px 0px 5px 1px;
+    width: 160px;
+    height: 13px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .disable-lastname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .enable-lastname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .update-gender {
+    width: 100px;
+    height: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input {
+    margin: 5px 0px 5px 1px;
+    width: 167px;
+    height: 23px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input-disabled {
+    margin: 5px 0px 5px 1px;
+    width: 160px;
+    height: 13px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .disable-gender-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .enable-gender-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .update-dob {
+    width: 100px;
+    height: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input {
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .disable-dob-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .enable-dob-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .email-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .update-email {
+    width: 100px;
+    height: 23px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .email-input {
+    width: 160px;
+    height: 13px;
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .disable-email-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .enable-email-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container .current-password {
+    width: 200px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container .current-password-input {
+    width: 200px;
+    height: 17px;
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container .new-password {
+    width: 200px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container .new-password-input {
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+    width: 200px;
+    height: 17px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password {
+    width: 200px;
+    margin: 0px 0px 0px 0px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input {
+    width: 200px;
+    height: 17px;
+    margin: 5px 0px 5px 1px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #FABB00;
+    border-right: 2px solid #000000;
+    border-left: 2px solid #FABB00;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 768.9px) {
+  .account-info .account-info-content {
+    width: 500px;
+  }
+  .account-info .account-info-content .heading-one {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form {
+    width: 500px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .update-firstname {
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .disable-firstname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .enable-firstname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .update-lastname {
+    width: 100px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .disable-lastname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .enable-lastname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .update-gender {
+    width: 100px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input {
+    width: 168px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input-disabled {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .disable-gender-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .enable-gender-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .update-dob {
+    width: 100px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .disable-dob-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .enable-dob-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .email-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .update-email {
+    width: 100px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .email-input {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .disable-email-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .enable-email-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container .current-password {
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container .current-password-input {
+    width: 200px;
+    height: 17px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container .new-password {
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container .new-password-input {
+    width: 200px;
+    height: 17px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password {
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input {
+    width: 200px;
+    height: 17px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .account-info .account-info-content {
+    width: 500px;
+  }
+  .account-info .account-info-content .heading-one {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form {
+    width: 500px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .update-firstname {
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .disable-firstname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .enable-firstname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .update-lastname {
+    width: 100px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .disable-lastname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .enable-lastname-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .update-gender {
+    width: 100px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input {
+    width: 168px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input-disabled {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .disable-gender-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .gender-container .data-control-container .enable-gender-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .update-dob {
+    width: 100px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .disable-dob-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .dob-container .data-control-container .enable-dob-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .email-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .update-email {
+    width: 100px;
+    height: 23px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container {
+    width: 300px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .email-input {
+    width: 160px;
+    height: 13px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .form-pipe-span {
+    width: 20px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .disable-email-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .email-container .data-control-container .enable-email-editing {
+    height: 23px;
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container .current-password {
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .current-password-container .current-password-input {
+    width: 200px;
+    height: 17px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container .new-password {
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .new-password-container .new-password-input {
+    width: 200px;
+    height: 17px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container {
+    width: 400px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password {
+    width: 100px;
+  }
+  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input {
+    width: 200px;
+    height: 17px;
+  }
+}/*# sourceMappingURL=info.css.map */
