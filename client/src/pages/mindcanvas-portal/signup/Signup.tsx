@@ -2,11 +2,10 @@ import { DivClass } from "../../../../src/ui/Div";
 import Section from "../../../../src/ui/Section";
 import Label from "../../../../src/components/form-elements/Label";
 import HeadingOne from "../../../../src/ui/HeadingOne";
-import authstyles from "../../../../src/style-files/auth.css";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import "../mind-canvas-portal.css";
+import { ChangeEvent, FormEvent, useState } from "react";
 import {
   InputConfirmPassword,
-  InputDate,
   InputEmail,
   InputPassword,
   InputSelect,
@@ -14,15 +13,15 @@ import {
   InputText,
 } from "../../../../src/components/form-elements/InputTypeInterfaces";
 
-import LongText from "../../../../src/ui/LongText";
+import { LongText } from "../../../../src/ui/LongText";
 import Button from "../../../../src/components/form-elements/Button";
 import RouteLink from "../../../../src/components/ProductSection/RouteLink";
-import axios from "axios";
-import { useRouter } from "next/navigation";
+// import axios from "axios";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
-  const router = useRouter();
+  const router = useNavigate();
   try {
     //Data controls | input containers
     interface formDataInterface {
@@ -47,7 +46,7 @@ const Signup = () => {
     const processSignup = async (e: FormEvent<HTMLFormElement>) => {
       try {
         e.preventDefault();
-        console.log(formData);
+        // console.log(formData);
 
         //extra sanitation incase devtools manipulate input
         const requiredFields =
@@ -57,31 +56,41 @@ const Signup = () => {
           formData.password &&
           formData.confirmpassword;
         if (!requiredFields) {
-          alert("please complete required fields for signup!");
+          new Notification("please complete required fields for signup!");
           return;
         } else if (formData.confirmpassword !== formData.password) {
-          alert("Passwords do not match!");
+          new Notification("Passwords do not match!");
           return;
         } else {
           //data will be sent to the backend from here
-          const response: any = await fetch("/api/signup", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          });
+          const response: any = await fetch(
+            "http://localhost:5000/api/signup-portal",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            }
+          );
 
           //want to try a new feature: socket.io
           //for real-time notifcations to check login success or failed to verify
-          const data = await response.json();
           if (response.ok) {
+            const data = await response.json();
             // redirect to dashboard
-            alert("welcome");
-            router.push(`/account/${data._id}/dashboard`);
+
+            if (data.message === "Account created") {
+              new Notification("Welcome to MindCanvas");
+              router(`/account/${data.userData._id}/dashboard`);
+            }
+            return;
           } else {
+            const data = await response.json();
             //reload and remain on signup page
-            alert(data.error);
+            console.warn(data.error);
+            new Notification("Something went wrong");
+            return;
           }
         }
       } catch (err: any) {
@@ -290,7 +299,7 @@ const Signup = () => {
               className="cancel-signup"
               onClick={signupCancelled}
             >
-              <Link href={"/"}>Cancel</Link>
+              <NavLink to={"/"}>Go Back</NavLink>
             </Button>
           </DivClass>
         </form>
@@ -299,7 +308,7 @@ const Signup = () => {
             Already have an account?
           </LongText>
           <LongText className="login-access">
-            <RouteLink className="login-route-link" href="/auth/signin">
+            <RouteLink className="login-route-link" href="/signin-portal">
               Sign in
             </RouteLink>
           </LongText>

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import LongText from "../../ui/LongText";
+import { LongText } from "../../ui/LongText";
 
 interface DescriptionProps {
   className: string;

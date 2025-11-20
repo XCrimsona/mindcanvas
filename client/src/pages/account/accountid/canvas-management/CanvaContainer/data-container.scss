@@ -1,0 +1,86 @@
+@use '../../../../../styles/index' as style;
+
+//where data is displayed
+.data-container {
+    @include style.border-radius(10px);
+    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+    overflow: auto;
+    white-space: none;
+    transition: width .2s ease-in-out, height .2s ease-in-out;
+    // width: 100%;
+    // height: 93.4vh;
+    // width: 98.8vw;
+    // .data-container::-webkit-scrollbar {
+    //     @include style.background-color(rgba(0, 0, 0, 0.7));
+    //     @include style.border-radius(style.$space-10);
+    //     @include style.width(style.$space-10);
+    // }
+
+    // .data-container::-webkit-scrollbar-track {
+    //     @include style.background-color(#555);
+    //     @include style.border-radius(style.$space-6);
+    // }
+
+    // .data-container::-webkit-scrollbar-thumb {
+    //     @include style.background-color(#bbb);
+    //     @include style.border-radius(style.$space-10);
+    // }
+
+    .data-scroll-board {
+        display: block;
+        margin: 0px auto;
+        height: auto;
+        @include style.position(relative);
+    }
+}
+
+
+@media screen and (min-width:320px) and (max-width:600.9px) {
+    .data-container {
+        height: 93vh;
+        width: 98.8vw;
+    }
+}
+
+@media screen and (min-width:601px) and (max-width:767.9px) {
+    .data-container {
+        height: 93vh;
+        width: 98.8vw;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1023.9px) {
+    .data-container {
+        height: 93vh;
+        width: 98.8vw;
+    }
+}
+
+@media screen and (min-width:1024px) and (max-width:1440.9px) {
+    .data-container {
+        height: 93vh;
+        width: 98.8vw;
+    }
+}
+
+//4k and above - 2560px
+@media screen and (min-width:1441px) and (max-width:1800.9px) {
+    .data-container {
+        height: 92.4vh;
+        width: 98.8vw;
+    }
+}
+
+@media screen and (min-width:1801px) and (max-width:2560px) {
+    .data-container {
+        height: 93.4vh;
+        width: 98.8vw;
+    }
+}
+
+@media screen and (min-width:2561px) {
+    .data-container {
+        height: 93.4vh;
+        width: 98.8vw;
+    }
+}

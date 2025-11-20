@@ -1,18 +1,12 @@
-.main-workspace-management-container {
-  height: 100%;
-  background: url("/golden-cube4d.png");
-  background-color: #000000;
-  margin: 0px auto 0px auto;
-  z-index: 1;
+:root {
+  background: linear-gradient(90deg, #000000 20%, #fabb00, #000000 80%);
 }
-.main-workspace-management-container .heading-one {
-  color: #ffffff;
+
+.main-workspace-management-container {
   margin: 0px auto 0px auto;
-  padding: 30px 0px 30px 0px;
-  text-align: center;
 }
 .main-workspace-management-container .workspace-dashboard {
-  overflow-y: scroll;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
   margin: 0px auto 0px auto;
@@ -20,15 +14,20 @@
   border-radius: 10px;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
   overflow-y: auto;
-  background: conic-gradient(from -119deg at center center, rgba(250, 186, 0, 0.7) 0.2deg, rgb(12, 12, 12) 55.6deg, rgb(12, 12, 12) 116.8deg, rgba(250, 186, 0, 0.7) 169.2deg, rgb(12, 12, 12) 257.8deg, rgb(12, 12, 12) 313.6deg, rgba(250, 186, 0, 0.7) 345.6deg);
 }
 .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper {
   border-radius: 10px;
   display: block;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   position: relative;
-  margin: 10px auto 10px auto;
+  margin: 0px auto 0px auto;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+.main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .heading-one {
+  color: #ffffff;
+  margin: 0px auto 0px auto;
+  padding: 30px 0px 30px 0px;
+  text-align: center;
 }
 .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets {
   overflow-x: hidden;
@@ -38,19 +37,7 @@
   flex-wrap: wrap;
   margin: 0px auto 0px auto;
   justify-content: center;
-}
-.main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets::-webkit-scrollbar {
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  width: 10px;
-}
-.main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets::-webkit-scrollbar-track {
-  background-color: #555;
-  border-radius: 6px;
-}
-.main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets::-webkit-scrollbar-thumb {
-  background-color: #bbb;
-  border-radius: 10px;
+  align-content: flex-start;
 }
 
 @media screen and (min-width: 320px) and (max-width: 425.9px) {
@@ -113,18 +100,14 @@
   }
   .main-workspace-management-container .workspace-dashboard {
     width: 650px;
-    min-height: 550px;
-    max-height: 800px;
-    width: 90%;
+    width: 100%;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper {
-    width: 620px;
     width: 98%;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets {
     width: 620px;
-    min-height: 410px;
-    max-height: 410px;
+    height: 560px;
     width: 98%;
   }
 }
@@ -133,16 +116,15 @@
     width: 400px;
   }
   .main-workspace-management-container .workspace-dashboard {
-    width: 90%;
-    min-height: 550px;
-    max-height: 800px;
+    width: 650px;
+    width: 100%;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper {
     width: 98%;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets {
+    width: 620px;
+    height: 560px;
     width: 98%;
-    min-height: 410px;
-    max-height: 410px;
   }
 }/*# sourceMappingURL=management.css.map */

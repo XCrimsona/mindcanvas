@@ -6,10 +6,9 @@ import UserModel from "../models/userModel";
 import videoModel from "../models/videoModel";
 import workspaceModel from "../models/workspaceModel";
 import mongoose from "mongoose";
-import { NextRequest, NextResponse } from "next/server";
 
 export async function OPTIONS() {
-  return new NextResponse(null, {
+  return new res(null, {
     status: 204,
     headers: {
       "Access-Control-Allow-Origin": "http://localhost:3000",
@@ -21,7 +20,7 @@ export async function OPTIONS() {
   });
 }
 
-export async function GET(request: NextRequest, { params }: any) {
+export async function GET(request: req, { params }: any) {
   try {
     await getDB();
     console.log(params);
@@ -30,7 +29,7 @@ export async function GET(request: NextRequest, { params }: any) {
     console.log(accountid, workspaceid);
 
     if (!accountid || !workspaceid) {
-      return new NextResponse(
+      return new res(
         JSON.stringify({
           success: false,
           code: "NOT_AUTHORIZED",
@@ -42,7 +41,7 @@ export async function GET(request: NextRequest, { params }: any) {
     } else {
       const user = await UserModel.findById(accountid);
       if (!user) {
-        return new NextResponse(
+        return new res(
           JSON.stringify({
             success: false,
             code: "MISSING_USER_DATA",
@@ -63,7 +62,7 @@ export async function GET(request: NextRequest, { params }: any) {
           //     request.url
           //   )
           // );
-          return new NextResponse(
+          return new res(
             JSON.stringify({
               success: false,
               code: "MISSING_WORKSPACE_DATA",
@@ -96,7 +95,7 @@ export async function GET(request: NextRequest, { params }: any) {
             videos.length === 0;
 
           if (empty) {
-            return new NextResponse(
+            return new res(
               JSON.stringify({
                 success: true,
                 code: "NO_EXISTING_DATA",
@@ -106,7 +105,7 @@ export async function GET(request: NextRequest, { params }: any) {
               { status: 200 }
             );
           } else {
-            return new NextResponse(
+            return new res(
               JSON.stringify({
                 success: true,
                 status: 200,
@@ -123,7 +122,7 @@ export async function GET(request: NextRequest, { params }: any) {
     }
     //main return
   } catch (err: any) {
-    return new NextResponse(
+    return new res(
       JSON.stringify({
         success: false,
         code: "SERVER_WORKSPACE_ERROR",
@@ -135,7 +134,7 @@ export async function GET(request: NextRequest, { params }: any) {
   }
 }
 
-export async function POST(request: NextRequest, { params }: any) {
+export async function POST(request: req, { params }: any) {
   try {
     await getDB();
     const body = await request.json();
@@ -143,7 +142,7 @@ export async function POST(request: NextRequest, { params }: any) {
 
     const { accountid, workspacename, workspaceid }: any = await params;
     if (!accountid || !workspaceid) {
-      return new NextResponse(
+      return new res(
         JSON.stringify({
           success: false,
           code: "NOT_AUTHORIZED",
@@ -155,10 +154,10 @@ export async function POST(request: NextRequest, { params }: any) {
     } else {
       const user = await UserModel.findById(accountid);
       if (!user) {
-        // return NextResponse.redirect(
+        // return res.redirect(
         //   new URL(`http://localhost:3000/auth/signin/`, request.url)
         // );
-        return new NextResponse(
+        return new res(
           JSON.stringify({
             success: false,
             code: "USER_NOT_AUTHORIZED",
@@ -176,7 +175,7 @@ export async function POST(request: NextRequest, { params }: any) {
         });
 
         if (!workspace) {
-          return new NextResponse(
+          return new res(
             JSON.stringify({
               success: false,
               code: "REQUESTED_WORKSPACE_NOT_FOUND",
@@ -189,7 +188,7 @@ export async function POST(request: NextRequest, { params }: any) {
           );
         } else {
           if (!text || !type || x < 0 || y < 0) {
-            return new NextResponse(
+            return new res(
               JSON.stringify({
                 success: false,
                 code: "MISSING_ESSENTIAL_COMPONENT_DATA",
@@ -215,7 +214,7 @@ export async function POST(request: NextRequest, { params }: any) {
             });
 
             if (!createChecker) {
-              return new NextResponse(
+              return new res(
                 JSON.stringify({
                   success: true,
                   code: "COMPONENT_CREATION_FAILED",
@@ -225,7 +224,7 @@ export async function POST(request: NextRequest, { params }: any) {
                 { status: 500 }
               );
             } else {
-              return new NextResponse(
+              return new res(
                 JSON.stringify({
                   success: true,
                   code: "COMPONENT_CREATED",
@@ -240,7 +239,7 @@ export async function POST(request: NextRequest, { params }: any) {
       }
     }
   } catch (err: any) {
-    return new NextResponse(
+    return new res(
       JSON.stringify({
         success: false,
         code: "SERVER_WORKSPACE_ERROR",
@@ -252,7 +251,7 @@ export async function POST(request: NextRequest, { params }: any) {
   }
 }
 
-export async function PATCH(request: NextRequest, { params }: any) {
+export async function PATCH(request: req, { params }: any) {
   try {
     await getDB();
     const { accountid, workspacename, workspaceid }: any = await params;
@@ -263,7 +262,7 @@ export async function PATCH(request: NextRequest, { params }: any) {
     console.log(typeof accountid);
 
     if (!accountid || !workspaceid || !workspacename) {
-      return new NextResponse(
+      return new res(
         JSON.stringify({
           success: false,
           code: "NOT_AUTHORIZED",
@@ -276,7 +275,7 @@ export async function PATCH(request: NextRequest, { params }: any) {
       const user = await UserModel.findById(accountid);
       console.log("user: ", user);
       if (!user) {
-        return new NextResponse(
+        return new res(
           JSON.stringify({
             success: false,
             code: "USER_NOT_FOUND",
@@ -294,7 +293,7 @@ export async function PATCH(request: NextRequest, { params }: any) {
         });
         console.log("workspace: ", workspace);
         if (!workspace) {
-          return new NextResponse(
+          return new res(
             JSON.stringify({
               success: false,
               code: "REQUESTED_WORKSPACE_NOT_FOUND",
@@ -309,7 +308,7 @@ export async function PATCH(request: NextRequest, { params }: any) {
           console.log("_id and type: ", _id, type, typeof text);
 
           if (!_id || !type) {
-            return new NextResponse(
+            return new res(
               JSON.stringify({
                 success: false,
                 code: "INSUFFICIENT_DATA",
@@ -350,7 +349,7 @@ export async function PATCH(request: NextRequest, { params }: any) {
             // console.log(reqToEditTextComponent?.text);
 
             if (!reqToEditTextComponent) {
-              return new NextResponse(
+              return new res(
                 JSON.stringify({
                   success: false,
                   code: "TEXT_UPDATE_REQUESTED_FAILED",
@@ -360,7 +359,7 @@ export async function PATCH(request: NextRequest, { params }: any) {
                 { status: 404 }
               );
             } else {
-              return new NextResponse(
+              return new res(
                 JSON.stringify({
                   success: true,
                   code: "TEXT_UPDATE_REQUEST_COMPLETE",
@@ -371,7 +370,7 @@ export async function PATCH(request: NextRequest, { params }: any) {
               );
             }
           }
-          // return new NextResponse(
+          // return new res(
           //   JSON.stringify({
           //     success: false,
           //     code: "REQUESTED_BLANK",
@@ -389,7 +388,7 @@ export async function PATCH(request: NextRequest, { params }: any) {
   } catch (err: any) {
     console.log(err.message);
 
-    return new NextResponse(
+    return new res(
       JSON.stringify({
         success: false,
         code: "SERVER_WORKSPACE_ERROR",
@@ -401,12 +400,12 @@ export async function PATCH(request: NextRequest, { params }: any) {
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: any) {
+export async function DELETE(request: req, { params }: any) {
   try {
     await getDB();
     const { accountid, workspacename, workspaceid }: any = await params;
     if (!accountid || !workspaceid || !workspacename) {
-      return new NextResponse(
+      return new res(
         JSON.stringify({
           success: false,
           code: "NOT_AUTHORIZED",
@@ -418,7 +417,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
     } else {
       const user = await UserModel.findById(accountid);
       if (!user) {
-        return new NextResponse(
+        return new res(
           JSON.stringify({
             success: false,
             code: "USER_NOT_FOUND",
@@ -437,7 +436,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
         _id: workspaceid,
       });
       if (!workspace) {
-        return new NextResponse(
+        return new res(
           JSON.stringify({
             success: false,
             code: "REQUESTED_WORKSPACE_NOT_FOUND",
@@ -455,7 +454,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
       const { type } = body;
 
       if (!type) {
-        return new NextResponse(
+        return new res(
           JSON.stringify({
             success: false,
             code: "INSUFFICIENT_DATA",
@@ -473,7 +472,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
         // console.log("owner: ", owner, " ", "_id: ", _id);
 
         if (!_id) {
-          return new NextResponse(
+          return new res(
             JSON.stringify({
               success: false,
               code: "INSUFFICIENT_COMPONENT_DATA",
@@ -493,7 +492,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
           });
 
           if (!reqToDeleteTextComponent) {
-            return new NextResponse(
+            return new res(
               JSON.stringify({
                 success: false,
                 code: "TEXT_UPDATE_REQUESTED_FAILED",
@@ -503,7 +502,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
               { status: 404 }
             );
           } else {
-            return new NextResponse(
+            return new res(
               JSON.stringify({
                 success: true,
                 code: "TEXT_UPDATE_REQUEST_COMPLETE",
@@ -528,7 +527,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
         });
 
         if (!reqToDeleteTextComponents) {
-          return new NextResponse(
+          return new res(
             JSON.stringify({
               success: false,
               code: "WORKSPACE_DATA_DELETION_FAILED",
@@ -546,7 +545,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
             createdBy: user._id,
           });
           if (!reqToDeleteTextComponent) {
-            return new NextResponse(
+            return new res(
               JSON.stringify({
                 success: false,
                 code: "WORKSPACE_DELETION_FAILED",
@@ -556,7 +555,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
               { status: 404 }
             );
           } else
-            return new NextResponse(
+            return new res(
               JSON.stringify({
                 success: true,
                 code: "WORKSPACE_DELETED",
@@ -567,7 +566,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
             );
         }
       }
-      return new NextResponse(
+      return new res(
         JSON.stringify({
           success: true,
           code: "NO_OPERATION_PERFORMED",
@@ -578,7 +577,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
       );
     }
   } catch (err: any) {
-    return new NextResponse(
+    return new res(
       JSON.stringify({
         success: false,
         code: "SERVER_WORKSPACE_ERROR",

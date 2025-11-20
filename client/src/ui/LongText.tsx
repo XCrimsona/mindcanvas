@@ -1,24 +1,38 @@
 import { ReactNode } from "react";
 
-interface LongTextProps {
+interface IText {
   id?: string;
   className: string;
   children: ReactNode;
   onDoubleClick?: React.ReactEventHandler;
-  // onClick?: React.ReactEventHandler;
+  onClick?: React.ReactEventHandler;
+  style?: any;
   onChange?: React.ReactEventHandler;
+  onMouseEnter?: React.MouseEventHandler;
+  onMouseLeave?: React.MouseEventHandler;
 }
-const LongText = ({
+export const LongText = ({
   id,
   className,
   children,
   onDoubleClick,
-}: LongTextProps) => {
+  style,
+}: IText) => {
   return (
-    <p id={id} className={className} onDoubleClick={onDoubleClick}>
+    <p
+      id={id}
+      className={className}
+      style={style}
+      onDoubleClick={onDoubleClick}
+    >
       {children}
     </p>
   );
 };
-
-export default LongText;
+export const TextFragment = ({ id, className, children, style }: IText) => {
+  return (
+    <p id={id} className={className} style={style}>
+      {children}
+    </p>
+  );
+};

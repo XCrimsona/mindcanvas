@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Div from "./Div";
 
 const Image_ = ({
@@ -18,7 +17,7 @@ const Image_ = ({
 }) => {
   return (
     <Div className={`${className}`}>
-      <Image
+      <Image_
         className={imgClassName}
         width={width}
         height={height}

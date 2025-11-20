@@ -1,42 +1,11 @@
+// file may be unused
 @use '../styles/index' as style;
 
 .account-dashboard {
     @include style.background-color(#222);
     @include style.height(100%);
-    @include style.display-align(block);
+    @include style.display-align(flex);
     @include style.position(relative);
-
-    .account-dashboard-content {
-        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0, style.$auto);
-
-        .heading-one {
-            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0, style.$auto);
-            @include style.padding-x-y(style.$space-50, style.$space-0 , style.$space-50, style.$space-0 );
-            @include style.align-text(center);
-            @include style.text-color(#fff);
-        }
-
-        .dashboard-link-component {
-            @include style.margin-x-y(style.$space-10, style.$auto, style.$space-10, style.$auto);
-            @include style.padding-x-y(style.$space-5, style.$space-5 , style.$space-5, style.$space-5 );
-            @include style.align-text(center);
-            @include style.text-color(#fff);
-            @include style.border-radius(style.$space-10);
-            @include style.border(style.$space-2, solid, #333);
-
-
-            .auth-link-component-built-in-app {
-                @include style.border-radius(style.$space-6);
-                @include style.background-color(#444);
-                @include style.display-align(block);
-                @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0, style.$auto);
-                @include style.padding-x-y(style.$space-10, style.$space-0 , style.$space-10, style.$space-0 );
-                @include style.align-text(center);
-                @include style.text-color(#fff);
-
-            }
-        }
-    }
 
     .dashboard-footer {
         @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);

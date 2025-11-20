@@ -1,20 +1,50 @@
-import { StrictMode } from "react";
+// import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./index.css";
+import Home from "./pages/home/Home.tsx";
 import SignInPage from "./pages/mindcanvas-portal/signin/page.tsx";
 import SignUpPage from "./pages/mindcanvas-portal/signup/page.tsx";
+import "./main.css";
+import InitialDashboardPageComponent from "./InitialDashboardPageComponent.tsx";
+import CanvaPage from "./pages/account/accountid/canvas-management/CanvaPage.tsx";
+import ProtectedRoute from "./ProtectedRoute.tsx";
+import AccountPage from "./pages/account/accountid/account-info/AccountPage.tsx";
 
 createRoot(document.getElementById("root") as HTMLDivElement).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>
+  // <StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/signin-portal" element={<SignInPage />} />
+      <Route path="/signup-portal" element={<SignUpPage />} />
+      {/* <CanvaDataProvider> */}
+      <Route
+        path="/account/:userid/canvas-management"
+        element={
+          <ProtectedRoute>
+            <InitialDashboardPageComponent />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/account/:userid/canvas-management/:canvaid"
+        element={
+          <ProtectedRoute>
+            <CanvaPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/account/:userid/account-info"
+        element={
+          <ProtectedRoute>
+            <AccountPage />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
+    {/* </CanvaDataProvider> */}
+  </BrowserRouter>
+  // </StrictMode>
 );

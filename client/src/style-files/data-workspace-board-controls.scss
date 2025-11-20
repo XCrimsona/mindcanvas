@@ -2,7 +2,7 @@
 
 .controls {
     @include style.border-top(style.$space-2, solid, #ffffffdd);
-    @include style.position(absolute);
+    // @include style.position(absolute);
     @include style.bottom(style.$space-0);
     @include style.left(style.$space-0);
     @include style.right(style.$space-0);
@@ -12,7 +12,7 @@
     @include style.align-items(center);
     @include style.justify-content(center);
     @include style.padding-x-y(style.$space-20, style.$space-0, style.$space-10 , style.$space-0 );
-    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+    @include style.margin-x-y(style.$space-40, style.$auto, style.$space-0 , style.$auto );
     border-bottom-left-radius: style.$space-10;
     border-bottom-right-radius: style.$space-10;
 

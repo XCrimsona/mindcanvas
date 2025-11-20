@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Div from "./Div";
+import { DivClass } from "./Div";
 
 const RightArrow = ({
   className,
@@ -17,15 +16,18 @@ const RightArrow = ({
   height: number;
 }) => {
   return (
-    <Div className={classNameDiv}>
-      <Image
-        className={className}
-        width={width}
-        height={height}
-        src={`${src}`}
-        alt={alt}
-      />
-    </Div>
+    <DivClass className={classNameDiv}>
+      <picture>
+        <img
+          className={className}
+          width={width}
+          height={height}
+          sizes="small"
+          src={`${src}`}
+          alt={alt}
+        />
+      </picture>
+    </DivClass>
   );
 };
 

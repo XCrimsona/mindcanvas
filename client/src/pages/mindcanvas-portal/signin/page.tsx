@@ -1,12 +1,16 @@
 import { DivClass } from "../../../../src/ui/Div";
 import Signin from "./Signin";
-import "../../../style-files/auth.css";
+import "../mind-canvas-portal.css";
+import "../mind-canvas-portal-media-queries.css";
 import { useEffect } from "react";
 
 const SignInPage = () => {
   //wake up the DB ops for incoming requests
   const signInInit = async () => {
-    await fetch("http://localhost:3000/api/signin-portal");
+    await fetch("http://localhost:5000/api/signin-portal", {
+      method: "GET",
+      credentials: "include",
+    });
   };
 
   useEffect(() => {
@@ -16,7 +20,6 @@ const SignInPage = () => {
 
   return (
     <DivClass className={"sign-in-page"}>
-      {/* <div>SinginPage</div> */}
       <Signin />
     </DivClass>
   );

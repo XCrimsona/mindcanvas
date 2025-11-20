@@ -1,17 +1,21 @@
 import { DivClass } from "../../../src/ui/Div";
 import HeadingOne from "../../../src/ui/HeadingOne";
-import LongText from "../../../src/ui/LongText";
+import { LongText } from "../../../src/ui/LongText";
 import UL from "../../../src/ui/UL";
 import ListItem from "../../../src/ui/ListItem";
 import HeadingTwo from "../../../src/ui/HeadingTwo";
 import RouteLink from "../../../src/components/ProductSection/RouteLink";
 import "../../../src/components/Header";
-import Footer from "../../../src/components/Footer";
 import ShortText from "../../../src/ui/ShortText";
-import "./(css)/home.css";
+import "./home.css";
+import { useEffect } from "react";
+import Footer from "../../components/Footer";
 
 // Home Page Dashboard
 const Home = () => {
+  useEffect(() => {
+    document.title = "Home | Mindcanvas";
+  }, []);
   const content = {
     //Introduction Summary of Tools used by app features
     designedFor: [
@@ -87,14 +91,14 @@ const Home = () => {
         })}
       </UL>
       <DivClass className={"sign-in-container"}>
-        <RouteLink className={"route-link"} href="/auth/signin">
+        <RouteLink className={"route-link"} href="/signin-portal">
           Sign in
         </RouteLink>
       </DivClass>
       <Footer id="home-footer" className={"home-footer"}>
         <DivClass className={"project-creator"}>
           <ShortText className={"creator"}>
-            Created by Christeen Fabian
+            Powered by The Code Hashira | Christeen Fabian
           </ShortText>
         </DivClass>
       </Footer>
