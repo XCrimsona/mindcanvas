@@ -1,37 +1,45 @@
-require("dotenv").config();
+import dotenv from "dotenv"
+dotenv.config();
 const port = process.env.PORT;
-const express = require("express");
-const bcryptjs = require('bcryptjs');
+
+import express from "express";
+import registerRouter from "./api/routes/register/registerGroup.js";
+import loginRouter from "./api/routes/login/loginGroup.js";
+import accountRouter from "./api/routes/account-info/account-info.js";
+import canvasManagementRouter from "./api/routes/canvas-management/canvas-management.js";
+import singleDynamiCanvaDataGroupRouter from "./api/routes/canvas-management/single-dynamic-canva-data-group.js";
+import cors from "cors"
+import AuthService from "./lib/Auth.js";
+import cookieParser from "cookie-parser";
+import signOut from "./api/routes/signout-route/signout-group.js";
 const app = express();
 
-const login = require("./api/routes/login/loginGroup.js");
+//allow frontend communication
+app.use(cookieParser());
+app.use(cors({
+    origin: "http://localhost:5173",//the frontend port location
+    credentials: true//allow cookies to be sent
+}));
 
+//enable submissions
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/signup-portal", register);
-app.use("/api/signin-portal", login);
-// app.use(
-//     expressSession({
-//         secret: secretKey,
-//         store: connectMongo.create({
-//             mongoUrl: mongoConnect,
-//             ttl: sessionDuration,
-//             autoRemove: "native",
-//         }),
-//         resave: false,
-//         saveUninitialized: false,
-//         rolling: true,
-//         cookie: {
-//             sameSite: "strict",
-//             httpOnly: true,
-//             maxAge: sessionDuration * 1000,
-//         },
-//     })
-// );
 
-
-app.get("/", (req, res) => {
-    res.status(200).json({ message: "ok" });
+//routes no auth
+app.use("/api/signup-portal", registerRouter);
+app.use("/api/signin-portal", loginRouter);
+app.get("/api/auth-check", AuthService.isAuthenticated, (req, res) => {
+    res.status(200).json({
+        code: "AUTHENTICATED",
+        userid: req.user.sub,
+        role: req.user.role,
+    });
 });
+
+//routes auth required
+app.use("/api/account", AuthService.isAuthenticated, signOut);
+app.use("/api/account", AuthService.isAuthenticated, accountRouter);
+app.use("/api/account", AuthService.isAuthenticated, canvasManagementRouter);
+app.use("/api/account", AuthService.isAuthenticated, singleDynamiCanvaDataGroupRouter);
 
 app.listen(port, () => console.log(`http://localhost:${port}`));
