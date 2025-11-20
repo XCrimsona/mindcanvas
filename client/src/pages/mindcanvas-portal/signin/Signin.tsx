@@ -2,7 +2,9 @@ import { DivClass } from "../../../../src/ui/Div";
 import Section from "../../../../src/ui/Section";
 import Label from "../../../../src/components/form-elements/Label";
 import HeadingOne from "../../../../src/ui/HeadingOne";
-import "../../../style-files/auth.css";
+import "../mind-canvas-portal.css";
+// import "../mind-canvas-portal-media-queries.css";
+
 import React, { FormEvent, useEffect, useState } from "react";
 import {
   InputEmail,
@@ -10,12 +12,22 @@ import {
   InputSubmit,
 } from "../../../../src/components/form-elements/InputTypeInterfaces";
 import Contact from "../../../../src/components/ProductSection/Contact";
-import LongText from "../../../../src/ui/LongText";
+import { LongText } from "../../../../src/ui/LongText";
 import Button from "../../../../src/components/form-elements/Button";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import RouteLink from "../../../components/ProductSection/RouteLink";
+
 const Signin = () => {
   try {
+    // useEffect(()=>{
+    //   const screenSizeL = window.innerHeight;
+    //   console.log("height: ", screenSizeL);
+
+    //   const screenSizeW = window.innerWidth;
+    //   console.log("width: ", screenSizeW);
+
+    // })
     const router = useNavigate();
 
     //Data controls | input containers
@@ -35,27 +47,32 @@ const Signin = () => {
         if (formData.email) loginData.email = formData.email;
         if (formData.password) loginData.password = formData.password;
         if (!loginData) {
-          alert("Complete the login fields");
+          new Notification("Complete the login fields");
           return;
         }
+
         //data will be sent to the backend from here
-        const response = await fetch("/api/signup-portal", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loginData),
-        });
+        const response = await fetch(
+          "http://localhost:5000/api/signin-portal",
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginData),
+          }
+        );
         //want to try a new feature: socket.io
         //for real-time notifcations to check login success or failed to verify
         if (response.ok) {
           const data: any = await response.json();
-          // router(
-          //   `http://localhost:3000/account/${data.data._id}/canvas-management`
-          // );
+          // console.log("pulled data", data);
+
+          router(`/account/${data.user}/canvas-management`);
         } else {
           const error = await response.json();
-          console.warn("frontend sigin error: ", error);
+          new Notification(`Signin failed: ${error.message}`);
         }
       } catch (err: any) {
         console.warn("Something went wrong");
@@ -138,27 +155,25 @@ const Signin = () => {
           <DivClass className="submit-btn-wrapper">
             <InputSubmit id="submit" className="submit" value="Verify" />
           </DivClass>
-          <DivClass className="cancel-btn-wrapper">
-            <Button
-              id="cancel-verification"
-              className="cancel-verification"
-              onClick={formCancelled}
-            >
-              <Link href={"/"}>Cancel</Link>
-            </Button>
-          </DivClass>
         </form>
         <DivClass className="may-need-account">
           <LongText className="no-account">
             Don{"\u2019"}t have an account?
           </LongText>
-          <LongText className="get-access">
-            Contact{" "}
-            <Contact href="tel:+27726053548" className="contact">
-              +27 72-605-3548
-            </Contact>{" "}
-            to get access.
+          <LongText className="register-for-access">
+            <RouteLink href="/signup-portal" className="route-link">
+              Create Your Profile
+            </RouteLink>
           </LongText>
+        </DivClass>
+        <DivClass className="cancel-btn-wrapper">
+          <Button
+            id="cancel-verification"
+            className="cancel-verification"
+            onClick={formCancelled}
+          >
+            <NavLink to="/">Go Back</NavLink>
+          </Button>
         </DivClass>
       </Section>
     );

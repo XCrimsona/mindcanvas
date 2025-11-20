@@ -34,6 +34,37 @@ export const DivMouse = ({
   );
 };
 
+export const DivRef = ({
+  ref,
+  onStyle,
+  className,
+  onMouseDown,
+  onMouseMove,
+  onMouseUp,
+  children,
+}: {
+  ref: any;
+  onStyle?: any;
+  className: string;
+  onMouseDown?: React.ReactEventHandler;
+  onMouseMove?: React.ReactEventHandler;
+  onMouseUp?: React.ReactEventHandler;
+  children: ReactNode;
+}) => {
+  return (
+    <div
+      ref={ref}
+      style={onStyle}
+      className={className}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+    >
+      {children}
+    </div>
+  );
+};
+
 //Div supplies id property for mapping
 export const DivId = ({
   id,
@@ -64,6 +95,22 @@ export const DivClass = ({
 };
 
 export const DivStylingAndClassName = ({
+  className,
+  children,
+  styles,
+}: {
+  className: string;
+  children: ReactNode;
+  styles: string | any;
+}) => {
+  return (
+    <div className={className} style={styles}>
+      {children}
+    </div>
+  );
+};
+
+export const INote = ({
   className,
   children,
   styles,

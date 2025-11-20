@@ -1,34 +1,8 @@
 .account-dashboard {
   background-color: #222;
   height: 100%;
-  display: block;
+  display: flex;
   position: relative;
-}
-.account-dashboard .account-dashboard-content {
-  margin: 0px auto 0px auto;
-}
-.account-dashboard .account-dashboard-content .heading-one {
-  margin: 0px auto 0px auto;
-  padding: 50px 0px 50px 0px;
-  text-align: center;
-  color: #fff;
-}
-.account-dashboard .account-dashboard-content .dashboard-link-component {
-  margin: 10px auto 10px auto;
-  padding: 5px 5px 5px 5px;
-  text-align: center;
-  color: #fff;
-  border-radius: 10px;
-  border: 2px solid #333;
-}
-.account-dashboard .account-dashboard-content .dashboard-link-component .auth-link-component-built-in-app {
-  border-radius: 6px;
-  background-color: #444;
-  display: block;
-  margin: 0px auto 0px auto;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-  color: #fff;
 }
 .account-dashboard .dashboard-footer {
   margin: 0px auto 0px auto;

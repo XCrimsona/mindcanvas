@@ -12,6 +12,7 @@ export const InputColor = ({ id, className, onChange }: InputColorProps) => {
       id={id}
       minLength={3}
       maxLength={10}
+      autoComplete="off"
       className={className}
       placeholder="Choose a color"
       onChange={onChange}
@@ -168,6 +169,7 @@ export const InputDate = ({
       type="date"
       id={id}
       className={className}
+      autoComplete="off"
       value={value}
       onChange={onChange}
       required
@@ -190,7 +192,13 @@ export const InputSelect = ({
   value,
 }: InputSelectProps) => {
   return (
-    <select id={id} value={value} className={className} onChange={onChange}>
+    <select
+      id={id}
+      value={value}
+      autoComplete="off"
+      className={className}
+      onChange={onChange}
+    >
       {children}
     </select>
   );
@@ -208,6 +216,7 @@ export const Range = ({ id, className, value, onChange }: InputRangeProps) => {
       type="range"
       id={id}
       minLength={1}
+      autoComplete="off"
       maxLength={100}
       className={className}
       value={value}
@@ -236,6 +245,7 @@ export const InputPassword = ({
       id={id}
       minLength={6}
       maxLength={140}
+      autoComplete="off"
       className={className}
       placeholder={placeholder}
       value={value}
@@ -257,6 +267,7 @@ export const InputConfirmPassword = ({
       id={id}
       minLength={6}
       maxLength={140}
+      autoComplete="off"
       className={className}
       placeholder={placeholder}
       value={value}
@@ -282,6 +293,7 @@ export const InputRadio = ({
     <input
       type="radio"
       id={id}
+      autoComplete="off"
       className={className}
       value={value}
       onChange={onChange}
@@ -306,6 +318,7 @@ export const InputCheckBox = ({
     <input
       type="checkbox"
       id={id}
+      autoComplete="off"
       className={className}
       value={value}
       onChange={onChange}
@@ -332,6 +345,7 @@ export const InputSearch = ({
       minLength={2}
       maxLength={100}
       className={className}
+      autoComplete="off"
       value={value}
       onChange={onChange}
       required
@@ -356,6 +370,7 @@ export const InputSubmit = ({
     <input
       type="submit"
       id={id}
+      autoComplete="off"
       className={className}
       onClick={onClick}
       value={value}
@@ -380,6 +395,7 @@ export const InputFile = ({
       type="file"
       id={id}
       className={className}
+      autoComplete="off"
       value={value}
       onChange={onChange}
       required
@@ -404,6 +420,7 @@ export const InputFiles = ({
       type="file"
       id={id}
       className={className}
+      autoComplete="off"
       value={value}
       multiple
       onChange={onChange}

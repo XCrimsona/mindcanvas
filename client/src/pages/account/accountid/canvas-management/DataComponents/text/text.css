@@ -1,0 +1,115 @@
+.data-text-component {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: inset 0px 0px 4px 2px rgba(250, 170, 0, 0.2509803922), 0px 0px 4px 0px rgba(250, 170, 0, 0.2509803922);
+  margin: 0px auto 0px auto;
+  background-color: #000000;
+  border: 2px solid rgba(250, 170, 0, 0.2509803922);
+  height: 120px;
+  transition: height 0.2s ease-in-out, width 0.2s ease-in-out;
+  cursor: move;
+  position: relative;
+}
+.data-text-component .text-input-form .text-label-wrapper {
+  margin: 10px 0px 4px 0px;
+}
+.data-text-component .text-input-form .text-label-wrapper .list-label,
+.data-text-component .text-input-form .text-label-wrapper .text-label {
+  text-align: left;
+  display: block;
+  margin: 0px 0px 0px 4px;
+  width: 120px;
+  cursor: move;
+}
+.data-text-component .text-input-form .text-container {
+  display: flex;
+  align-items: start;
+  position: relative;
+}
+.data-text-component .text-input-form .text-container .text-input-wrapper {
+  display: flex;
+  position: relative;
+}
+.data-text-component .text-input-form .text-container .text-input-wrapper .enabled-list-input-field,
+.data-text-component .text-input-form .text-container .text-input-wrapper .enabled-text-input-field {
+  display: flex;
+  justify-content: left;
+  border-top: 2px solid rgba(250, 170, 0, 0.2509803922);
+  border-left: 2px solid rgba(250, 170, 0, 0.2509803922);
+  border-bottom: 2px solid rgba(250, 170, 0, 0.2509803922);
+  color: #fff;
+  border-right: 2px solid rgba(250, 170, 0, 0.2509803922);
+  background-color: #000;
+  height: 60px;
+  transition: height 0.2s ease-in-out;
+  resize: none;
+  cursor: text;
+  outline: 2px solid #000;
+  margin: 0px auto 0px 2px;
+}
+.data-text-component .text-input-form .text-container .text-input-wrapper .enabled-list-input-field:focus,
+.data-text-component .text-input-form .text-container .text-input-wrapper .enabled-text-input-field:focus {
+  height: 200px;
+  background-color: #000;
+}
+.data-text-component .text-input-form .text-container .text-input-wrapper .text-btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80px;
+  height: 24px;
+  z-index: 14;
+}
+.data-text-component .text-input-form .text-container .text-input-wrapper .text-btn-container .text-submit-btn-container {
+  display: flex;
+  justify-content: right;
+  margin: 5px auto 5px auto;
+}
+.data-text-component .text-input-form .text-container .text-input-wrapper .text-btn-container .text-submit-btn-container .text-btn-submit {
+  cursor: pointer;
+  height: 20px;
+  width: 70px;
+  outline: none;
+  background-color: #111;
+  color: #FBAA00;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+  border-left: 1px solid #555;
+  border-right: 1px solid #555;
+}
+.data-text-component .text-input-form .text-container .text-input-wrapper .text-btn-container .text-selection-wrapper {
+  margin: 5px auto 5px auto;
+}
+.data-text-component .text-input-form .text-container .text-input-wrapper .text-btn-container .text-selection-wrapper .select-text-type {
+  width: 70px;
+  outline: none;
+  background-color: #111;
+  color: #FBAA00;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+  border-left: 1px solid #555;
+  border-right: 1px solid #555;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023.9px) {
+  .data-text-component {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .data-text-component {
+    width: 350px;
+  }
+  .data-text-component .text-input-form {
+    width: 340px;
+  }
+  .data-text-component .text-input-form .text-label-wrapper .list-label,
+  .data-text-component .text-input-form .text-label-wrapper .text-label {
+    width: 200px;
+  }
+  .data-text-component .text-input-form .text-container .text-input-wrapper .enabled-list-input-field,
+  .data-text-component .text-input-form .text-container .text-input-wrapper .enabled-text-input-field {
+    width: 250px;
+  }
+}/*# sourceMappingURL=text.css.map */
