@@ -9,15 +9,18 @@ import {
   InputDate,
   InputDisabledText,
   InputEnabledText,
+  InputDisabledEmail,
+  InputEnabledEmail,
   InputPassword,
   InputSubmit,
-} from "../../../../components/form-elements/InputTypeInterfaces";
+} from "../../../../components/form-elements/dry-InputFormComponents";
 import { ChangeEvent, FormEvent, useState } from "react";
 import Label from "../../../../../src/components/form-elements/Label";
 import Button from "../../../../../src/components/form-elements/Button";
 import PipeSpan from "../../../../../src/components/PipeSpan";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useParams } from "react-router-dom";
+import { ToastContainer } from "react-toast";
+import { toast } from "react-toastify";
 interface formDataInterface {
   firstname: string;
   lastname: string;
@@ -42,6 +45,7 @@ interface formFieldToggleProps {
 
 const Info = ({ params }: any) => {
   // define form field data types and input
+  const { userid } = useParams();
   const [formData, setNewFormData] = useState<formDataInterface>({
     firstname: "",
     lastname: "",
@@ -122,39 +126,45 @@ const Info = ({ params }: any) => {
           }
 
           const updatedFormData = {
-            _id: params.data._id,
+            _id: userid,
             updateAccountData,
           };
 
           const updatedData = await fetch(
-            `http://localhost:5000/api/account/${params.data._id}/account-info`,
+            `http://localhost:5000/api/account/${userid}/account-info`,
             {
-              method: "PUT",
+              method: "PATCH",
               credentials: "include",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(updatedFormData),
             }
           );
           if (updatedData.ok) {
-            new Notification("Account Info Has Been Changed");
+            toast.success("Account Info Has Been Changed", {
+              autoClose: 2500,
+            });
           } else {
             const error = await updatedData.json();
-            new Notification("Account Info Not Updated: " + error.error);
+            autoClose: 2500;
+            toast.success(`Account Info Not Updated: ${error.error}`, {
+              autoClose: 4000,
+            });
           }
         }
       } catch (err: any) {
         console.warn("Something went wrong: ", err.message);
       }
     };
-    console.log("params: ", params);
+    // console.log("params: ", params);
 
     return (
       <>
+        <ToastContainer position="top-right"></ToastContainer>
         <DivClass className={"account-info-content"}>
           <div>
             <NavLink
               className="nav-link"
-              to={`http://localhost:5173/account/${params.data._id}/canvas-management`}
+              to={`/account/${userid}/canvas-management`}
             >
               <img
                 className="nav-image"
@@ -216,7 +226,7 @@ const Info = ({ params }: any) => {
                       className={"firstname-input"}
                       placeholder={""}
                       value={
-                        params.data.firstname
+                        params.data?.firstname
                           ? params.data.firstname
                           : "Not assigned"
                       }
@@ -281,7 +291,7 @@ const Info = ({ params }: any) => {
                       className={"lastname-input"}
                       placeholder={""}
                       value={
-                        params.data.lastname
+                        params.data?.lastname
                           ? params.data.lastname
                           : "Not assigned"
                       }
@@ -355,7 +365,9 @@ const Info = ({ params }: any) => {
                       className={"gender-input-disabled"}
                       placeholder={""}
                       value={
-                        params.data.gender ? params.data.gender : "Not assigned"
+                        params.data?.gender
+                          ? params.data.gender
+                          : "Not assigned"
                       }
                     />
                     <PipeSpan className={"form-pipe-span"} />
@@ -409,7 +421,9 @@ const Info = ({ params }: any) => {
                       id="dob"
                       className={"dob-input"}
                       placeholder={""}
-                      value={params.data.dob ? params.data.dob : "Not assigned"}
+                      value={
+                        params.data?.dob ? params.data.dob : "Not assigned"
+                      }
                     />
                     <PipeSpan className={"form-pipe-span"} />
                     <Button
@@ -436,7 +450,7 @@ const Info = ({ params }: any) => {
                 />
                 {formFieldToggle.email ? (
                   <DivClass className={"data-control-container"}>
-                    <InputEnabledText
+                    <InputEnabledEmail
                       id="email"
                       className={"email-input"}
                       placeholder={"Update your Email"}
@@ -464,12 +478,12 @@ const Info = ({ params }: any) => {
                 ) : (
                   // appear when form field email boolean state is false
                   <DivClass className={"data-control-container"}>
-                    <InputDisabledText
+                    <InputDisabledEmail
                       id="email"
                       className={"email-input"}
                       placeholder={""}
                       value={
-                        params.data.email ? params.data.email : "Not assigned"
+                        params.data?.email ? params.data.email : "Not assigned"
                       }
                     />
                     <PipeSpan className={"form-pipe-span"} />
@@ -590,7 +604,7 @@ const Info = ({ params }: any) => {
       </>
     );
   } catch (err: any) {
-    console.warn("Something went wrong: ", err.message);
+    console.warn("Something went wrong: ", err.message + ", more: ", err.stack);
   }
 };
 

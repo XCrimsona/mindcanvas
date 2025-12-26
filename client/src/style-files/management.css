@@ -23,11 +23,12 @@
   margin: 0px auto 0px auto;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
 }
-.main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .heading-one {
+.main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .canva-management-heading-one {
   color: #ffffff;
   margin: 0px auto 0px auto;
-  padding: 30px 0px 30px 0px;
+  padding: 10px 0px 0px 0px;
   text-align: center;
+  font-size: 32px;
 }
 .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets {
   overflow-x: hidden;
@@ -68,12 +69,13 @@
     max-height: 800px;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper {
-    width: 400px;
+    width: 98%;
+    height: 90vh;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets {
-    width: 400px;
-    min-height: 410px;
-    max-height: 410px;
+    width: 98%;
+    min-height: 40vh;
+    height: 70vh;
   }
 }
 @media screen and (min-width: 601px) and (max-width: 768.9px) {
@@ -81,17 +83,18 @@
     width: 400px;
   }
   .main-workspace-management-container .workspace-dashboard {
-    width: 480px;
+    width: 98%;
     min-height: 550px;
     max-height: 800px;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper {
-    width: 450px;
+    width: 98%;
+    height: 90vh;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets {
-    width: 450px;
-    min-height: 410px;
-    max-height: 410px;
+    width: 98%;
+    min-height: 40vh;
+    height: 70vh;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1440.9px) {
@@ -104,10 +107,11 @@
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper {
     width: 98%;
+    height: 93vh;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets {
     width: 620px;
-    height: 560px;
+    height: 670px;
     width: 98%;
   }
 }
@@ -121,10 +125,11 @@
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper {
     width: 98%;
+    height: 93vh;
   }
   .main-workspace-management-container .workspace-dashboard .workspace-sheets-wrapper .workspace-sheets {
     width: 620px;
-    height: 560px;
+    height: 670px;
     width: 98%;
   }
 }/*# sourceMappingURL=management.css.map */

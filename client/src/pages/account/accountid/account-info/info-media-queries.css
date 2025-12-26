@@ -1,7 +1,10 @@
 @media screen and (min-width: 300px) and (max-width: 425.9px) {
+  .account-info {
+    padding: 80px 0px 80px;
+  }
   .account-info .account-info-content {
-    height: auto;
     width: 280px;
+    height: auto;
   }
   .account-info .account-info-content .heading-one {
     width: 280px;
@@ -9,239 +12,109 @@
   .account-info .account-info-content .account-info-form {
     width: 280px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container {
-    width: 280px;
-  }
-  .account-info .account-info-content .account-info-form .firstname-container .update-firstname {
-    margin: 0px 0px 0px 0px;
-    width: 100px;
-    justify-content: left;
-  }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container {
-    width: 280px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input {
-    margin: 5px 0px;
+  .account-info .account-info-content .account-info-form div {
     width: 260px;
-    height: 13px;
+    margin: 5px auto 5px 8px;
+  }
+  .account-info .account-info-content .account-info-form div .update-firstname,
+  .account-info .account-info-content .account-info-form div .update-lastname,
+  .account-info .account-info-content .account-info-form div .update-gender,
+  .account-info .account-info-content .account-info-form div .update-dob,
+  .account-info .account-info-content .account-info-form div .update-email,
+  .account-info .account-info-content .account-info-form div .current-password,
+  .account-info .account-info-content .account-info-form div .new-password,
+  .account-info .account-info-content .account-info-form div .confirm-new-password {
+    width: 100px;
+    height: 32px;
+    margin: 0;
+    margin: 5px auto 0px 0px;
+    justify-content: start;
+    font-size: 14px;
+  }
+  .account-info .account-info-content .account-info-form div div {
+    width: 260px;
+    display: block;
+    margin: 5px auto 5px auto;
+  }
+  .account-info .account-info-content .account-info-form div div .firstname-input,
+  .account-info .account-info-content .account-info-form div div .lastname-input,
+  .account-info .account-info-content .account-info-form div div .gender-input,
+  .account-info .account-info-content .account-info-form div div .gender-input-disabled,
+  .account-info .account-info-content .account-info-form div div .dob-input,
+  .account-info .account-info-content .account-info-form div div .email-input,
+  .account-info .account-info-content .account-info-form div div .current-password-input,
+  .account-info .account-info-content .account-info-form div div .new-password-input,
+  .account-info .account-info-content .account-info-form div div .confirm-new-password-input {
+    height: 32px;
+    margin: 0px 0px 5px 0px;
     border-top: 2px solid #000000;
     border-bottom: 2px solid #FABB00;
     border-right: 2px solid #000000;
     border-left: 2px solid #FABB00;
+    width: 260px;
+    font-size: 12px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .form-pipe-span {
+  .account-info .account-info-content .account-info-form div div .gender-input-disabled,
+  .account-info .account-info-content .account-info-form div div .current-password-input,
+  .account-info .account-info-content .account-info-form div div .new-password-input,
+  .account-info .account-info-content .account-info-form div div .confirm-new-password-input {
+    height: 32px;
+    margin: 0px 0px 5px 0px;
+    width: 260px;
+    font-size: 12px;
+  }
+  .account-info .account-info-content .account-info-form div div .form-pipe-span {
     display: none;
     width: 20px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .disable-firstname-editing,
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .enable-firstname-editing {
-    margin: 0px;
+  .account-info .account-info-content .account-info-form div div .disable-firstname-editing,
+  .account-info .account-info-content .account-info-form div div .enable-firstname-editing,
+  .account-info .account-info-content .account-info-form div div .disable-lastname-editing,
+  .account-info .account-info-content .account-info-form div div .enable-lastname-editing,
+  .account-info .account-info-content .account-info-form div div .disable-gender-editing,
+  .account-info .account-info-content .account-info-form div div .enable-gender-editing,
+  .account-info .account-info-content .account-info-form div div .disable-dob-editing,
+  .account-info .account-info-content .account-info-form div div .enable-dob-editing,
+  .account-info .account-info-content .account-info-form div div .disable-email-editing,
+  .account-info .account-info-content .account-info-form div div .enable-email-editing {
     display: block;
-    height: 23px;
-    width: 264px;
+    width: 260px;
+    height: 32px;
+    margin-bottom: 10px;
     justify-content: start;
+    font-size: 14px;
   }
-  .account-info .account-info-content .account-info-form .lastname-container {
+  .account-info .account-info-content .account-info-form .form-processing-btn {
     width: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto 10px;
   }
-  .account-info .account-info-content .account-info-form .lastname-container .update-lastname {
-    width: 100px;
-    height: 23px;
-    margin: 0px 0px 0px 0px;
-    justify-content: left;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container {
-    width: 280px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input {
-    margin: 5px 0px;
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
     width: 260px;
-    height: 13px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
   }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .form-pipe-span {
-    display: none;
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .disable-lastname-editing,
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .enable-lastname-editing {
-    margin: 0px;
-    display: block;
-    height: 23px;
-    width: 264px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .gender-container {
-    width: 280px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .update-gender {
-    width: 100px;
-    height: 23px;
-    margin: 0px 0px 0px 0px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container {
-    width: 280px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input {
-    margin: 5px 0px;
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .cancel-submit,
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .submit-btn,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .cancel-submit,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn {
     width: 260px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
   }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input-disabled {
-    margin: 5px 0px;
-    width: 260px;
-    height: 17px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
+    margin: 50px 10px 10px;
   }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .form-pipe-span {
-    display: none;
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .disable-gender-editing,
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .enable-gender-editing {
-    margin: 0px;
-    display: block;
-    height: 23px;
-    width: 264px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .dob-container {
-    width: 280px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .update-dob {
-    width: 100px;
-    height: 23px;
-    margin: 0px 0px 0px 0px;
-    justify-content: left;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container {
-    width: 280px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input {
-    margin: 5px 0px;
-    width: 260px;
-    height: 13px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .form-pipe-span {
-    display: none;
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .disable-dob-editing,
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .enable-dob-editing {
-    margin: 0px;
-    display: block;
-    height: 23px;
-    width: 264px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .email-container {
-    width: 280px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .update-email {
-    width: 100px;
-    height: 23px;
-    margin: 0px 0px 0px 0px;
-    justify-content: left;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container {
-    width: 280px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .email-input {
-    margin: 5px 0px;
-    width: 260px;
-    height: 13px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .form-pipe-span {
-    display: none;
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .disable-email-editing,
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .enable-email-editing {
-    margin: 0px;
-    display: block;
-    height: 23px;
-    width: 264px;
-    justify-content: start;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container {
-    width: 280px;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container .current-password {
-    width: 260px;
-    margin: 0px 0px 0px 0px;
-    justify-content: left;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container .current-password-input {
-    width: 260px;
-    height: 17px;
-    margin: 5px 0px 5px 1px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container {
-    width: 280px;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container .new-password {
-    width: 260px;
-    margin: 0px 0px 0px 0px;
-    justify-content: left;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container .new-password-input {
-    margin: 5px 0px 5px 1px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-    width: 260px;
-    height: 17px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container {
-    width: 280px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password {
-    width: 260px;
-    margin: 0px 0px 0px 0px;
-    justify-content: left;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input {
-    width: 260px;
-    height: 17px;
-    margin: 5px 0px 5px 1px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container {
+    margin: 10px 10px 20px;
   }
 }
 @media screen and (min-width: 426px) and (max-width: 600.9px) {
+  .account-info {
+    padding: 80px 0px 80px;
+  }
   .account-info .account-info-content {
     width: 350px;
-    height: auto;
   }
   .account-info .account-info-content .heading-one {
     width: 300px;
@@ -249,222 +122,89 @@
   .account-info .account-info-content .account-info-form {
     width: 300px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container {
+  .account-info .account-info-content .account-info-form div {
     width: 300px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .update-firstname {
-    margin: 0px 0px 0px 0px;
+  .account-info .account-info-content .account-info-form div .update-firstname,
+  .account-info .account-info-content .account-info-form div .update-lastname,
+  .account-info .account-info-content .account-info-form div .update-gender,
+  .account-info .account-info-content .account-info-form div .update-dob,
+  .account-info .account-info-content .account-info-form div .update-email,
+  .account-info .account-info-content .account-info-form div .current-password,
+  .account-info .account-info-content .account-info-form div .new-password,
+  .account-info .account-info-content .account-info-form div .confirm-new-password {
     width: 100px;
+    font-size: 14px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container {
+  .account-info .account-info-content .account-info-form div div {
     width: 300px;
+    margin-bottom: 10px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input {
-    margin: 5px 0px 5px 1px;
+  .account-info .account-info-content .account-info-form div div .firstname-input,
+  .account-info .account-info-content .account-info-form div div .lastname-input,
+  .account-info .account-info-content .account-info-form div div .gender-input,
+  .account-info .account-info-content .account-info-form div div .gender-input-disabled,
+  .account-info .account-info-content .account-info-form div div .dob-input,
+  .account-info .account-info-content .account-info-form div div .email-input {
     width: 160px;
-    height: 13px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
+    height: 32px;
+    font-size: 12px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .form-pipe-span {
+  .account-info .account-info-content .account-info-form div div .form-pipe-span {
     width: 20px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .disable-firstname-editing {
-    height: 23px;
+  .account-info .account-info-content .account-info-form div div .disable-firstname-editing,
+  .account-info .account-info-content .account-info-form div div .enable-firstname-editing,
+  .account-info .account-info-content .account-info-form div div .disable-lastname-editing,
+  .account-info .account-info-content .account-info-form div div .enable-lastname-editing,
+  .account-info .account-info-content .account-info-form div div .disable-gender-editing,
+  .account-info .account-info-content .account-info-form div div .enable-gender-editing,
+  .account-info .account-info-content .account-info-form div div .disable-dob-editing,
+  .account-info .account-info-content .account-info-form div div .enable-dob-editing,
+  .account-info .account-info-content .account-info-form div div .disable-email-editing,
+  .account-info .account-info-content .account-info-form div div .enable-email-editing {
+    height: 32px;
     width: 100px;
+    font-size: 14px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .enable-firstname-editing {
-    height: 23px;
-    width: 100px;
+  .account-info .account-info-content .account-info-form div div .current-password-input,
+  .account-info .account-info-content .account-info-form div div .new-password-input,
+  .account-info .account-info-content .account-info-form div div .confirm-new-password-input {
+    width: 300px;
+    height: 32px;
+    font-size: 12px;
   }
-  .account-info .account-info-content .account-info-form .lastname-container {
+  .account-info .account-info-content .account-info-form .form-processing-btn {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto 10px;
+  }
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
     width: 300px;
   }
-  .account-info .account-info-content .account-info-form .lastname-container .update-lastname {
-    width: 100px;
-    height: 23px;
-    margin: 0px 0px 0px 0px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container {
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .cancel-submit,
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .submit-btn,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .cancel-submit,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn {
     width: 300px;
   }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input {
-    margin: 5px 0px 5px 1px;
-    width: 160px;
-    height: 13px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
+    margin: 50px 10px 10px;
   }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .form-pipe-span {
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .disable-lastname-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .enable-lastname-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .update-gender {
-    width: 100px;
-    height: 23px;
-    margin: 0px 0px 0px 0px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input {
-    margin: 5px 0px 5px 1px;
-    width: 167px;
-    height: 23px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input-disabled {
-    margin: 5px 0px 5px 1px;
-    width: 160px;
-    height: 13px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .form-pipe-span {
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .disable-gender-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .enable-gender-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .update-dob {
-    width: 100px;
-    height: 23px;
-    margin: 0px 0px 0px 0px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input {
-    margin: 5px 0px 5px 1px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-    width: 160px;
-    height: 13px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .form-pipe-span {
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .disable-dob-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .enable-dob-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .email-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .update-email {
-    width: 100px;
-    height: 23px;
-    margin: 0px 0px 0px 0px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .email-input {
-    width: 160px;
-    height: 13px;
-    margin: 5px 0px 5px 1px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .form-pipe-span {
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .disable-email-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .enable-email-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container .current-password {
-    width: 300px;
-    margin: 0px 0px 0px 0px;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container .current-password-input {
-    width: 300px;
-    height: 17px;
-    margin: 5px 0px 5px 1px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container .new-password {
-    width: 300px;
-    margin: 0px 0px 0px 0px;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container .new-password-input {
-    margin: 5px 0px 5px 1px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
-    width: 300px;
-    height: 17px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password {
-    width: 300px;
-    margin: 0px 0px 0px 0px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password-input {
-    width: 300px;
-    height: 17px;
-    margin: 5px 0px 5px 1px;
-    border-top: 2px solid #000000;
-    border-bottom: 2px solid #FABB00;
-    border-right: 2px solid #000000;
-    border-left: 2px solid #FABB00;
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container {
+    margin: 10px 10px 20px;
   }
 }
 @media screen and (min-width: 601px) {
+  .account-info {
+    padding: 80px 0px;
+  }
   .account-info .account-info-content {
     width: 540px;
-    height: 480px;
   }
   .account-info .account-info-content .heading-one {
     width: 300px;
@@ -472,171 +212,77 @@
   .account-info .account-info-content .account-info-form {
     width: 510px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container {
+  .account-info .account-info-content .account-info-form div {
     width: 510px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .update-firstname {
+  .account-info .account-info-content .account-info-form div .update-firstname,
+  .account-info .account-info-content .account-info-form div .update-lastname,
+  .account-info .account-info-content .account-info-form div .update-gender,
+  .account-info .account-info-content .account-info-form div .update-dob,
+  .account-info .account-info-content .account-info-form div .update-email,
+  .account-info .account-info-content .account-info-form div .current-password,
+  .account-info .account-info-content .account-info-form div .new-password,
+  .account-info .account-info-content .account-info-form div .confirm-new-password {
     width: 200px;
+    font-size: 14px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container {
-    width: 300px;
+  .account-info .account-info-content .account-info-form div div {
+    width: 510px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px auto 20px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .firstname-input {
-    width: 170px;
-    height: 13px;
+  .account-info .account-info-content .account-info-form div div .firstname-input,
+  .account-info .account-info-content .account-info-form div div .lastname-input,
+  .account-info .account-info-content .account-info-form div div .gender-input,
+  .account-info .account-info-content .account-info-form div div .gender-input-disabled,
+  .account-info .account-info-content .account-info-form div div .dob-input,
+  .account-info .account-info-content .account-info-form div div .email-input {
+    width: 350px;
+    height: 32px;
+    font-size: 12px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .form-pipe-span {
+  .account-info .account-info-content .account-info-form div div .form-pipe-span {
     width: 20px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .disable-firstname-editing {
-    height: 23px;
+  .account-info .account-info-content .account-info-form div div .disable-firstname-editing,
+  .account-info .account-info-content .account-info-form div div .enable-firstname-editing,
+  .account-info .account-info-content .account-info-form div div .disable-lastname-editing,
+  .account-info .account-info-content .account-info-form div div .enable-lastname-editing,
+  .account-info .account-info-content .account-info-form div div .disable-gender-editing,
+  .account-info .account-info-content .account-info-form div div .enable-gender-editing,
+  .account-info .account-info-content .account-info-form div div .disable-dob-editing,
+  .account-info .account-info-content .account-info-form div div .enable-dob-editing,
+  .account-info .account-info-content .account-info-form div div .disable-email-editing,
+  .account-info .account-info-content .account-info-form div div .enable-email-editing {
+    height: 32px;
     width: 100px;
+    font-size: 14px;
   }
-  .account-info .account-info-content .account-info-form .firstname-container .data-control-container .enable-firstname-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container {
+  .account-info .account-info-content .account-info-form div div .current-password-input,
+  .account-info .account-info-content .account-info-form div div .new-password-input,
+  .account-info .account-info-content .account-info-form div div .confirm-new-password-input {
     width: 510px;
+    height: 32px;
   }
-  .account-info .account-info-content .account-info-form .lastname-container .update-lastname {
-    width: 200px;
-    height: 23px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .lastname-input {
-    width: 170px;
-    height: 13px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .form-pipe-span {
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .disable-lastname-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .lastname-container .data-control-container .enable-lastname-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container {
+  .account-info .account-info-content .account-info-form .form-processing-btn {
     width: 510px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .account-info .account-info-content .account-info-form .gender-container .update-gender {
-    width: 200px;
-    height: 23px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input {
-    width: 170px;
-    height: 23px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .gender-input-disabled {
-    width: 170px;
-    height: 13px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .form-pipe-span {
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .disable-gender-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .gender-container .data-control-container .enable-gender-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container {
-    width: 510px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .update-dob {
-    width: 200px;
-    height: 23px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .dob-input {
-    width: 170px;
-    height: 13px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .form-pipe-span {
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .disable-dob-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .dob-container .data-control-container .enable-dob-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .email-container {
-    width: 510px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .update-email {
-    width: 200px;
-    height: 23px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .email-input {
-    width: 170px;
-    height: 13px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .form-pipe-span {
-    width: 20px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .disable-email-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .email-container .data-control-container .enable-email-editing {
-    height: 23px;
-    width: 100px;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container {
-    width: 510px;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container .current-password {
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
     width: 200px;
   }
-  .account-info .account-info-content .account-info-form .current-password-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .current-password-container .data-control-container .current-password-input {
-    width: 300px;
-    height: 17px;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container {
-    width: 510px;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container .new-password {
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .cancel-submit,
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .submit-btn,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .cancel-submit,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn {
     width: 200px;
   }
-  .account-info .account-info-content .account-info-form .new-password-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .new-password-container .data-control-container .new-password-input {
-    width: 300px;
-    height: 17px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container {
-    width: 510px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container .confirm-new-password {
-    width: 200px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container .data-control-container {
-    width: 300px;
-  }
-  .account-info .account-info-content .account-info-form .confirm-new-password-container .data-control-container .confirm-new-password-input {
-    width: 300px;
-    height: 17px;
+  .account-info .account-info-content .account-info-form .form-processing-btn .submit-container,
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
+    margin: 30px 10px 20px;
   }
 }/*# sourceMappingURL=info-media-queries.css.map */

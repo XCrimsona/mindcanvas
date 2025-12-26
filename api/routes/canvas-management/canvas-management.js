@@ -31,7 +31,7 @@ canvasManagementRouter
                     response.status(200).json({
                         success: false,
                         status: 200,
-                        code: "NO_WORKSPACE_DATA",
+                        code: "NO_CANVA_DATA",
                         message: "Create a workspace to begin",
                     });
                 }
@@ -39,7 +39,7 @@ canvasManagementRouter
 
                     response.status(200).json({
                         success: true,
-                        code: "RECEIVED_WORKSPACE_DATA",
+                        code: "RECEIVED_CANVA_DATA",
                         status: 200,
                         data: workspaces,
                     }
@@ -49,7 +49,7 @@ canvasManagementRouter
         } catch (err) {
             response.status(500).json({
                 success: false,
-                code: "SERVER_WORKSPACE_ERROR",
+                code: "SERVER_CANVA_ERROR",
                 status: 500,
                 message: "The server side workspace has issues",
             }
@@ -98,7 +98,7 @@ canvasManagementRouter
                     response.status(201).json(
                         {
                             success: true,
-                            code: "CREATED_WORKSPACE",
+                            code: "CREATED_CANVA",
                             status: 201,
                             message: "New workspace saved",
                         }
@@ -118,7 +118,7 @@ canvasManagementRouter
         } catch (err) {
             response.status(500).json({
                 success: false,
-                code: "SERVER_WORKSPACE_ERROR",
+                code: "SERVER_CANVA_ERROR",
                 status: 500,
                 message: "The server side workspace has issues",
             }
@@ -148,7 +148,7 @@ canvasManagementRouter
                 if (!workspace) {
                     response.status(404).json({
                         success: false,
-                        code: "MISSING_WORKSPACE_DATA",
+                        code: "MISSING_CANVA_DATA",
                         status: 404,
                         message: "Workspace not found",
                     }
@@ -187,7 +187,7 @@ canvasManagementRouter
                         response.status(201).json(
                             {
                                 success: true,
-                                code: "WORKSPACE_MANAGEMENT_DATA_PATCHED",
+                                code: "CANVA_MANAGEMENT_DATA_PATCHED",
                                 status: 201,
                                 message: "User data component updated",
                             }
@@ -203,7 +203,7 @@ canvasManagementRouter
             } catch (err) {
                 response.status(500).json({
                     success: false,
-                    code: "SERVER_WORKSPACE_ERROR",
+                    code: "SERVER_CANVA_ERROR",
                     status: 500,
                     message: "The server side workspace has issues",
                 }

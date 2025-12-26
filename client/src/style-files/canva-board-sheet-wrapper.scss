@@ -1,157 +1,181 @@
 @use '../styles/index' as style;
 
 .workspace-sheet-wrapper {
-    @include style.display-align(block);
-    @include style.background-color(#000000);
-    @include style.border-radius(style.$space-4);
-    box-shadow: style.$space-0 style.$space-0 style.$space-10 style.$space-0 #FABB00B2;
-    box-shadow: inset style.$space-0 style.$space-0 style.$space-8 style.$space-0 #FABB00B2;
-    @include style.margin-x-y(style.$space-20, style.$auto, style.$space-20 , style.$auto );
-    @include style.padding-x-y(style.$space-2, style.$space-0, style.$space-2 , style.$space-0 );
+    display: block;
+    background-color: #000000;
+    border-radius: 4px;
+
+    box-shadow: 0px 0px 10px 0px #FABB00B2,
+        inset 0px 0px 8px 0px #FABB00B2;
+
+    margin: 20px auto 20px auto;
+    padding: 2px 0px 2px 0px;
+
     transition: width .2s ease-in-out, height .2s ease-in-out;
-    @include style.max-height(140px);
-    @include style.height(auto);
+    min-height: 160px;
+    height: auto;
 
     .workspace-sheet {
-        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+        margin: 0px auto 0px auto;
         transition: width .2s ease-in-out, height .2s ease-in-out;
 
         .workspace-sheet-forefront-data {
-            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-            @include style.display-align(flex);
-            @include style.flex-align(wrap);
-            @include style.align-content(flex-start);
-            @include style.justify-content(left);
-            @include style.text-color(#fff);
+            margin: 0px auto 0px auto;
+            display: block;
+            position: relative;
+            // justify-content: center;
+            // flex-wrap: wrap;
+            // align-content: flex-start;
+            // justify-content: left;
+            color: #fff;
 
-            .dynamic-workspace-route {
-                @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
-                @include style.display-align(flex);
-                @include style.justify-items(center);
-                transform: rotate(180deg);
-                @include style.align-items(center);
+            button {
+                margin: 0px 0px 0px auto;
+                float: right;
 
-                .forward-to-workspace-icon {
-                    @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-10 );
-                    @include style.display-align(flex);
-                    @include style.justify-content(left);
-                    @include style.align-content(center);
+                .dynamic-workspace-route {
+                    display: block;
+                    float: right;
+                    // display: flex;
+                    // justify-items: center;
+                    // align-items: center;
+                    transform: rotate(136deg);
+
+                    .forward-to-workspace-icon {
+                        margin: 0px auto 0px auto;
+
+                        // margin: 0px;
+                        // display: flex;
+                        // justify-content: left;
+                        // align-content: center;
+                    }
                 }
             }
 
             .new-temp-update-description-field-workspace-name,
             .workspace-name {
-                @include style.height(20px);
-                @include style.display-align(block);
-                @include style.flex-align(wrap);
-                @include style.justify-content(left);
-                @include style.align-content(flex-start);
+                height: 20px;
+                display: block;
+                // flex-wrap: wrap;
+                // justify-content: left;
+                // align-content: flex-start;
+
                 transition: border .2s ease-in-out, height .2s ease-in-out, width .2s ease-in-out;
-                @include style.border-top (style.$space-2, solid, transparent);
-                @include style.border-left (style.$space-2, solid, transparent);
-                @include style.border-right (style.$space-2, solid, transparent);
-                @include style.border-bottom (style.$space-2, solid, #FABB00DD);
-                @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-4, style.$space-0);
-                outline: style.$space-2 solid #000000;
-                @include style.background-color(#000000);
-                @include style.text-color(#fff);
+
+                border-top: 2px solid transparent;
+                border-left: 2px solid transparent;
+                border-right: 2px solid transparent;
+                border-bottom: 2px solid #FABB00DD;
+
+                margin: 20px 0px 4px 0px;
+                outline: 2px solid #000000;
+                font-size: 12px;
+                background-color: #000000;
+                color: #fff;
                 cursor: pointer;
             }
 
             .new-temp-update-description-field-workspace-name::placeholder,
             .workspace-name::placeholder {
-                @include style.text-color(#fff);
+                color: #fff;
+                font-size: 12px;
             }
 
             .new-temp-update-description-field-workspace-name:focus,
             .workspace-name:focus {
-                @include style.border-top (style.$space-2, solid, #000000);
-                @include style.border-left (style.$space-2, solid, #000000);
-                @include style.border-right (style.$space-2, solid, #FABB00DD);
-                @include style.border-bottom (style.$space-2, solid, #FABB00DD);
-                @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-4, style.$space-0);
-                outline: style.$space-2 solid #000000;
-                @include style.background-color(#000000);
-                @include style.text-color(#fff);
+                border-top: 2px solid #000000;
+                border-left: 2px solid #000000;
+                border-right: 2px solid #FABB00DD;
+                border-bottom: 2px solid #FABB00DD;
+
+                margin: 0px 0px 4px 0px;
+                outline: 2px solid #000000;
+                font-size: 12px;
+                background-color: #000000;
+                color: #fff;
                 cursor: pointer;
             }
 
             .new-temp-update-description-field-workspace-description,
             .workspace-description {
-                @include style.height(40px);
-                @include style.max-height(60px);
-                @include style.display-align(flex);
-                @include style.flex-align(wrap);
-                @include style.align-items(flex-start);
-                @include style.justify-items(left);
-                transition: border .2s ease-in-out,
-                    height .2s ease-in-out;
-                @include style.border-top (style.$space-2, solid, transparent);
-                @include style.border-left (style.$space-2, solid, transparent);
-                @include style.border-right (style.$space-2, solid, transparent);
-                @include style.border-bottom (style.$space-2, solid, #FABB00DD);
-                @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-4, style.$space-0);
-                outline: style.$space-2 solid #000000;
-                @include style.background-color(#000000);
-                @include style.text-color(#fff);
+                height: 60px;
+                max-height: 100px;
+
+                // display: flex;
+                // flex-wrap: wrap;
+                // align-items: flex-start;
+                // justify-items: left;
+
+                transition: border .2s ease-in-out, height .2s ease-in-out;
+
+                border-top: 2px solid transparent;
+                border-left: 2px solid transparent;
+                border-right: 2px solid transparent;
+                border-bottom: 2px solid #FABB00DD;
+
+                margin: 0px 0px 4px 0px;
+                outline: 2px solid #000000;
+                font-size: 12px;
+                background-color: #000000;
+                color: #fff;
+
                 resize: none;
                 cursor: pointer;
             }
 
             .new-temp-update-description-field-workspace-description::placeholder,
             .workspace-description::placeholder {
-                @include style.text-color(#fff);
+                color: #fff;
+                font-size: 12px;
             }
 
             .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
-                @include style.border-top (style.$space-2, solid, #000000);
-                @include style.border-left (style.$space-2, solid, #000000);
-                @include style.border-right (style.$space-2, solid, #FABB00DD);
-                @include style.border-bottom (style.$space-2, solid, #FABB00DD);
-                @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-4, style.$space-0);
-                @include style.text-color(#fff);
-                @include style.background-color(#000000);
-                outline: style.$space-2 solid #000000;
+                border-top: 2px solid #000000;
+                border-left: 2px solid #000000;
+                border-right: 2px solid #FABB00DD;
+                border-bottom: 2px solid #FABB00DD;
+
+                margin: 0px 0px 4px 0px;
+                outline: 2px solid #000000;
+                font-size: 12px;
+                background-color: #000000;
+                color: #fff;
                 cursor: pointer;
             }
         }
 
         .workspace-buttons-container {
-            @include style.display-align(flex);
-            @include style.align-content(center);
-            @include style.justify-content(center);
+            display: flex;
+            align-content: center;
+            justify-content: center;
 
-            //view and edit workspace sheet buttons
             .workspace-toggle-edit-btns {
-                @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0, style.$auto);
+                margin: 0px auto 0px auto;
 
                 .edit-mode,
                 .view-mode {
-                    @include style.margin-x-y(style.$space-2, style.$auto, style.$space-2, style.$auto);
-                    @include style.text-color(#FABB00);
-                    @include style.align-text(center);
-                    @include style.background-color(#000000);
-                    @include style.border-top (style.$space-2, solid, #000000);
-                    @include style.border-left (style.$space-2, solid, #000000);
-                    @include style.border-right (style.$space-2, solid, #000000);
-                    @include style.border-bottom (style.$space-2, solid, #000000);
+                    margin: 2px auto 2px auto;
+                    color: #FABB00;
+                    text-align: center;
+                    background-color: #000000;
+
+                    border: 2px solid #000000;
+                    font-size: 14px;
                     text-transform: uppercase;
                     text-decoration: underline;
                     cursor: pointer;
                 }
             }
 
-            //to update workspace specifically edited data
             .update-workspace-sheet {
-                @include style.margin-x-y(style.$space-2, style.$auto, style.$space-2, style.$auto);
-                @include style.text-color(#FABB00);
-                @include style.align-text(center);
-                @include style.background-color(#000000);
-                @include style.border-top (style.$space-2, solid, #000000);
-                @include style.border-left (style.$space-2, solid, #000000);
-                @include style.border-right (style.$space-2, solid, #000000);
-                @include style.border-bottom (style.$space-2, solid, #000000);
+                margin: 2px auto 2px auto;
+                color: #FABB00;
+                text-align: center;
+                background-color: #000000;
+
+                border: 2px solid #000000;
+                font-size: 14px;
                 text-transform: uppercase;
                 text-decoration: underline;
                 cursor: pointer;
@@ -160,130 +184,49 @@
     }
 
     .workspace-sheet-temp-field {
-        @include style.margin-x-y(style.$space-20, style.$auto, style.$space-20 , style.$auto );
+        margin: 20px auto 20px auto;
+        transition: width .2s ease-in-out, height .2s ease-in-out;
 
-        .workspace-name {
-            @include style.width(250px);
-        }
-
-        .workspace-name:focus {
-            @include style.width(250px);
-        }
-
+        .workspace-name,
         .workspace-description {
-            @include style.width(250px);
+            width: 250px;
+            border-top: 2px solid #000000;
+            border-left: 2px solid #000000;
+            border-right: 2px solid #000000;
+            border-bottom: 2px solid #FABB00DD;
+            resize: none;
+            margin: 20px auto 4px 10px;
+            outline: 2px solid #000000;
+            font-size: 12px;
+            background-color: #000000;
+            color: #fff;
+            cursor: pointer;
+            transition: border .2s ease-in-out;
         }
 
+        .workspace-name:focus,
         .workspace-description:focus {
-            @include style.width(250px);
+            outline: 2px solid #000000;
+            border-right: 2px solid #FABB00DD;
         }
-
-        transition: width .2s ease-in-out,
-        height .2s ease-in-out;
 
         .workspace-sheet-forefront-data {
-            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-            @include style.display-align(flex);
-            @include style.flex-align(wrap);
-            @include style.align-content(flex-start);
-            @include style.justify-content(left);
-            @include style.text-color(#fff);
+            margin: 0px auto 0px auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: left;
+            color: #fff;
 
-            .dynamic-workspace-route {
-                @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
-                @include style.display-align(flex);
-                @include style.justify-items(center);
-                transform: rotate(180deg);
-                @include style.align-items(center);
-
-                .forward-to-workspace-icon {
-                    @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-10 );
-                    @include style.display-align(flex);
-                    @include style.justify-content(left);
-                    @include style.align-content(center);
-                }
-            }
-
-            .workspace-name {
-                @include style.height(20px);
-                @include style.display-align(block);
-                @include style.flex-align(wrap);
-                @include style.justify-content(left);
-                @include style.align-content(flex-start);
-                transition: border .2s ease-in-out, height .2s ease-in-out;
-                @include style.border-top (style.$space-2, solid, transparent);
-                @include style.border-left (style.$space-2, solid, transparent);
-                @include style.border-right (style.$space-2, solid, transparent);
-                @include style.border-bottom (style.$space-2, solid, #FABB00DD);
-                @include style.margin-x-y(style.$space-0, style.$auto, style.$space-4, style.$auto);
-                outline: style.$space-2 solid #000000;
-                @include style.background-color(#000000);
-                @include style.text-color(#fff);
-                cursor: pointer;
-            }
-
-            .workspace-name::placeholder {
-                @include style.text-color(#fff);
-            }
-
-            .workspace-name:focus {
-                @include style.border-top (style.$space-2, solid, #000000);
-                @include style.border-left (style.$space-2, solid, #000000);
-                @include style.border-right (style.$space-2, solid, #FABB00DD);
-                @include style.border-bottom (style.$space-2, solid, #FABB00DD);
-                @include style.margin-x-y(style.$space-0, style.$auto, style.$space-4, style.$auto);
-                outline: style.$space-2 solid #000000;
-                @include style.background-color(#000000);
-                @include style.text-color(#fff);
-                cursor: pointer;
-            }
-
-            .workspace-description {
-                @include style.height(60px);
-                @include style.max-height(40px);
-                @include style.display-align(flex);
-                @include style.flex-align(wrap);
-                @include style.align-items(flex-start);
-                @include style.justify-items(left);
-                transition: border .2s ease-in-out,
-                    height .2s ease-in-out;
-                @include style.border-top (style.$space-2, solid, transparent);
-                @include style.border-left (style.$space-2, solid, transparent);
-                @include style.border-right (style.$space-2, solid, transparent);
-                @include style.border-bottom (style.$space-2, solid, #FABB00DD);
-                @include style.margin-x-y(style.$space-0, style.$auto, style.$space-4, style.$auto);
-                outline: style.$space-2 solid #000000;
-                @include style.background-color(#000000);
-                @include style.text-color(#fff);
-                resize: none;
-                cursor: pointer;
-            }
-
-            .workspace-description::placeholder {
-                @include style.text-color(#fff);
-            }
-
-            .workspace-description:focus {
-                @include style.border-top (style.$space-2, solid, #000000);
-                @include style.border-left (style.$space-2, solid, #000000);
-                @include style.border-right (style.$space-2, solid, #FABB00DD);
-                @include style.border-bottom (style.$space-2, solid, #FABB00DD);
-                @include style.margin-x-y(style.$space-0, style.$auto, style.$space-4, style.$auto);
-                @include style.text-color(#fff);
-                @include style.background-color(#000000);
-                outline: style.$space-2 solid #000000;
-                cursor: pointer;
-            }
 
             .create-workspace-sheet {
-                @include style.margin-x-y(style.$space-2, style.$auto, style.$space-2, style.$auto);
-                @include style.text-color(#FABB00);
-                @include style.align-text(center);
-                @include style.background-color(#000000);
-                @include style.border-top (style.$space-2, solid, #000000);
-                @include style.border-left (style.$space-2, solid, #000000);
-                @include style.border-right (style.$space-2, solid, #000000);
-                @include style.border-bottom (style.$space-2, solid, #000000);
+                margin: 10px auto 10px auto;
+                color: #FABB00;
+                text-align: center;
+                background-color: #000000;
+
+                border: 2px solid #000000;
+
                 text-transform: uppercase;
                 text-decoration: underline;
                 cursor: pointer;
@@ -295,36 +238,36 @@
 
 @media screen and (min-width:320px) and (max-width:425.9px) {
     .workspace-sheet-wrapper {
-        @include style.width(260px);
+        width: 260px;
 
         .workspace-sheet {
-            @include style.width(240px);
+            width: 240px;
 
             .workspace-sheet-forefront-data {
                 .dynamic-workspace-route {
-                    @include style.width(40px);
+                    width: 40px;
 
                     .forward-to-workspace-icon {
-                        @include style.width(20px);
-                        @include style.height(30px);
+                        width: 20px;
+                        height: 30px;
                     }
                 }
             }
 
             .workspace-name {
-                @include style.width(174px);
+                width: 17214px4px;
             }
 
             .workspace-name:focus {
-                @include style.width(174px);
+                width: 214px;
             }
 
             .workspace-description {
-                @include style.width(214px);
+                width: 214px;
             }
 
             .workspace-description:focus {
-                @include style.width(214px);
+                width: 214px;
             }
         }
     }
@@ -332,36 +275,36 @@
 
 @media screen and (min-width:426px) and (max-width:600.9px) {
     .workspace-sheet-wrapper {
-        @include style.width(370px);
+        width: 370px;
 
         .workspace-sheet {
-            @include style.width(360px);
+            width: 360px;
 
             .workspace-sheet-forefront-data {
                 .dynamic-workspace-route {
-                    @include style.width(40px);
+                    width: 40px;
 
                     .forward-to-workspace-icon {
-                        @include style.width(20px);
-                        @include style.height(30px);
+                        width: 20px;
+                        height: 30px;
                     }
                 }
             }
 
             .workspace-name {
-                @include style.width(250px);
+                width: 290px;
             }
 
             .workspace-name:focus {
-                @include style.width(250px);
+                width: 290px;
             }
 
             .workspace-description {
-                @include style.width(290px);
+                width: 290px;
             }
 
             .workspace-description:focus {
-                @include style.width(290px);
+                width: 290px;
             }
         }
     }
@@ -369,40 +312,40 @@
 
 @media screen and (min-width:601px) and (max-width:768.9px) {
     .workspace-sheet-wrapper {
-        @include style.width(400px);
+        width: 400px;
 
         .workspace-sheet {
-            @include style.width(360px);
+            width: 360px;
 
             .workspace-sheet-forefront-data {
                 .dynamic-workspace-route {
-                    @include style.width(40px);
+                    width: 40px;
 
                     .forward-to-workspace-icon {
-                        @include style.width(20px);
-                        @include style.height(30px);
+                        width: 20px;
+                        height: 30px;
                     }
                 }
             }
 
             .new-temp-update-description-field-workspace-name,
             .workspace-name {
-                @include style.width(250px);
+                width: 290px;
             }
 
             .new-temp-update-description-field-workspace-name:focus,
             .workspace-name:focus {
-                @include style.width(250px);
+                width: 290px;
             }
 
             .new-temp-update-description-field-workspace-description,
             .workspace-description {
-                @include style.width(290px);
+                width: 290px;
             }
 
             .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
-                @include style.width(290px);
+                width: 290px;
             }
         }
     }
@@ -410,53 +353,51 @@
 
 @media screen and (min-width:769px) {
     .workspace-sheet-wrapper {
-        @include style.width(300px);
-        @include style.margin-x-y(style.$space-20, style.$auto, style.$space-20 , style.$auto );
+        width: 300px;
+        margin: 20px auto 20px auto;
 
         .workspace-sheet {
-            @include style.width(280px);
-            @include style.margin-x-y(style.$space-20, style.$auto, style.$space-20 , style.$auto );
+            width: 280px;
+            margin: 20px auto 20px auto;
 
             .workspace-sheet-forefront-data {
                 .dynamic-workspace-route {
-                    @include style.width(32px);
+                    width: 32px;
 
                     .forward-to-workspace-icon {
-                        @include style.height(20px);
+                        height: 20px;
                     }
                 }
             }
 
             .new-temp-update-description-field-workspace-name,
             .workspace-name {
-                @include style.width(218px);
+                width: 250px;
             }
-
-
 
             .new-temp-update-description-field-workspace-name:focus,
             .workspace-name:focus {
-                @include style.width(218px);
+                width: 250px;
             }
 
             .new-temp-update-description-field-workspace-description,
             .workspace-description {
-                @include style.width(250px);
+                width: 250px;
             }
 
             .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
-                @include style.width(250px);
+                width: 250px;
             }
 
             .workspace-buttons-container {
-                @include style.width(250px);
+                width: 250px;
 
                 .workspace-toggle-edit-btns {
 
                     .edit-mode,
                     .view-mode {
-                        @include style.width(100px);
+                        width: 100px;
                     }
                 }
             }

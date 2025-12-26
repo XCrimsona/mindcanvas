@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../../../../../components/form-elements/Button";
 import { DivClass } from "../../../../../../ui/Div";
-import { EnabledTextAreaInput } from "../../../../../../components/mass-workspace-elements/MassWorkspaceInputComponents";
+import { EnabledTextAreaInput } from "../../../../../../components/media-retrieved-components/MediaInputComponents";
 import Label from "../../../../../../components/form-elements/Label";
 import { useCanvasContext } from "../canva-data-provider/CanvasDataContextProvider";
 import Select from "../../../../../../ui/selection/Select";

@@ -1,158 +1,143 @@
-@use '../../styles/index' as style;
-
-.sign-in-page,
-.sign-up-page {
+.sign-in-page {
+    height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    @include style.margin-x-y(style.$space-0 , style.$auto, style.$space-0 , style.$auto );
-    @include style.padding-x-y(style.$space-0 ,
-        style.$space-0,
-        style.$space-0,
-        style.$space-0);
+    padding: 0px 0px 0px 0px;
 
-    min-height: 100vh;
+}
+
+.sign-up-page {
+    padding: 80px 0px 80px;
+    // margin: 80px 0px 80px;
+}
+
+.sign-in-page,
+.sign-up-page {
+    margin: 0px auto 0px auto;
+
 
     .sign-in-block,
     .sign-up-block {
-        //signin styling
         display: block;
-        // border: style.$space-2 solid #FABB00aa;
-        // backdrop-filter: blur(20px);
-        border: style.$space-2 solid #FABB00;
-        @include style.background-color(#0009);
-        @include style.margin-x-y(style.$space-0 , style.$auto, style.$space-0 , style.$auto );
-        @include style.padding-x-y(style.$space-6 ,
-            style.$space-6,
-            style.$space-6 ,
-            style.$space-6 );
+        border: 2px solid #FABB00;
+        background-color: rgba(0, 0, 0, 0.6); // from @include style.background-color(#0009)
+        margin: 0px auto 0px auto;
+        padding: 6px 6px 6px 6px;
         border-radius: 10px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        box-shadow: style.$space-0 style.$space-0 style.$space-8 style.$space-3 rgba(250, 187, 0, 0.251),
-            style.$space-0 style.$space-4 style.$space-4 style.$space-3 rgba(0, 0, 0, 0.25);
+        // overflow-x: hidden;
+        // overflow-y: auto;
+        box-shadow: 0px 0px 8px 3px rgba(250, 187, 0, 0.251),
+            0px 4px 4px 3px rgba(0, 0, 0, 0.25);
 
         .heading-one {
-            @include style.display-align(block);
-            @include style.margin-x-y(style.$space-30 , style.$auto, style.$space-30 , style.$auto );
-            @include style.padding-x-y(style.$space-0 ,
-                style.$space-0,
-                style.$space-0,
-                style.$space-0 );
-            @include style.text-color(#FFFFFF);
+            display: block;
+            // margin: 30px auto 30px auto;
+            padding: 0px;
+            color: #FFFFFF;
         }
 
         .form-sign-in {
-            @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
-            // font-size: 14px;
+            margin: 0px auto 0px auto;
 
             .form-data-container {
-                @include style.display-align(flex);
-                @include style.justify-content(center);
-                @include style.align-items(center);
-                @include style.text-color(#FFFFFF);
-                @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
+                color: #FFFFFF;
+                margin: 0px auto 0px auto;
 
                 .sign-in-label {
                     .sign-in-label {
                         position: relative;
-                        @include style.display-align(block);
-                        @include style.margin-x-y(style.$space-2, style.$auto , style.$space-2 , style.$auto );
+                        display: block;
+                        margin: 2px auto 2px auto;
                     }
-
-                    // .sign-in-label::after {
-                    //     content: ":";
-                    //     color: #fff;
-                    //     display: block;
-                    //     height: 20px;
-                    //     width: 10px;
-                    //     height: inherit;
-                    // }
                 }
 
                 .input-wrapper {
 
                     .email-input,
                     .password-input {
-                        @include style.display-align(block);
-                        @include style.margin-x-y(style.$space-2, style.$auto , style.$space-2 , style.$space-0 );
-                        outline: style.$space-2 solid transparent;
-                        @include style.background-color(rgba(0, 0, 0, 0.6));
+                        display: block;
+                        margin: 2px auto 2px 0px;
+                        outline: 1px solid transparent;
+                        background-color: rgba(0, 0, 0, 0.6);
                         border: none;
                         padding: 6px 2px 6px 6px;
-                        border-left: style.$space-1 solid #FABB00;
-                        border-bottom: style.$space-1 solid #FABB00;
+                        border-left: 1px solid #FABB00;
+                        border-bottom: 1px solid #FABB00;
                         border-radius: 4px;
-                        @include style.text-color(#FFFFFF);
+                        color: #FFFFFF;
                     }
                 }
 
                 .email-input:focus,
                 .password-input:focus {
-                    outline: style.$space-2 solid transparent;
+                    outline: 2px solid transparent;
                 }
 
                 .email-input::placeholder,
                 .password-input::placeholder {
-                    @include style.text-color(#FFFFFF);
+                    color: #FFFFFF;
                 }
             }
 
             .submit-btn-wrapper {
-                @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
-                @include style.display-align(flex);
+                margin: 0px auto 0px auto;
+                display: flex;
                 background-clip: box;
 
                 .submit {
                     position: relative;
-                    border-radius: style.$space-10;
+                    border-radius: 20px; // 10px from style.$space-10
                     cursor: pointer;
                     padding: 10px 0px;
                     border: none;
-                    border-right: style.$space-1 solid #FABB00;
-                    border-left: style.$space-1 solid #FABB00;
-                    border-radius: 20px;
-                    @include style.margin-x-y(style.$space-10, style.$auto , style.$space-5 , style.$auto );
-                    @include style.background-color(rgba(0, 0, 0, 0.6));
-                    @include style.text-color(#FFF);
+                    border-right: 1px solid #FABB00;
+                    border-left: 1px solid #FABB00;
+                    margin: 10px auto 5px auto;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    color: #FFF;
                     text-decoration: underline;
                     text-transform: uppercase;
                 }
             }
         }
 
-        //signup styling
         .form-sign-up {
+            margin: 0px auto 0px auto;
+
             .form-data-container {
-                @include style.display-align(flex);
-                // @include style.justify-content(center);
-                @include style.align-items(center);
-                @include style.text-color(#FFFFFF);
-                @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
+                color: #FFFFFF;
+                margin: 0px auto 0px auto;
 
-                .sign-up-label {
-                    @include style.display-align(block);
-                    @include style.margin-x-y(style.$space-2, style.$auto , style.$space-2 , style.$auto );
+                .sign-up-wrapper {
+                    .sign-up-label {
+                        display: block;
+                        margin: 2px auto 2px auto;
+                    }
                 }
 
-                .firstname-input,
-                .lastname-input,
-                .gender-input,
-                .dob-input,
-                .email-input,
-                .password-input,
-                .confirm-password-input {
-                    @include style.display-align(block);
-                    @include style.margin-x-y(style.$space-2, style.$auto , style.$space-2 , style.$auto );
-                    outline: style.$space-2 solid #000;
-                    @include style.background-color(#000);
-                    border: style.$space-2 solid #000;
-                    border-bottom: style.$space-2 solid #FABB00;
-                    @include style.text-color(#FFFFFF);
+                .input-wrapper {
+
+                    .firstname-input,
+                    .lastname-input,
+                    .gender-input,
+                    .dob-input,
+                    .email-input,
+                    .password-input,
+                    .confirm-password-input {
+                        display: block;
+                        margin: 2px auto 2px 0px;
+                        outline: 1px solid transparent;
+                        background-color: rgba(0, 0, 0, 0.6);
+                        // border: none;
+                        padding: 6px 2px 6px 6px;
+                        // border-left: 1px solid #FABB00;
+                        // border-bottom: 1px solid #FABB00;
+                        border-radius: 4px;
+                        color: #FFFFFF;
+                    }
                 }
-
-
 
                 .firstname-input:focus,
                 .lastname-input:focus,
@@ -161,187 +146,184 @@
                 .email-input:focus,
                 .password-input:focus,
                 .confirm-password-input:focus {
-                    outline: style.$space-2 solid #000;
-                    @include style.background-color(#000);
+                    outline: 1px solid #000;
+                    // background-color: #000;
                 }
 
                 .firstname-input::placeholder,
                 .lastname-input::placeholder,
-                // .gender-input::placeholder,
                 .dob-input::placeholder,
                 .email-input::placeholder,
                 .password-input::placeholder,
                 .confirm-password-input::placeholder {
-                    @include style.text-color(#FFFFFF);
-                    @include style.background-color(#000);
-                    border: style.$space-2 solid #000;
+                    color: #FFFFFF;
                 }
             }
 
             .submit-btn-wrapper {
-                @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
-                @include style.display-align(flex);
-                @include style.justify-content(center);
-                @include style.align-items(center);
+                margin: 0px auto 0px auto;
+                display: block;
 
                 .submit {
-                    border-radius: style.$space-10;
+                    position: relative;
+                    border-radius: 20px; // 10px from style.$space-10
                     cursor: pointer;
-                    @include style.margin-x-y(style.$space-10, style.$auto , style.$space-5 , style.$auto );
-                    font-weight: 600;
-                    border: style.$space-2 solid #FABB00;
-                    @include style.background-color(#000);
-                    @include style.text-color(#FABB00);
-                    text-transform: uppercase
+                    padding: 10px 0px;
+                    border: none;
+                    border-right: 1px solid #FABB00;
+                    border-left: 1px solid #FABB00;
+                    margin: 10px auto 5px auto;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    color: #FFF;
+                    text-decoration: underline;
+                    text-transform: uppercase;
                 }
             }
 
             .cancel-btn-wrapper {
-                @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
-                @include style.display-align(flex);
-                @include style.justify-content(center);
-                @include style.align-items(center);
+                margin: 0px auto 0px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 .cancel-signup {
-                    border-radius: style.$space-10;
+                    border-radius: 20px;
                     cursor: pointer;
-                    @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
-                    @include style.background-color(#000);
-                    border: style.$space-2 solid #FABB00;
+                    margin: 5px auto 10px auto;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    padding: 10px 0px;
+                    border: none;
+                    border-right: 1px solid #FABB00;
+                    border-left: 1px solid #FABB00;
 
                     a {
-                        text-transform: uppercase;
-                        text-decoration: none;
-                        font-weight: 600;
-                        @include style.text-color(#FABB00);
+                        text-decoration: underline;
+                        text-transform: capitalize;
+                        color: #FFF;
                     }
                 }
             }
+
+
         }
 
-        //for signin and signup
         .may-need-account {
-            @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
-            @include style.display-align(block);
-            @include style.text-color(#FFFFFF);
+            margin: 5px auto 10px auto;
+            display: block;
+            color: #FFFFFF;
 
             .no-account {
-                @include style.margin-x-y(style.$space-20, style.$auto , style.$space-15 , style.$auto );
-                @include style.align-text(center);
+                margin: 20px auto 15px auto;
+                text-align: center;
                 font-size: 12px;
             }
 
             .register-for-access {
-                @include style.margin-x-y(style.$space-5, style.$auto , style.$space-15 , style.$auto );
-                // @include style.justify-content(center);
-                @include style.align-text(center);
-                // @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
-                @include style.display-align(flex);
-                @include style.justify-content(center);
-                @include style.align-items(center);
+                margin: 5px auto 15px auto;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 border: none;
-                border-right: style.$space-1 solid #FABB00;
-                border-left: style.$space-1 solid #FABB00;
+                border-right: 1px solid #FABB00;
+                border-left: 1px solid #FABB00;
                 padding: 10px 0px;
                 border-radius: 20px;
-                // border-radius: style.$space-10;
-                @include style.background-color(rgba(0, 0, 0, 0.6));
+                background-color: rgba(0, 0, 0, 0.6);
                 letter-spacing: 0px;
 
                 .route-link {
                     cursor: pointer;
                     display: block;
+                    text-decoration: none;
+                    color: #FFF;
+                    margin: 0px auto 0px auto;
                     text-decoration: underline;
-                    @include style.text-color(#FFF);
-                    @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
-                    border-bottom: 1px solid #fff;
-                    text-decoration: none
                 }
-
             }
 
             .get-access {
-                @include style.margin-x-y(style.$space-5, style.$auto , style.$space-15 , style.$auto );
-                // @include style.justify-content(center);
-                @include style.align-text(center);
-                @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
-                @include style.display-align(flex);
-                @include style.justify-content(center);
-                @include style.align-items(center);
+                margin: 5px auto 15px auto;
+                text-align: center;
+                margin: 0px auto 0px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 .route-link {
-                    border-radius: style.$space-10;
+                    border-radius: 20px;
                     cursor: pointer;
-                    @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
-                    @include style.background-color(rgba(0, 0, 0, 0.6));
+                    margin: 5px auto 10px auto;
+                    background-color: rgba(0, 0, 0, 0.6);
                     padding: 10px 0px;
                     border: none;
-                    border-right: style.$space-1 solid #FABB00;
-                    border-left: style.$space-1 solid #FABB00;
-                    border-radius: 20px;
+                    border-right: 1px solid #FABB00;
+                    border-left: 1px solid #FABB00;
 
                     a {
                         text-decoration: underline;
-                        text-transform: uppercase;
-                        @include style.text-color(#FFF);
+                        text-transform: capitalize;
+                        color: #FFF;
                     }
                 }
 
                 .route-link {
                     cursor: pointer;
-                    @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
-                    @include style.text-color(#FFF);
+                    margin: 5px auto 10px auto;
+                    color: #FFF;
                     border-bottom: 1px solid #fff;
-                    text-decoration: none
+                    text-decoration: none;
                 }
             }
 
             .have-an-account {
-                @include style.margin-x-y(style.$space-15, style.$auto , style.$space-15 , style.$auto );
-                @include style.align-text(center);
+                margin: 15px auto 15px auto;
+                text-align: center;
             }
 
             .login-access {
-                @include style.display-align(block);
-                @include style.margin-x-y(style.$space-15, style.$auto , style.$space-15 , style.$auto );
-                border-radius: style.$space-10;
+                display: block;
+                margin: 15px auto 15px auto;
+                border-radius: 20px;
                 cursor: pointer;
-                @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
-                @include style.background-color(#000);
-                border: style.$space-2 solid #FABB00;
-                @include style.align-text(center);
+                margin: 5px auto 10px auto;
+                background-color: rgba(0, 0, 0, 0.6);
+                padding: 10px 0px;
+                border: none;
+                border-right: 1px solid #FABB00;
+                border-left: 1px solid #FABB00;
+                text-align: center;
 
                 .login-route-link {
-                    @include style.margin-x-y(style.$space-15, style.$auto , style.$space-15 , style.$auto );
-                    @include style.text-color(#FABB00);
-                    text-transform: uppercase;
-                    text-decoration: none;
+                    margin: 15px auto 15px auto;
+                    color: #fff;
+                    text-transform: capitalize;
+                    text-decoration: underline;
                     font-weight: 600;
                 }
             }
         }
 
         .cancel-btn-wrapper {
-            @include style.margin-x-y(style.$space-0, style.$auto , style.$space-0 , style.$auto );
-            @include style.display-align(flex);
-            @include style.justify-content(center);
-            @include style.align-items(center);
+            margin: 0px auto 0px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             .cancel-verification {
-                border-radius: style.$space-10;
+                border-radius: 20px;
                 cursor: pointer;
-                @include style.margin-x-y(style.$space-5, style.$auto , style.$space-10 , style.$auto );
-                @include style.background-color(rgba(0, 0, 0, 0.6));
+                margin: 5px auto 10px auto;
+                background-color: rgba(0, 0, 0, 0.6);
                 padding: 10px 0px;
                 border: none;
-                border-right: style.$space-1 solid #FABB00;
-                border-left: style.$space-1 solid #FABB00;
-                border-radius: 20px;
+                border-right: 1px solid #FABB00;
+                border-left: 1px solid #FABB00;
 
                 a {
                     text-decoration: underline;
-                    text-transform: uppercase;
-                    @include style.text-color(#FFF);
+                    text-transform: capitalize;
+                    color: #FFF;
                 }
             }
         }

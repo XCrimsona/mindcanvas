@@ -1,41 +1,37 @@
+import React, { FormEvent, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+//custom built dry components
 import { DivClass } from "../../../../src/ui/Div";
 import Section from "../../../../src/ui/Section";
 import Label from "../../../../src/components/form-elements/Label";
 import HeadingOne from "../../../../src/ui/HeadingOne";
 import "../mind-canvas-portal.css";
-// import "../mind-canvas-portal-media-queries.css";
-
-import React, { FormEvent, useEffect, useState } from "react";
 import {
   InputEmail,
   InputPassword,
   InputSubmit,
-} from "../../../../src/components/form-elements/InputTypeInterfaces";
-import Contact from "../../../../src/components/ProductSection/Contact";
+} from "../../../components/form-elements/dry-InputFormComponents";
 import { LongText } from "../../../../src/ui/LongText";
 import Button from "../../../../src/components/form-elements/Button";
-import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
+//for navigating content
 import RouteLink from "../../../components/ProductSection/RouteLink";
+import { ToastContainer } from "react-toast";
+import { toast } from "react-toastify";
+
+interface formData {
+  email: string;
+  password: string;
+}
 
 const Signin = () => {
   try {
-    // useEffect(()=>{
-    //   const screenSizeL = window.innerHeight;
-    //   console.log("height: ", screenSizeL);
-
-    //   const screenSizeW = window.innerWidth;
-    //   console.log("width: ", screenSizeW);
-
-    // })
+    const location = useLocation();
     const router = useNavigate();
 
-    //Data controls | input containers
-    interface formDataInterface {
-      email: string;
-      password: string;
-    }
-    const [formData, setFormData] = useState<formDataInterface>({
+    const [formData, setFormData] = useState<formData>({
       email: "",
       password: "",
     });
@@ -65,14 +61,23 @@ const Signin = () => {
         );
         //want to try a new feature: socket.io
         //for real-time notifcations to check login success or failed to verify
+        toast.info("Please wait...", { autoClose: 2500 });
         if (response.ok) {
           const data: any = await response.json();
           // console.log("pulled data", data);
 
-          router(`/account/${data.user}/canvas-management`);
+          //checks for saved redirects via the ProtectedRoutes React component
+          const from = location.state?.from;
+          if (from) {
+            router(from, { replace: true });
+          } else {
+            router(`/account/${data.user}/canvas-management`, {
+              replace: true,
+            });
+          }
         } else {
           const error = await response.json();
-          new Notification(`Signin failed: ${error.message}`);
+          toast.error(`Signin failed: ${error.message}`, { autoClose: 4000 });
         }
       } catch (err: any) {
         console.warn("Something went wrong");
@@ -94,6 +99,7 @@ const Signin = () => {
         ariaLabelledBy="sign-in"
         className="sign-in-block"
       >
+        <ToastContainer position="top-right"></ToastContainer>
         <HeadingOne id="sign-in" className="heading-one">
           Sign In
         </HeadingOne>

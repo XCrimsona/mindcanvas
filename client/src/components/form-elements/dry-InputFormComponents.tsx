@@ -151,6 +151,50 @@ export const InputEnabledText = ({
     />
   );
 };
+export const InputDisabledEmail = ({
+  id,
+  className,
+  value,
+  onChange,
+}: InputTextProps) => {
+  return (
+    <input
+      type="email"
+      id={id}
+      minLength={1}
+      maxLength={500}
+      disabled
+      autoComplete="off"
+      className={className}
+      value={value}
+      onChange={onChange}
+      required
+    />
+  );
+};
+
+export const InputEnabledEmail = ({
+  id,
+  className,
+  placeholder,
+  value,
+  onChange,
+}: InputTextProps) => {
+  return (
+    <input
+      type="email"
+      id={id}
+      minLength={1}
+      maxLength={500}
+      autoComplete="off"
+      placeholder={placeholder}
+      className={className}
+      value={value}
+      onChange={onChange}
+      required
+    />
+  );
+};
 
 interface InputDateProps {
   id: string;

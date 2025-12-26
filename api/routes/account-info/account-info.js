@@ -70,8 +70,8 @@ accountRouter
         } else {
           if (newPassword) {
             newAccountInfo.password = await bcrypt.hash(newPassword, 10);
-            console.log("old password for account: ", user.password);
-            console.log("new password for account: ", newAccountInfo.password);
+            // console.log("old password for account: ", user.password);
+            // console.log("new password for account: ", newAccountInfo.password);
           }
         }
         await UserModel.updateOne(

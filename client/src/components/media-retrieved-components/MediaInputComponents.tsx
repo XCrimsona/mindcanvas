@@ -1,4 +1,4 @@
-import { LongText } from "../../../src/ui/LongText";
+import { LongText } from "../../ui/LongText";
 
 interface ITextProps {
   id: string;

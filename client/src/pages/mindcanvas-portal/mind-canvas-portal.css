@@ -1,12 +1,19 @@
-.sign-in-page,
-.sign-up-page {
+.sign-in-page {
+  height: 100vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 0px auto 0px auto;
   padding: 0px 0px 0px 0px;
-  min-height: 100vh;
+}
+
+.sign-up-page {
+  padding: 80px 0px 80px;
+}
+
+.sign-in-page,
+.sign-up-page {
+  margin: 0px auto 0px auto;
 }
 .sign-in-page .sign-in-block,
 .sign-in-page .sign-up-block,
@@ -18,8 +25,6 @@
   margin: 0px auto 0px auto;
   padding: 6px 6px 6px 6px;
   border-radius: 10px;
-  overflow-x: hidden;
-  overflow-y: auto;
   box-shadow: 0px 0px 8px 3px rgba(250, 187, 0, 0.251), 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
 }
 .sign-in-page .sign-in-block .heading-one,
@@ -27,8 +32,7 @@
 .sign-up-page .sign-in-block .heading-one,
 .sign-up-page .sign-up-block .heading-one {
   display: block;
-  margin: 30px auto 30px auto;
-  padding: 0px 0px 0px 0px;
+  padding: 0px;
   color: #FFFFFF;
 }
 .sign-in-page .sign-in-block .form-sign-in,
@@ -41,9 +45,6 @@
 .sign-in-page .sign-up-block .form-sign-in .form-data-container,
 .sign-up-page .sign-in-block .form-sign-in .form-data-container,
 .sign-up-page .sign-up-block .form-sign-in .form-data-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #FFFFFF;
   margin: 0px auto 0px auto;
 }
@@ -65,7 +66,7 @@
 .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .password-input {
   display: block;
   margin: 2px auto 2px 0px;
-  outline: 2px solid transparent;
+  outline: 1px solid transparent;
   background-color: rgba(0, 0, 0, 0.6);
   border: none;
   padding: 6px 2px 6px 6px;
@@ -110,69 +111,72 @@
 .sign-up-page .sign-in-block .form-sign-in .submit-btn-wrapper .submit,
 .sign-up-page .sign-up-block .form-sign-in .submit-btn-wrapper .submit {
   position: relative;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   padding: 10px 0px;
   border: none;
   border-right: 1px solid #FABB00;
   border-left: 1px solid #FABB00;
-  border-radius: 20px;
   margin: 10px auto 5px auto;
   background-color: rgba(0, 0, 0, 0.6);
   color: #FFF;
   text-decoration: underline;
   text-transform: uppercase;
 }
+.sign-in-page .sign-in-block .form-sign-up,
+.sign-in-page .sign-up-block .form-sign-up,
+.sign-up-page .sign-in-block .form-sign-up,
+.sign-up-page .sign-up-block .form-sign-up {
+  margin: 0px auto 0px auto;
+}
 .sign-in-page .sign-in-block .form-sign-up .form-data-container,
 .sign-in-page .sign-up-block .form-sign-up .form-data-container,
 .sign-up-page .sign-in-block .form-sign-up .form-data-container,
 .sign-up-page .sign-up-block .form-sign-up .form-data-container {
-  display: flex;
-  align-items: center;
   color: #FFFFFF;
   margin: 0px auto 0px auto;
 }
-.sign-in-page .sign-in-block .form-sign-up .form-data-container .sign-up-label,
-.sign-in-page .sign-up-block .form-sign-up .form-data-container .sign-up-label,
-.sign-up-page .sign-in-block .form-sign-up .form-data-container .sign-up-label,
-.sign-up-page .sign-up-block .form-sign-up .form-data-container .sign-up-label {
+.sign-in-page .sign-in-block .form-sign-up .form-data-container .sign-up-wrapper .sign-up-label,
+.sign-in-page .sign-up-block .form-sign-up .form-data-container .sign-up-wrapper .sign-up-label,
+.sign-up-page .sign-in-block .form-sign-up .form-data-container .sign-up-wrapper .sign-up-label,
+.sign-up-page .sign-up-block .form-sign-up .form-data-container .sign-up-wrapper .sign-up-label {
   display: block;
   margin: 2px auto 2px auto;
 }
-.sign-in-page .sign-in-block .form-sign-up .form-data-container .firstname-input,
-.sign-in-page .sign-in-block .form-sign-up .form-data-container .lastname-input,
-.sign-in-page .sign-in-block .form-sign-up .form-data-container .gender-input,
-.sign-in-page .sign-in-block .form-sign-up .form-data-container .dob-input,
-.sign-in-page .sign-in-block .form-sign-up .form-data-container .email-input,
-.sign-in-page .sign-in-block .form-sign-up .form-data-container .password-input,
-.sign-in-page .sign-in-block .form-sign-up .form-data-container .confirm-password-input,
-.sign-in-page .sign-up-block .form-sign-up .form-data-container .firstname-input,
-.sign-in-page .sign-up-block .form-sign-up .form-data-container .lastname-input,
-.sign-in-page .sign-up-block .form-sign-up .form-data-container .gender-input,
-.sign-in-page .sign-up-block .form-sign-up .form-data-container .dob-input,
-.sign-in-page .sign-up-block .form-sign-up .form-data-container .email-input,
-.sign-in-page .sign-up-block .form-sign-up .form-data-container .password-input,
-.sign-in-page .sign-up-block .form-sign-up .form-data-container .confirm-password-input,
-.sign-up-page .sign-in-block .form-sign-up .form-data-container .firstname-input,
-.sign-up-page .sign-in-block .form-sign-up .form-data-container .lastname-input,
-.sign-up-page .sign-in-block .form-sign-up .form-data-container .gender-input,
-.sign-up-page .sign-in-block .form-sign-up .form-data-container .dob-input,
-.sign-up-page .sign-in-block .form-sign-up .form-data-container .email-input,
-.sign-up-page .sign-in-block .form-sign-up .form-data-container .password-input,
-.sign-up-page .sign-in-block .form-sign-up .form-data-container .confirm-password-input,
-.sign-up-page .sign-up-block .form-sign-up .form-data-container .firstname-input,
-.sign-up-page .sign-up-block .form-sign-up .form-data-container .lastname-input,
-.sign-up-page .sign-up-block .form-sign-up .form-data-container .gender-input,
-.sign-up-page .sign-up-block .form-sign-up .form-data-container .dob-input,
-.sign-up-page .sign-up-block .form-sign-up .form-data-container .email-input,
-.sign-up-page .sign-up-block .form-sign-up .form-data-container .password-input,
-.sign-up-page .sign-up-block .form-sign-up .form-data-container .confirm-password-input {
+.sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
+.sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
+.sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .gender-input,
+.sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .dob-input,
+.sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .email-input,
+.sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .password-input,
+.sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input,
+.sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
+.sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
+.sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .gender-input,
+.sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .dob-input,
+.sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .email-input,
+.sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .password-input,
+.sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input,
+.sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
+.sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
+.sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .gender-input,
+.sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .dob-input,
+.sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .email-input,
+.sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .password-input,
+.sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input,
+.sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
+.sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
+.sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .gender-input,
+.sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .dob-input,
+.sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .email-input,
+.sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .password-input,
+.sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input {
   display: block;
-  margin: 2px auto 2px auto;
-  outline: 2px solid #000;
-  background-color: #000;
-  border: 2px solid #000;
-  border-bottom: 2px solid #FABB00;
+  margin: 2px auto 2px 0px;
+  outline: 1px solid transparent;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 6px 2px 6px 6px;
+  border-radius: 4px;
   color: #FFFFFF;
 }
 .sign-in-page .sign-in-block .form-sign-up .form-data-container .firstname-input:focus,
@@ -203,13 +207,10 @@
 .sign-up-page .sign-up-block .form-sign-up .form-data-container .email-input:focus,
 .sign-up-page .sign-up-block .form-sign-up .form-data-container .password-input:focus,
 .sign-up-page .sign-up-block .form-sign-up .form-data-container .confirm-password-input:focus {
-  outline: 2px solid #000;
-  background-color: #000;
+  outline: 1px solid #000;
 }
 .sign-in-page .sign-in-block .form-sign-up .form-data-container .firstname-input::-moz-placeholder, .sign-in-page .sign-in-block .form-sign-up .form-data-container .lastname-input::-moz-placeholder, .sign-in-page .sign-in-block .form-sign-up .form-data-container .dob-input::-moz-placeholder, .sign-in-page .sign-in-block .form-sign-up .form-data-container .email-input::-moz-placeholder, .sign-in-page .sign-in-block .form-sign-up .form-data-container .password-input::-moz-placeholder, .sign-in-page .sign-in-block .form-sign-up .form-data-container .confirm-password-input::-moz-placeholder, .sign-in-page .sign-up-block .form-sign-up .form-data-container .firstname-input::-moz-placeholder, .sign-in-page .sign-up-block .form-sign-up .form-data-container .lastname-input::-moz-placeholder, .sign-in-page .sign-up-block .form-sign-up .form-data-container .dob-input::-moz-placeholder, .sign-in-page .sign-up-block .form-sign-up .form-data-container .email-input::-moz-placeholder, .sign-in-page .sign-up-block .form-sign-up .form-data-container .password-input::-moz-placeholder, .sign-in-page .sign-up-block .form-sign-up .form-data-container .confirm-password-input::-moz-placeholder, .sign-up-page .sign-in-block .form-sign-up .form-data-container .firstname-input::-moz-placeholder, .sign-up-page .sign-in-block .form-sign-up .form-data-container .lastname-input::-moz-placeholder, .sign-up-page .sign-in-block .form-sign-up .form-data-container .dob-input::-moz-placeholder, .sign-up-page .sign-in-block .form-sign-up .form-data-container .email-input::-moz-placeholder, .sign-up-page .sign-in-block .form-sign-up .form-data-container .password-input::-moz-placeholder, .sign-up-page .sign-in-block .form-sign-up .form-data-container .confirm-password-input::-moz-placeholder, .sign-up-page .sign-up-block .form-sign-up .form-data-container .firstname-input::-moz-placeholder, .sign-up-page .sign-up-block .form-sign-up .form-data-container .lastname-input::-moz-placeholder, .sign-up-page .sign-up-block .form-sign-up .form-data-container .dob-input::-moz-placeholder, .sign-up-page .sign-up-block .form-sign-up .form-data-container .email-input::-moz-placeholder, .sign-up-page .sign-up-block .form-sign-up .form-data-container .password-input::-moz-placeholder, .sign-up-page .sign-up-block .form-sign-up .form-data-container .confirm-password-input::-moz-placeholder {
   color: #FFFFFF;
-  background-color: #000;
-  border: 2px solid #000;
 }
 .sign-in-page .sign-in-block .form-sign-up .form-data-container .firstname-input::placeholder,
 .sign-in-page .sign-in-block .form-sign-up .form-data-container .lastname-input::placeholder,
@@ -236,29 +237,29 @@
 .sign-up-page .sign-up-block .form-sign-up .form-data-container .password-input::placeholder,
 .sign-up-page .sign-up-block .form-sign-up .form-data-container .confirm-password-input::placeholder {
   color: #FFFFFF;
-  background-color: #000;
-  border: 2px solid #000;
 }
 .sign-in-page .sign-in-block .form-sign-up .submit-btn-wrapper,
 .sign-in-page .sign-up-block .form-sign-up .submit-btn-wrapper,
 .sign-up-page .sign-in-block .form-sign-up .submit-btn-wrapper,
 .sign-up-page .sign-up-block .form-sign-up .submit-btn-wrapper {
   margin: 0px auto 0px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }
 .sign-in-page .sign-in-block .form-sign-up .submit-btn-wrapper .submit,
 .sign-in-page .sign-up-block .form-sign-up .submit-btn-wrapper .submit,
 .sign-up-page .sign-in-block .form-sign-up .submit-btn-wrapper .submit,
 .sign-up-page .sign-up-block .form-sign-up .submit-btn-wrapper .submit {
-  border-radius: 10px;
+  position: relative;
+  border-radius: 20px;
   cursor: pointer;
+  padding: 10px 0px;
+  border: none;
+  border-right: 1px solid #FABB00;
+  border-left: 1px solid #FABB00;
   margin: 10px auto 5px auto;
-  font-weight: 600;
-  border: 2px solid #FABB00;
-  background-color: #000;
-  color: #FABB00;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFF;
+  text-decoration: underline;
   text-transform: uppercase;
 }
 .sign-in-page .sign-in-block .form-sign-up .cancel-btn-wrapper,
@@ -274,20 +275,22 @@
 .sign-in-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
 .sign-up-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
 .sign-up-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup {
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   margin: 5px auto 10px auto;
-  background-color: #000;
-  border: 2px solid #FABB00;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 0px;
+  border: none;
+  border-right: 1px solid #FABB00;
+  border-left: 1px solid #FABB00;
 }
 .sign-in-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup a,
 .sign-in-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup a,
 .sign-up-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup a,
 .sign-up-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup a {
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 600;
-  color: #FABB00;
+  text-decoration: underline;
+  text-transform: capitalize;
+  color: #FFF;
 }
 .sign-in-page .sign-in-block .may-need-account,
 .sign-in-page .sign-up-block .may-need-account,
@@ -328,11 +331,10 @@
 .sign-up-page .sign-up-block .may-need-account .register-for-access .route-link {
   cursor: pointer;
   display: block;
-  text-decoration: underline;
+  text-decoration: none;
   color: #FFF;
   margin: 0px auto 0px auto;
-  border-bottom: 1px solid #fff;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .sign-in-page .sign-in-block .may-need-account .get-access,
 .sign-in-page .sign-up-block .may-need-account .get-access,
@@ -349,7 +351,7 @@
 .sign-in-page .sign-up-block .may-need-account .get-access .route-link,
 .sign-up-page .sign-in-block .may-need-account .get-access .route-link,
 .sign-up-page .sign-up-block .may-need-account .get-access .route-link {
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   margin: 5px auto 10px auto;
   background-color: rgba(0, 0, 0, 0.6);
@@ -357,14 +359,13 @@
   border: none;
   border-right: 1px solid #FABB00;
   border-left: 1px solid #FABB00;
-  border-radius: 20px;
 }
 .sign-in-page .sign-in-block .may-need-account .get-access .route-link a,
 .sign-in-page .sign-up-block .may-need-account .get-access .route-link a,
 .sign-up-page .sign-in-block .may-need-account .get-access .route-link a,
 .sign-up-page .sign-up-block .may-need-account .get-access .route-link a {
   text-decoration: underline;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #FFF;
 }
 .sign-in-page .sign-in-block .may-need-account .get-access .route-link,
@@ -390,11 +391,14 @@
 .sign-up-page .sign-up-block .may-need-account .login-access {
   display: block;
   margin: 15px auto 15px auto;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   margin: 5px auto 10px auto;
-  background-color: #000;
-  border: 2px solid #FABB00;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 0px;
+  border: none;
+  border-right: 1px solid #FABB00;
+  border-left: 1px solid #FABB00;
   text-align: center;
 }
 .sign-in-page .sign-in-block .may-need-account .login-access .login-route-link,
@@ -402,9 +406,9 @@
 .sign-up-page .sign-in-block .may-need-account .login-access .login-route-link,
 .sign-up-page .sign-up-block .may-need-account .login-access .login-route-link {
   margin: 15px auto 15px auto;
-  color: #FABB00;
-  text-transform: uppercase;
-  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  text-decoration: underline;
   font-weight: 600;
 }
 .sign-in-page .sign-in-block .cancel-btn-wrapper,
@@ -420,7 +424,7 @@
 .sign-in-page .sign-up-block .cancel-btn-wrapper .cancel-verification,
 .sign-up-page .sign-in-block .cancel-btn-wrapper .cancel-verification,
 .sign-up-page .sign-up-block .cancel-btn-wrapper .cancel-verification {
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   margin: 5px auto 10px auto;
   background-color: rgba(0, 0, 0, 0.6);
@@ -428,13 +432,12 @@
   border: none;
   border-right: 1px solid #FABB00;
   border-left: 1px solid #FABB00;
-  border-radius: 20px;
 }
 .sign-in-page .sign-in-block .cancel-btn-wrapper .cancel-verification a,
 .sign-in-page .sign-up-block .cancel-btn-wrapper .cancel-verification a,
 .sign-up-page .sign-in-block .cancel-btn-wrapper .cancel-verification a,
 .sign-up-page .sign-up-block .cancel-btn-wrapper .cancel-verification a {
   text-decoration: underline;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #FFF;
 }/*# sourceMappingURL=mind-canvas-portal.css.map */

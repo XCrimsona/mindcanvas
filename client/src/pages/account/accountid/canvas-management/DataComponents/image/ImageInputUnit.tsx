@@ -4,7 +4,7 @@ import { DivClass } from "../../../../../../../src/ui/Div";
 import {
   EnabledImageInput,
   EnabledImagesInput,
-} from "../../../../../../../src/components/mass-workspace-elements/MassWorkspaceInputComponents";
+} from "../../../../../../components/media-retrieved-components/MediaInputComponents";
 import { useCanvasContext } from "../../DataComponents/canva-data-provider/CanvasDataContextProvider";
 import Select from "../../../../../../../src/ui/selection/Select";
 import "./image.css";
