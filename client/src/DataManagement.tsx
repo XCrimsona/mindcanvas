@@ -7,11 +7,11 @@ import {
   InputSubmit,
   InputText,
   InputTextReadOnly,
-} from "./components/form-elements/InputTypeInterfaces";
+} from "./components/form-elements/dry-InputFormComponents";
 import RouteLink from "./components/ProductSection/RouteLink";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SVG from "./SVG";
-import { EnabledTextAreaInput } from "./components/mass-workspace-elements/MassWorkspaceInputComponents";
+import { EnabledTextAreaInput } from "./components/media-retrieved-components/MediaInputComponents";
 import { useParams } from "react-router-dom";
 import HeadingOne from "./ui/HeadingOne";
 import canvaNotification_CreateCanva from "./pages/account/accountid/canvas-management/notifications/canva-creation/CanvaNotification_CreateCanva";
@@ -22,7 +22,8 @@ import canvaNotification_CanvaNotUpdated from "./pages/account/accountid/canvas-
 const DataManagement = ({ source }: { source: any }) => {
   //pull latest data from the cloud
   const { userid } = useParams();
-  const [workspaceData, setWorkspaceData] = useState<any>([]);
+  //NOTE: the workspace data usestate variable needs to change to canva data
+  const [canvaData, setCanvaData] = useState<any>([]);
   // console.log("data management source.data: ", source);
 
   useEffect(() => {
@@ -42,7 +43,11 @@ const DataManagement = ({ source }: { source: any }) => {
     if (response.ok) {
       const data = await response.json();
       // console.log("ok data from datamanagement : ", data);
-      setWorkspaceData(data.data);
+
+      // sort the canvases ascending by name
+      data.data.sort((a: any, b: any) => a.name.localeCompare(b.name));
+      setCanvaData(data.data);
+
       return {
         status: "success",
         message: data,
@@ -51,7 +56,7 @@ const DataManagement = ({ source }: { source: any }) => {
       const issue = await response.json();
       console.log("issue from data management: ", issue);
 
-      setWorkspaceData(issue);
+      setCanvaData(issue);
       return {
         status: "false",
         message: issue,
@@ -60,7 +65,7 @@ const DataManagement = ({ source }: { source: any }) => {
   };
 
   const toggleASingleWorkspace = (id: string) => {
-    setWorkspaceData((prev: any) =>
+    setCanvaData((prev: any) =>
       prev.map((workspace: any) =>
         workspace._id === id
           ? { ...workspace, viewMode: !workspace.viewMode }
@@ -91,7 +96,7 @@ const DataManagement = ({ source }: { source: any }) => {
       e.preventDefault();
       const updateFields: any = {};
       // const edited = workspaceEdits[workspaceId];
-      // const original = workspaceData?.find((w: any) => w._id === workspaceId);
+      // const original = canvaData?.find((w: any) => w._id === workspaceId);
       // console.log("workspaceEdits: ", workspaceEdits);
       // console.log("currentWorkspacePreEdits: ", currentWorkspacePreEdits);
 
@@ -201,9 +206,10 @@ const DataManagement = ({ source }: { source: any }) => {
     }
   };
 
+  //remember to implement a boolean lock to avoid the CtrlKey + Enter multi-submission spam looking affect. (not good for scaling up cpu)
   //send data to cloud
   const saveWorkspace = async (
-    e: React.FormEvent<HTMLFormElement>
+    e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent
   ): Promise<any> => {
     e.preventDefault();
     setNewWorkspace({
@@ -217,14 +223,16 @@ const DataManagement = ({ source }: { source: any }) => {
       workspacename: string;
       workspacedescription: string;
     }
+    //compile form submission structure
     const formData: formDataProps = {
       sub: String(userid),
       workspacename: newWorkspace.workspacename,
       workspacedescription: newWorkspace.description,
     };
+    console.log(formData);
 
     if (!formData) {
-      alert("Fill all the fields!");
+      new Notification("Fill all the fields!");
     } else {
       const response = await fetch(
         `http://localhost:5000/api/account/${userid}/canvas-management`,
@@ -235,6 +243,7 @@ const DataManagement = ({ source }: { source: any }) => {
           body: JSON.stringify(formData),
         }
       );
+
       if (response.ok) {
         canvaNotification_CreateCanva();
         fetchMoreData();
@@ -242,13 +251,13 @@ const DataManagement = ({ source }: { source: any }) => {
       } else {
         canvaNotification_CanvaNotCreated();
 
-        window.location.reload();
+        // window.location.reload();
       }
     }
   };
-  // console.log(workspaceData);
   useEffect(() => {
-    setWorkspaceData(source.data);
+    //source data from parent component InitialDashboardPageComponent as props object "I think"
+    setCanvaData(source.data);
     fetchMoreData();
   }, []);
 
@@ -256,41 +265,42 @@ const DataManagement = ({ source }: { source: any }) => {
     <DivClass className={"workspace-dashboard"}>
       <DivClass className={"workspace-sheets-wrapper"}>
         <DivClass className={"heading-container"}>
-          <HeadingOne id="heading-one" className={"heading-one"}>
+          <HeadingOne
+            id="canva-management-heading-one"
+            className={"canva-management-heading-one"}
+          >
             Canvas Management
           </HeadingOne>
         </DivClass>
         <DivClass className={"workspace-sheets"}>
           {/* {params.data.firstname} */}
-          {workspaceData &&
-            workspaceData.map((workspace: any) => {
-              // console.log(
-              //   `/account/${userid}/canvas-management/${workspace._id}`
-              // );
-
+          {canvaData &&
+            canvaData.map((canvaSpace: any) => {
               return (
                 <DivId
-                  id={workspace.id}
-                  key={workspace._id}
+                  id={canvaSpace.id}
+                  key={canvaSpace._id}
                   className={"workspace-sheet-wrapper"}
                 >
                   <form className={"workspace-sheet"}>
                     <DivClass className={"workspace-sheet-forefront-data"}>
-                      <RouteLink
-                        href={`/account/${userid}/canvas-management/${workspace._id}`}
-                        className={"dynamic-workspace-route"}
-                      >
-                        <SVG
-                          src="/backwards-solid.svg"
-                          alt="double forward icon"
-                          className={"forward-to-workspace-icon"}
-                        />
-                      </RouteLink>
-                      {workspace.viewMode === true ? (
+                      <button>
+                        <RouteLink
+                          href={`/account/${userid}/canvas-management/${canvaSpace._id}`}
+                          className={"dynamic-workspace-route"}
+                        >
+                          <SVG
+                            src="/backwards-solid.svg"
+                            alt="double forward icon"
+                            className={"forward-to-workspace-icon"}
+                          />
+                        </RouteLink>
+                      </button>
+                      {canvaSpace.viewMode === true ? (
                         <InputText
-                          id={`new-temp-update-name-field-${workspace._id}`}
+                          id={`new-temp-update-name-field-${canvaSpace._id}`}
                           value={
-                            workspaceEdits[workspace._id]?.workspacename || ""
+                            workspaceEdits[canvaSpace._id]?.workspacename || ""
                           }
                           onChange={(
                             e: React.ChangeEvent<HTMLInputElement>
@@ -299,15 +309,15 @@ const DataManagement = ({ source }: { source: any }) => {
                             // updating a specific workspace description
                             setCurrentWorkspacePreEdits((previous: any) => ({
                               ...previous,
-                              [workspace._id]: {
-                                ...previous[workspace._id],
-                                workspacename: workspace.workspacename,
+                              [canvaSpace._id]: {
+                                ...previous[canvaSpace._id],
+                                workspacename: canvaSpace.workspacename,
                               },
                             }));
                             setWorkspaceEdits((previous: any) => ({
                               ...previous,
-                              [workspace._id]: {
-                                ...previous[workspace._id],
+                              [canvaSpace._id]: {
+                                ...previous[canvaSpace._id],
                                 workspacename: e.target.value,
                               },
                             }));
@@ -319,17 +329,17 @@ const DataManagement = ({ source }: { source: any }) => {
                         />
                       ) : (
                         <InputTextReadOnly
-                          id={workspace._id}
-                          value={workspace.workspacename}
+                          id={canvaSpace._id}
+                          value={canvaSpace.workspacename}
                           className={"workspace-name"}
                         />
                       )}
 
-                      {workspace.viewMode === true ? (
+                      {canvaSpace.viewMode === true ? (
                         <InputText
-                          id={`new-temp-update-description-field-${workspace._id}`}
+                          id={`new-temp-update-description-field-${canvaSpace._id}`}
                           value={
-                            workspaceEdits[workspace._id]?.description || ""
+                            workspaceEdits[canvaSpace._id]?.description || ""
                           }
                           onChange={(
                             e: React.ChangeEvent<HTMLInputElement>
@@ -337,15 +347,15 @@ const DataManagement = ({ source }: { source: any }) => {
                             // updating a specific workspace description
                             setCurrentWorkspacePreEdits((previous: any) => ({
                               ...previous,
-                              [workspace._id]: {
-                                ...previous[workspace._id],
-                                description: workspace.description,
+                              [canvaSpace._id]: {
+                                ...previous[canvaSpace._id],
+                                description: canvaSpace.description,
                               },
                             }));
                             setWorkspaceEdits((previous: any) => ({
                               ...previous,
-                              [workspace._id]: {
-                                ...previous[workspace._id],
+                              [canvaSpace._id]: {
+                                ...previous[canvaSpace._id],
                                 description: e.target.value,
                               },
                             }));
@@ -358,9 +368,9 @@ const DataManagement = ({ source }: { source: any }) => {
                       ) : (
                         <textarea
                           cols={12}
-                          id={workspace.name}
+                          id={canvaSpace.name}
                           readOnly
-                          value={workspace.description}
+                          value={canvaSpace.description}
                           placeholder={"Update workspace description"}
                           className={"workspace-description"}
                         />
@@ -368,13 +378,13 @@ const DataManagement = ({ source }: { source: any }) => {
                     </DivClass>
                     <DivClass className={"workspace-buttons-container"}>
                       <DivClass className={"workspace-toggle-edit-btns"}>
-                        {workspace.viewMode === true ? (
+                        {canvaSpace.viewMode === true ? (
                           <Button
                             id="view-mode"
                             className={"view-mode"}
                             onClick={(e) => {
                               e.preventDefault();
-                              toggleASingleWorkspace(workspace._id);
+                              toggleASingleWorkspace(canvaSpace._id);
                             }}
                           >
                             View
@@ -385,7 +395,7 @@ const DataManagement = ({ source }: { source: any }) => {
                             className={"edit-mode"}
                             onClick={(e) => {
                               e.preventDefault();
-                              toggleASingleWorkspace(workspace._id);
+                              toggleASingleWorkspace(canvaSpace._id);
                             }}
                           >
                             Edit
@@ -398,8 +408,8 @@ const DataManagement = ({ source }: { source: any }) => {
                           className={"update-workspace-sheet"}
                           onClick={(e) => {
                             e.preventDefault();
-                            updateWorkspace(e, workspace._id);
-                            workspace.viewMode = false;
+                            updateWorkspace(e, canvaSpace._id);
+                            canvaSpace.viewMode = false;
                           }}
                         >
                           Update
@@ -415,6 +425,28 @@ const DataManagement = ({ source }: { source: any }) => {
             <DivClass className={"workspace-sheet-wrapper"}>
               <form
                 className={"workspace-sheet-temp-field"}
+                id="tempCanvaCreationFormElement"
+                // ref={tempCanvaCreationForm_Ref}
+                onKeyUp={() => {
+                  document.addEventListener("keyup", (e: any) => {
+                    e.preventDefault();
+                    e.ctrlKey && e.key === "Enter" && saveWorkspace(e);
+                  });
+                  setTimeout(() => {
+                    document.removeEventListener("keyup", () => {
+                      return;
+                    });
+                  }, 3000);
+
+                  //BELOW CODE IS EXPERIMENTAL FOR KEYWORD ACTIONS || DO NOT REMOVE
+                  // document.addEventListener("keyup", (e: any) => {
+                  //   // console.log(e.code);
+                  //   if (e.ctrlKey && e.key === "Enter") {
+                  //     new Notification("Pressed!");
+                  //     saveWorkspace;
+                  //   }
+                  // });
+                }}
                 onSubmit={saveWorkspace}
               >
                 <DivClass className={"workspace-sheet-forefront-data"}>

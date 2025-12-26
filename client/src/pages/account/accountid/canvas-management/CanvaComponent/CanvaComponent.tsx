@@ -65,14 +65,14 @@ const fetchWorkspaceData = async (
 
 const CanvaComponent = () => {
   const { userid, canvaid } = useParams();
-  const { setFreshCanvasData, canvasData } = useCanvasContext();
+  const { canvasData, setFreshCanvasData } = useCanvasContext();
   const navRouter = useNavigate();
 
   //loads persisted data after page is done loading
   const fetchCanvaData = async () => {
-    const wsRes = await fetchWorkspaceData(String(userid), String(canvaid));
+    const csRes = await fetchWorkspaceData(String(userid), String(canvaid));
 
-    setFreshCanvasData(wsRes);
+    setFreshCanvasData(csRes);
   };
 
   //controls live database components that are updated in its dragging state

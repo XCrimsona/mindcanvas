@@ -1,7 +1,8 @@
 import { ReactNode, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoute = ({ children }: { children: ReactNode }) => {
+  const location = useLocation();
   const [isloading, setIsLoading] = useState<boolean>(true);
   const [isAuth, setIsAuth] = useState(false);
 
@@ -17,7 +18,7 @@ const ProtectedRoute = ({ children }: { children: ReactNode }) => {
         } else {
           setIsAuth(false);
           new Notification("Verify Your Identity", {
-            body: "You either logged out or your session expired, log in again to continue...",
+            body: "Login to continue",
           });
         }
         setIsLoading(false);
@@ -29,8 +30,16 @@ const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   }, []);
 
   if (isloading) return <div>...loading</div>;
-  if (!isAuth) return <Navigate to={"/signin-portal"} replace />;
-  return <>{children}</>;
+  if (!isAuth)
+    return (
+      <Navigate
+        to={"/signin-portal"}
+        state={{ from: location.pathname }}
+        replace
+      />
+    );
+  // return <>{children}</>;
+  return children;
 };
 
 export default ProtectedRoute;

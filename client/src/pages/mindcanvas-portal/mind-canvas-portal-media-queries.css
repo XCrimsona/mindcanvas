@@ -1,216 +1,14 @@
 @media screen and (min-width: 300px) and (max-width: 425.9px) {
   .sign-in-page .sign-in-block,
-  .sign-in-page .sign-up-block,
-  .sign-up-page .sign-in-block,
-  .sign-up-page .sign-up-block {
-    height: auto;
+  .sign-up-page .sign-in-block {
     max-height: 500px;
-    width: 280px;
   }
-  .sign-in-page .sign-in-block .heading-one,
-  .sign-in-page .sign-up-block .heading-one,
-  .sign-up-page .sign-in-block .heading-one,
-  .sign-up-page .sign-up-block .heading-one {
-    text-align: center;
-  }
-  .sign-in-page .sign-in-block .form-sign-in .form-data-container,
-  .sign-in-page .sign-up-block .form-sign-in .form-data-container,
-  .sign-up-page .sign-in-block .form-sign-in .form-data-container,
-  .sign-up-page .sign-up-block .form-sign-in .form-data-container {
-    width: 280px;
-  }
-  .sign-in-page .sign-in-block .form-sign-in .form-data-container .label-wrapper,
-  .sign-in-page .sign-up-block .form-sign-in .form-data-container .label-wrapper,
-  .sign-up-page .sign-in-block .form-sign-in .form-data-container .label-wrapper,
-  .sign-up-page .sign-up-block .form-sign-in .form-data-container .label-wrapper {
-    width: 90px;
-    text-align: start;
-  }
-  .sign-in-page .sign-in-block .form-sign-in .form-data-container .label-wrapper .sign-in-label,
-  .sign-in-page .sign-up-block .form-sign-in .form-data-container .label-wrapper .sign-in-label,
-  .sign-up-page .sign-in-block .form-sign-in .form-data-container .label-wrapper .sign-in-label,
-  .sign-up-page .sign-up-block .form-sign-in .form-data-container .label-wrapper .sign-in-label {
-    width: 80px;
-  }
-  .sign-in-page .sign-in-block .form-sign-in .form-data-container .input-wrapper,
-  .sign-in-page .sign-up-block .form-sign-in .form-data-container .input-wrapper,
-  .sign-up-page .sign-in-block .form-sign-in .form-data-container .input-wrapper,
-  .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper {
-    width: 150px;
-  }
-  .sign-in-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .email-input,
-  .sign-in-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .password-input,
-  .sign-in-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .email-input,
-  .sign-in-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .password-input,
-  .sign-up-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .email-input,
-  .sign-up-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .password-input,
-  .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .email-input,
-  .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .password-input {
-    width: 140px;
-  }
-  .sign-in-page .sign-in-block .form-sign-in .submit-btn-wrapper .submit,
-  .sign-in-page .sign-up-block .form-sign-in .submit-btn-wrapper .submit,
-  .sign-up-page .sign-in-block .form-sign-in .submit-btn-wrapper .submit,
-  .sign-up-page .sign-up-block .form-sign-in .submit-btn-wrapper .submit {
-    width: 184px;
-  }
-  .sign-in-page .sign-in-block .cancel-btn-wrapper .cancel-verification,
-  .sign-in-page .sign-up-block .cancel-btn-wrapper .cancel-verification,
-  .sign-up-page .sign-in-block .cancel-btn-wrapper .cancel-verification,
-  .sign-up-page .sign-up-block .cancel-btn-wrapper .cancel-verification {
-    width: 184px;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container {
-    width: 300px;
-    display: block;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper {
-    margin: 15px auto 5px auto;
-    width: 200px;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-firstname,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-lasttname,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-gender,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-dob,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-password,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-confirm-password,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-firstname,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-lasttname,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-gender,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-dob,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-password,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-confirm-password,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-firstname,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-lasttname,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-gender,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-dob,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-password,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-confirm-password,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-firstname,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-lasttname,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-gender,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-dob,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-password,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-confirm-password {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    width: 190px;
-    margin: 15px 0px 5px 0px;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper {
-    margin: 15px auto 5px auto;
-    width: 200px;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .dob-input,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .email-input,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .password-input,
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .dob-input,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .email-input,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .password-input,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .dob-input,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .email-input,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .password-input,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .dob-input,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .email-input,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .password-input,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input {
-    width: 190px;
-    margin: 5px 0px 10px 0px;
-    border-left: 2px solid #FABB00;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .gender-input,
-  .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .gender-input,
-  .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .gender-input,
-  .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .gender-input {
-    width: 198px;
-    margin: 5px 0px 10px 0px;
-    border-left: 2px solid #FABB00;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .submit-btn-wrapper,
-  .sign-in-page .sign-up-block .form-sign-up .submit-btn-wrapper,
-  .sign-up-page .sign-in-block .form-sign-up .submit-btn-wrapper,
-  .sign-up-page .sign-up-block .form-sign-up .submit-btn-wrapper {
-    width: 200px;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .submit-btn-wrapper .submit,
-  .sign-in-page .sign-up-block .form-sign-up .submit-btn-wrapper .submit,
-  .sign-up-page .sign-in-block .form-sign-up .submit-btn-wrapper .submit,
-  .sign-up-page .sign-up-block .form-sign-up .submit-btn-wrapper .submit {
-    width: 184px;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .cancel-btn-wrapper,
-  .sign-in-page .sign-up-block .form-sign-up .cancel-btn-wrapper,
-  .sign-up-page .sign-in-block .form-sign-up .cancel-btn-wrapper,
-  .sign-up-page .sign-up-block .form-sign-up .cancel-btn-wrapper {
-    width: 200px;
-  }
-  .sign-in-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
-  .sign-in-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
-  .sign-up-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
-  .sign-up-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup {
-    width: 184px;
-  }
-  .sign-in-page .sign-in-block .may-need-account .no-account,
-  .sign-in-page .sign-in-block .may-need-account .have-an-account,
-  .sign-in-page .sign-up-block .may-need-account .no-account,
-  .sign-in-page .sign-up-block .may-need-account .have-an-account,
-  .sign-up-page .sign-in-block .may-need-account .no-account,
-  .sign-up-page .sign-in-block .may-need-account .have-an-account,
-  .sign-up-page .sign-up-block .may-need-account .no-account,
-  .sign-up-page .sign-up-block .may-need-account .have-an-account {
-    font-size: 13px;
-  }
-  .sign-in-page .sign-in-block .may-need-account .register-for-access,
-  .sign-in-page .sign-up-block .may-need-account .register-for-access,
-  .sign-up-page .sign-in-block .may-need-account .register-for-access,
-  .sign-up-page .sign-up-block .may-need-account .register-for-access {
-    font-size: 13px;
-    width: 184px;
-  }
-  .sign-in-page .sign-in-block .may-need-account .get-access,
-  .sign-in-page .sign-up-block .may-need-account .get-access,
-  .sign-up-page .sign-in-block .may-need-account .get-access,
-  .sign-up-page .sign-up-block .may-need-account .get-access {
-    font-size: 12px;
-    width: 180px;
-  }
-  .sign-in-page .sign-in-block .may-need-account .login-access,
-  .sign-in-page .sign-up-block .may-need-account .login-access,
-  .sign-up-page .sign-in-block .may-need-account .login-access,
-  .sign-up-page .sign-up-block .may-need-account .login-access {
-    font-size: 14px;
-    width: 180px;
-  }
-}
-@media screen and (min-width: 376px) and (max-width: 425.9px) {
   .sign-in-page .sign-in-block,
   .sign-in-page .sign-up-block,
   .sign-up-page .sign-in-block,
   .sign-up-page .sign-up-block {
     height: auto;
-    max-height: 500px;
-    width: 300px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .heading-one,
   .sign-in-page .sign-up-block .heading-one,
@@ -218,11 +16,20 @@
   .sign-up-page .sign-up-block .heading-one {
     text-align: center;
   }
+  .sign-in-page .sign-in-block .form-sign-in,
+  .sign-in-page .sign-up-block .form-sign-in,
+  .sign-up-page .sign-in-block .form-sign-in,
+  .sign-up-page .sign-up-block .form-sign-in {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 30px auto 0px auto;
+  }
   .sign-in-page .sign-in-block .form-sign-in .form-data-container,
   .sign-in-page .sign-up-block .form-sign-in .form-data-container,
   .sign-up-page .sign-in-block .form-sign-in .form-data-container,
   .sign-up-page .sign-up-block .form-sign-in .form-data-container {
-    width: 300px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .form-sign-in .form-data-container .label-wrapper,
   .sign-in-page .sign-up-block .form-sign-in .form-data-container .label-wrapper,
@@ -241,7 +48,7 @@
   .sign-in-page .sign-up-block .form-sign-in .form-data-container .input-wrapper,
   .sign-up-page .sign-in-block .form-sign-in .form-data-container .input-wrapper,
   .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper {
-    width: 150px;
+    width: 260px;
   }
   .sign-in-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .email-input,
   .sign-in-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .password-input,
@@ -251,32 +58,38 @@
   .sign-up-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .password-input,
   .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .email-input,
   .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .password-input {
-    width: 140px;
+    width: 260px;
+    font-size: 12px;
+  }
+  .sign-in-page .sign-in-block .form-sign-in .submit-btn-wrapper,
+  .sign-in-page .sign-up-block .form-sign-in .submit-btn-wrapper,
+  .sign-up-page .sign-in-block .form-sign-in .submit-btn-wrapper,
+  .sign-up-page .sign-up-block .form-sign-in .submit-btn-wrapper {
+    margin-top: 15px;
   }
   .sign-in-page .sign-in-block .form-sign-in .submit-btn-wrapper .submit,
   .sign-in-page .sign-up-block .form-sign-in .submit-btn-wrapper .submit,
   .sign-up-page .sign-in-block .form-sign-in .submit-btn-wrapper .submit,
   .sign-up-page .sign-up-block .form-sign-in .submit-btn-wrapper .submit {
-    width: 184px;
+    width: 240px;
   }
   .sign-in-page .sign-in-block .cancel-btn-wrapper .cancel-verification,
   .sign-in-page .sign-up-block .cancel-btn-wrapper .cancel-verification,
   .sign-up-page .sign-in-block .cancel-btn-wrapper .cancel-verification,
   .sign-up-page .sign-up-block .cancel-btn-wrapper .cancel-verification {
-    width: 184px;
+    width: 240px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container,
   .sign-in-page .sign-up-block .form-sign-up .form-data-container,
   .sign-up-page .sign-in-block .form-sign-up .form-data-container,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container {
-    width: 300px;
-    display: block;
+    width: 260px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper,
   .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper,
   .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper {
-    margin: 15px auto 5px auto;
+    margin: 0px;
     width: 200px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-firstname,
@@ -303,18 +116,15 @@
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-dob,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-password,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-confirm-password {
-    display: flex;
-    justify-content: left;
-    align-items: center;
     width: 190px;
-    margin: 15px 0px 5px 0px;
+    margin: 0px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper,
   .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper,
   .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper {
-    margin: 15px auto 5px auto;
-    width: 200px;
+    margin: 0px auto 5px auto;
+    width: 260px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .lastname-input,
@@ -340,41 +150,44 @@
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .email-input,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .password-input,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input {
-    width: 190px;
-    margin: 5px 0px 10px 0px;
-    border-left: 2px solid #FABB00;
+    width: 260px;
+    font-size: 12px;
+    border-left: 1px solid #FABB00;
+    font-size: 12px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .gender-input,
   .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .gender-input,
   .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .gender-input,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .gender-input {
-    width: 198px;
+    width: 260px;
+    font-size: 12px;
     margin: 5px 0px 10px 0px;
-    border-left: 2px solid #FABB00;
+    border-left: 1px solid #FABB00;
   }
   .sign-in-page .sign-in-block .form-sign-up .submit-btn-wrapper,
   .sign-in-page .sign-up-block .form-sign-up .submit-btn-wrapper,
   .sign-up-page .sign-in-block .form-sign-up .submit-btn-wrapper,
   .sign-up-page .sign-up-block .form-sign-up .submit-btn-wrapper {
-    width: 200px;
+    width: 240px;
+    margin-top: 15px;
   }
   .sign-in-page .sign-in-block .form-sign-up .submit-btn-wrapper .submit,
   .sign-in-page .sign-up-block .form-sign-up .submit-btn-wrapper .submit,
   .sign-up-page .sign-in-block .form-sign-up .submit-btn-wrapper .submit,
   .sign-up-page .sign-up-block .form-sign-up .submit-btn-wrapper .submit {
-    width: 184px;
+    width: 240px;
   }
   .sign-in-page .sign-in-block .form-sign-up .cancel-btn-wrapper,
   .sign-in-page .sign-up-block .form-sign-up .cancel-btn-wrapper,
   .sign-up-page .sign-in-block .form-sign-up .cancel-btn-wrapper,
   .sign-up-page .sign-up-block .form-sign-up .cancel-btn-wrapper {
-    width: 200px;
+    width: 240px;
   }
   .sign-in-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
   .sign-in-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
   .sign-up-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
   .sign-up-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup {
-    width: 184px;
+    width: 240px;
   }
   .sign-in-page .sign-in-block .may-need-account .no-account,
   .sign-in-page .sign-in-block .may-need-account .have-an-account,
@@ -384,44 +197,56 @@
   .sign-up-page .sign-in-block .may-need-account .have-an-account,
   .sign-up-page .sign-up-block .may-need-account .no-account,
   .sign-up-page .sign-up-block .may-need-account .have-an-account {
-    font-size: 13px;
+    font-size: 14px;
   }
   .sign-in-page .sign-in-block .may-need-account .register-for-access,
   .sign-in-page .sign-up-block .may-need-account .register-for-access,
   .sign-up-page .sign-in-block .may-need-account .register-for-access,
   .sign-up-page .sign-up-block .may-need-account .register-for-access {
-    font-size: 13px;
-    width: 184px;
+    font-size: 14px;
+    width: 240px;
   }
   .sign-in-page .sign-in-block .may-need-account .get-access,
   .sign-in-page .sign-up-block .may-need-account .get-access,
   .sign-up-page .sign-in-block .may-need-account .get-access,
   .sign-up-page .sign-up-block .may-need-account .get-access {
     font-size: 12px;
-    width: 180px;
+    width: 240px;
   }
   .sign-in-page .sign-in-block .may-need-account .login-access,
   .sign-in-page .sign-up-block .may-need-account .login-access,
   .sign-up-page .sign-in-block .may-need-account .login-access,
   .sign-up-page .sign-up-block .may-need-account .login-access {
     font-size: 14px;
-    width: 180px;
+    width: 240px;
   }
 }
 @media screen and (min-width: 426px) {
   .sign-in-page .sign-in-block,
+  .sign-up-page .sign-in-block {
+    max-height: 500px;
+  }
+  .sign-in-page .sign-in-block,
   .sign-in-page .sign-up-block,
   .sign-up-page .sign-in-block,
   .sign-up-page .sign-up-block {
+    width: 340px;
     height: auto;
-    max-height: 500px;
-    width: 300px;
   }
   .sign-in-page .sign-in-block .heading-one,
   .sign-in-page .sign-up-block .heading-one,
   .sign-up-page .sign-in-block .heading-one,
   .sign-up-page .sign-up-block .heading-one {
     text-align: center;
+  }
+  .sign-in-page .sign-in-block .form-sign-in,
+  .sign-in-page .sign-up-block .form-sign-in,
+  .sign-up-page .sign-in-block .form-sign-in,
+  .sign-up-page .sign-up-block .form-sign-in {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 30px auto 0px auto;
   }
   .sign-in-page .sign-in-block .form-sign-in .form-data-container,
   .sign-in-page .sign-up-block .form-sign-in .form-data-container,
@@ -446,7 +271,7 @@
   .sign-in-page .sign-up-block .form-sign-in .form-data-container .input-wrapper,
   .sign-up-page .sign-in-block .form-sign-in .form-data-container .input-wrapper,
   .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper {
-    width: 150px;
+    width: 300px;
   }
   .sign-in-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .email-input,
   .sign-in-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .password-input,
@@ -456,19 +281,27 @@
   .sign-up-page .sign-in-block .form-sign-in .form-data-container .input-wrapper .password-input,
   .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .email-input,
   .sign-up-page .sign-up-block .form-sign-in .form-data-container .input-wrapper .password-input {
-    width: 140px;
+    width: 300px;
+    font-size: 12px;
+  }
+  .sign-in-page .sign-in-block .form-sign-in .submit-btn-wrapper,
+  .sign-in-page .sign-up-block .form-sign-in .submit-btn-wrapper,
+  .sign-up-page .sign-in-block .form-sign-in .submit-btn-wrapper,
+  .sign-up-page .sign-up-block .form-sign-in .submit-btn-wrapper {
+    width: 280px;
+    margin-top: 15px;
   }
   .sign-in-page .sign-in-block .form-sign-in .submit-btn-wrapper .submit,
   .sign-in-page .sign-up-block .form-sign-in .submit-btn-wrapper .submit,
   .sign-up-page .sign-in-block .form-sign-in .submit-btn-wrapper .submit,
   .sign-up-page .sign-up-block .form-sign-in .submit-btn-wrapper .submit {
-    width: 184px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .cancel-btn-wrapper .cancel-verification,
   .sign-in-page .sign-up-block .cancel-btn-wrapper .cancel-verification,
   .sign-up-page .sign-in-block .cancel-btn-wrapper .cancel-verification,
   .sign-up-page .sign-up-block .cancel-btn-wrapper .cancel-verification {
-    width: 184px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container,
   .sign-in-page .sign-up-block .form-sign-up .form-data-container,
@@ -481,7 +314,6 @@
   .sign-in-page .sign-up-block .form-sign-up .form-data-container .label-wrapper,
   .sign-up-page .sign-in-block .form-sign-up .form-data-container .label-wrapper,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .label-wrapper {
-    margin: 15px auto 5px auto;
     width: 200px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .label-wrapper .sign-up-label-firstname,
@@ -518,7 +350,6 @@
   .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper,
   .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper {
-    margin: 15px auto 5px auto;
     width: 200px;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .firstname-input,
@@ -545,41 +376,50 @@
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .email-input,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .password-input,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .confirm-password-input {
-    width: 190px;
+    width: 300px;
+    height: 32px;
     margin: 5px 0px 10px 0px;
-    border-left: 2px solid #FABB00;
+    border: none;
+    border-left: 1px solid #FABB00;
+    border-bottom: 1px solid #FABB00;
+    font-size: 12px;
+    outline: 1px solid transparent;
   }
   .sign-in-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .gender-input,
   .sign-in-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .gender-input,
   .sign-up-page .sign-in-block .form-sign-up .form-data-container .input-wrapper .gender-input,
   .sign-up-page .sign-up-block .form-sign-up .form-data-container .input-wrapper .gender-input {
-    width: 198px;
+    width: 300px;
+    border: none;
     margin: 5px 0px 10px 0px;
-    border-left: 2px solid #FABB00;
+    border-left: 1px solid #FABB00;
+    border-bottom: 1px solid #FABB00;
+    outline: 1px solid transparent;
   }
   .sign-in-page .sign-in-block .form-sign-up .submit-btn-wrapper,
   .sign-in-page .sign-up-block .form-sign-up .submit-btn-wrapper,
   .sign-up-page .sign-in-block .form-sign-up .submit-btn-wrapper,
   .sign-up-page .sign-up-block .form-sign-up .submit-btn-wrapper {
-    width: 200px;
+    width: 280px;
+    margin-top: 15px;
   }
   .sign-in-page .sign-in-block .form-sign-up .submit-btn-wrapper .submit,
   .sign-in-page .sign-up-block .form-sign-up .submit-btn-wrapper .submit,
   .sign-up-page .sign-in-block .form-sign-up .submit-btn-wrapper .submit,
   .sign-up-page .sign-up-block .form-sign-up .submit-btn-wrapper .submit {
-    width: 184px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .form-sign-up .cancel-btn-wrapper,
   .sign-in-page .sign-up-block .form-sign-up .cancel-btn-wrapper,
   .sign-up-page .sign-in-block .form-sign-up .cancel-btn-wrapper,
   .sign-up-page .sign-up-block .form-sign-up .cancel-btn-wrapper {
-    width: 200px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
   .sign-in-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
   .sign-up-page .sign-in-block .form-sign-up .cancel-btn-wrapper .cancel-signup,
   .sign-up-page .sign-up-block .form-sign-up .cancel-btn-wrapper .cancel-signup {
-    width: 184px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .may-need-account .no-account,
   .sign-in-page .sign-in-block .may-need-account .have-an-account,
@@ -589,27 +429,27 @@
   .sign-up-page .sign-in-block .may-need-account .have-an-account,
   .sign-up-page .sign-up-block .may-need-account .no-account,
   .sign-up-page .sign-up-block .may-need-account .have-an-account {
-    font-size: 13px;
+    font-size: 14px;
   }
   .sign-in-page .sign-in-block .may-need-account .register-for-access,
   .sign-in-page .sign-up-block .may-need-account .register-for-access,
   .sign-up-page .sign-in-block .may-need-account .register-for-access,
   .sign-up-page .sign-up-block .may-need-account .register-for-access {
-    font-size: 13px;
-    width: 184px;
+    font-size: 14px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .may-need-account .get-access,
   .sign-in-page .sign-up-block .may-need-account .get-access,
   .sign-up-page .sign-in-block .may-need-account .get-access,
   .sign-up-page .sign-up-block .may-need-account .get-access {
     font-size: 12px;
-    width: 180px;
+    width: 280px;
   }
   .sign-in-page .sign-in-block .may-need-account .login-access,
   .sign-in-page .sign-up-block .may-need-account .login-access,
   .sign-up-page .sign-in-block .may-need-account .login-access,
   .sign-up-page .sign-up-block .may-need-account .login-access {
     font-size: 14px;
-    width: 180px;
+    width: 280px;
   }
 }/*# sourceMappingURL=mind-canvas-portal-media-queries.css.map */

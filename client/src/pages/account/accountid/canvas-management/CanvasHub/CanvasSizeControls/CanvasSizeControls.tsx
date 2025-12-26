@@ -2,7 +2,7 @@ import {
   InputDisabledText,
   InputEnabledText,
   InputSubmit,
-} from "../../../../../../components/form-elements/InputTypeInterfaces";
+} from "../../../../../../components/form-elements/dry-InputFormComponents";
 import { DivClass } from "../../../../../../ui/Div";
 import "./canva-controls.css";
 import { LongText } from "../../../../../../ui/LongText";

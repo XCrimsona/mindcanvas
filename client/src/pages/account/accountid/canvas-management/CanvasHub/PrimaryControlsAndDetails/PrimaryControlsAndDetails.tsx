@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./primary-controls.css";
 import { DivClass } from "../../../../../../ui/Div";
 import Button from "../../../../../../components/form-elements/Button";
-import { InputDisabledText } from "../../../../../../components/form-elements/InputTypeInterfaces";
+import { InputDisabledText } from "../../../../../../components/form-elements/dry-InputFormComponents";
 import SVG from "../../../../../../SVG";
 import { useMaskSensitiveData } from "../../MaskSensitiveData";
 import { useCanvasContext } from "../../DataComponents/canva-data-provider/CanvasDataContextProvider";

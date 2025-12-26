@@ -1,46 +1,45 @@
 @use '../styles/index' as style;
 
 .controls {
-    @include style.border-top(style.$space-2, solid, #ffffffdd);
-    // @include style.position(absolute);
-    @include style.bottom(style.$space-0);
-    @include style.left(style.$space-0);
-    @include style.right(style.$space-0);
-    @include style.height(40px);
-    @include style.display-align(flex);
-    @include style.flex-align(wrap);
-    @include style.align-items(center);
-    @include style.justify-content(center);
-    @include style.padding-x-y(style.$space-20, style.$space-0, style.$space-10 , style.$space-0 );
-    @include style.margin-x-y(style.$space-40, style.$auto, style.$space-0 , style.$auto );
-    border-bottom-left-radius: style.$space-10;
-    border-bottom-right-radius: style.$space-10;
+    border-top: 2px solid #ffffffdd;
+    // position: absolute; // original commented out
+    // bottom: 0px;
+    // left: 0px;
+    // right: 0px;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 0px auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
     .button-wrapper {
-        @include style.position(relative);
-        @include style.display-align(flex);
-        @include style.flex-align(wrap);
-        @include style.align-items(center);
-        @include style.justify-items(center);
-        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-items: center;
+        margin: 20px auto 20px auto;
 
         .create-new-workspace-sheet-button {
-            @include style.display-align(flex);
-            @include style.flex-align(wrap);
-            @include style.align-content(center);
-            @include style.justify-content(center);
-            @include style.align-text(center);
-            @include style.text-color(#fff);
-            @include style.background-color(#1c1c1c);
-            @include style.border-top (style.$space-2, solid, #ffffff);
-            @include style.border-left (style.$space-2, solid, #ffffff);
-            @include style.border-right (style.$space-2, solid, #ffffff);
-            @include style.border-bottom (style.$space-2, solid, #ffffff);
-            @include style.border-radius(style.$space-4);
-            @include style.height(28px);
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background-color: #1c1c1c;
+            border-top: 2px solid #ffffff;
+            border-left: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+            border-radius: 4px;
+            height: 28px;
             cursor: pointer;
-            @include style.width(30px);
-            @include style.font-size(17pt);
+            width: 30px;
+            font-size: 17pt;
         }
     }
 }

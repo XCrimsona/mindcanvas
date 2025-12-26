@@ -11,7 +11,7 @@ import {
   InputSelect,
   InputSubmit,
   InputText,
-} from "../../../../src/components/form-elements/InputTypeInterfaces";
+} from "../../../components/form-elements/dry-InputFormComponents";
 
 import { LongText } from "../../../../src/ui/LongText";
 import Button from "../../../../src/components/form-elements/Button";
@@ -19,6 +19,8 @@ import RouteLink from "../../../../src/components/ProductSection/RouteLink";
 // import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toast";
 
 const Signup = () => {
   const router = useNavigate();
@@ -76,6 +78,7 @@ const Signup = () => {
 
           //want to try a new feature: socket.io
           //for real-time notifcations to check login success or failed to verify
+          toast.info("Please wait...", { autoClose: 2500 });
           if (response.ok) {
             const data = await response.json();
             // redirect to dashboard
@@ -124,6 +127,7 @@ const Signup = () => {
         ariaLabelledBy="sign-up"
         className="sign-up-block"
       >
+        <ToastContainer position="top-right"></ToastContainer>
         <HeadingOne id="sign-up" className="heading-one">
           Sign Up
         </HeadingOne>

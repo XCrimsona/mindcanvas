@@ -4,7 +4,7 @@ import { DivClass, DivMouse } from "../../../../../../ui/Div";
 import {
   EnabledVideoInput,
   EnabledVideosInputs,
-} from "../../../../../../components/mass-workspace-elements/MassWorkspaceInputComponents";
+} from "../../../../../../components/media-retrieved-components/MediaInputComponents";
 import Label from "../../../../../../components/form-elements/Label";
 import { useCanvasContext } from "../canva-data-provider/CanvasDataContextProvider";
 import Select from "../../../../../../ui/selection/Select";

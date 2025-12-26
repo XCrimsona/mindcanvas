@@ -5,6 +5,7 @@ import AuthService from "../../../lib/Auth.js";
 import Router from "express";
 import { TokenService } from "../../../lib/JwtTokenService.js";
 import { PasswordService } from "../../../lib/Hashing.js";
+
 const loginRouter = Router();
 loginRouter
   .get("/", async (req, res) => {
@@ -50,7 +51,7 @@ loginRouter
       const tknservice = new TokenService();
       const signedToken = tknservice.sign(payload);
       res.cookie("authtoken", signedToken, {
-        secure: false,
+        secure: process.env.SECURE,
         httpOnly: true,
         sameSite: "lax",
         maxAge: 2 * 60 * 60 * 1000,
