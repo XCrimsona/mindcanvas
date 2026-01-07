@@ -1,33 +1,28 @@
-@use '../styles/index' as style;
-
 .help-container {
-    @include style.display-align(block);
-    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-    @include style.height(70px);
+    margin: auto auto;
+    width: 140px;
+    display: block;
+    text-align: center;
+    margin-right: 0px;
 
     .help-btn-wrapper {
-        @include style.width(60px);
-        @include style.height(30px);
-        @include style.display-align(block);
-        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-
-        .help-mark {
-            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-            @include style.height(30px);
-            @include style.width(30px);
-            cursor: pointer;
-        }
-    }
-
-    .help-text-wrapper {
-        @include style.display-align(block);
-        @include style.margin-x-y(style.$space-10, style.$auto, style.$space-0 , style.$auto );
-        @include style.height(20px);
+        letter-spacing: 1px;
+        background-color: #1C1C1C;
+        border-radius: 4px;
+        border: 2px solid #555555;
+        display: block;
+        cursor: pointer;
+        width: 140px;
 
         .help-text {
-            @include style.display-align(block);
-            @include style.align-text(center);
-            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+            padding: 4px 4px;
+            width: 140px;
+            display: block;
+            font-size: 12px;
+            text-align: center;
+            margin: 0px auto 0px auto;
+            color: #fff;
+            text-transform: uppercase;
         }
     }
 }

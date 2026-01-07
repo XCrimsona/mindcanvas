@@ -2,7 +2,6 @@
   border-radius: 10px;
   margin: 0px auto 0px auto;
   overflow: auto;
-  white-space: none;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
 }
 .data-container .data-scroll-board {
@@ -38,7 +37,7 @@
 }
 @media screen and (min-width: 1441px) and (max-width: 1800.9px) {
   .data-container {
-    height: 92.4vh;
+    height: 93.1vh;
     width: 98.8vw;
   }
 }

@@ -8,7 +8,8 @@ import RepositionLiveData from "../DataComponents/mediaReposition/RepositionLive
 import ImageInputUnit from "../DataComponents/image/ImageInputUnit";
 // import VideoInputUnit from "./DataComponents/video/VideoInputUnit";
 const CanvaContainer = () => {
-  const { dataScrollBoardRef, canvasHeight, canvasWidth } = useCanvasContext();
+  const { dataScrollBoardRef, canvasHeight, canvasWidth, canvasData } =
+    useCanvasContext();
 
   return (
     <DivClass className={"data-container"}>
@@ -16,8 +17,8 @@ const CanvaContainer = () => {
         className={"data-scroll-board"}
         ref={dataScrollBoardRef}
         style={{
-          width: `${canvasWidth}px`,
-          height: `${canvasHeight}px`,
+          width: `${canvasData.data?.workspaceNameData?.canvaspace?.size?.width}px`,
+          height: `${canvasData.data?.workspaceNameData?.canvaspace?.size?.height}px`,
           transition: "height .2s ease-in-out, width .2s ease-in-out",
         }}
       >

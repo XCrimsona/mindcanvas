@@ -5,6 +5,7 @@ import Button from "../../../../../../components/form-elements/Button";
 import { useModificationContext } from "../../modify-data/InfoModificationContextProvider";
 import { useParams } from "react-router-dom";
 import CanvaNotification_MoveXYFailed from "../../notifications/fragment-updates/CanvaNotification_MoveXYFailed";
+import { toast } from "react-toastify";
 
 //reposition live data
 //mediaInputOffSet,mediaInputCompPosRef,mediaInputCompRef,mediaWindowToggleState
@@ -27,6 +28,7 @@ const RepositionLiveData = () => {
     y: Number,
   });
   const { userid, canvaid } = useParams();
+  if (!userid) return;
   const { toggleModificationState } = useModificationContext();
 
   //textInputCompPosRef is mediaInputCompPosRef
@@ -104,11 +106,11 @@ const RepositionLiveData = () => {
     document.addEventListener<any>("mouseup", processMediaMouseUp);
   };
 
-  const elementId = mediaCanvaDataFragment.doubleClickedElement;
+  const elementId = mediaCanvaDataFragment.clickedElement;
 
   let text = null;
-  if (mediaCanvaDataFragment.doubleClickedElement) {
-    text = (mediaCanvaDataFragment.doubleClickedElementValues as HTMLElement)
+  if (mediaCanvaDataFragment.clickedElement) {
+    text = (mediaCanvaDataFragment.clickedElementValues as HTMLElement)
       .parentElement?.childNodes[1].textContent;
   }
 
@@ -146,7 +148,7 @@ const RepositionLiveData = () => {
       !mediaData.y
     ) {
       //fires if the logic is broken
-      new Notification("Media data is missing, investigate anomaly!");
+      toast.warning("Media data is missing, investigate anomaly!");
       return;
     } else {
       // console.log("mediaData: ", mediaData);
@@ -156,13 +158,17 @@ const RepositionLiveData = () => {
         {
           method: "PATCH",
           credentials: "include",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "x-active-user": userid,
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(mediaData),
         }
       );
       if (mediaUpdateResponse.ok) {
         //notification ok response
         updateCanvasData();
+        //resets the element value
         setMediaFragmentData({
           ...mediaFragmentData,
           text: "",

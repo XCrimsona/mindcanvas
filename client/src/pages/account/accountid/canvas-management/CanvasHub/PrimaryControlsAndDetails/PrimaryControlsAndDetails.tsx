@@ -67,26 +67,6 @@ const PrimaryControlsAndDetails = () => {
 
     return (
       <DivClass className={"primary-workspace-controls-and-workspace-details"}>
-        <DivClass className={"primary-workspace-controls"}>
-          <DivClass className={"refresh-workspace-btn-wrapper"}>
-            <Button
-              id="refresh-workspace-btn"
-              className={"refresh-workspace-btn"}
-              onClick={canvasDeletionToggle}
-            >
-              DELETE
-            </Button>
-          </DivClass>
-          <DivClass className={"refresh-workspace-btn-wrapper"}>
-            <Button
-              id="refresh-workspace-btn"
-              className={"refresh-workspace-btn"}
-              onClick={refresh}
-            >
-              REFRESH
-            </Button>
-          </DivClass>
-        </DivClass>
         <DivClass className={"workspace-details"}>
           <DivClass className={"workspace-name-wrapper"}>
             <InputDisabledText
@@ -152,6 +132,26 @@ const PrimaryControlsAndDetails = () => {
               onClick={copycanvaid}
               className={"clipboard-icon"}
             />
+          </DivClass>
+        </DivClass>
+        <DivClass className={"primary-workspace-controls"}>
+          <DivClass className={"delete-workspace-btn-wrapper"}>
+            <Button
+              id="delete-workspace-btn"
+              className={"delete-workspace-btn"}
+              onClick={canvasDeletionToggle}
+            >
+              DELETE
+            </Button>
+          </DivClass>
+          <DivClass className={"refresh-workspace-btn-wrapper"}>
+            <Button
+              id="refresh-workspace-btn"
+              className={"refresh-workspace-btn"}
+              onClick={refresh}
+            >
+              REFRESH
+            </Button>
           </DivClass>
         </DivClass>
       </DivClass>

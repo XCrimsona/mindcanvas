@@ -8,6 +8,7 @@
     padding: 0px 0px 0px 30px;
     max-height: 250px;
     overflow-y: hidden;
+    // font-size: 12px;
 
     .text-fragment {
         margin: 0px auto;
@@ -28,8 +29,9 @@
         box-shadow: inset 0px 0px 4px 2px #FAAA0040, 0px 0px 4px 0px #FAAA0040;
     }
 
+
     .text-fragment::selection {
-        background-color: transparent;
+        background-color: #FABB0050;
     }
 
 }

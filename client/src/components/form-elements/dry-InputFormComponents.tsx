@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 
 interface InputColorProps {
   id: string;
@@ -71,7 +71,7 @@ export const InputTextReadOnly = ({
     <input
       type="text"
       id={id}
-      readOnly
+      // readOnly
       minLength={1}
       maxLength={500}
       className={className}
@@ -118,7 +118,7 @@ export const InputDisabledText = ({
       type="text"
       id={id}
       minLength={1}
-      maxLength={500}
+      maxLength={100}
       disabled
       autoComplete="off"
       className={className}
@@ -141,7 +141,7 @@ export const InputEnabledText = ({
       type="text"
       id={id}
       minLength={1}
-      maxLength={500}
+      maxLength={10}
       autoComplete="off"
       placeholder={placeholder}
       className={className}
@@ -275,6 +275,9 @@ interface InputPasswordProps {
   placeholder: string;
   value: string;
   onChange: React.ReactEventHandler;
+  isdisabled: boolean;
+  required: boolean;
+  style?: CSSProperties;
 }
 export const InputPassword = ({
   id,
@@ -282,6 +285,9 @@ export const InputPassword = ({
   placeholder,
   value,
   onChange,
+  isdisabled,
+  required,
+  style,
 }: InputPasswordProps) => {
   return (
     <input
@@ -290,10 +296,12 @@ export const InputPassword = ({
       minLength={6}
       maxLength={140}
       autoComplete="off"
+      disabled={isdisabled}
+      style={style}
       className={className}
       placeholder={placeholder}
       value={value}
-      required
+      required={required}
       onChange={onChange}
     />
   );
@@ -402,6 +410,8 @@ interface InputSubmitProps {
   className: string;
   value: string;
   onClick?: React.ReactEventHandler;
+  isdisabled: boolean;
+  style?: CSSProperties;
 }
 
 export const InputSubmit = ({
@@ -409,12 +419,16 @@ export const InputSubmit = ({
   className,
   onClick,
   value,
+  isdisabled,
+  style,
 }: InputSubmitProps) => {
   return (
     <input
       type="submit"
       id={id}
       autoComplete="off"
+      disabled={isdisabled}
+      style={style}
       className={className}
       onClick={onClick}
       value={value}

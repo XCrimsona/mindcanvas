@@ -6,6 +6,7 @@ import "./modification-window.css";
 import ShortText from "../../../../../ui/ShortText";
 import Button from "../../../../../components/form-elements/Button";
 import { useModificationContext } from "./InfoModificationContextProvider";
+import { toast } from "react-toastify";
 
 //Components uses context boolean states in collaboration with
 //toggleModificationState(); and toggleMediaWindowState();
@@ -22,26 +23,22 @@ export const EditWindow = ({ componentData }: { componentData: any }) => {
 
   const copyToClipboard = async (text: string) => {
     if (!text) {
-      new Notification("Nothing to copy");
+      toast.info("Nothing to copy");
       return;
     } else {
       await navigator.clipboard.writeText(text);
-      new Notification("Copied to clipboard");
+      toast.success("Copied to clipboard");
+      return;
     }
   };
   const pasteToClipboard = async () => {
     const clipboardData = await navigator.clipboard.readText();
 
     if (!clipboardData) {
-      new Notification("Nothing to paste");
+      toast.info("Nothing to paste");
       return;
     } else {
       setComponentData(clipboardData);
-      setTimeout(() => {
-        setComponentData("");
-      }, 2000);
-
-      new Notification("Pasted from clipboard");
       return;
     }
   };
@@ -105,7 +102,7 @@ export const EditWindow = ({ componentData }: { componentData: any }) => {
             }}
             className={"paste-clipboard-button"}
           >
-            Pasted from clipboard
+            Write latest clipboard
           </Button>
           <button
             type="submit"
@@ -113,8 +110,7 @@ export const EditWindow = ({ componentData }: { componentData: any }) => {
             id="edit-button"
             onClick={() => {
               if (!newComponentData) {
-                new Notification("Enter new data to update the present text");
-                return;
+                toast.info("Enter new data to update the present text");
               } else {
                 // _id is the componont being edited
                 //newComponentData === text
@@ -125,7 +121,6 @@ export const EditWindow = ({ componentData }: { componentData: any }) => {
                   type,
                   newComponentData
                 );
-                return;
               }
             }}
           >

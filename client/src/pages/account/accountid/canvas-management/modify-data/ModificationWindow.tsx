@@ -4,6 +4,7 @@ import "./modification-window.css";
 import Button from "../../../../../components/form-elements/Button";
 import { useCanvasContext } from "../DataComponents/canva-data-provider/CanvasDataContextProvider";
 import React from "react";
+// import { ToastContainer } from "react-toastify";
 
 //When the i round button on the left of a data fragment is clicked, ModificationWindow is an options box
 export const ModificationWindow = ({ componentData }: any) => {
@@ -12,6 +13,8 @@ export const ModificationWindow = ({ componentData }: any) => {
     toggleModificationState,
     mouseClickDelete,
     deleteLiveDataElement,
+    antiDeleteLock,
+    toggleDeleteLock,
   } = useModificationContext();
   const { toggleMediaWindowState } = useCanvasContext();
   const { owner, _id, workspaceId, type } = componentData;
@@ -56,18 +59,50 @@ export const ModificationWindow = ({ componentData }: any) => {
           marginRight: "auto",
         }}
       />
-      <Button
-        className={"delete-button"}
-        id=""
-        // id={`${_id}`}
-        onClick={(e: React.MouseEvent<HTMLParagraphElement>) => {
-          mouseClickDelete(e);
-          deleteLiveDataElement(owner, _id, workspaceId, type);
-          // return;
-        }}
-      >
-        Delete
-      </Button>
+      <div className="delete-container ml-auto mr-auto flex flex-wrap items-center justify-around">
+        <div
+          className={"toggle-delete flex"}
+          // id={`${_id}`}
+          onClick={(e: React.FormEvent<HTMLDivElement>) => {
+            e.preventDefault();
+            toggleDeleteLock();
+            return;
+          }}
+        >
+          {antiDeleteLock ? (
+            <img
+              src="/shield-tick.svg"
+              alt="Locked"
+              height={25}
+              width={25}
+              className="ml-0 mr-auto block"
+            />
+          ) : (
+            <img
+              src="/shield-cross.svg"
+              alt="Unlocked"
+              height={25}
+              className="ml-0 mr-auto block"
+              width={25}
+            />
+          )}
+        </div>
+        <button
+          className={`delete-button inline ${
+            antiDeleteLock ? "cursor-not-allowed" : "cursor-pointer"
+          } ${antiDeleteLock ? "opacity-80" : "opacity-100"}`}
+          // id={`${_id}`}
+          disabled={antiDeleteLock}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+            e.preventDefault();
+            mouseClickDelete(e);
+            deleteLiveDataElement(owner, _id, workspaceId, type);
+            // return;
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,246 +1,174 @@
-@use '../styles/index' as style;
-
 .primary-workspace-controls-and-workspace-details {
-
-    box-shadow: inset 0px 0px 4px 2px #FABB0040;
-    box-shadow: 0px 0px 4px 2px #FABB0040;
-    @include style.background-color(#000000B3);
-    @include style.position(relative);
-    // @include style.justify-content(center);
-    // @include style.align-items(center);
-    @include style.margin-x-y(style.$space-10, style.$auto, style.$space-5 , style.$auto);
-    @include style.text-color(#fff);
-    @include style.border-radius(4px);
+    // box-shadow: inset 0px 0px 4px 2px #FABB0040, 0px 0px 4px 2px #FABB0040;
+    position: relative;
+    margin: 10px auto 5px auto;
+    background-color: #000000B3;
+    // min-height: 200px;
+    height: auto;
+    border-radius: 4px;
     transition: width .2s ease-in-out, height .2s ease-in-out;
-    // height: 100%;
-    // width: 90%;
-
-    .primary-workspace-controls {
-        @include style.display-align(flex);
-        @include style.flex-align(wrap);
-        @include style.justify-content(flex-start);
-        @include style.align-items(center);
-        @include style.padding-x-y(style.$space-10, 0px, style.$space-0 , 0px);
-        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$space-0 );
-        transition: width .2s, height .2s;
-
-        .refresh-workspace-btn-wrapper {
-            @include style.display-align(flex);
-            @include style.flex-align(wrap);
-            @include style.justify-content(center);
-            @include style.align-content(center);
-            @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
-
-            .refresh-workspace-btn {
-                @include style.display-align(flex);
-                @include style.flex-align(wrap);
-                @include style.justify-content(center);
-                @include style.align-content(center);
-                @include style.text-color(#FABB00DD);
-                letter-spacing: style.$space-1;
-                @include style.background-color(#1C1C1C);
-                @include style.border-radius(style.$space-4);
-                @include style.border(style.$space-2, solid, #555555);
-                @include style.padding-x-y(style.$space-4, style.$space-20, style.$space-4 , style.$space-20 );
-                @include style.margin-x-y(style.$space-5, style.$space-4, style.$space-5 , style.$space-0 );
-                @include style.text-style(underline);
-                // @include style.width(100px);
-                cursor: pointer;
-            }
-        }
-
-        // .save-workspace-btn-wrapper {
-        //     @include style.display-align(flex);
-        //     @include style.flex-align(wrap);
-        //     @include style.justify-content(center);
-        //     @include style.align-content(center);
-        //     @include style.height(30px);
-        //     @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-
-        //     .save-workspace-btn {
-        //         @include style.display-align(flex);
-        //         @include style.flex-align(wrap);
-        //         @include style.justify-content(center);
-        //         @include style.align-content(center);
-        //         @include style.text-color(#00FAA0DD);
-        //         letter-spacing: style.$space-1;
-        //         @include style.background-color(#1C1C1C);
-        //         @include style.border-radius(style.$space-4);
-        //         @include style.border(style.$space-2, solid, #555555);
-        //         @include style.padding-x-y(style.$space-4, style.$space-20, style.$space-4 , style.$space-20 );
-        //         @include style.margin-x-y(style.$space-5, style.$space-4, style.$space-5 , style.$space-0 );
-        //         @include style.text-style(underline);
-        //         cursor: pointer;
-        //     }
-
-        // }
-    }
 
     .workspace-details {
-        @include style.display-align(flex);
-        @include style.flex-align(wrap);
-        @include style.justify-content(flex-end);
-        @include style.align-content(center);
-        @include style.margin-x-y(style.$space-10, style.$auto, style.$space-10 , style.$auto );
+        margin: 10px auto 10px auto;
 
         .workspace-id-wrapper,
         .workspace-name-wrapper {
-            @include style.display-align(flex);
-            @include style.justify-items(center);
-            @include style.align-items(center);
-            @include style.height(30px);
-            @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-            @include style.background-color(#000000);
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            height: 32px;
+            font-size: 12px;
+            margin: 5px 0px 5px 0px;
+            background-color: #000000;
+            border-radius: 4px;
 
-            .workspace-name {
-                @include style.text-color(#fff);
-                @include style.background-color(#000000DD);
-                @include style.border-radius(style.$space-4);
-                // @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-                // @include style.padding-x-y(style.$space-4, style.$space-20, style.$space-4 , style.$space-4 );
-            }
-
-            .clipboard-icon {
-                @include style.display-align(flex);
-                @include style.background-color(#000000DD);
-                @include style.flex-align(wrap);
-                @include style.justify-content(center);
-                @include style.align-items(center);
-                // @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-                // @include style.padding-x-y(style.$space-4, style.$space-0, style.$space-4 , style.$space-0 );
-                @include style.width(20px);
-                @include style.height(20px);
-                cursor: pointer;
-            }
-
+            .workspace-name,
             .workspace-id {
-                @include style.text-color(#fff);
-                @include style.background-color(#000000DD);
-                @include style.border-radius(style.$space-4);
-                // @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-                // @include style.padding-x-y(style.$space-4, style.$space-20, style.$space-4 , style.$space-4 );
+                color: #ffffff;
+                background-color: #000000DD;
+                border-radius: 4px;
+                font-size: 12px;
+            }
+
+            .clipboard-icon,
+            .eye-icon {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                background-color: #000000DD;
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+                cursor: pointer;
             }
 
             .eye-icon {
-                @include style.display-align(flex);
-                @include style.background-color(#000000DD);
-                @include style.flex-align(wrap);
-                @include style.justify-content(center);
-                @include style.align-items(center);
-                // @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-                @include style.padding-x-y(style.$space-4, style.$space-4, style.$space-4 , style.$space-0 );
-                @include style.width(20px);
-                @include style.height(20px);
-                cursor: pointer;
+                padding: 4px 4px 4px 0px;
             }
 
             .clipboard-icon {
-                @include style.display-align(flex);
-                @include style.background-color(#000000DD);
-                @include style.flex-align(wrap);
-                @include style.justify-content(center);
-                @include style.align-items(center);
-                // @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-                @include style.padding-x-y(style.$space-4, style.$space-0, style.$space-4 , style.$space-0 );
-                @include style.width(20px);
-                @include style.height(20px);
+                padding: 4px 0px 4px 0px;
+            }
+        }
+    }
+
+    .primary-workspace-controls {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px 0px 0px 0px;
+        margin: 0px auto 0px auto;
+        transition: width .2s ease-in-out, height .2s ease-in-out;
+
+        .delete-workspace-btn-wrapper,
+        .refresh-workspace-btn-wrapper {
+            margin: 10px auto;
+
+            .delete-workspace-btn,
+            .refresh-workspace-btn {
+                display: block;
+                letter-spacing: 1px;
+                background-color: #1C1C1C;
+                border-radius: 4px;
+                border: 2px solid #555555;
+                padding: 4px 4px;
+                font-size: 12px;
                 cursor: pointer;
             }
-        }
 
+            .delete-workspace-btn {
+                color: #F00;
+            }
+
+            .refresh-workspace-btn {
+                color: #FFF;
+            }
+        }
+    }
+
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 600.9px) {
+    .primary-workspace-controls-and-workspace-details {
+        min-width: 300px;
+        max-width: 540px;
+        height: 100%;
+        min-height: 120px;
+        max-height: 180px;
+        margin: 10px auto 10px auto;
+
+        .primary-workspace-controls,
+        .workspace-details {
+            width: 300px;
+            justify-content: center;
+
+            .delete-workspace-btn-wrapper,
+            .refresh-workspace-btn-wrapper {
+                width: 300px;
+
+                .refresh-workspace-btn,
+                .save-workspace-btn-wrapper {
+                    width: 300px;
+                }
+            }
+
+
+            .workspace-id-wrapper,
+            .workspace-name-wrapper {
+                width: 280px;
+                margin: 5px auto 5px auto;
+
+                .workspace-name,
+                .workspace-id {
+                    padding: 4px 5px;
+                    width: 240px;
+                }
+            }
+        }
     }
 }
 
-@media screen and (min-width:320px) and (max-width: 600.9px) {
+@media screen and (min-width: 601px) {
     .primary-workspace-controls-and-workspace-details {
-        @include style.min-width(300px);
-        @include style.max-width(540px);
-        @include style.height(100%);
-        @include style.min-height(120px);
-        @include style.max-height(180px);
-        @include style.margin-x-y(style.$space-10, style.$auto, style.$space-10,
-            style.$auto);
+        width: 300px;
+        height: auto;
 
         .primary-workspace-controls {
-            @include style.width(100%);
-            @include style.min-width(280px);
-            @include style.max-width(550px);
-            @include style.justify-content(center);
+            width: 300px;
+            margin: 0px auto;
+
+            .delete-workspace-btn-wrapper,
+            .refresh-workspace-btn-wrapper {
+                width: 140px;
+
+                .refresh-workspace-btn,
+                .delete-workspace-btn {
+                    width: 140px;
+                }
+            }
+
+            .delete-workspace-btn-wrapper {
+                margin-left: 0px;
+            }
 
             .refresh-workspace-btn-wrapper {
-                @include style.display-align(block);
-                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5,
-                    style.$auto);
+                margin-right: 0px;
 
-                .refresh-workspace-btn {
-                    @include style.width(280px);
-                    @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-                }
-
-                .save-workspace-btn-wrapper {
-                    @include style.width(280px);
-                    @include style.margin-x-y(style.$space-5, style.$space-0, style.$space-5 , style.$space-0 );
-                }
             }
         }
 
         .workspace-details {
-            @include style.width(300px);
-            @include style.justify-content(center);
+            width: 300px;
+            justify-content: center;
 
             .workspace-id-wrapper,
             .workspace-name-wrapper {
 
                 .workspace-name,
                 .workspace-id {
-                    @include style.padding-x-y(style.$space-4, style.$space-0, style.$space-4 , style.$space-4 );
-                    @include style.width(230px);
-
-                }
-            }
-        }
-    }
-}
-
-@media screen and (min-width:601px) {
-    .primary-workspace-controls-and-workspace-details {
-        @include style.width(90%);
-        @include style.height(auto);
-
-        .primary-workspace-controls {
-
-            // display: flex;
-            // flex-wrap: wrap-reverse;
-            @include style.width(90%);
-            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0,
-                style.$auto);
-
-            .refresh-workspace-btn-wrapper,
-            .save-workspace-btn-wrapper {
-                @include style.width(120px);
-
-                .refresh-workspace-btn {
-                    @include style.width(100px);
-                }
-
-                .save-workspace-btn {
-                    @include style.width(100px);
-                }
-            }
-        }
-
-        .workspace-details {
-            @include style.width(300px);
-            @include style.justify-content(center);
-
-            .workspace-id-wrapper,
-            .workspace-name-wrapper {
-
-                .workspace-name,
-                .workspace-id {
-                    @include style.padding-x-y(style.$space-4, style.$space-0, style.$space-4 , style.$space-4 );
-                    @include style.width(230px);
-
+                    padding: 4px 0px 4px 4px;
+                    width: 300px;
                 }
             }
         }

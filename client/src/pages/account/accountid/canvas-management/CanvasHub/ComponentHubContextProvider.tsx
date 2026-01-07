@@ -3,8 +3,10 @@ import { createContext, ReactNode, useContext, useState } from "react";
 //for toggling
 type TypeSharedUseStateContext = true | false;
 interface IComponentHubContextType {
-  sharedToggleState: TypeSharedUseStateContext;
-  toggleSharedState: React.ReactEventHandler;
+  visbilityState: TypeSharedUseStateContext;
+  toggleVisbilityState: () => void;
+  animationState: TypeSharedUseStateContext;
+  toggleAnimationState: () => void;
 }
 
 // Context for managing shared state across components
@@ -13,15 +15,25 @@ const ComponentHubContext = createContext<IComponentHubContextType | undefined>(
 );
 
 export const ComponentHubProvider = ({ children }: { children: ReactNode }) => {
-  const [sharedToggleState, setSharedToggleState] =
+  const [visbilityState, setToggleVisbilityState] =
     useState<TypeSharedUseStateContext>(false);
-  const toggleSharedState = () => {
-    setSharedToggleState((prev) => (prev === false ? true : false));
+  const toggleVisbilityState = () => {
+    setToggleVisbilityState((prev) => (prev === false ? true : false));
+  };
+  const [animationState, setAnimationState] =
+    useState<TypeSharedUseStateContext>(false);
+  const toggleAnimationState = () => {
+    setAnimationState((prev) => (prev === false ? true : false));
   };
 
   return (
     <ComponentHubContext.Provider
-      value={{ sharedToggleState, toggleSharedState }}
+      value={{
+        visbilityState,
+        toggleVisbilityState,
+        animationState,
+        toggleAnimationState,
+      }}
     >
       {children}
     </ComponentHubContext.Provider>

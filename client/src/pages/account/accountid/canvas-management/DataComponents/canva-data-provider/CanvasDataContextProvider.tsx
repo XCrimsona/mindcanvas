@@ -180,11 +180,16 @@ const CanvasDataContextProvider = ({
   const { userid, canvaid } = useParams();
 
   const updateCanvasData = async () => {
+    if (!userid) return;
     const routeResponse = await fetch(
       `http://localhost:5000/api/account/${userid}/canvas-management/${canvaid}`,
       {
         method: "GET",
         credentials: "include",
+        headers: {
+          "x-active-user": userid,
+          "Content-Type": "application/json",
+        },
       }
     );
     const response: any = await routeResponse.json();
@@ -245,7 +250,7 @@ const CanvasDataContextProvider = ({
 
   //to adjust the data-scroll-board div element's width
   const [canvasHeight, setCanvasSizeHeight] =
-    useState<TypeCanvasInputContext>("800");
+    useState<TypeCanvasInputContext>(""); //800
   const updateDataBoardCanvasHeight = (height: string) => {
     setCanvasSizeHeight((prev) =>
       prev === canvasHeight ? height : canvasHeight
@@ -254,11 +259,12 @@ const CanvasDataContextProvider = ({
 
   //to adjust the data-scroll-board div element's height
   const [canvasWidth, setCanvasSizeWidth] =
-    useState<TypeCanvasInputContext>("1600");
+    useState<TypeCanvasInputContext>(""); //1600
   const updateDataBoardCanvasWidth = (width: string) => {
     setCanvasSizeWidth((prev) => (prev === canvasWidth ? width : canvasWidth));
   };
 
+  //DO NOT REMOVE PRODUCT NOT COMPLETE
   //backup
   // dataScrollBoardRef,
   // textInputOffSet,
@@ -278,7 +284,12 @@ const CanvasDataContextProvider = ({
   };
 
   //find text input component's dom reference and x,y position under the
-  //data-scroll-board component as absolute value
+  //data-scroll-board component as absolute value and is used to update the position of a fragment.
+  //carries 4 four key pair values:
+  // clickedElementValues, the tsx/html value that comes from the database
+  // clickedElement, the tsx/html structure itself
+  // left, a pixel x value
+  // top,a pixel x value
   const [mediaCanvaDataFragment, setMediaCanvaDataFragment] = useState<{}>({});
   const updateMediaCanvaDataFragment = (source: any) => {
     setMediaCanvaDataFragment(source);
@@ -362,7 +373,7 @@ export const useCanvasContext = () => {
   const context = useContext(CanvasContextType);
   if (!context)
     throw new Error(
-      "useCanvasContext must be used inside CanvasContextProvider"
+      "useCanvasContext must be used inside CanvasDataContextProvider"
     );
   return context;
 };

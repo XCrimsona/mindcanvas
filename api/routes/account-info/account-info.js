@@ -3,6 +3,8 @@ import getDB from "../../../lib/connnections/Connections.js";
 import bcrypt from "bcryptjs";
 import { PasswordService } from "../../../lib/Hashing.js";
 import Router from "express";
+import textModel from "../../../models/textModel.js";
+import workspaceModel from "../../../models/CanvaspaceModel.js";
 
 const accountRouter = Router();
 
@@ -21,73 +23,170 @@ accountRouter
     }
     return res.status(200).json({ data: user, status: 200 });
   })
-  .put("/:userid/account-info", async (req, res) => {
-    //finds and updates user data
-    await getDB();
-    const { accountid, updateAccountData } = await req.body;
+  .patch("/:userid/account-info", async (req, res) => {
+    try {
+      //finds and updates user data
+      await getDB();
+      const userid = req.params.userid;
+      console.log(userid);
+      console.log(req);
 
-    const {
-      firstname,
-      lastname,
-      gender,
-      dob,
-      email,
-      currentPassword,
-      newPassword,
-      confirmNewPassword,
-    } = updateAccountData;
+      const { firstname,
+        lastname,
+        gender,
+        dob,
+        email,
+        currentPassword,
+        newPassword,
+        confirmNewPassword } = req.body;
 
-    const user = await UserModel.findById(accountid);
-    if (!user) {
-      return res.status(404).json({ error: "Account ID not found.", status: 404 });
-    } else {
-      const newAccountInfo = {};
-      if (firstname) newAccountInfo.firstname = firstname;
-      if (lastname) newAccountInfo.lastname = lastname;
-      if (gender) newAccountInfo.gender = gender;
-      if (dob) newAccountInfo.dob = dob;
-      if (email) newAccountInfo.email = email;
-      if (currentPassword) newAccountInfo.currentPassword = currentPassword;
-      if (newPassword) newAccountInfo.newPassword = newPassword;
-      if (confirmNewPassword) newAccountInfo.email = email;
+      //check for incoming logs while doing maintnance
+      console.log(firstname,
+        lastname,
+        gender,
+        dob,
+        email,
+        currentPassword,
+        newPassword,
+        confirmNewPassword);
 
-      //create a new hashed password
-      const encryptNewPassword = new PasswordService();
-      if (
-        user &&
-        (await encryptNewPassword.comparePasswords(
+
+
+      const user = await UserModel.findById(userid);
+      if (!user) {
+        return res.status(404).json({ error: "Account ID not found.", status: 404 });
+      } else {
+        if (!currentPassword) {
+          return res.status(400).json({ message: "Enter the currently used password with your new credentials to continue" })
+        }
+        const hashNewPassword = new PasswordService();
+        const checkPassword = await hashNewPassword.comparePasswords(
           currentPassword,
           user.password
-        )) === false
-      ) {
-        return res.status(403).json({ error: "Current password incorrect", status: 403 });
-      } else {
+        )
         if (
-          newAccountInfo.newPassword !== newAccountInfo.confirmNewPassword ||
-          newAccountInfo.confirmNewPassword !== newAccountInfo.newPassword
+          !checkPassword
         ) {
-          return res.status(400).json({ error: "New passwords don't match", status: 400 });
-        } else {
-          if (newPassword) {
-            newAccountInfo.password = await bcrypt.hash(newPassword, 10);
-            // console.log("old password for account: ", user.password);
-            // console.log("new password for account: ", newAccountInfo.password);
-          }
+          return res.status(403).json({ message: "Current password incorrect", status: 403 });
         }
-        await UserModel.updateOne(
-          { _id: user._id },
-          {
-            $set: newAccountInfo,
+        else {
+          const newAccountInfo = {};
+          if (firstname) newAccountInfo.firstname = firstname;
+          if (lastname) newAccountInfo.lastname = lastname;
+          if (gender) newAccountInfo.gender = gender;
+          if (dob) newAccountInfo.dob = dob;
+          if (email) newAccountInfo.email = email;
+          // if (currentPassword) {
+          //   newAccountInfo.currentPassword = currentPassword;
+          // }
+          //these three work together
+          if (newPassword && confirmNewPassword) {
+            newAccountInfo.password = await bcrypt.hash(newPassword, 12);
           }
-          // { new: true }
-        );
-        return res.status(200).json({
-          message: "Your account info has been updated.",
-          status: 200,
-        });
+          // if (confirmNewPassword) newAccountInfo.confirmNewPassword = confirmNewPassword;
+          //create a new hashed password
+          if (newPassword !== confirmNewPassword) {
+            return res.status(400).json({ error: "New passwords don't match", status: 400 });
+          }
+          await UserModel.updateOne(
+            { _id: user._id },
+            {
+              $set: newAccountInfo,
+            },
+            { new: true }
+          );
+          return res.status(200).json({
+            message: "Your account info has been updated.",
+            status: 200,
+          });
+        }
       }
     }
-  });
+    catch (err) {
+      return res.status(500).json({ message: err.message + " :and " + err.stack })
+    };
+  })
+  .delete("/:userid/account-info", async (req, res) => {
+    try {
+      //finds and updates user data
+      await getDB();
+      const userid = req.params.userid;
+
+      //check for incoming logs while doing maintnance
+
+      console.log(" userid: ", userid);
+
+      const user = await UserModel.findOne({ _id: userid });
+      console.log(" user: ", user);
+      if (!user) {
+        return res.status(404).json({ error: "Account ID not found.", status: 404 });
+      }
+      else {
+        const findusertextData = await textModel.find({ owner: userid });
+        // console.log("findusertextData: ", findusertextData);
+        if (findusertextData) {
+          const reqToDeleteTextComponents =
+            await textModel.deleteMany({
+              owner: user._id,
+            });
+
+          if (reqToDeleteTextComponents) {
+            const reqToDeleteCanvaspaces = await workspaceModel.deleteMany({
+              owner: user._id,
+            });
+
+            if (reqToDeleteCanvaspaces) {
+              const reqToDelete_OneUser = await UserModel.deleteOne({ _id: userid })
+
+              if (reqToDelete_OneUser) {
+                res.clearCookie(`authtoken${req.params.userid}`);
+                return res.status(200).json({
+                  success: true,
+                  code: "SINGLE_USER_DATA_DELETED",
+                  status: 200,
+                  message: "User Data Wiped",
+                });
+              }
+              else {
+                return res.status(404).json({
+                  success: false,
+                  code: "USER_DATA_DELETION_FAILED",
+                  status: 404,
+                  message: "Failed to remove a user's data.",
+                });
+              }
+            }
+            else {
+              return res.status(404).json({
+                success: true,
+                code: "SINGLE_USER_DATA_NOT_DELETED",
+                status: 200,
+                message: "User Data Not Wiped",
+              });
+            }
+          } else {
+            return res.status(404).json({
+              success: false,
+              code: "WORKSPACE_DATA_DELETION_FAILED",
+              status: 404,
+              message: "Failed to delete the requested workspace's data",
+            });
+          }
+
+        }
+      }
+
+      return res.status(200).json({
+        message: "No response",
+        status: 200,
+      });
+    }
+    catch (err) {
+      return res.status(500).json({ message: err.message + " :and " + err.stack })
+    };
+  }
+  )
+
 // .delete
 
 //delete functionality required

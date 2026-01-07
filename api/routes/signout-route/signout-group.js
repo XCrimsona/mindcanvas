@@ -4,7 +4,7 @@ import imageModel from "../../../models/imageModel.js";
 import textModel from "../../../models/textModel.js";
 import UserModel from "../../../models/userModel.js";
 import videoModel from "../../../models/videoModel.js";
-import workspaceModel from "../../../models/workspaceModel.js";
+import workspaceModel from "../../../models/CanvaspaceModel.js";
 import Router from "express";
 
 
@@ -32,13 +32,15 @@ signOut
                     });
                 }
                 else {
-                    const foundCookie = req.cookies?.authtoken;
+                    const userid = req.headers["x-active-user"];
+                    const foundCookie = req.cookies?.[`authtoken${userid}`];
                     if (foundCookie) {
-                        response.clearCookie("authtoken", {
-                            secure: false,
+                        response.clearCookie(`authtoken${user._id}`, {
+                            secure: process.env.SECURE,
                             httpOnly: true,
                             sameSite: "lax",
-                        });
+                            maxAge: 2 * 60 * 60 * 1000,
+                        })
                         response.json({
                             success: true,
                             code: "USER_LOGOUT_SUCCESS",

@@ -23,6 +23,9 @@ export const CanvaDataProvider = ({ children }: { children: ReactNode }) => {
       {
         method: "GET",
         credentials: "include",
+        headers: {
+          "x-active-user": userid,
+        },
       }
     );
     if (response.ok) {
@@ -48,10 +51,18 @@ export const CanvaDataProvider = ({ children }: { children: ReactNode }) => {
     workspaceid: string
   ) => {
     const response = await fetch(
-      `http://localhost:5000/api/account/${userid}/canvas-management/${workspaceid}`
+      `http://localhost:5000/api/account/${userid}/canvas-management/${workspaceid}`,
+      {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "x-active-user": userid,
+          "Content-Type": "application/json",
+        },
+      }
     );
-    const data = await response.json();
-    if (data.success !== true) {
+    if (!response.ok) {
+      const data = await response.json();
       switch (data.code) {
         case "NO_WORKSPACE_DATA":
           return {
@@ -71,12 +82,14 @@ export const CanvaDataProvider = ({ children }: { children: ReactNode }) => {
             message: data.message || "Unhandled backend condition.",
           };
       }
-    }
+    } else {
+      const data = await response.json();
 
-    return {
-      status: "success",
-      data: data.data,
-    };
+      return {
+        status: "success",
+        data: data.data,
+      };
+    }
   };
   return (
     <CanvaDataContext.Provider

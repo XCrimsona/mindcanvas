@@ -9,12 +9,14 @@ import SVG from "../../src/SVG";
 
 const AuthHeader = () => {
   const { userid } = useParams();
+  if (!userid) return;
   const logout = async () => {
     const logoutRes = await fetch(
       `http://localhost:5000/api/account/${userid}/logout`,
       {
         method: "POST",
         credentials: "include",
+        headers: { "x-active-user": userid },
       }
     );
 

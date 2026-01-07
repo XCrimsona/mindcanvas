@@ -312,13 +312,16 @@
                         .confirm-new-password-input {
                             width: 510px;
                             height: 32px;
+                            font-size: 12px;
                         }
                     }
                 }
 
-                .form-processing-btn {
+                .form-processing-btn,
+                .delete-container {
                     width: 510px;
                     display: flex;
+                    flex-wrap: wrap;
                     justify-content: center;
                     align-items: center;
 
@@ -335,6 +338,32 @@
                     .submit-container,
                     .cancel-container {
                         margin: 30px 10px 20px;
+                    }
+
+
+                    .toggle-account-deletion-lock-container {
+                        width: 120px;
+
+                    }
+
+                    .delete-btn-container {
+                        width: 280px;
+
+                    }
+
+                    .toggle-account-deletion-lock-container,
+                    .delete-btn-container {
+                        margin: 10px 10px 20px;
+
+                        .toggle-account-deletion-lock {
+                            width: 120px;
+
+                        }
+
+                        .delete-btn {
+                            width: 280px;
+
+                        }
                     }
                 }
             }

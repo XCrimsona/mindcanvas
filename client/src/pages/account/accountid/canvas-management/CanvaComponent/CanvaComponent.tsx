@@ -2,7 +2,7 @@
 
 import { DivClass, DivStylingAndClassName } from "../../../../../ui/Div";
 import "./CanvaComponent.css";
-import AuthHeader from "../header/AuthCanvasHeader";
+import AuthCanvasHeader from "../header/AuthCanvasHeader";
 import CanvaContainer from "../CanvaContainer/CanvaContainer";
 import { useCanvasContext } from "../DataComponents/canva-data-provider/CanvasDataContextProvider";
 import InfoModificationContextProvider from "../modify-data/InfoModificationContextProvider";
@@ -13,6 +13,8 @@ import PrimaryControlsAndDetails from "../CanvasHub/PrimaryControlsAndDetails/Pr
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { IIconContextProvider } from "../hovering-i-icon/HoveringIContextProvider";
+import { toast, ToastContainer } from "react-toastify";
+import { AuthLogoutProvider } from "../../logout/logoutContext";
 const fetchWorkspaceData = async (
   userid: string,
   // workspacename: string,
@@ -23,6 +25,9 @@ const fetchWorkspaceData = async (
     {
       method: "GET",
       credentials: "include",
+      headers: {
+        "x-active-user": userid,
+      },
     }
   );
 
@@ -51,9 +56,7 @@ const fetchWorkspaceData = async (
           };
       }
     }
-    new Notification(
-      "Could not retrieve your data. Try again in a few minutes"
-    );
+    toast.error("Could not retrieve your data. Try again in a few minutes");
   } else {
     const data = await response.json();
     return {
@@ -67,7 +70,7 @@ const CanvaComponent = () => {
   const { userid, canvaid } = useParams();
   const { canvasData, setFreshCanvasData } = useCanvasContext();
   const navRouter = useNavigate();
-
+  if (!userid) return;
   //loads persisted data after page is done loading
   const fetchCanvaData = async () => {
     const csRes = await fetchWorkspaceData(String(userid), String(canvaid));
@@ -82,7 +85,7 @@ const CanvaComponent = () => {
   };
 
   useEffect(() => {
-    document.title = "Canva Workspace | MindCanvas";
+    document.title = "Canvaspace | MindCanvas";
     fetchCanvaData();
   }, []);
 
@@ -93,12 +96,14 @@ const CanvaComponent = () => {
       return (
         <>
           <DivClass className={"work-workspace-management-main-container"}>
-            <AuthHeader />
+            <AuthLogoutProvider userid={userid}>
+              <AuthCanvasHeader />
+            </AuthLogoutProvider>
+            <ToastContainer position="bottom-right"></ToastContainer>
 
             <DivClass className={"work-workspace-management-container-wrapper"}>
               <InfoModificationContextProvider>
                 <CanvasContextDeletionProvider>
-                  <DeleteCanvas />
                   <DivStylingAndClassName
                     styles={{
                       width: canvaMediaFragment ? "350px" : "30px",
@@ -125,16 +130,18 @@ const CanvaComponent = () => {
                           display: canvaMediaFragment ? "block" : "none",
                         }}
                       >
-                        <PrimaryControlsAndDetails />
                         <CanvasCoreFunctionality />
+                        <PrimaryControlsAndDetails />
                       </DivStylingAndClassName>
                     </DivClass>
                   </DivStylingAndClassName>
                   <DivClass className={"work-workspace-management-container"}>
                     <IIconContextProvider>
+                      {/* Data appeaers in here */}
                       <CanvaContainer />
                     </IIconContextProvider>
                   </DivClass>
+                  <DeleteCanvas />
                 </CanvasContextDeletionProvider>
               </InfoModificationContextProvider>
             </DivClass>

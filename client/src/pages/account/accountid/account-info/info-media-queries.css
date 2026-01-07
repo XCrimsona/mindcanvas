@@ -264,25 +264,62 @@
   .account-info .account-info-content .account-info-form div div .confirm-new-password-input {
     width: 510px;
     height: 32px;
+    font-size: 12px;
   }
-  .account-info .account-info-content .account-info-form .form-processing-btn {
+  .account-info .account-info-content .account-info-form .form-processing-btn,
+  .account-info .account-info-content .account-info-form .delete-container {
     width: 510px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
   .account-info .account-info-content .account-info-form .form-processing-btn .submit-container,
-  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container,
+  .account-info .account-info-content .account-info-form .delete-container .submit-container,
+  .account-info .account-info-content .account-info-form .delete-container .cancel-container {
     width: 200px;
   }
   .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .cancel-submit,
   .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .submit-btn,
   .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .cancel-submit,
-  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn {
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn,
+  .account-info .account-info-content .account-info-form .delete-container .submit-container .cancel-submit,
+  .account-info .account-info-content .account-info-form .delete-container .submit-container .submit-btn,
+  .account-info .account-info-content .account-info-form .delete-container .cancel-container .cancel-submit,
+  .account-info .account-info-content .account-info-form .delete-container .cancel-container .submit-btn {
     width: 200px;
   }
   .account-info .account-info-content .account-info-form .form-processing-btn .submit-container,
-  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
+  .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container,
+  .account-info .account-info-content .account-info-form .delete-container .submit-container,
+  .account-info .account-info-content .account-info-form .delete-container .cancel-container {
     margin: 30px 10px 20px;
+  }
+  .account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container,
+  .account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container {
+    width: 120px;
+  }
+  .account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container,
+  .account-info .account-info-content .account-info-form .delete-container .delete-btn-container {
+    width: 280px;
+  }
+  .account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container,
+  .account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container,
+  .account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container,
+  .account-info .account-info-content .account-info-form .delete-container .delete-btn-container {
+    margin: 10px 10px 20px;
+  }
+  .account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container .toggle-account-deletion-lock,
+  .account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container .toggle-account-deletion-lock,
+  .account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container .toggle-account-deletion-lock,
+  .account-info .account-info-content .account-info-form .delete-container .delete-btn-container .toggle-account-deletion-lock {
+    width: 120px;
+  }
+  .account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container .delete-btn,
+  .account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container .delete-btn,
+  .account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container .delete-btn,
+  .account-info .account-info-content .account-info-form .delete-container .delete-btn-container .delete-btn {
+    width: 280px;
   }
 }/*# sourceMappingURL=info-media-queries.css.map */

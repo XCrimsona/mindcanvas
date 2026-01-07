@@ -22,7 +22,7 @@ const Home = () => {
             id="heading-one"
             className="heading-one text-center pt-1 pb-1 ml-auto mr-auto sm:text-center md:text-center lg:text-left xl:text-left xl2:text-left"
           >
-            MindCanvas Demo
+            MindCanvas
           </HeadingOne>
           <div className="lg:absolute lg:bottom-0">
             {/* <div className="bg-white h-[200px]   "> */}
@@ -63,12 +63,13 @@ const Home = () => {
               Designed for large screens | Small screens views coming soon
             </li>
             <li className="pt-[5px] pb-[5px]">
-              See all Canva workspaces(groups) on a single page. (Note: It's NOT
-              related to the official Canva platform)
+              See all Canva workspaces(spaces) on the canva management(post
+              sign-in) page. (Note: It's NOT related to the official Canva
+              platform)
             </li>
             <li className="pt-[5px] pb-[5px]">
               Engage with your data using a seamless, modern looking interface
-              including unique UI layouts.
+              including unique UI fragments(layouts).
             </li>
             <li className="pt-[5px] pb-[5px]">
               Unlimited Canva-space creation.
@@ -76,9 +77,9 @@ const Home = () => {
           </ul>
         </div>
 
-        <div className="info-container mt-[40px] mb-[60px] pt-[10px] pb-[20px] ml-auto mr-auto sm:pt-[20px] sm:pb-[20px] md:pt-[20px] md:pb-[20px] lg:pt-[20px] xl:pt-[20px] xl:pb-[20px] xl2:pt-[20px] xl2:pb-[20px] w-[280px] sm:w-[350px] md:w-[565px] lg:w-[990px] xl:w-[1200px] xl2:w-[1200px]">
+        <div className="info-container mt-[40px] mb-[40px] pt-[10px] pb-[20px] ml-auto mr-auto sm:pt-[20px] sm:pb-[20px] md:pt-[20px] md:pb-[20px] lg:pt-[20px] xl:pt-[20px] xl:pb-[20px] xl2:pt-[20px] xl2:pb-[20px] w-[280px] sm:w-[350px] md:w-[565px] lg:w-[990px] xl:w-[1200px] xl2:w-[1200px]">
           <h2 className="box-heading text-center pt-[10px] pb-[15px] ml-auto mr-auto w-[220px] sm:w-[300px] md:w-[494px]  lg:w-[510px]  xl:w-[595px] xl2:w-[595px]">
-            Why you should choose this app over others
+            Why you should choose this app
           </h2>
           <ul className="ml-10 sm:pt-[10px] md:pt-[10px] lg:pt-[10px] xl:pt-[10px] xl2:pt-[10px] w-[220px] sm:w-[300px] md:w-[494px]  lg:w-[510px]  xl:w-[1100px] xl2:w-[1100px] list-decimal">
             <li className="pt-[5px] pb-[5px]">
@@ -102,14 +103,50 @@ const Home = () => {
                 <li className="pt-[5px] pb-[5px]">
                   Data exports via pdf or Images (only works when authorized)
                 </li>
+                <li className="pt-[5px] pb-[5px]">
+                  Note: The demo only supports the creation of text layouts. The
+                  full version will have all listed capabilties. AI is not
+                  integrated into Mindcanvas.
+                </li>
+                <li className="pt-[5px] pb-[5px]">
+                  Full version under construction!
+                </li>
               </ul>
             </li>
             <li className="pt-[5px] pb-[5px]">
               You have full control over your data.
             </li>
             <li className="pt-[5px] pb-[5px]">
-              Privacy first - zero third party eyes on your data. This includes
-              sign ins using Meta, Apple, Google or Microsoft.
+              Privacy first - zero third party sign-ins including Meta, Apple,
+              Google or Microsoft.
+            </li>
+          </ul>
+        </div>
+        <div className="info-container mt-[0px] mb-[60px] pt-[10px] pb-[20px] ml-auto mr-auto sm:pt-[20px] sm:pb-[20px] md:pt-[20px] md:pb-[20px] lg:pt-[20px] xl:pt-[20px] xl:pb-[20px] xl2:pt-[20px] xl2:pb-[20px] w-[280px] sm:w-[350px] md:w-[565px] lg:w-[990px] xl:w-[1200px] xl2:w-[1200px]">
+          <ul className="ml-10 sm:pt-[10px] md:pt-[10px] lg:pt-[10px] xl:pt-[10px] xl2:pt-[10px] w-[220px] sm:w-[300px] md:w-[494px]  lg:w-[510px]  xl:w-[1100px] xl2:w-[1100px]">
+            <li className="pt-[5px] pb-[5px]">
+              You can find me on Github: XCrimsona to discover other official
+              platforms listed there to reach me.
+            </li>
+          </ul>
+          <h3 className="box-heading text-center pt-[25px] pb-[10px] ml-auto mr-auto w-[220px] sm:w-[300px] md:w-[494px]  lg:w-[510px]  xl:w-[595px] xl2:w-[595px]">
+            What to avoid
+          </h3>
+          <ul className="ml-10 sm:pt-[10px] md:pt-[10px] lg:pt-[10px] xl:pt-[10px] xl2:pt-[10px] w-[220px] sm:w-[300px] md:w-[494px]  lg:w-[510px]  xl:w-[1100px] xl2:w-[1100px] list-decimal">
+            <li className="pt-[5px] pb-[5px]">
+              The demo is to showcase expertise.
+            </li>
+            <li className="pt-[5px] pb-[5px]">
+              Do NOT store sensitive information in your account for it does NOT
+              encrypt data and others can read your data should credentials be
+              exposed. (Search online if this sounds unfamiliar to you)
+            </li>
+            <li className="pt-[5px] pb-[5px]">
+              Do NOT share your log credentials.
+            </li>
+            <li className="pt-[5px] pb-[5px]">
+              If the created data is important to you, consider going to the
+              full version.
             </li>
           </ul>
         </div>

@@ -1,12 +1,19 @@
 //This file is used to toggle the element based on its id and location selected on the canvas workspace
 //double click or doubletap to toggle the window to view or modify data
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { useCanvasContext } from "../DataComponents/canva-data-provider/CanvasDataContextProvider";
 import canvaNotification_Edit from "../notifications/fragment-updates/CanvaNotification_Edit";
 import canvaNotification_EditFailed from "../notifications/fragment-updates/CanvaNotification_EditFailed";
 // import canvaNotification_Delete from "../notifications/canva-deletes/CanvaNotification_Delete";
 import canvaNotification_TextFragmentDeleted from "../notifications/fragment-deletes/CanvaNotification_TextFragmentDeleted";
 import canvaNotification_TextFragmentDeletedFailed from "../notifications/fragment-deletes/CanvaNotification_TextFragmentDeleteFailed";
+import { toast } from "react-toastify";
 
 type TypeModificationContext = true | false;
 interface IModificationUseStateContextType {
@@ -26,10 +33,8 @@ interface IModificationUseStateContextType {
   selectedComp: string | undefined;
   setSelectedComp: (componentId: any) => void;
 
-  //invoked as a reacat component
-
-  mouseDoubleClick: (e: React.MouseEvent<HTMLParagraphElement>) => void;
-  mouseClickDelete: (e: React.MouseEvent<HTMLParagraphElement>) => void;
+  mouseClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  mouseClickDelete: (e: React.MouseEvent<HTMLButtonElement>) => void;
 
   //state being toggled
   editState: TypeModificationContext;
@@ -58,6 +63,10 @@ interface IModificationUseStateContextType {
   ) => void;
 
   updateComponentData: (data: string) => void;
+
+  antiDeleteLock: boolean;
+  setAntiDeleteLock: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleDeleteLock: () => void;
 }
 
 const ModificationContext = createContext<
@@ -112,8 +121,10 @@ const InfoModificationContextProvider = ({
         {
           method: "PATCH",
           headers: {
+            "x-active-user": userid,
             "Content-Type": "application/json",
           },
+
           credentials: "include",
 
           body: JSON.stringify({
@@ -126,12 +137,10 @@ const InfoModificationContextProvider = ({
         }
       );
       if (editedRequest.ok) {
-        canvaNotification_Edit();
+        toast.warning("A data text fragment has been updated!");
         updateCanvasData();
-        return;
       } else {
-        canvaNotification_EditFailed();
-        return;
+        toast.error("Text fragment data was not updated!");
       }
     } catch (error: any) {
       console.log("edit error: ", error.message);
@@ -139,8 +148,21 @@ const InfoModificationContextProvider = ({
     }
   };
 
-  //deleteLiveDataElement deletes a live data by finding the id of the
-  // data stored in the database
+  const [antiDeleteLock, setAntiDeleteLock] = useState<boolean>(true);
+  const toggleDeleteLock = () => {
+    setAntiDeleteLock((prev) => (prev === true ? false : true));
+    return;
+  };
+
+  //lock fail safe
+  useEffect(() => {
+    if (antiDeleteLock === false && modificationState === false) {
+      setAntiDeleteLock(true);
+    }
+  }, [antiDeleteLock, modificationState]);
+
+  //deleteLiveDataElement deletes data by finding the id of the
+  //data stored in the database
   const deleteLiveDataElement = async (
     userid: string,
     _id: string,
@@ -154,6 +176,7 @@ const InfoModificationContextProvider = ({
           method: "DELETE",
           credentials: "include",
           headers: {
+            "x-active-user": userid,
             "Content-Type": "application/json",
           },
 
@@ -166,12 +189,10 @@ const InfoModificationContextProvider = ({
         }
       );
       if (deleteRequest.ok) {
-        canvaNotification_TextFragmentDeleted();
+        toast.success("Attention: Text fragment has been deleted!");
         updateCanvasData();
-        return;
       } else {
-        canvaNotification_TextFragmentDeletedFailed();
-        return;
+        toast.error("Text fragment deletetion failed!");
       }
     } catch (error: any) {
       console.warn("edit error: ", error.message);
@@ -186,29 +207,30 @@ const InfoModificationContextProvider = ({
     return;
   };
 
-  //this mouse double click event is fired when a live data component is selected and stores
+  //this mouse click event is fired when selected by the user using the i icon and stores
   //the found data element's id in selectedComp
-  const mouseDoubleClick = (e: React.MouseEvent<HTMLParagraphElement>) => {
-    const doubleClickedElement = (e.target as HTMLElement).id;
-    const doubleClickedElementValues = e.target as HTMLElement;
+  const mouseClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const clickedElement = (e.target as HTMLElement).id;
+    const clickedElementValues = e.target as HTMLElement;
     setSelectedComp((prev: any) => {
-      if (prev === doubleClickedElement) {
+      if (prev === clickedElement) {
         return "";
       } else {
-        return doubleClickedElement;
+        return clickedElement;
       }
     });
     //left and top value of the double clicked element
     const left =
-      doubleClickedElementValues.parentElement?.parentElement?.parentElement
-        ?.style.left;
+      clickedElementValues.parentElement?.parentElement?.parentElement?.style
+        .left;
     const top =
-      doubleClickedElementValues.parentElement?.parentElement?.parentElement
-        ?.style.top;
+      clickedElementValues.parentElement?.parentElement?.parentElement?.style
+        .top;
 
+    //provides the elemtn id to capture data and pass references
     updateMediaCanvaDataFragment({
-      doubleClickedElementValues,
-      doubleClickedElement,
+      clickedElementValues,
+      clickedElement,
       left,
       top,
     });
@@ -219,7 +241,7 @@ const InfoModificationContextProvider = ({
   //this mouse click event is fired when a live data element is already selected
   // and then removed from the selectedComp that has been stored when the mouse
   // double click event was fired.
-  const mouseClickDelete = (e: React.MouseEvent<HTMLParagraphElement>) => {
+  const mouseClickDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     const clickedElement = (e.target as HTMLElement).id;
     if (clickedElement) {
       setSelectedComp("");
@@ -243,8 +265,11 @@ const InfoModificationContextProvider = ({
         updateComponentData,
         selectedComp,
         setSelectedComp,
-        mouseDoubleClick,
+        mouseClick,
         mouseClickDelete,
+        antiDeleteLock,
+        setAntiDeleteLock,
+        toggleDeleteLock,
       }}
     >
       {children}

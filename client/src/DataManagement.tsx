@@ -4,46 +4,42 @@ import "./style-files/canva-board-sheet-wrapper.css";
 import "./style-files/data-workspace-board-controls.css";
 import Button from "./components/form-elements/Button";
 import {
+  InputDisabledText,
   InputSubmit,
   InputText,
   InputTextReadOnly,
 } from "./components/form-elements/dry-InputFormComponents";
 import RouteLink from "./components/ProductSection/RouteLink";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SVG from "./SVG";
 import { EnabledTextAreaInput } from "./components/media-retrieved-components/MediaInputComponents";
 import { useParams } from "react-router-dom";
 import HeadingOne from "./ui/HeadingOne";
-import canvaNotification_CreateCanva from "./pages/account/accountid/canvas-management/notifications/canva-creation/CanvaNotification_CreateCanva";
-import canvaNotification_CanvaNotCreated from "./pages/account/accountid/canvas-management/notifications/canva-creation/CanvaNotification_CanvaNotCreated";
-import canvaNotification_CanvaUpdated from "./pages/account/accountid/canvas-management/notifications/canva-updates/CanvaNotification_CanvaDetailsUpdated";
-import canvaNotification_CanvaNotUpdated from "./pages/account/accountid/canvas-management/notifications/canva-updates/CanvaNotification_CanvaDetailsNotUpdated";
+import { toast } from "react-toastify";
 
 const DataManagement = ({ source }: { source: any }) => {
   //pull latest data from the cloud
   const { userid } = useParams();
+  if (!userid) return;
   //NOTE: the workspace data usestate variable needs to change to canva data
   const [canvaData, setCanvaData] = useState<any>([]);
   // console.log("data management source.data: ", source);
 
-  useEffect(() => {
-    if (!Notification.requestPermission()) {
-      Notification.requestPermission();
-    }
-  }, []);
   const fetchMoreData = async () => {
     const response = await fetch(
       `http://localhost:5000/api/account/${userid}/canvas-management`,
       {
         method: "GET",
         credentials: "include",
+        headers: {
+          "x-active-user": userid,
+          "Content-Type": "application/json",
+        },
       }
     );
 
     if (response.ok) {
       const data = await response.json();
-      // console.log("ok data from datamanagement : ", data);
-
       // sort the canvases ascending by name
       data.data.sort((a: any, b: any) => a.name.localeCompare(b.name));
       setCanvaData(data.data);
@@ -63,6 +59,12 @@ const DataManagement = ({ source }: { source: any }) => {
       };
     }
   };
+
+  useEffect(() => {
+    //source data from parent component InitialDashboardPageComponent as props object "I think"
+    setCanvaData(source.data);
+    fetchMoreData();
+  }, []);
 
   const toggleASingleWorkspace = (id: string) => {
     setCanvaData((prev: any) =>
@@ -126,7 +128,10 @@ const DataManagement = ({ source }: { source: any }) => {
         {
           method: "PATCH",
           credentials: "include",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "x-active-user": userid,
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(updateFields),
         }
       );
@@ -134,7 +139,8 @@ const DataManagement = ({ source }: { source: any }) => {
       if (response.ok) {
         const data = await response.json();
         fetchMoreData();
-        canvaNotification_CanvaUpdated();
+        toast.success("Canvaspace rename update detected", { autoClose: 3000 });
+
         setWorkspaceEdits({
           ...workspaceEdits,
           [workspaceId]: { workspacename: "", description: "" },
@@ -148,19 +154,19 @@ const DataManagement = ({ source }: { source: any }) => {
         if (!data.success) {
           switch (data.code) {
             case "MISSING_WORKSPACE_DATA":
-              alert(data.code);
+              toast.info(data.code);
               return {
                 status: "missing-workspace-data",
                 message: data.message,
               };
             case "WORKSPACE_MANAGEMENT_DATA_PATCHED":
-              alert(data.code);
+              toast.info(data.code);
               return {
                 status: "no-user-data",
                 message: data.message,
               };
             case "SERVER_WORKSPACE_ERROR":
-              alert(data.code);
+              toast.info(data.code);
               return {
                 status: "server-error",
                 message: data.message,
@@ -172,7 +178,7 @@ const DataManagement = ({ source }: { source: any }) => {
               };
           }
         }
-        canvaNotification_CanvaNotUpdated();
+        toast.error("Canva update attempt detected", { autoClose: 3000 });
       }
     } catch (err: any) {
       console.warn("Management Update Error: ", err.message);
@@ -192,19 +198,21 @@ const DataManagement = ({ source }: { source: any }) => {
   //create new workspace locally
   const addNewWorkspace = async (): Promise<void> => {
     try {
-      //make temporary form visisble
       setDisplayNewWorkspace((prev) => !prev);
-
-      //temperory editable data until submitted to the cloud
-      setNewWorkspace({
-        ...newWorkspace,
-        workspacename: "New workspace",
-        description: "Workspace description",
-      });
     } catch (err: any) {
-      console.warn("Management Error: ", err.message);
+      console.warn("Error on temporary canva form field : ", err.message);
     }
   };
+
+  //scroll to the form field that creates  a new workspace(canva space)
+  useEffect(() => {
+    if (displayNewWorkspace) {
+      const element = document.getElementById("tempCanvaCreationFormElement");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [displayNewWorkspace]);
 
   //remember to implement a boolean lock to avoid the CtrlKey + Enter multi-submission spam looking affect. (not good for scaling up cpu)
   //send data to cloud
@@ -229,37 +237,49 @@ const DataManagement = ({ source }: { source: any }) => {
       workspacename: newWorkspace.workspacename,
       workspacedescription: newWorkspace.description,
     };
-    console.log(formData);
+    // console.log(formData);
 
     if (!formData) {
-      new Notification("Fill all the fields!");
+      toast.info("Fill all the fields!");
     } else {
       const response = await fetch(
         `http://localhost:5000/api/account/${userid}/canvas-management`,
         {
           method: "POST",
           credentials: "include",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "x-active-user": userid,
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(formData),
         }
       );
 
       if (response.ok) {
-        canvaNotification_CreateCanva();
+        toast.success("New Canvaspace detected!");
         fetchMoreData();
         setDisplayNewWorkspace((prev) => !prev);
       } else {
-        canvaNotification_CanvaNotCreated();
-
-        // window.location.reload();
+        const getError = await response.json();
+        toast.error(`Failed to create Canvaspace: ${getError.message}`);
       }
     }
   };
+
+  const [canvaCreateSubmitLock, setCanvaCreateSubmitLock] =
+    useState<boolean>(true);
+
   useEffect(() => {
-    //source data from parent component InitialDashboardPageComponent as props object "I think"
-    setCanvaData(source.data);
-    fetchMoreData();
-  }, []);
+    if (newWorkspace.workspacename && newWorkspace.description) {
+      setCanvaCreateSubmitLock(false);
+    } else {
+      setCanvaCreateSubmitLock(true);
+    }
+  }, [
+    canvaCreateSubmitLock,
+    newWorkspace.workspacename,
+    newWorkspace.description,
+  ]);
 
   return (
     <DivClass className={"workspace-dashboard"}>
@@ -322,13 +342,13 @@ const DataManagement = ({ source }: { source: any }) => {
                               },
                             }));
                           }}
-                          placeholder={"Your new workspace name"}
+                          placeholder={"New Canvaspace name"}
                           className={
                             "new-temp-update-description-field-workspace-name"
                           }
                         />
                       ) : (
-                        <InputTextReadOnly
+                        <InputDisabledText
                           id={canvaSpace._id}
                           value={canvaSpace.workspacename}
                           className={"workspace-name"}
@@ -360,7 +380,7 @@ const DataManagement = ({ source }: { source: any }) => {
                               },
                             }));
                           }}
-                          placeholder={"Your new workspace description"}
+                          placeholder={"New Canvaspace description"}
                           className={
                             "new-temp-update-description-field-workspace-description"
                           }
@@ -426,27 +446,6 @@ const DataManagement = ({ source }: { source: any }) => {
               <form
                 className={"workspace-sheet-temp-field"}
                 id="tempCanvaCreationFormElement"
-                // ref={tempCanvaCreationForm_Ref}
-                onKeyUp={() => {
-                  document.addEventListener("keyup", (e: any) => {
-                    e.preventDefault();
-                    e.ctrlKey && e.key === "Enter" && saveWorkspace(e);
-                  });
-                  setTimeout(() => {
-                    document.removeEventListener("keyup", () => {
-                      return;
-                    });
-                  }, 3000);
-
-                  //BELOW CODE IS EXPERIMENTAL FOR KEYWORD ACTIONS || DO NOT REMOVE
-                  // document.addEventListener("keyup", (e: any) => {
-                  //   // console.log(e.code);
-                  //   if (e.ctrlKey && e.key === "Enter") {
-                  //     new Notification("Pressed!");
-                  //     saveWorkspace;
-                  //   }
-                  // });
-                }}
                 onSubmit={saveWorkspace}
               >
                 <DivClass className={"workspace-sheet-forefront-data"}>
@@ -460,7 +459,7 @@ const DataManagement = ({ source }: { source: any }) => {
                         workspacename: e.target.value,
                       });
                     }}
-                    placeholder={"Workspace Name"}
+                    placeholder={"Canvaspace Name"}
                     className={"workspace-name"}
                   />
                   {/* based on boolean expression for onfocus and off focus */}
@@ -473,15 +472,31 @@ const DataManagement = ({ source }: { source: any }) => {
                         description: e.target.value,
                       });
                     }}
-                    placeholder={"Workspace Description"}
+                    placeholder={"Canvaspace Description"}
                     className={"workspace-description"}
                   />
                 </DivClass>
                 <DivClass className={"workspace-sheet-forefront-data"}>
                   <InputSubmit
+                    isdisabled={
+                      newWorkspace.workspacename.length === 0 ||
+                      newWorkspace.description.length === 0
+                    }
+                    style={{
+                      cursor:
+                        newWorkspace.workspacename.length === 0 ||
+                        newWorkspace.description.length === 0
+                          ? "cursor-not-allowed"
+                          : "cursor-pointer",
+                    }}
                     value="Save Workspace"
                     id="create-workspace-sheet"
-                    className={"create-workspace-sheet"}
+                    className={`create-workspace-sheet disabled:opacity-80 ${
+                      newWorkspace.workspacename.length === 0 ||
+                      newWorkspace.description.length === 0
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer"
+                    }`}
                   />
                 </DivClass>
               </form>
