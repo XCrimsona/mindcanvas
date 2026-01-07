@@ -1,19 +1,28 @@
-import SVG from "../../../../../../SVG";
-import { DivClass } from "../../../../../../ui/Div";
-import "./component-hub-container.css";
+import "../component-hub-container.css";
 import { useComponentHub } from "../ComponentHubContextProvider";
+import { LongText } from "../../../../../../ui/LongText";
 
 const ComponentHubToggler = () => {
-  const { toggleSharedState } = useComponentHub();
+  const { toggleVisbilityState, toggleAnimationState, animationState } =
+    useComponentHub();
+
   return (
-    <DivClass className={"component-hub-btn-wrapper"}>
-      <SVG
-        src="/component-hub.svg"
-        className={"component-hub-btn"}
-        alt="Component Hub Icon"
-        onClick={toggleSharedState}
-      />
-    </DivClass>
+    <button
+      className={"component-hub-btn"}
+      onClick={() => {
+        if (animationState) {
+          toggleAnimationState();
+          setTimeout(() => {
+            toggleVisbilityState();
+          }, 1500);
+        } else {
+          toggleVisbilityState();
+          toggleAnimationState();
+        }
+      }}
+    >
+      <LongText className={"longtext"}>Fragment Hub</LongText>
+    </button>
   );
 };
 

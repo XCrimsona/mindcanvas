@@ -30,13 +30,12 @@ registrationRouter.get("/", async (req, res) => {
       const user = await UserModel.findOne({ email });
 
       if (!email || !password) {
-        return res.json(
-          { error: "Please fill required fields!", status: 400 }
+        return res.status(400).json(
+          { message: "Please fill required fields!", status: 400 }
         );
       }
       if (user) {
-        res.json({ message: "Account Name Already Exists", status: 409 })
-
+        return res.status(409).json({ message: "Account Name Already Exists", status: 409 })
       }
       else {
 
@@ -55,8 +54,8 @@ registrationRouter.get("/", async (req, res) => {
         }
 
         const authService = new AuthService();
-        const formattedUserData = await authService.signup(data);
-        console.log("formattedUserData : ", formattedUserData);
+        await authService.signup(data);
+        // console.log("formattedUserData : ", formattedUserData);
 
         // const returnData = {
         //   _id: user._id,
@@ -64,10 +63,10 @@ registrationRouter.get("/", async (req, res) => {
         // };
         // console.log("return data from register group: ", returnData.data);
 
-        return res.json({ data: formattedUserData, status: 200 });
+        return res.status(200).json({ message: "Account created", status: 200 });
       }
     } catch (err) {
-      return res.json(
+      return res.status(500).json(
         { error: err.message || "Unexpected server error" },
         { status: 500 }
       );

@@ -1,10 +1,6 @@
-import Button from "../../../../../components/form-elements/Button";
-import { DivClass } from "../../../../../ui/Div";
 //This file is used to toggle the element based on its id and location selected on the canvas workspace
 //double click or doubletap to toggle the window to view or modify data
 import { createContext, ReactNode, useContext, useState } from "react";
-import { useCanvasContext } from "../DataComponents/canva-data-provider/CanvasDataContextProvider";
-import ShortText from "../../../../../ui/ShortText";
 
 type TypeIICONContext = Record<string, boolean>;
 

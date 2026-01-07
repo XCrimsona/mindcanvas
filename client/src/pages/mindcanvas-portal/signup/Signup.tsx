@@ -3,7 +3,7 @@ import Section from "../../../../src/ui/Section";
 import Label from "../../../../src/components/form-elements/Label";
 import HeadingOne from "../../../../src/ui/HeadingOne";
 import "../mind-canvas-portal.css";
-import { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import {
   InputConfirmPassword,
   InputEmail,
@@ -19,8 +19,7 @@ import RouteLink from "../../../../src/components/ProductSection/RouteLink";
 // import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import { ToastContainer } from "react-toast";
+import { toast, ToastContainer } from "react-toastify";
 
 const Signup = () => {
   const router = useNavigate();
@@ -58,10 +57,10 @@ const Signup = () => {
           formData.password &&
           formData.confirmpassword;
         if (!requiredFields) {
-          new Notification("please complete required fields for signup!");
+          toast.info("please complete required fields for signup!");
           return;
         } else if (formData.confirmpassword !== formData.password) {
-          new Notification("Passwords do not match!");
+          toast.warning("Passwords do not match!");
           return;
         } else {
           //data will be sent to the backend from here
@@ -82,18 +81,22 @@ const Signup = () => {
           if (response.ok) {
             const data = await response.json();
             // redirect to dashboard
+            console.log("data: ", data);
 
-            if (data.message === "Account created") {
-              new Notification("Welcome to MindCanvas");
-              router(`/account/${data.userData._id}/dashboard`);
+            if (data.message === "Account Name Already Exists") {
+              toast.info("Account Name Already Exists", { autoClose: 3000 });
+            } else {
+              if (data.message === "Account created") {
+                router(`/signin-portal`);
+              }
             }
-            return;
           } else {
             const data = await response.json();
             //reload and remain on signup page
-            console.warn(data.error);
-            new Notification("Something went wrong");
-            return;
+            console.warn(data.message);
+            toast.error(`Something went wrong: ${data.message}`, {
+              autoClose: 4000,
+            });
           }
         }
       } catch (err: any) {
@@ -133,8 +136,11 @@ const Signup = () => {
         </HeadingOne>
         <form
           className="form-sign-up"
-          onSubmit={processSignup}
-          autoSave="on"
+          onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            processSignup(e);
+          }}
+          autoSave="off"
           autoCorrect="off"
           autoComplete="off"
           autoFocus={false}
@@ -263,6 +269,8 @@ const Signup = () => {
             </DivClass>
             <DivClass className="input-wrapper">
               <InputPassword
+                isdisabled={false}
+                required
                 id="password-input"
                 placeholder="Type in your new password"
                 className="password-input"
@@ -284,6 +292,8 @@ const Signup = () => {
             </DivClass>
             <DivClass className="input-wrapper">
               <InputConfirmPassword
+                isdisabled={false}
+                required
                 id="confirm-password-input"
                 placeholder="Confirm your new password"
                 className="confirm-password-input"
@@ -295,7 +305,13 @@ const Signup = () => {
             </DivClass>
           </DivClass>
           <DivClass className="submit-btn-wrapper">
-            <InputSubmit id="submit" className="submit" value="Sign Up" />
+            <input
+              type="submit"
+              autoComplete="off"
+              id="submit"
+              className="submit"
+              value="Sign Up"
+            />
           </DivClass>
           <DivClass className="cancel-btn-wrapper">
             <Button

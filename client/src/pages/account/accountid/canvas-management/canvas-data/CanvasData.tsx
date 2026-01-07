@@ -2,7 +2,7 @@ import { useCanvasContext } from "../DataComponents/canva-data-provider/CanvasDa
 import { Text } from "../absolute-data-components/Text/Text";
 // import { ImmutableList } from "../absolute-data-components/TextList";
 // import { ImmutableAudio } from "../absolute-data-components/TextAudio";
-import { Image } from "../absolute-data-components/Image";
+// import { Image } from "../absolute-data-components/Image";
 // import { ImmutableVideo } from "../absolute-data-components/Text/Video";
 import ShortText from "../../../../../ui/ShortText";
 
@@ -18,12 +18,18 @@ const CanvasData = () => {
           switch (data.type) {
             case "Text":
               return <Text data={data} />;
-            // case "List":
+            // case "roundchart":
+            //   return <RoundChart data={data} />;
+            // case "graphchart":
+            //   return <GraphChart data={data} />;
+            // case "code":
+            //   return <CodeText data={data} />;
+            // case "list":
             //   return <ImmutableList data={data} />;
             // case "audio":
             //   return <ImmutableAudio data={data} />;
-            case "image":
-              return <Image data={data} />;
+            // case "image":
+            //   return <Image data={data} />;
             // case "video":
             //   return <ImmutableVideo data={data} />;
             default:

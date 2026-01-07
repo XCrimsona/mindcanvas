@@ -163,7 +163,8 @@
 
             }
 
-            .form-processing-btn {
+            .form-processing-btn,
+            .delete-container {
 
                 .submit-container,
                 .cancel-container {
@@ -173,13 +174,13 @@
                     .submit-btn {
                         border-radius: 6px;
                         padding: 10px 25px;
-                        cursor: pointer;
                         background-color: #111111;
 
                     }
 
                     .cancel-submit {
                         color: #FABB00;
+                        cursor: pointer;
                         border: 1px solid #FABB00;
                     }
 
@@ -189,6 +190,30 @@
                     }
                 }
 
+                .toggle-account-deletion-lock-container,
+                .delete-btn-container {
+                    display: block;
+
+                    .toggle-account-deletion-lock,
+                    .delete-btn {
+                        border-radius: 6px;
+                        padding: 10px 25px;
+                        background-color: #111111;
+                    }
+
+                    .toggle-account-deletion-lock {
+                        color: #FABB00;
+                        cursor: pointer;
+                        border: 1px solid #FABB00;
+                    }
+
+                    .delete-btn {
+                        color: #FA00BB;
+                        border: 1px solid #FA00BB;
+                    }
+
+
+                }
             }
 
         }

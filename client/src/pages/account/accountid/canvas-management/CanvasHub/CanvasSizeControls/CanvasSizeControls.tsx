@@ -9,6 +9,7 @@ import { LongText } from "../../../../../../ui/LongText";
 import { useCanvasContext } from "../../DataComponents/canva-data-provider/CanvasDataContextProvider";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 //Dynamic canvas width and height
 const CanvasSizeControls = () => {
@@ -21,36 +22,43 @@ const CanvasSizeControls = () => {
       toggleCanvasSizePropertiesState,
       canvasSizePropertiesToggleState,
     } = useCanvasContext();
+    const { canvasData, updateCanvasData } = useCanvasContext();
 
-    //these two are the cause of bad call state
-    // updateDataBoardCanvasHeight("900");
-    // updateDataBoardCanvasWidth("1200");
     const [updatedHeight, setUpdatedHeight] = useState<string>("");
     const [updatedWidth, setUpdatedWidth] = useState<string>("");
     const { userid, canvaid } = useParams();
-
+    if (!userid) return;
     const sendcanvasPropertyUpdate = async () => {
       if (!updatedHeight || !updatedWidth) {
-        alert("Something is broken...");
+        toast.info("Update at least the heigh/width/both");
         return;
       } else {
         const newData: any = {};
         if (updatedHeight) newData.newHeight = updatedHeight;
         if (updatedWidth) newData.newWidth = updatedWidth;
+        newData.type = "Canvaspace";
+        newData.updateType = "size";
         const response = await fetch(
           `http://localhost:5000/api/account/${userid}/canvas-management/${canvaid}`,
           {
             method: "PATCH",
+            credentials: "include",
+
             headers: {
+              "x-active-user": userid,
               "Content-Type": "application/json",
             },
             body: JSON.stringify(newData),
           }
         );
         if (response.ok) {
-          alert("canvas properties updated.");
+          // toast.success("canvas properties updated.");
+          updateCanvasData();
         } else {
-          alert("canvas properties NOT updated.");
+          const error = await response.json();
+          console.log(error);
+
+          toast.warning(`canvas properties NOT updated: ${error.message}`);
         }
       }
     };
@@ -60,7 +68,7 @@ const CanvasSizeControls = () => {
         onSubmit={(e) => {
           e.preventDefault();
           if (!canvasHeight || !canvasWidth) {
-            alert("Complete the canvas size fields");
+            toast.info("Complete the canvas size fields");
             return;
           } else {
             sendcanvasPropertyUpdate();
@@ -69,11 +77,12 @@ const CanvasSizeControls = () => {
           // use comm notification lib to communicate
         }}
       >
+        <LongText className={"canvas-controls-text"}>Resize Canvas</LongText>
         {/* make height and width editable and immutable */}
         <DivClass className={"height-container"}>
           {canvasSizePropertiesToggleState ? (
             <>
-              <span>Height:</span>
+              <span className="y-label">Height:</span>
               <InputEnabledText
                 id="mutable-height"
                 className={"mutable-height"}
@@ -87,11 +96,18 @@ const CanvasSizeControls = () => {
             </>
           ) : (
             <>
-              <span>Height:</span>
+              <span className="y-label">Height:</span>
               <InputDisabledText
                 id="immutable-height"
                 className={"immutable-height"}
-                value={canvasHeight ? canvasHeight : "No DB height"}
+                placeholder={
+                  canvasData.data?.workspaceNameData?.canvaspace?.size
+                    ?.height || "Not available"
+                }
+                value={
+                  canvasData.data?.workspaceNameData?.canvaspace?.size
+                    ?.height || ""
+                }
               />
             </>
           )}
@@ -99,7 +115,7 @@ const CanvasSizeControls = () => {
         <DivClass className={"width-container"}>
           {canvasSizePropertiesToggleState ? (
             <>
-              <span>Width:</span>
+              <label className="x-label">Width:</label>
               <InputEnabledText
                 id="mutable-width"
                 className={"mutable-width"}
@@ -114,11 +130,18 @@ const CanvasSizeControls = () => {
             </>
           ) : (
             <>
-              <span>Width:</span>
+              <span className="x-label">Width:</span>
               <InputDisabledText
                 id="immutable-width"
                 className={"immutable-width"}
-                value={canvasWidth ? canvasWidth : "No DB width"}
+                placeholder={
+                  canvasData.data?.workspaceNameData?.canvaspace?.size?.width ||
+                  "Not available"
+                }
+                value={
+                  canvasData.data?.workspaceNameData?.canvaspace?.size?.width ||
+                  ""
+                }
               />
             </>
           )}
@@ -137,16 +160,21 @@ const CanvasSizeControls = () => {
               : "Edit Properies"}
           </div>
         </DivClass>
-        <DivClass className={"update-spacing-btn-wrapper"}>
+        <DivClass className={"update-spacing-btn-wrapper opacity-80"}>
+          {/* cursor-not-allowed */}
           <InputSubmit
+            isdisabled={false}
             id="update"
-            className={"update-spacing-btn"}
+            style={{
+              cursor:
+                canvasWidth?.length === 0 || canvasHeight?.length === 0
+                  ? "cursor-not-allowed"
+                  : "cursor-pointer",
+            }}
+            className={"update-spacing-btn "}
             value="Update"
           />
         </DivClass>
-        <LongText className={"canvas-controls-text"}>
-          canvas Size Properties
-        </LongText>
       </form>
     );
   } catch (err: any) {

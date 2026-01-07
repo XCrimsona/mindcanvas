@@ -4,15 +4,14 @@ import { DivClass } from "../../../../../../ui/Div";
 import { EnabledTextAreaInput } from "../../../../../../components/media-retrieved-components/MediaInputComponents";
 import Label from "../../../../../../components/form-elements/Label";
 import { useCanvasContext } from "../canva-data-provider/CanvasDataContextProvider";
-import Select from "../../../../../../ui/selection/Select";
-import "./text.css";
 import { useParams } from "react-router-dom";
-import canvaNotification_CreateText from "../../notifications/data-creation-components/CanvaNotification_CreateText";
-import canvaNotification_CreateTextFailed from "../../notifications/data-creation-components/CanvaNotification_CreateTextFailed";
+import { toast } from "react-toastify";
+import "./text.css";
+
 const TextInputUnit = () => {
   try {
     const { userid, canvaid } = useParams();
-
+    if (!userid) return;
     //activates text input form
     const {
       dataScrollBoardRef,
@@ -26,13 +25,10 @@ const TextInputUnit = () => {
 
     // const { newTextComponent, setNewTextComponent } = useNewTextComponent();
     const [newTextComponent, setNewTextComponent] = useState<any>({
-      text: ``,
+      text: "",
     });
 
     const [selectedType, setSelectedType] = useState<string>("Text");
-    const updateTextSelectionType = () => {
-      setSelectedType((prev) => (prev === "Text" ? "List" : "Text"));
-    };
 
     //submit text Data
     const textComponentFormData = async (
@@ -61,7 +57,7 @@ const TextInputUnit = () => {
         !textFormData.y
       ) {
         //fires when the logic breaks
-        new Notification("Text input block must be filled with suffcient data");
+        toast.success("Text input block must be filled with suffcient data");
         return;
       } else {
         // console.log(textFormData);
@@ -71,21 +67,23 @@ const TextInputUnit = () => {
           {
             method: "POST",
             credentials: "include",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "x-active-user": userid,
+              "Content-Type": "application/json",
+            },
             body: JSON.stringify(textFormData),
           }
         );
         if (text.ok) {
-          canvaNotification_CreateText();
+          toast.success("Text data fragment created");
           updateCanvasData();
           setNewTextComponent({
             ...newTextComponent,
             text: "",
           });
-          setSelectedType((prev) => (prev === "Text" ? "Text" : "List"));
+          // setSelectedType((prev) => (prev === "Text" ? "Text" : "List"));
         } else {
-          canvaNotification_CreateTextFailed();
-          return;
+          toast.success("Text fragment was not added!");
         }
       }
     };
@@ -170,22 +168,13 @@ const TextInputUnit = () => {
           }}
           onMouseDown={processTextMouseDown}
         >
-          {/* element ui */}
           <form className={"text-input-form"} onSubmit={textComponentFormData}>
             <DivClass className={"text-label-wrapper"}>
-              {selectedType === "Text" ? (
-                <Label
-                  htmlfor="enabled-text-input-field"
-                  className={"text-label"}
-                  text="Create Text"
-                />
-              ) : (
-                <Label
-                  htmlfor="enabled-list-input-field"
-                  className={"list-label"}
-                  text="Create Text List"
-                />
-              )}
+              <Label
+                htmlfor="enabled-text-input-field"
+                className={"text-label"}
+                text="Create Text"
+              />
             </DivClass>
             <DivClass className={"text-container"}>
               <DivClass className={"text-input-wrapper"}>
@@ -223,27 +212,52 @@ const TextInputUnit = () => {
                     </Button>
                   </DivClass>
                   <DivClass className={"text-selection-wrapper"}>
-                    <Select
+                    {/* <Select
+                    id="select-text-type"
+                    className={"select-text-type"}
+                    value={selectedType}
+                    onChange={updateTextSelectionType}
+                    >
+                    <option
+                    id="text-type-option-one"
+                    className={"text-type-option-one"}
+                    value={"Text"}
+                    >
+                    Text
+                    </option> */}
+                    {/* <Select
                       id="select-text-type"
                       className={"select-text-type"}
                       value={selectedType}
                       onChange={updateTextSelectionType}
-                    >
-                      <option
+                    > */}
+                    <div className="radio-group">
+                      <input
+                        type="radio"
+                        checked
                         id="text-type-option-one"
                         className={"text-type-option-one"}
-                        value={"Text"}
+                        // value={"Text"}
+                        onChange={() => {
+                          setSelectedType("Text");
+                        }}
+                        name="layout-format"
+                      />
+                      <label
+                        className="text-type-label"
+                        htmlFor="text-type-option-one"
                       >
                         Text
-                      </option>
-                      <option
+                      </label>
+                    </div>
+                    {/* <option
                         id="text-type-option-two"
                         className={"text-type-option-two"}
                         value={"List"}
                       >
                         List
-                      </option>
-                    </Select>
+                      </option> */}
+                    {/* </Select> */}
                   </DivClass>
                 </DivClass>
               </DivClass>

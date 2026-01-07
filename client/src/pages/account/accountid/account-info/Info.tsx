@@ -12,15 +12,14 @@ import {
   InputDisabledEmail,
   InputEnabledEmail,
   InputPassword,
-  InputSubmit,
 } from "../../../../components/form-elements/dry-InputFormComponents";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Label from "../../../../../src/components/form-elements/Label";
 import Button from "../../../../../src/components/form-elements/Button";
 import PipeSpan from "../../../../../src/components/PipeSpan";
 import { NavLink, useParams } from "react-router-dom";
-import { ToastContainer } from "react-toast";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { useInfo } from "./InfoContext";
 interface formDataInterface {
   firstname: string;
   lastname: string;
@@ -45,18 +44,21 @@ interface formFieldToggleProps {
 
 const Info = ({ params }: any) => {
   // define form field data types and input
-  const { userid } = useParams();
-  const [formData, setNewFormData] = useState<formDataInterface>({
-    firstname: "",
-    lastname: "",
-    gender: "",
-    dob: "",
-    email: "",
-    ["current-password"]: "",
-    ["new-password"]: "",
-    ["confirm-new-password"]: "",
-  });
   try {
+    const { userid } = useParams();
+    if (!userid) return;
+    const { fetchUserInfo, requestAccountDeletion } = useInfo();
+    const [formData, setNewFormData] = useState<formDataInterface>({
+      firstname: "",
+      lastname: "",
+      gender: "",
+      dob: "",
+      email: "",
+      ["current-password"]: "",
+      ["new-password"]: "",
+      ["confirm-new-password"]: "",
+    });
+
     //auth controls whether user can update their credentials
     //below code design is temporary
     const [formFieldToggle, setformFieldToggle] =
@@ -88,79 +90,133 @@ const Info = ({ params }: any) => {
       currentPassword?: string;
       newPassword?: string;
       confirmNewPassword?: string;
+      submitBtnDisabled?: boolean;
     }
-    const processSubmission = async (e: FormEvent<HTMLFormElement>) => {
-      try {
-        e.preventDefault();
-        console.log(formData);
 
-        if (!formData) {
-          alert("Please complete required fields");
+    const [touchPasswordField, setTouchPasswordField] =
+      useState<boolean>(false);
+    const processSubmission = async (e: FormEvent<HTMLInputElement>) => {
+      // try {
+      e.preventDefault();
+      console.log(formData);
+
+      if (!formData) {
+        toast.info("Please complete required fields");
+      } else {
+        const updateAccountData: UpdateAccountDataProps = {};
+
+        if (
+          formData.firstname?.length === 0 &&
+          formData.lastname?.length === 0 &&
+          formData.gender?.length === 0 &&
+          formData.dob?.length === 0 &&
+          formData.email?.length === 0 &&
+          formData["current-password"]?.length === 0
+        ) {
+          updateAccountData.submitBtnDisabled = touchPasswordField;
+        }
+        if (formData.firstname)
+          updateAccountData.firstname = formData.firstname;
+
+        if (formData.lastname) updateAccountData.lastname = formData.lastname;
+
+        if (formData.gender) updateAccountData.gender = formData.gender;
+
+        if (formData.dob) updateAccountData.dob = formData.dob;
+
+        if (formData.email) updateAccountData.email = formData.email;
+
+        if (formData["current-password"])
+          updateAccountData["currentPassword"] = formData["current-password"];
+
+        if (formData["new-password"]) {
+          updateAccountData["newPassword"] = formData["new-password"];
+        }
+        if (formData["confirm-new-password"]) {
+          updateAccountData["confirmNewPassword"] =
+            formData["confirm-new-password"];
+        }
+        if (formData["confirm-new-password"] !== formData["new-password"]) {
+          toast.info("new password and confirm passwords do not match");
+        }
+
+        // const updatedFormData = {
+        //   _id: userid,
+        //   updateAccountData,
+        // };
+        if (
+          formData.firstname?.length === 0 &&
+          formData.lastname?.length === 0 &&
+          formData.gender?.length === 0 &&
+          formData.dob?.length === 0 &&
+          formData.email?.length === 0 &&
+          formData["current-password"]?.length === 0
+        ) {
+          toast.info("Use at least one field to update your account data", {
+            autoClose: 3500,
+          });
         } else {
-          const updateAccountData: UpdateAccountDataProps = {};
-
-          if (formData.firstname)
-            updateAccountData.firstname = formData.firstname;
-
-          if (formData.lastname) updateAccountData.lastname = formData.lastname;
-
-          if (formData.gender) updateAccountData.gender = formData.gender;
-
-          if (formData.dob) updateAccountData.dob = formData.dob;
-
-          if (formData.email) updateAccountData.email = formData.email;
-
-          if (formData["current-password"])
-            updateAccountData["currentPassword"] = formData["current-password"];
-
-          if (formData["new-password"]) {
-            updateAccountData["newPassword"] = formData["new-password"];
-          }
-          if (formData["confirm-new-password"]) {
-            updateAccountData["confirmNewPassword"] =
-              formData["confirm-new-password"];
-          }
-          if (formData["confirm-new-password"] !== formData["new-password"]) {
-            new Notification("new password and confirm passwords don not math");
-            return;
-          }
-
-          const updatedFormData = {
-            _id: userid,
-            updateAccountData,
-          };
+          console.log(updateAccountData);
 
           const updatedData = await fetch(
             `http://localhost:5000/api/account/${userid}/account-info`,
             {
               method: "PATCH",
               credentials: "include",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(updatedFormData),
+              headers: {
+                "x-active-user": userid,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(updateAccountData),
             }
           );
           if (updatedData.ok) {
             toast.success("Account Info Has Been Changed", {
               autoClose: 2500,
             });
+            setNewFormData({
+              firstname: "",
+              lastname: "",
+              gender: "",
+              dob: "",
+              email: "",
+              ["current-password"]: "",
+              ["new-password"]: "",
+              ["confirm-new-password"]: "",
+            });
+            fetchUserInfo();
           } else {
             const error = await updatedData.json();
-            autoClose: 2500;
-            toast.success(`Account Info Not Updated: ${error.error}`, {
-              autoClose: 4000,
+            toast.error(`Error: ${error.message}`, {
+              autoClose: 2500,
             });
           }
         }
-      } catch (err: any) {
-        console.warn("Something went wrong: ", err.message);
       }
+      // } catch (err: any) {
+      //   console.warn("Something went wrong: ", err.message);
+      // }
     };
-    // console.log("params: ", params);
 
+    //lock deisgned to prevent accidental account deletion
+    const [islocked, setIslocked] = useState<boolean>(true);
+    const toggleDeletionLock = () => {
+      setIslocked((prev) => (prev === true ? false : true));
+      return;
+    };
+
+    useEffect(() => {
+      if (islocked === false) {
+        toast.warning(
+          "Once you click on Delete account, all your Canvaspaces and account itself will be deleted! This operation 'Cannot' be reversed.",
+          { autoClose: 12000 }
+        );
+      }
+    }, [islocked]);
     return (
       <>
-        <ToastContainer position="top-right"></ToastContainer>
         <DivClass className={"account-info-content"}>
+          <ToastContainer position="top-right"></ToastContainer>
           <div>
             <NavLink
               className="nav-link"
@@ -178,11 +234,7 @@ const Info = ({ params }: any) => {
             <HeadingOne id="heading-one" className={"heading-one"}>
               Account Info
             </HeadingOne>
-            <form
-              id="account-info-form"
-              className={"account-info-form"}
-              onSubmit={processSubmission}
-            >
+            <form id="account-info-form" className={"account-info-form"}>
               <DivClass className={"firstname-container"}>
                 <Label
                   htmlfor="firstname"
@@ -510,17 +562,26 @@ const Info = ({ params }: any) => {
                   text="Current Password"
                 />
                 <DivClass className={"data-control-container"}>
-                  <InputPassword
+                  <input
+                    autoComplete="off"
                     id="current-password"
                     className={"current-password-input"}
                     placeholder={"Type in your current password"}
                     value={formData["current-password"]}
+                    required
+                    onFocus={() => {
+                      setTouchPasswordField(true);
+                    }}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                       e.preventDefault();
                       setNewFormData({
                         ...formData,
                         "current-password": e.target.value,
                       });
+                      if (formData["current-password"].length === 0) {
+                        setTouchPasswordField(false);
+                      }
+                      return;
                     }}
                   />
                 </DivClass>
@@ -537,6 +598,14 @@ const Info = ({ params }: any) => {
                     className={"new-password-input"}
                     placeholder={"Type in your new password"}
                     value={formData["new-password"]}
+                    isdisabled={formData["current-password"].length === 0}
+                    required={formData["new-password"].length !== 0}
+                    style={{
+                      cursor:
+                        formData["current-password"]?.length === 0
+                          ? "not-allowed"
+                          : "pointer",
+                    }}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                       e.preventDefault();
                       setNewFormData({
@@ -559,6 +628,14 @@ const Info = ({ params }: any) => {
                     className={"confirm-new-password-input"}
                     placeholder={"Confirm your new password"}
                     value={formData["confirm-new-password"]}
+                    style={{
+                      cursor:
+                        formData["current-password"]?.length === 0
+                          ? "not-allowed"
+                          : "pointer",
+                    }}
+                    isdisabled={formData["current-password"].length === 0}
+                    required={formData["confirm-new-password"].length !== 0}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                       e.preventDefault();
                       setNewFormData({
@@ -572,10 +649,19 @@ const Info = ({ params }: any) => {
               <DivClass className={"form-processing-btn"}>
                 <DivClass className={"cancel-container"}>
                   <Button
-                    onClick={() => {
-                      alert(
-                        " discarded! remember security check before clearing if data exists"
-                      );
+                    onClick={(e: FormEvent<HTMLButtonElement>) => {
+                      setNewFormData({
+                        firstname: "",
+                        lastname: "",
+                        gender: "",
+                        dob: "",
+                        email: "",
+                        ["current-password"]: "",
+                        ["new-password"]: "",
+                        ["confirm-new-password"]: "",
+                      });
+                      e.preventDefault();
+                      return;
                     }}
                     id="cancel-submit"
                     className={"cancel-submit"}
@@ -584,10 +670,72 @@ const Info = ({ params }: any) => {
                   </Button>
                 </DivClass>
                 <DivClass className={"submit-container"}>
-                  <InputSubmit
-                    className={"submit-btn"}
+                  <input
+                    type="submit"
                     id="submit-btn"
-                    value="Update"
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => {
+                      e.preventDefault();
+                      processSubmission(e);
+                    }}
+                    disabled={
+                      formData.firstname?.length === 0 &&
+                      formData.lastname?.length === 0 &&
+                      formData.gender?.length === 0 &&
+                      formData.dob?.length === 0 &&
+                      formData.email?.length === 0 &&
+                      formData["current-password"]?.length === 0
+                    }
+                    className={`submit-btn 
+                      ${
+                        formData.firstname?.length === 0 &&
+                        formData.lastname?.length === 0 &&
+                        formData.gender?.length === 0 &&
+                        formData.dob?.length === 0 &&
+                        formData.email?.length === 0 &&
+                        formData["current-password"]?.length === 0
+                          ? "cursor-not-allowed disabled:opacity-80"
+                          : "cursor-pointer"
+                      }`}
+                    value={"Update"}
+                  />
+                </DivClass>
+              </DivClass>
+              <DivClass className={"delete-container"}>
+                <DivClass className="toggle-account-deletion-lock-container">
+                  <button
+                    className={"toggle-account-deletion-lock"}
+                    onClick={(e: React.FormEvent<HTMLButtonElement>) => {
+                      e.preventDefault();
+                      toggleDeletionLock();
+                    }}
+                  >
+                    {islocked ? "Unlock" : "Lock"}
+                  </button>
+                </DivClass>
+
+                <DivClass className={"delete-btn-container"}>
+                  <input
+                    type="button"
+                    disabled={islocked}
+                    id="delete-btn"
+                    className={`delete-btn
+                        ${
+                          islocked
+                            ? "cursor-not-allowed disabled:opacity-80 "
+                            : "cursor-pointer"
+                        }`}
+                    // style={{
+                    //   cursor:
+                    // }}
+                    autoComplete="off"
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => {
+                      e.preventDefault();
+                      console.log("submit false trigger");
+                      requestAccountDeletion();
+
+                      return;
+                    }}
+                    value="Delete account"
                   />
                 </DivClass>
               </DivClass>

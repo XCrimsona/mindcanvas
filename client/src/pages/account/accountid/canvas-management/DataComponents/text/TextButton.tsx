@@ -6,7 +6,7 @@ export const TextButton = () => {
   const { toggleTextState } = useCanvasContext();
   return (
     <Button id="text-comp" onClick={toggleTextState} className={"text-comp"}>
-      Text
+      Text Fragment
     </Button>
   );
 };

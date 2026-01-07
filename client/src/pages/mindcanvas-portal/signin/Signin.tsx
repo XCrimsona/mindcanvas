@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -18,8 +18,7 @@ import Button from "../../../../src/components/form-elements/Button";
 
 //for navigating content
 import RouteLink from "../../../components/ProductSection/RouteLink";
-import { ToastContainer } from "react-toast";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 interface formData {
   email: string;
@@ -30,54 +29,63 @@ const Signin = () => {
   try {
     const location = useLocation();
     const router = useNavigate();
-
+    const [submitLock, setSubmitLock] = useState<boolean>(true);
     const [formData, setFormData] = useState<formData>({
       email: "",
       password: "",
     });
+    useEffect(() => {
+      if (formData.email && formData.password) {
+        setSubmitLock(false);
+      } else {
+        setSubmitLock(true);
+      }
+    }, [submitLock, formData.email, formData.password]);
 
     const processSignIn = async (e: FormEvent<HTMLFormElement>) => {
       try {
         e.preventDefault();
+        toast.info("Please wait...", { autoClose: 2500 });
         const loginData: any = {};
         if (formData.email) loginData.email = formData.email;
         if (formData.password) loginData.password = formData.password;
         if (!loginData) {
-          new Notification("Complete the login fields");
+          toast.info("Complete the login fields");
           return;
         }
 
-        //data will be sent to the backend from here
-        const response = await fetch(
-          "http://localhost:5000/api/signin-portal",
-          {
-            method: "POST",
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(loginData),
-          }
-        );
-        //want to try a new feature: socket.io
-        //for real-time notifcations to check login success or failed to verify
-        toast.info("Please wait...", { autoClose: 2500 });
-        if (response.ok) {
-          const data: any = await response.json();
-          // console.log("pulled data", data);
+        if (submitLock === false) {
+          //data will be sent to the backend from here
+          const response = await fetch(
+            "http://localhost:5000/api/signin-portal",
+            {
+              method: "POST",
+              credentials: "include",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(loginData),
+            }
+          );
+          //want to try a new feature: socket.io
+          //for real-time notifcations to check login success or failed to verify
+          if (response.ok) {
+            const data: any = await response.json();
+            // console.log("pulled data", data);
 
-          //checks for saved redirects via the ProtectedRoutes React component
-          const from = location.state?.from;
-          if (from) {
-            router(from, { replace: true });
+            //checks for saved redirects via the ProtectedRoutes React component
+            const from = location.state?.from;
+            if (from) {
+              router(from, { replace: true });
+            } else {
+              router(`/account/${data.user}/canvas-management`, {
+                replace: true,
+              });
+            }
           } else {
-            router(`/account/${data.user}/canvas-management`, {
-              replace: true,
-            });
+            const error = await response.json();
+            toast.error(`Signin failed: ${error.message}`, { autoClose: 4000 });
           }
-        } else {
-          const error = await response.json();
-          toast.error(`Signin failed: ${error.message}`, { autoClose: 4000 });
         }
       } catch (err: any) {
         console.warn("Something went wrong");
@@ -105,7 +113,10 @@ const Signin = () => {
         </HeadingOne>
         <form
           className="form-sign-in"
-          onSubmit={processSignIn}
+          onSubmit={(e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            processSignIn(e);
+          }}
           autoSave="off"
           autoCorrect="off"
           autoComplete="off"
@@ -145,6 +156,8 @@ const Signin = () => {
             </DivClass>
             <DivClass className="input-wrapper">
               <InputPassword
+                required={true}
+                isdisabled={false}
                 id="password-input"
                 placeholder="Type in your password"
                 className="password-input"
@@ -159,7 +172,24 @@ const Signin = () => {
             </DivClass>
           </DivClass>
           <DivClass className="submit-btn-wrapper">
-            <InputSubmit id="submit" className="submit" value="Verify" />
+            <InputSubmit
+              isdisabled={submitLock}
+              id="submit"
+              // onClick={(e: React.FormEvent<HTMLButtonElement>) => {
+              // e.preventDefault();
+
+              // return;
+              // }}
+              className="submit disabled:opacity-80"
+              style={{
+                cursor:
+                  formData.email.length === 0 ||
+                  (formData.password.length === 0 && submitLock === true)
+                    ? "not-allowed"
+                    : "pointer",
+              }}
+              value="Verify"
+            />
           </DivClass>
         </form>
         <DivClass className="may-need-account">

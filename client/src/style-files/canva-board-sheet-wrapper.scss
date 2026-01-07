@@ -1,5 +1,6 @@
 @use '../styles/index' as style;
 
+//the canva block that carry data
 .workspace-sheet-wrapper {
     display: block;
     background-color: #000000;
@@ -62,9 +63,9 @@
 
                 transition: border .2s ease-in-out, height .2s ease-in-out, width .2s ease-in-out;
 
-                border-top: 2px solid transparent;
-                border-left: 2px solid transparent;
-                border-right: 2px solid transparent;
+                border-top: 2px solid #000000;
+                border-left: 2px solid #000000;
+                border-right: 2px solid #000000;
                 border-bottom: 2px solid #FABB00DD;
 
                 margin: 20px 0px 4px 0px;
@@ -88,7 +89,7 @@
                 border-right: 2px solid #FABB00DD;
                 border-bottom: 2px solid #FABB00DD;
 
-                margin: 0px 0px 4px 0px;
+                margin: 20px 0px 4px 0px;
                 outline: 2px solid #000000;
                 font-size: 12px;
                 background-color: #000000;
@@ -113,7 +114,7 @@
                 border-right: 2px solid transparent;
                 border-bottom: 2px solid #FABB00DD;
 
-                margin: 0px 0px 4px 0px;
+                margin: 2px 0px 4px 0px;
                 outline: 2px solid #000000;
                 font-size: 12px;
                 background-color: #000000;
@@ -134,9 +135,8 @@
                 border-top: 2px solid #000000;
                 border-left: 2px solid #000000;
                 border-right: 2px solid #FABB00DD;
-                border-bottom: 2px solid #FABB00DD;
 
-                margin: 0px 0px 4px 0px;
+                margin: 2px 0px 4px 0px;
                 outline: 2px solid #000000;
                 font-size: 12px;
                 background-color: #000000;
@@ -189,7 +189,6 @@
 
         .workspace-name,
         .workspace-description {
-            width: 250px;
             border-top: 2px solid #000000;
             border-left: 2px solid #000000;
             border-right: 2px solid #000000;
@@ -229,7 +228,6 @@
 
                 text-transform: uppercase;
                 text-decoration: underline;
-                cursor: pointer;
             }
         }
     }
@@ -254,20 +252,44 @@
                 }
             }
 
+            .new-temp-update-description-field-workspace-name,
             .workspace-name {
-                width: 17214px4px;
+                width: 214px;
             }
 
+            .new-temp-update-description-field-workspace-name:focus,
             .workspace-name:focus {
                 width: 214px;
             }
 
+            .new-temp-update-description-field-workspace-description,
             .workspace-description {
                 width: 214px;
             }
 
+            .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
                 width: 214px;
+            }
+
+        }
+
+        .workspace-sheet-temp-field {
+
+            .workspace-name,
+            .workspace-description {
+                width: 214px;
+            }
+
+            .workspace-name:focus,
+            .workspace-description:focus {
+                width: 214px;
+            }
+
+            .workspace-sheet-forefront-data {
+                .create-workspace-sheet {
+                    width: 214px;
+                }
             }
         }
     }
@@ -291,20 +313,43 @@
                 }
             }
 
+            .new-temp-update-description-field-workspace-name,
             .workspace-name {
                 width: 290px;
             }
 
+            .new-temp-update-description-field-workspace-name:focus,
             .workspace-name:focus {
                 width: 290px;
             }
 
+            .new-temp-update-description-field-workspace-description,
             .workspace-description {
                 width: 290px;
             }
 
+            .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
                 width: 290px;
+            }
+        }
+
+        .workspace-sheet-temp-field {
+
+            .workspace-name,
+            .workspace-description {
+                width: 290px;
+            }
+
+            .workspace-name:focus,
+            .workspace-description:focus {
+                width: 290px;
+            }
+
+            .workspace-sheet-forefront-data {
+                .create-workspace-sheet {
+                    width: 290px;
+                }
             }
         }
     }
@@ -346,6 +391,25 @@
             .new-temp-update-description-field-workspace-description:focus,
             .workspace-description:focus {
                 width: 290px;
+            }
+        }
+
+        .workspace-sheet-temp-field {
+
+            .workspace-name,
+            .workspace-description {
+                width: 290px;
+            }
+
+            .workspace-name:focus,
+            .workspace-description:focus {
+                width: 290px;
+            }
+
+            .workspace-sheet-forefront-data {
+                .create-workspace-sheet {
+                    width: 290px;
+                }
             }
         }
     }
@@ -399,6 +463,25 @@
                     .view-mode {
                         width: 100px;
                     }
+                }
+            }
+        }
+
+        .workspace-sheet-temp-field {
+
+            .workspace-name,
+            .workspace-description {
+                width: 250px;
+            }
+
+            .workspace-name:focus,
+            .workspace-description:focus {
+                width: 250px;
+            }
+
+            .workspace-sheet-forefront-data {
+                .create-workspace-sheet {
+                    width: 250px;
                 }
             }
         }

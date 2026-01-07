@@ -1,80 +1,71 @@
-@use '../styles/index' as style;
-
-
-//this is the one not appearing
 //Comonent Hub child component functionality properties
-.comp-hub-data-components-container {
-    @include style.position(absolute);
-    @include style.display-align(flex);
-    @include style.justify-content(center);
-    @include style.align-items(center);
-    @include style.top(0px);
-    @include style.left(366px);
-    @include style.height(200px);
-    @include style.background-color(#000000);
-    //allows component options to layers in front of the canvas where the data appears
+.comp-hub-data-component-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    height: 200px;
+    width: 200px;
+    background-color: #000000;
+    margin: 0px auto 0px auto;
     z-index: 4;
-    @include style.width(200px);
-    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-    @include style.border-top(style.$space-2, solid, #FABB0040);
-    @include style.border-bottom(style.$space-2, solid, #FABB0040);
-    @include style.border-left(style.$space-2, solid, #FABB0040);
-    @include style.border-right(style.$space-2, solid, #FABB0040);
+    border-top: 2px solid #FABB0040;
+    border-bottom: 2px solid #FABB0040;
+    border-left: 2px solid #FABB0040;
+    border-right: 2px solid #FABB0040;
     box-shadow: 0px 0px 4px 2px #FABB0040;
-    @include style.border-radius(4px);
+    border-radius: 4px;
 
-    .comp-hub-data-components-list-container {
-        @include style.position(relative);
-        @include style.height(200px);
-        @include style.width(200px);
-        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-        @include style.display-align(flex);
-        @include style.justify-content(center);
-        @include style.align-items(center);
-
-        @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 , style.$space-0 );
+    .center-comp-hub-component {
+        position: relative;
+        height: 200px;
+        width: 200px;
+        margin: 0px auto 0px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         .close-icon-wrapper {
-            @include style.position(absolute);
-            @include style.display-align(flex);
-            @include style.justify-content(center);
-            @include style.align-items(center);
-            @include style.border-top(style.$space-2, solid, #000);
-            @include style.border-bottom(style.$space-2, solid, #000);
-            @include style.border-left(style.$space-2, solid, #000);
-            @include style.border-right(style.$space-2, solid, #000);
-            // @include style.margin-x-y(style.$space-0, style.$space-0, style.$space-0 ,style.$auto );
-            @include style.top(10px);
-            @include style.right(6px);
-            @include style.width(28px);
-            @include style.height(28px);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 10px;
+            right: 6px;
+            width: 28px;
+            height: 28px;
+            border: 2px solid #000;
+            background-color: #000;
             transform: rotate(45deg);
             cursor: pointer;
-            @include style.background-color(#000);
 
             .close-icon {
-                @include style.border-radius(8px);
-                @include style.display-align(block);
-                @include style.width(20px);
-                @include style.height(20px);
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-radius: 8px;
             }
         }
 
-        .comp-hub-data-components-list {
+        .comp-hub-data-creation-components {
 
             .text-comp,
             .audio-comp,
             .image-comp,
             .video-comp {
-                @include style.width(150px);
-                @include style.border-top(style.$space-2, solid, #000000B3);
-                @include style.border-bottom(style.$space-2, solid, #00BFA0B3);
-                @include style.border-left(style.$space-2, solid, #000000B3);
-                @include style.border-right(style.$space-2, solid, #000000B3);
-                @include style.border-radius(4px);
-                @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5 , style.$auto );
-                @include style.background-color(#141414B3);
-                @include style.text-color(#fff);
+
+
+                width: 150px;
+                margin: 5px auto 5px auto;
+                background-color: #141414B3;
+                color: #ffffff;
+                border-top: 2px solid #000000B3;
+                border-bottom: 2px solid #00BFA0B3;
+                border-left: 2px solid #000000B3;
+                border-right: 2px solid #000000B3;
+                border-radius: 4px;
                 cursor: grab;
             }
         }

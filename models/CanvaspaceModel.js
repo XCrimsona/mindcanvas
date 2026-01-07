@@ -22,8 +22,20 @@ const workspaceSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum: ["Workspace"],
+      enum: ["Canvaspace"],
       required: true,
+    },
+    size: {
+      height: {
+        type: String,
+        minlength: 3,
+        maxlength: 5
+      },
+      width: {
+        type: String,
+        minlength: 3,
+        maxlength: 5
+      },
     },
     //user references
     owner: {
@@ -50,8 +62,8 @@ const workspaceSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const workspaceModel = mongoose.model("workspaces", workspaceSchema);
-export default workspaceModel;
+const canvaspaceModel = mongoose.model("workspaces", workspaceSchema);
+export default canvaspaceModel;
 
 // OPTIONAL FEATURE for sharing workspaces
 // isPublic: {

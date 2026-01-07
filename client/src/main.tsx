@@ -10,6 +10,8 @@ import InitialDashboardPageComponent from "./InitialDashboardPageComponent.tsx";
 import CanvaPage from "./pages/account/accountid/canvas-management/CanvaPage.tsx";
 import ProtectedRoute from "./ProtectedRoute.tsx";
 import AccountPage from "./pages/account/accountid/account-info/AccountPage.tsx";
+import { InfoProvider } from "./pages/account/accountid/account-info/InfoContext.tsx";
+import LearnToUseMindCanvas from "./pages/account/accountid/canvas-management/academy/LearnToUseMindCanvas.tsx";
 
 createRoot(document.getElementById("root") as HTMLDivElement).render(
   // <StrictMode>
@@ -36,10 +38,20 @@ createRoot(document.getElementById("root") as HTMLDivElement).render(
         }
       />
       <Route
+        path="/account/:userid/canvas-management/:canvaid/academy"
+        element={
+          <ProtectedRoute>
+            <LearnToUseMindCanvas />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/account/:userid/account-info"
         element={
           <ProtectedRoute>
-            <AccountPage />
+            <InfoProvider>
+              <AccountPage />
+            </InfoProvider>
           </ProtectedRoute>
         }
       />

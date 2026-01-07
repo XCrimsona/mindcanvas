@@ -4,7 +4,7 @@ import imageModel from "../../../models/imageModel.js";
 import textModel from "../../../models/textModel.js";
 import UserModel from "../../../models/userModel.js";
 import videoModel from "../../../models/videoModel.js";
-import workspaceModel from "../../../models/workspaceModel.js";
+import workspaceModel from "../../../models/CanvaspaceModel.js";
 import Router, { response } from "express";
 
 //loads all canvases 
@@ -16,7 +16,7 @@ canvasManagementRouter
             const userid = request.params.userid;
             const user = await UserModel.findOne({ _id: userid });
             if (!user) {
-                response.status(404).json({
+                return response.status(404).json({
                     success: false,
                     code: "NO_USER_DATA",
                     status: 404,
@@ -28,7 +28,7 @@ canvasManagementRouter
                 ]);
 
                 if (!workspaces) {
-                    response.status(200).json({
+                    return response.status(200).json({
                         success: false,
                         status: 200,
                         code: "NO_CANVA_DATA",
@@ -36,8 +36,7 @@ canvasManagementRouter
                     });
                 }
                 else {
-
-                    response.status(200).json({
+                    return response.status(200).json({
                         success: true,
                         code: "RECEIVED_CANVA_DATA",
                         status: 200,
@@ -47,7 +46,7 @@ canvasManagementRouter
                 }
             }
         } catch (err) {
-            response.status(500).json({
+            return response.status(500).json({
                 success: false,
                 code: "SERVER_CANVA_ERROR",
                 status: 500,
@@ -62,7 +61,7 @@ canvasManagementRouter
 
             const user = await UserModel.findOne({ _id: String(sub) });
             if (!user) {
-                response.status(404).json({
+                return response.status(404).json({
                     success: false,
                     code: "NO_USER_DATA",
                     status: 404,
@@ -87,15 +86,19 @@ canvasManagementRouter
                     //above for urls
                     workspacename: workspacename,
                     description: workspacedescription,
-                    type: "Workspace",
+                    type: "Canvaspace",
                     owner: user._id,
+                    size: {
+                        height: "800",
+                        width: "1400"
+                    },
                     collaborators: [],
                     createdBy: user._id,
                     dateCreated: new Date().getTime(),
                 });
 
                 if (newWorkspace) {
-                    response.status(201).json(
+                    return response.status(201).json(
                         {
                             success: true,
                             code: "CREATED_CANVA",
@@ -105,7 +108,7 @@ canvasManagementRouter
                     );
                 }
                 else {
-                    response.status(400).json(
+                    return response.status(400).json(
                         {
                             success: false,
                             code: "MISSING_SUBMISSION_DATA",
@@ -116,11 +119,13 @@ canvasManagementRouter
                 }
             }
         } catch (err) {
-            response.status(500).json({
+            console.log(err.message);
+
+            return response.status(500).json({
                 success: false,
                 code: "SERVER_CANVA_ERROR",
                 status: 500,
-                message: "The server side workspace has issues",
+                message: err.message,
             }
             );
         }
@@ -132,7 +137,7 @@ canvasManagementRouter
 
                 const user = await UserModel.findOne({ _id: sub });
                 if (!user) {
-                    response.status(404).json({
+                    return response.status(404).json({
                         success: false,
                         code: "NO_USER_DATA",
                         status: 404,
@@ -146,7 +151,7 @@ canvasManagementRouter
                 });
 
                 if (!workspace) {
-                    response.status(404).json({
+                    return response.status(404).json({
                         success: false,
                         code: "MISSING_CANVA_DATA",
                         status: 404,
@@ -184,7 +189,7 @@ canvasManagementRouter
                         }
                     );
                     if (updatedWorkspace) {
-                        response.status(201).json(
+                        return response.status(201).json(
                             {
                                 success: true,
                                 code: "CANVA_MANAGEMENT_DATA_PATCHED",
@@ -193,7 +198,7 @@ canvasManagementRouter
                             }
                         );
                     } else {
-                        response.status(400).json(
+                        return response.status(400).json(
                             {
                                 message: "Fill in required fields",
                             }
@@ -201,7 +206,7 @@ canvasManagementRouter
                     }
                 }
             } catch (err) {
-                response.status(500).json({
+                return response.status(500).json({
                     success: false,
                     code: "SERVER_CANVA_ERROR",
                     status: 500,

@@ -4,15 +4,18 @@ import { DivClass } from "../../../../../../ui/Div";
 import HelpButton from "../help/HelpButton";
 import "./canva-core-functionalities.css";
 import CanvasSizeControls from "../CanvasSizeControls/CanvasSizeControls";
-import ComponentHubButton from "../ComponentHubButton";
 import { ComponentHubProvider } from "../ComponentHubContextProvider";
+import ComponentHubToggler from "../ComponentHub/ComponentHubToggler";
 
 const CanvasCoreFunctionality = () => {
   return (
     <DivClass className={"workspace-core-functionalities"}>
-      <DivClass className="binder">
+      <DivClass className="center-content">
         <ComponentHubProvider>
-          <ComponentHubButton />
+          {/* <ComponentHubButton /> */}
+          <DivClass className={"component-hub-container"}>
+            <ComponentHubToggler />
+          </DivClass>
           <ComponentHub />
         </ComponentHubProvider>
         <HelpButton />

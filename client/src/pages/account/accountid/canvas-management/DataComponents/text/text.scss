@@ -1,128 +1,132 @@
-@use '../styles/index' as style;
-
-
-@mixin linearGradient($color1, $color2, $color3,
-    $color4, $color5,
-    $color6, $color7) {
-
-    background: conic-gradient(from -119deg at center center, $color1,
-            $color2,
-            $color3,
-            $color4, $color5,
-            $color6, $color7);
-}
-
-@mixin DataComponent {
-    @include style.display-align(flex);
-    @include style.justify-content(center);
-    @include style.align-items(flex-start);
-    box-shadow: inset 0px 0px 4px 2px #FAAA0040, 0px 0px 4px 0px #FAAA0040;
-    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto);
-    @include style.background-color(#000000);
-    @include style.border(style.$space-2, solid, #FAAA0040);
-    @include style.height(120px);
-    transition: height .2s ease-in-out, width .2s ease-in-out;
-}
-
-
-@mixin Angular-Gradient() {
-    @include style.linearGradient(style.$Gold 0.2deg, style.$darkAsdhBlack 55.6deg, style.$darkAsdhBlack 116.8deg, style.$Gold 169.2deg, style.$darkAsdhBlack 257.8deg,
-        style.$darkAsdhBlack 313.6deg,
-        style.$Gold 345.6deg);
-}
-
 .data-text-component {
-    @include DataComponent;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: inset 0px 0px 4px 2px #FAAA0040, 0px 0px 4px 0px #FAAA0040;
+    margin: 0px auto 0px auto;
+    background-color: #000000;
+    border: 2px solid #FAAA0040;
+    height: 120px;
+    transition: height .2s ease-in-out, width .2s ease-in-out;
     cursor: move;
     position: relative;
 
     .text-input-form {
+
         .text-label-wrapper {
-            @include style.margin-x-y(style.$space-10, style.$space-0 , style.$space-4 , style.$space-0 );
+            margin: 10px 0px 4px 0px;
 
             .list-label,
             .text-label {
                 text-align: left;
-                @include style.display-align(block);
-                @include style.margin-x-y(style.$space-0, style.$space-0 , style.$space-0 , style.$space-4 );
-                @include style.width(120px);
+                display: block;
+                margin: 0px 0px 0px 4px;
+                font-size: 12px;
+                width: 120px;
                 cursor: move;
             }
         }
 
         .text-container {
-            @include style.display-align(flex);
-            @include style.align-items(start);
-            @include style.position(relative);
+            display: flex;
+            align-items: flex-start;
+            position: relative;
 
             .text-input-wrapper {
-                @include style.display-align(flex);
-                // @include style.align-items(center);
-                @include style.position(relative);
+                display: flex;
+                position: relative;
 
                 .enabled-list-input-field,
                 .enabled-text-input-field {
-                    @include style.display-align(flex);
-                    @include style.justify-content(left);
-                    @include style.border-top(style.$space-2, solid, #FAAA0040);
-                    @include style.border-left(style.$space-2, solid, #FAAA0040);
-                    @include style.border-bottom(style.$space-2, solid, #FAAA0040);
-                    @include style.text-color(#fff);
-                    @include style.border-right(style.$space-2, solid, #FAAA0040);
-                    @include style.background-color(#000);
-                    @include style.height(60px);
+                    display: flex;
+                    justify-content: left;
+                    border-top: 2px solid #FAAA0040;
+                    border-left: 2px solid #FAAA0040;
+                    border-bottom: 2px solid #FAAA0040;
+                    border-right: 2px solid #FAAA0040;
+                    color: #ffffff;
+                    background-color: #000000;
                     transition: height .2s ease-in-out;
                     resize: none;
                     cursor: text;
-                    outline: style.$space-2 solid #000;
-                    @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$space-2 );
+                    font-size: 12px;
+                    outline: 2px solid #000000;
+                    margin: 0px;
+                    margin-right: auto;
+                    height: 60px;
+                }
+
+                .enabled-list-input-field::selection,
+                .enabled-text-input-field::selection {
+                    background-color: #FBAA0050;
+                }
+
+                .enabled-list-input-field::placeholder,
+                .enabled-text-input-field::placeholder {
+                    color: #fff;
                 }
 
                 .enabled-list-input-field:focus,
                 .enabled-text-input-field:focus {
-                    @include style.height(200px);
-                    @include style.background-color(#000);
+                    height: 200px;
+                    background-color: #000000;
                 }
 
                 .text-btn-container {
-                    @include style.display-align(flex);
-                    @include style.flex-align(wrap);
-                    @include style.justify-content(center);
-                    @include style.width(80px);
-                    @include style.height(24px);
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    width: 100px;
+                    height: 24px;
                     z-index: 14;
+                    font-size: 14px;
 
                     .text-submit-btn-container {
-                        @include style.display-align(flex);
-                        @include style.justify-content(right);
-                        @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5, style.$auto);
+                        display: flex;
+                        justify-content: right;
+                        margin: 5px auto 5px auto;
 
                         .text-btn-submit {
                             cursor: pointer;
-                            @include style.height(20px);
-                            @include style.width(70px);
+                            height: 20px;
+                            width: 80px;
                             outline: none;
-                            @include style.background-color(#111);
-                            @include style.text-color(#FBAA00);
-                            @include style.border-top(style.$space-1, solid, #555);
-                            @include style.border-bottom(style.$space-1, solid, #555);
-                            @include style.border-left(style.$space-1, solid, #555);
-                            @include style.border-right(style.$space-1, solid, #555);
+                            background-color: #111111;
+                            color: #FBAA00;
+                            border: 1px solid #555555;
                         }
                     }
 
                     .text-selection-wrapper {
-                        @include style.margin-x-y(style.$space-5, style.$auto, style.$space-5, style.$auto);
+                        margin: 5px auto 5px 0px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: start;
+                        align-items: center;
 
                         .select-text-type {
-                            @include style.width(70px);
+                            width: 80px;
                             outline: none;
-                            @include style.background-color(#111);
-                            @include style.text-color(#FBAA00);
-                            @include style.border-top(style.$space-1, solid, #555);
-                            @include style.border-bottom(style.$space-1, solid, #555);
-                            @include style.border-left(style.$space-1, solid, #555);
-                            @include style.border-right(style.$space-1, solid, #555);
+                            background-color: #111111;
+                            color: #FBAA00;
+                            border: 1px solid #555555;
+                        }
+
+                        .radio-group {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            align-items: center;
+                            width: 80px;
+
+                            .text-type-option-one {
+                                height: 20px;
+                            }
+
+                            .text-type-label {
+                                height: 20px;
+                                margin-left: 5px;
+                            }
                         }
                     }
                 }
@@ -131,48 +135,25 @@
     }
 }
 
+@media screen and (min-width:320px) and (max-width:600.9px) {
 
-@media screen and (min-width: 425px) and (max-width:767.9px) {}
-
-@media screen and (min-width: 768px) and (max-width:1023.9px) {
     .data-text-component {
         width: 300px;
 
-        .text-input-form {
-            .text-label-wrapper {
-
-                .list-label,
-                .text-label {}
-            }
+        .enabled-list-input-field,
+        .enabled-text-input-field {
+            width: 180px;
         }
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width:601px) {
     .data-text-component {
-        width: 350px;
+        width: 380px;
 
-        .text-input-form {
-            @include style.width(340px);
-
-            .text-label-wrapper {
-
-                .list-label,
-                .text-label {
-                    @include style.width(200px);
-                }
-            }
-
-            .text-container {
-                .text-input-wrapper {
-
-                    .enabled-list-input-field,
-                    .enabled-text-input-field {
-                        @include style.width(250px);
-                    }
-
-                }
-            }
+        .enabled-list-input-field,
+        .enabled-text-input-field {
+            width: 250px;
         }
     }
 }

@@ -50,7 +50,7 @@ loginRouter
 
       const tknservice = new TokenService();
       const signedToken = tknservice.sign(payload);
-      res.cookie("authtoken", signedToken, {
+      res.cookie(`authtoken${user._id}`, signedToken, {
         secure: process.env.SECURE,
         httpOnly: true,
         sameSite: "lax",

@@ -1,37 +1,55 @@
-@use '../styles/index' as style;
-
 .canvas-size-controls {
-    @include style.margin-x-y(style.$space-10, style.$auto, style.$space-0 , style.$auto );
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 300px;
+
+    .canvas-controls-text {
+        display: block;
+        margin: 20px auto 10px auto;
+        text-align: center;
+        font-size: 14px;
+    }
 
     .height-container,
     .width-container {
-        @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
+        margin: 0px auto 0px auto;
+        width: 300px;
+
+        .y-label,
+        .x-label {
+            display: inline-block;
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            width: 80px;
+            font-size: 12px;
+            height: 32px;
+            text-align: left;
+        }
 
         .immutable-height,
         .immutable-width,
         .mutable-height,
         .mutable-width {
-            @include style.display-align(block);
-            @include style.margin-x-y(style.$space-4, style.$auto, style.$space-0 , style.$auto );
-            @include style.background-color(#000000B3);
-            @include style.border-top(style.$space-2, solid, #000000B3);
-            @include style.border-bottom(style.$space-2, solid, #FABB00DD);
-            @include style.border-left(style.$space-2, solid, #000000B3);
-            @include style.border-right(style.$space-2, solid, #000000B3);
-            @include style.text-color(#fff);
-            @include style.height(14px);
+            width: 220px;
+            display: inline-block;
+            padding: 4px 0px 4px 6px;
+            margin: 0px;
+            background-color: #000000B3;
+            border-top: 2px solid #000000B3;
+            border-bottom: 2px solid #FABB00DD;
+            border-left: 2px solid #000000B3;
+            border-right: 2px solid #000000B3;
+            color: #ffffff;
+            font-size: 12px;
+            height: 32px;
         }
 
         .mutable-height:focus,
         .mutable-width:focus {
             cursor: text;
-            @include style.background-color(#000000B3);
-            outline: style.$space-2 solid #000000B3;
-            @include style.text-color(#fff);
-
+            background-color: #000000B3;
+            outline: 2px solid #000000B3;
+            color: #ffffff;
         }
 
         .immutable-height:hover,
@@ -40,116 +58,49 @@
         }
     }
 
-    .toggle-visual-ops-wrapper {
-        @include style.display-align(flex);
-        @include style.justify-content(center);
-        @include style.align-items(center);
-        @include style.margin-x-y(style.$space-10, style.$space-5, style.$space-0 , style.$space-5 );
+
+
+    .toggle-visual-ops-wrapper,
+    .update-spacing-btn-wrapper {
+        margin: 10px auto;
+        width: 140px;
+
+        .toggle-visual-ops,
+        .update-spacing-btn {
+            display: block;
+            background-color: #1C1C1C;
+            border-radius: 4px;
+            box-shadow: inset 0px 0px 0px 2px #555555;
+            border: none;
+            padding: 6px 4px;
+            width: 140px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
         .toggle-visual-ops {
-            @include style.display-align(block);
-            @include style.background-color(#1C1C1C);
-            @include style.border-radius(4px);
-            box-shadow: inset 0px 0px 0px 2px #333;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            border-bottom: none;
-            @include style.border(style.$space-2, solid, none);
-            @include style.margin-x-y(style.$space-4, style.$auto, style.$space-4 , style.$auto );
-            @include style.padding-x-y(style.$space-4, style.$space-0, style.$space-4, style.$space-0 );
-            @include style.text-color(#fff);
-            @include style.width(128px);
-            @include style.font-size(12px);
             cursor: pointer;
+            color: #ffffff;
         }
-    }
-
-    .update-spacing-btn-wrapper {
-        @include style.display-align(flex);
-        @include style.justify-content(center);
-        @include style.align-items(center);
-        @include style.margin-x-y(style.$space-10, style.$space-5, style.$space-0 , style.$space-5 );
 
         .update-spacing-btn {
-            @include style.display-align(block);
-            @include style.background-color(#1C1C1C);
-            @include style.border-radius(4px);
-            box-shadow: inset 0px 0px 0px 2px #333;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            border-bottom: none;
-            @include style.border(style.$space-2, solid, none);
-            @include style.margin-x-y(style.$space-0, style.$auto, style.$space-0 , style.$auto );
-            @include style.padding-x-y(style.$space-6, style.$space-0, style.$space-6, style.$space-0 );
-            @include style.text-color(#fff);
-            @include style.width(128px);
-            @include style.font-size(11px);
-            letter-spacing: 2px;
-            cursor: pointer;
+            color: #ff0;
         }
     }
 
-    .canvas-controls-text {
-        @include style.display-align(block);
-        @include style.margin-x-y(style.$space-10, style.$auto, style.$space-0 , style.$auto );
-        text-align: center;
-    }
+
 }
 
-@media screen and (min-width:320px)and (max-width:600.9px) {
-    .workspace-size-controls {
-        @include style.min-width(250px);
-        @include style.height(80px);
+@media screen and (min-width: 601px) {
+    .canvas-size-controls {
+        .toggle-visual-ops-wrapper {
+            margin-left: 0px;
 
-        .height-container,
-        .width-container {
-
-            .immutable-height,
-            .immutable-width,
-            .mutable-height,
-            .mutable-width {
-                @include style.width(120px);
-            }
         }
 
-        .toggle-visual-ops-wrapper,
         .update-spacing-btn-wrapper {
-            @include style.height(20px);
-
-            .toggle-visual-ops,
-            .update-spacing-btn {
-                @include style.width(128px);
-            }
-        }
-    }
-}
-
-@media screen and (min-width:601px) {
-    .workspace-size-controls {
-        @include style.width(300px);
-        @include style.height(80px);
-
-        .height-container,
-        .width-container {
-
-            .immutable-height,
-            .immutable-width,
-            .mutable-height,
-            .mutable-width {
-                @include style.width(120px);
-            }
-        }
-
-        .toggle-visual-ops-wrapper,
-        .update-spacing-btn-wrapper {
-            @include style.height(20px);
-
-            .toggle-visual-ops,
-            .update-spacing-btn {
-                @include style.width(128px);
-            }
+            margin-right: 0px;
         }
     }
 }

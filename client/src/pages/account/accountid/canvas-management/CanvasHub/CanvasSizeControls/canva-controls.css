@@ -1,12 +1,30 @@
 .canvas-size-controls {
-  margin: 10px auto 0px auto;
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
+  width: 300px;
+}
+.canvas-size-controls .canvas-controls-text {
+  display: block;
+  margin: 20px auto 10px auto;
+  text-align: center;
+  font-size: 14px;
 }
 .canvas-size-controls .height-container,
 .canvas-size-controls .width-container {
   margin: 0px auto 0px auto;
+  width: 300px;
+}
+.canvas-size-controls .height-container .y-label,
+.canvas-size-controls .height-container .x-label,
+.canvas-size-controls .width-container .y-label,
+.canvas-size-controls .width-container .x-label {
+  display: inline-block;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  width: 80px;
+  font-size: 12px;
+  height: 32px;
+  text-align: left;
 }
 .canvas-size-controls .height-container .immutable-height,
 .canvas-size-controls .height-container .immutable-width,
@@ -16,15 +34,18 @@
 .canvas-size-controls .width-container .immutable-width,
 .canvas-size-controls .width-container .mutable-height,
 .canvas-size-controls .width-container .mutable-width {
-  display: block;
-  margin: 4px auto 0px auto;
+  width: 220px;
+  display: inline-block;
+  padding: 4px 0px 4px 6px;
+  margin: 0px;
   background-color: rgba(0, 0, 0, 0.7019607843);
   border-top: 2px solid rgba(0, 0, 0, 0.7019607843);
   border-bottom: 2px solid rgba(250, 187, 0, 0.8666666667);
   border-left: 2px solid rgba(0, 0, 0, 0.7019607843);
   border-right: 2px solid rgba(0, 0, 0, 0.7019607843);
-  color: #fff;
-  height: 14px;
+  color: #ffffff;
+  font-size: 12px;
+  height: 32px;
 }
 .canvas-size-controls .height-container .mutable-height:focus,
 .canvas-size-controls .height-container .mutable-width:focus,
@@ -33,7 +54,7 @@
   cursor: text;
   background-color: rgba(0, 0, 0, 0.7019607843);
   outline: 2px solid rgba(0, 0, 0, 0.7019607843);
-  color: #fff;
+  color: #ffffff;
 }
 .canvas-size-controls .height-container .immutable-height:hover,
 .canvas-size-controls .height-container .immutable-width:hover,
@@ -41,108 +62,41 @@
 .canvas-size-controls .width-container .immutable-width:hover {
   cursor: not-allowed;
 }
-.canvas-size-controls .toggle-visual-ops-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 5px 0px 5px;
-}
-.canvas-size-controls .toggle-visual-ops-wrapper .toggle-visual-ops {
-  display: block;
-  background-color: #1C1C1C;
-  border-radius: 4px;
-  box-shadow: inset 0px 0px 0px 2px #333;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  border: 2px solid none;
-  margin: 4px auto 4px auto;
-  padding: 4px 0px 4px 0px;
-  color: #fff;
-  width: 128px;
-  font-size: 12px;
-  cursor: pointer;
-}
+.canvas-size-controls .toggle-visual-ops-wrapper,
 .canvas-size-controls .update-spacing-btn-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 5px 0px 5px;
+  margin: 10px auto;
+  width: 140px;
 }
+.canvas-size-controls .toggle-visual-ops-wrapper .toggle-visual-ops,
+.canvas-size-controls .toggle-visual-ops-wrapper .update-spacing-btn,
+.canvas-size-controls .update-spacing-btn-wrapper .toggle-visual-ops,
 .canvas-size-controls .update-spacing-btn-wrapper .update-spacing-btn {
   display: block;
   background-color: #1C1C1C;
   border-radius: 4px;
-  box-shadow: inset 0px 0px 0px 2px #333;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  border: 2px solid none;
-  margin: 0px auto 0px auto;
-  padding: 6px 0px 6px 0px;
-  color: #fff;
-  width: 128px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  cursor: pointer;
+  box-shadow: inset 0px 0px 0px 2px #555555;
+  border: none;
+  padding: 6px 4px;
+  width: 140px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
-.canvas-size-controls .canvas-controls-text {
-  display: block;
-  margin: 10px auto 0px auto;
-  text-align: center;
+.canvas-size-controls .toggle-visual-ops-wrapper .toggle-visual-ops,
+.canvas-size-controls .update-spacing-btn-wrapper .toggle-visual-ops {
+  cursor: pointer;
+  color: #ffffff;
+}
+.canvas-size-controls .toggle-visual-ops-wrapper .update-spacing-btn,
+.canvas-size-controls .update-spacing-btn-wrapper .update-spacing-btn {
+  color: #ff0;
 }
 
-@media screen and (min-width: 320px) and (max-width: 600.9px) {
-  .workspace-size-controls {
-    min-width: 250px;
-    height: 80px;
-  }
-  .workspace-size-controls .height-container .immutable-height,
-  .workspace-size-controls .height-container .immutable-width,
-  .workspace-size-controls .height-container .mutable-height,
-  .workspace-size-controls .height-container .mutable-width,
-  .workspace-size-controls .width-container .immutable-height,
-  .workspace-size-controls .width-container .immutable-width,
-  .workspace-size-controls .width-container .mutable-height,
-  .workspace-size-controls .width-container .mutable-width {
-    width: 120px;
-  }
-  .workspace-size-controls .toggle-visual-ops-wrapper,
-  .workspace-size-controls .update-spacing-btn-wrapper {
-    height: 20px;
-  }
-  .workspace-size-controls .toggle-visual-ops-wrapper .toggle-visual-ops,
-  .workspace-size-controls .toggle-visual-ops-wrapper .update-spacing-btn,
-  .workspace-size-controls .update-spacing-btn-wrapper .toggle-visual-ops,
-  .workspace-size-controls .update-spacing-btn-wrapper .update-spacing-btn {
-    width: 128px;
-  }
-}
 @media screen and (min-width: 601px) {
-  .workspace-size-controls {
-    width: 300px;
-    height: 80px;
+  .canvas-size-controls .toggle-visual-ops-wrapper {
+    margin-left: 0px;
   }
-  .workspace-size-controls .height-container .immutable-height,
-  .workspace-size-controls .height-container .immutable-width,
-  .workspace-size-controls .height-container .mutable-height,
-  .workspace-size-controls .height-container .mutable-width,
-  .workspace-size-controls .width-container .immutable-height,
-  .workspace-size-controls .width-container .immutable-width,
-  .workspace-size-controls .width-container .mutable-height,
-  .workspace-size-controls .width-container .mutable-width {
-    width: 120px;
-  }
-  .workspace-size-controls .toggle-visual-ops-wrapper,
-  .workspace-size-controls .update-spacing-btn-wrapper {
-    height: 20px;
-  }
-  .workspace-size-controls .toggle-visual-ops-wrapper .toggle-visual-ops,
-  .workspace-size-controls .toggle-visual-ops-wrapper .update-spacing-btn,
-  .workspace-size-controls .update-spacing-btn-wrapper .toggle-visual-ops,
-  .workspace-size-controls .update-spacing-btn-wrapper .update-spacing-btn {
-    width: 128px;
+  .canvas-size-controls .update-spacing-btn-wrapper {
+    margin-right: 0px;
   }
 }/*# sourceMappingURL=canva-controls.css.map */

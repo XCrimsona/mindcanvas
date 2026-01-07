@@ -14,32 +14,39 @@ import cookieParser from "cookie-parser";
 import signOut from "./api/routes/signout-route/signout-group.js";
 const app = express();
 
-//allow frontend communication
-app.use(cookieParser());
-app.use(cors({
-    origin: "http://localhost:5176",//the frontend port location
-    credentials: true//allow cookies to be sent
-}));
+try {
 
-//enable submissions
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+    //allow frontend communication
+    app.use(cookieParser());
+    app.use(cors({
+        origin: "http://localhost:5176",//the frontend port location
+        credentials: true//allow cookies to be sent
+    }));
 
-//routes no auth
-app.use("/api/signup-portal", registerRouter);
-app.use("/api/signin-portal", loginRouter);
-app.get("/api/auth-check", AuthService.isAuthenticated, (req, res) => {
-    res.status(200).json({
-        code: "AUTHENTICATED",
-        userid: req.user.sub,
-        role: req.user.role,
+    //enable submissions
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
+
+    //routes no auth
+    app.use("/api/signup-portal", registerRouter);
+    app.use("/api/signin-portal", loginRouter);
+    app.get("/api/auth-check", AuthService.isAuthenticated, (req, res) => {
+        res.status(200).json({
+            code: "AUTHENTICATED",
+            userid: req.user.sub,
+            role: req.user.role,
+        });
     });
-});
 
-//routes auth required
-app.use("/api/account", AuthService.isAuthenticated, signOut);
-app.use("/api/account", AuthService.isAuthenticated, accountRouter);
-app.use("/api/account", AuthService.isAuthenticated, canvasManagementRouter);
-app.use("/api/account", AuthService.isAuthenticated, singleDynamiCanvaDataGroupRouter);
+    //routes auth required
+    app.use("/api/account", AuthService.isAuthenticated, accountRouter);
+    app.use("/api/account", AuthService.isAuthenticated, canvasManagementRouter);
+    app.use("/api/account", AuthService.isAuthenticated, singleDynamiCanvaDataGroupRouter);
+    app.use("/api/account", AuthService.isAuthenticated, signOut);
 
-app.listen(port, () => console.log(`http://localhost:${port}`));
+    app.listen(port, () => console.log(`http://localhost:${port}`));
+}
+catch (err) {
+    console.warn("server anomaly message: ", err.message);
+    console.warn("server anomaly stack: ", err.stack);
+}

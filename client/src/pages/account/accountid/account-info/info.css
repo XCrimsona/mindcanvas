@@ -141,25 +141,68 @@
   outline: 2px solid transparent;
 }
 .account-info .account-info-content .account-info-form .form-processing-btn .submit-container,
-.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container {
+.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container,
+.account-info .account-info-content .account-info-form .delete-container .submit-container,
+.account-info .account-info-content .account-info-form .delete-container .cancel-container {
   display: block;
 }
 .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .cancel-submit,
 .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .submit-btn,
 .account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .cancel-submit,
-.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn {
+.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn,
+.account-info .account-info-content .account-info-form .delete-container .submit-container .cancel-submit,
+.account-info .account-info-content .account-info-form .delete-container .submit-container .submit-btn,
+.account-info .account-info-content .account-info-form .delete-container .cancel-container .cancel-submit,
+.account-info .account-info-content .account-info-form .delete-container .cancel-container .submit-btn {
   border-radius: 6px;
   padding: 10px 25px;
-  cursor: pointer;
   background-color: #111111;
 }
 .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .cancel-submit,
-.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .cancel-submit {
+.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .cancel-submit,
+.account-info .account-info-content .account-info-form .delete-container .submit-container .cancel-submit,
+.account-info .account-info-content .account-info-form .delete-container .cancel-container .cancel-submit {
   color: #FABB00;
+  cursor: pointer;
   border: 1px solid #FABB00;
 }
 .account-info .account-info-content .account-info-form .form-processing-btn .submit-container .submit-btn,
-.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn {
+.account-info .account-info-content .account-info-form .form-processing-btn .cancel-container .submit-btn,
+.account-info .account-info-content .account-info-form .delete-container .submit-container .submit-btn,
+.account-info .account-info-content .account-info-form .delete-container .cancel-container .submit-btn {
+  color: #FA00BB;
+  border: 1px solid #FA00BB;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container,
+.account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container,
+.account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container,
+.account-info .account-info-content .account-info-form .delete-container .delete-btn-container {
+  display: block;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container .toggle-account-deletion-lock,
+.account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container .delete-btn,
+.account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container .toggle-account-deletion-lock,
+.account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container .delete-btn,
+.account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container .toggle-account-deletion-lock,
+.account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container .delete-btn,
+.account-info .account-info-content .account-info-form .delete-container .delete-btn-container .toggle-account-deletion-lock,
+.account-info .account-info-content .account-info-form .delete-container .delete-btn-container .delete-btn {
+  border-radius: 6px;
+  padding: 10px 25px;
+  background-color: #111111;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container .toggle-account-deletion-lock,
+.account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container .toggle-account-deletion-lock,
+.account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container .toggle-account-deletion-lock,
+.account-info .account-info-content .account-info-form .delete-container .delete-btn-container .toggle-account-deletion-lock {
+  color: #FABB00;
+  cursor: pointer;
+  border: 1px solid #FABB00;
+}
+.account-info .account-info-content .account-info-form .form-processing-btn .toggle-account-deletion-lock-container .delete-btn,
+.account-info .account-info-content .account-info-form .form-processing-btn .delete-btn-container .delete-btn,
+.account-info .account-info-content .account-info-form .delete-container .toggle-account-deletion-lock-container .delete-btn,
+.account-info .account-info-content .account-info-form .delete-container .delete-btn-container .delete-btn {
   color: #FA00BB;
   border: 1px solid #FA00BB;
 }/*# sourceMappingURL=info.css.map */

@@ -2,6 +2,7 @@ import { ReactNode, createContext, useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import canvaNotification_Delete from "../notifications/canva-deletes/CanvaNotification_Delete";
 import canvaNotification_DeleteFailed from "../notifications/canva-deletes/CanvaNotification_DeleteFailed";
+import { toast } from "react-toastify";
 
 type TypeCanvasDeletionOpsContext = true | false;
 
@@ -23,6 +24,7 @@ export const CanvasContextDeletionProvider = ({
   children: ReactNode;
 }) => {
   const { userid, canvaid } = useParams();
+  if (!userid) return;
 
   const router = useNavigate();
   const [canvasDeletionState, setCanvasDeletionState] =
@@ -34,7 +36,7 @@ export const CanvasContextDeletionProvider = ({
   };
   // console.log(source);
   const hitClickDelete = async () => {
-    const deleteWorkspace = { type: "Workspace" };
+    const deleteWorkspace = { type: "Canvaspace" };
 
     const response = await fetch(
       `http://localhost:5000/api/account/${userid}/canvas-management/${canvaid}`,
@@ -42,6 +44,7 @@ export const CanvasContextDeletionProvider = ({
         method: "DELETE",
         credentials: "include",
         headers: {
+          "x-active-user": userid,
           "Content-Type": "application/json",
         },
 
@@ -52,10 +55,11 @@ export const CanvasContextDeletionProvider = ({
       setCanvasName("");
       canvasDeletionToggle();
       canvaNotification_Delete();
+      toast.success("A Canvaspace has been deleted!");
       router(`/account/${userid}/canvas-management`);
     } else {
       canvaNotification_DeleteFailed();
-      return;
+      toast.success("Failed to delete a Canvaspace!");
     }
   };
   return (
