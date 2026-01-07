@@ -15,10 +15,12 @@
 create a .env file some keys you can set. 
 STRICTLY FOLLOW THE GUIDE for stable oeprations:
 
-SECURE= false 
-SESSION_SECRET and JWT is a 64 number string | my other repos will have a generator for that just download it
+Install MongoDB software to run a local database as a service.
 
-DB_CONNECTION_STRING | you can make it local. 
+SECURE= false 
+SESSION_SECRET and JWT is a 64 character string | my other repos will have a generator for that: 32-64-character-string-generator
+
+DB_CONNECTION_STRING | local mongodb string recomended | 
 Its made for local | If you want to do it via mongodb cloud then change all api routes' locahost to https endpoints.
 
 JWT server token security is set to 1 hour expiry
