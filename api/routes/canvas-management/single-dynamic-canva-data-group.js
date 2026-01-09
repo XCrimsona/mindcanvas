@@ -16,7 +16,7 @@ singleDynamicCanvaDataGroupRouter
 
         try {
             await getDB();
-            const userid = req.params.userid;
+            const userid = req.user?.sub;
             const canvaid = req.params.canvaid;
             // console.log(userid);
 
@@ -107,7 +107,7 @@ singleDynamicCanvaDataGroupRouter
         // { params }
         try {
             await getDB();
-            const userid = req.params.userid;
+            const userid = req.user?.sub;;
             const canvaid = req.params.canvaid;
             if (!userid || !canvaid) {
                 return response.status(401).json({
@@ -461,7 +461,7 @@ singleDynamicCanvaDataGroupRouter
     .delete("/:userid/canvas-management/:canvaid", async (req, res) => {
         try {
             await getDB();
-            const sub = req.user.sub;
+            const sub = req.user?.sub;
             const canvaid = req.params.canvaid;
             const { type, _id } = req.body;
 
