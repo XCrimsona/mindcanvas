@@ -1,4 +1,6 @@
 import { createContext, useContext, ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // Define the shape of the context
 interface AuthContextType {
@@ -20,6 +22,7 @@ interface AuthLogoutProps {
 
 // Provider Component
 export const AuthLogoutProvider = ({ children, userid }: AuthLogoutProps) => {
+  const navigate = useNavigate();
   const logout = async () => {
     try {
       const logoutRes = await fetch(
@@ -35,10 +38,13 @@ export const AuthLogoutProvider = ({ children, userid }: AuthLogoutProps) => {
       );
 
       if (!logoutRes.ok) {
-        new Notification("Could not log you out, try again");
-        window.location.reload();
+        //need server clarity to make better logic
+        toast.info("Could not log you out, try again");
+        return;
+        // window.location.reload();
       } else {
-        window.location.reload();
+        navigate("/signin-portal");
+        return;
       }
     } catch (error) {
       console.error("Logout error:", error);

@@ -13,7 +13,9 @@ canvasManagementRouter
     .get("/:userid/canvas-management", async (request, response) => {
         try {
             await getDB();
-            const userid = request.params.userid;
+            const userid = request.user?.sub;
+            console.log("userid from /:userid/canvas-management ", userid);
+
             const user = await UserModel.findOne({ _id: userid });
             if (!user) {
                 return response.status(404).json({
@@ -57,7 +59,9 @@ canvasManagementRouter
     }).post("/:userid/canvas-management", async (request, response) => {
         try {
             await getDB();
-            const { sub, workspacename, workspacedescription } = request.body;
+            const sub = request.user?.sub;
+
+            const { workspacename, workspacedescription } = request.body;
 
             const user = await UserModel.findOne({ _id: String(sub) });
             if (!user) {
@@ -133,7 +137,8 @@ canvasManagementRouter
         async (request, response) => {
             try {
                 await getDB();
-                const { sub, workspaceid, workspacename, currentworkspacename, description, currentworkspacedescription } = request.body;
+                const sub = request.user?.sub;
+                const { workspaceid, workspacename, currentworkspacename, description, currentworkspacedescription } = request.body;
 
                 const user = await UserModel.findOne({ _id: sub });
                 if (!user) {
@@ -174,12 +179,12 @@ canvasManagementRouter
                         updatedPayload.name = refactorWorkspaceName;
                     }
                 }
+
                 if (description && currentworkspacedescription) {
                     if (description !== currentworkspacedescription) {
                         updatedPayload.description = description;
                     }
                 }
-
 
                 if (updatedPayload.workspacename === workspacename && updatedPayload.description === description) {
                     const updatedWorkspace = await workspaceModel.updateOne(

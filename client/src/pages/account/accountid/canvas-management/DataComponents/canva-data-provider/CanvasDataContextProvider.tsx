@@ -17,12 +17,6 @@ type TypeCanvasSizeContext = true | false;
 //component hub button toggling core definitions
 //component hub text button toggler values
 type TypeTextContext = true | false;
-//component hub Audio button toggler values
-type TypeAudioContext = true | false;
-//component hub Image button toggler values
-type TypeImageContext = true | false;
-//component hub text button toggler values
-type TypeVideoContext = true | false;
 
 type TypeCanvasData = any | null;
 //Canvas data text input component types
@@ -41,27 +35,6 @@ interface ICanvasContextType {
   toggleTextState: () => void;
   textInputCompRef: MutableRefObject<HTMLDivElement | null>;
   textInputCompPosRef: MutableRefObject<{ x: number; y: number }>;
-
-  //Global Audio Component for data input
-  audioInputOffSet: MutableRefObject<{ x: number; y: number }>;
-  audioToggleState: TypeAudioContext;
-  toggleAudioState: () => void;
-  audioInputCompPosRef: MutableRefObject<{ x: number; y: number }>;
-  audioInputCompRef: MutableRefObject<HTMLDivElement | null>;
-
-  //Global Image Component for data input
-  imageInputOffSet: MutableRefObject<{ x: number; y: number }>;
-  imageToggleState: TypeImageContext;
-  toggleImageState: () => void;
-  imageInputCompPosRef: MutableRefObject<{ x: number; y: number }>;
-  imageInputCompRef: MutableRefObject<HTMLDivElement | null>;
-
-  //Global Video Component for data input
-  videoInputOffSet: MutableRefObject<{ x: number; y: number }>;
-  videoToggleState: TypeVideoContext;
-  toggleVideoState: () => void;
-  videoInputCompPosRef: MutableRefObject<{ x: number; y: number }>;
-  videoInputCompRef: MutableRefObject<HTMLDivElement | null>;
 
   //Global Data Component
   //Element used to carry database and responsible for mapping
@@ -119,54 +92,6 @@ const CanvasDataContextProvider = ({
   const textInputCompRef = useRef<HTMLDivElement>(null);
   //for position reference
   let textInputCompPosRef = useRef<any>({ x: 0, y: 0 });
-
-  //Audio Component
-  //Canvas Audio Button toggle logic on the ComponentHub popup box
-  const audioInputOffSet = useRef<any>({ x: 0, y: 0 });
-
-  const [audioToggleState, setAudioToggleState] =
-    useState<TypeAudioContext>(false);
-  const toggleAudioState = () => {
-    setAudioToggleState((prev) => (prev === false ? true : false));
-  };
-
-  //find audio input component's dom reference and x,y position under the
-  //data-scroll-board component as absolute value
-  const audioInputCompRef = useRef<HTMLDivElement>(null);
-  //for position reference
-  const audioInputCompPosRef = useRef<any>({ x: 0, y: 0 });
-
-  //IMAGE Component
-  //Canvas Image Button toggle logic on the ComponentHub popup box
-  const imageInputOffSet = useRef<any>({ x: 0, y: 0 });
-
-  const [imageToggleState, setImageToggleState] =
-    useState<TypeImageContext>(false);
-  const toggleImageState = () => {
-    setImageToggleState((prev) => (prev === false ? true : false));
-  };
-
-  //find text input component's dom reference and x,y position under the
-  //data-scroll-board component as absolute value
-  const imageInputCompRef = useRef<HTMLDivElement>(null);
-  //for position reference
-  const imageInputCompPosRef = useRef<any>({ x: 0, y: 0 });
-
-  //VIDEO Component
-  //Canvas Image Button toggle logic on the ComponentHub popup box
-  const videoInputOffSet = useRef<any>({ x: 0, y: 0 });
-
-  const [videoToggleState, setVideoToggleState] =
-    useState<TypeVideoContext>(false);
-  const toggleVideoState = () => {
-    setVideoToggleState((prev) => (prev === false ? true : false));
-  };
-
-  //find text input component's dom reference and x,y position under the
-  //data-scroll-board component as absolute value
-  const videoInputCompRef = useRef<HTMLDivElement>(null);
-  //for position reference
-  const videoInputCompPosRef = useRef<any>({ x: 0, y: 0 });
 
   //Element used to carry database user data and responsible for mapping with an addtional
   //'data' object to ensure the data is mappable from all fetches since the backend uses a
@@ -316,27 +241,6 @@ const CanvasDataContextProvider = ({
         toggleTextState,
         textInputCompPosRef,
         textInputCompRef,
-
-        //Audio Button toggle functions
-        audioInputOffSet,
-        audioToggleState,
-        toggleAudioState,
-        audioInputCompRef,
-        audioInputCompPosRef,
-
-        //Image Button toggle functions
-        imageInputOffSet,
-        imageToggleState,
-        toggleImageState,
-        imageInputCompRef,
-        imageInputCompPosRef,
-
-        //Video Button toggle functions
-        videoInputOffSet,
-        videoToggleState,
-        toggleVideoState,
-        videoInputCompRef,
-        videoInputCompPosRef,
 
         //data
         canvasData,

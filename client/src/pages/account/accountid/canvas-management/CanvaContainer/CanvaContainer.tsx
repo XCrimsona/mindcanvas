@@ -5,11 +5,9 @@ import { useCanvasContext } from "../DataComponents/canva-data-provider/CanvasDa
 import CanvasData from "../canvas-data/CanvasData";
 import RepositionLiveData from "../DataComponents/mediaReposition/RepositionLiveData";
 // import AudioInputUnit from "./DataComponents/audio/AudioInputUnit";
-import ImageInputUnit from "../DataComponents/image/ImageInputUnit";
 // import VideoInputUnit from "./DataComponents/video/VideoInputUnit";
 const CanvaContainer = () => {
-  const { dataScrollBoardRef, canvasHeight, canvasWidth, canvasData } =
-    useCanvasContext();
+  const { dataScrollBoardRef, canvasData } = useCanvasContext();
 
   return (
     <DivClass className={"data-container"}>
@@ -24,12 +22,8 @@ const CanvaContainer = () => {
       >
         {/* Below InputUnits used for multi media submits */}
         <TextInputUnit />
-        {/* <AudioInputUnit params={params} /> */}
-        <ImageInputUnit />
-        {/* <VideoInputUnit params={params} /> */}
         {/* display cloud data below */}
         <RepositionLiveData />
-
         <CanvasData />
       </div>
     </DivClass>

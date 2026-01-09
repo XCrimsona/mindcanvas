@@ -24,12 +24,26 @@
                 .form-data-container {
                     width: 280px;
 
-                    .label-wrapper {
-                        width: 90px;
-                        text-align: start;
+                    div {
 
-                        .sign-in-label {
-                            width: 80px;
+                        .label-wrapper {
+                            width: 100px;
+                            margin-left: 0px;
+                            margin-right: auto;
+                            text-align: start;
+
+                            .sign-in-label {
+                                width: 80px;
+                            }
+                        }
+
+                        .reset-password {
+                            text-decoration: underline;
+                            cursor: pointer;
+                            margin-left: 0px;
+                            margin-right: auto;
+                            text-align: start;
+                            width: 200px;
                         }
                     }
 
@@ -40,6 +54,7 @@
                         .password-input {
                             width: 260px;
                             font-size: 12px;
+                            margin-bottom: 10px;
                         }
                     }
                 }
@@ -180,12 +195,27 @@
                 .form-data-container {
                     width: 300px;
 
-                    .label-wrapper {
-                        width: 90px;
-                        text-align: start;
+                    div {
 
-                        .sign-in-label {
-                            width: 80px;
+                        .label-wrapper {
+                            width: 100px;
+                            margin-left: 0px;
+                            margin-right: auto;
+                            background-color: yellow;
+                            text-align: start;
+
+                            .sign-in-label {
+                                width: 80px;
+                            }
+                        }
+
+                        .reset-password {
+                            text-decoration: underline;
+                            cursor: pointer;
+                            margin-left: auto;
+                            margin-right: 0px;
+                            text-align: end;
+                            width: 200px;
                         }
                     }
 

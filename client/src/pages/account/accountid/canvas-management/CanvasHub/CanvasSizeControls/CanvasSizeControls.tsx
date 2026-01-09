@@ -165,13 +165,19 @@ const CanvasSizeControls = () => {
           <InputSubmit
             isdisabled={false}
             id="update"
-            style={{
-              cursor:
-                canvasWidth?.length === 0 || canvasHeight?.length === 0
-                  ? "cursor-not-allowed"
-                  : "cursor-pointer",
-            }}
-            className={"update-spacing-btn "}
+            // style={{
+            //   cursor:
+            //     canvasWidth?.length === 0 || canvasHeight?.length === 0
+            //       ? "cursor-not-allowed"
+            //       : "cursor-pointer",
+            // }}
+            className={`update-spacing-btn ${
+              canvasSizePropertiesToggleState === false ||
+              canvasWidth?.length === 0 ||
+              canvasHeight?.length === 0
+                ? "cursor-not-allowed"
+                : "cursor-pointer"
+            }`}
             value="Update"
           />
         </DivClass>
