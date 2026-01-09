@@ -13,10 +13,9 @@ canvasManagementRouter
     .get("/:userid/canvas-management", async (request, response) => {
         try {
             await getDB();
-            const userid = request.user?.sub;
-            console.log("userid from /:userid/canvas-management ", userid);
+            const sub = request.user?.sub;
 
-            const user = await UserModel.findOne({ _id: userid });
+            const user = await UserModel.findOne({ _id: sub });
             if (!user) {
                 return response.status(404).json({
                     success: false,
