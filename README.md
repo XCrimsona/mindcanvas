@@ -72,32 +72,29 @@ Check cors in server.js file for the frontend port details
 
 ## Features
 <ul> 
-  <li>Visual Dashboard: Modern, responsive UI for organizing and exploring complex information.</li>
-  <li>Personalization: User-specific boards and customizable workspace. (EgTotal privacy- no trackers, algorithms)</li>
-  <li>Task / Idea Management: Create, edit, delete tasks, notes. (I call these notes data fragments).</li>
-  <li>Project and Category organization: Group related notes, tasks, or ideas (if implemented).</li>
-  <li>Reliable Backend: Built with Node.js, Express, MongoDB, and strong TypeScript typing.</li>
-  <li>Responsive Design: Uses SCSS and CSS for smooth experience across devices.</li>
-  <li>Basic Authentication: User account creation and login powered by Bcrypt.js (MERN stack).</li>
+  <li>Appealing visual canvas board.</li>
+  <li>Data Fragment(UI layout) Management: Create, edit, or delete data fragments. (data fragments are a unique feature name for UI layouts that can move around on the canvas).</li>
+  <li>Reliable Backend</li>
+  <li>Responsive Design: Uses Tailwind, SASS, CSS ,Framer motion and Material UI for smooth experience across devices. It look alot but animation bring life to a user interacted UI</li>
+  <li>Basic Authentication + Passsword reset: User account creation and login powered by Bcrypt.js and Mongoose (MERN stack).</li>
+  <li>Anti-Delete Data protection: Defense first designed buttons to protect against accidental delete requests.</li>
 </ul>
 
 ## Tests
 <p>The app is stable and all operation will work</p>
 
 ## Bugs
-<p>Final version will be on another repository, but this will will have its vulnerabilities patched when I discover them.</p>
+<p>Final version will be on another repository, but this will will have its vulnerabilities patched when discovered.</p>
 
 <ul>
-  <li>I'm aware password reset isnt not avail yet, I have many other features im working on over time. I will have it done soon.</li>
   <li>Status of the following features (Scheduled for development | Not yet started):</li>
-  <li>Level 2 Authentication</li>
-  <li>Data Backups: To prevent data loss</li>
+  <li>Data Backups: To prevent data loss, for now you can use MongoDBCompass to export your account data directly and import it back into the db as backup</li>
 </ul>
 
 <p>Installation and error log management guides coming soon</p>
 
 ## Version
-**Current local version:** 2.1.1  
+**Current local version:** 1.0.0 
 
 ## Tech Stack / Languages
 <p>MERN | TypeScript | Bcryptjs | Mongoose - ODM | SCSS | Tailwind | Material UI | Framer Motion | CSS</p>  
