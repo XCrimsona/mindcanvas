@@ -4,11 +4,7 @@
 <p>Designed for large screens | Working on better solutions for small screens</p>
 
 ## Public Collaboration
-<p>Kind note: I won't grant others permission to push new features to the original code because</p> 
-<ul>
-  <li>Nr1: It a trial version.</li> 
-  <li>Nr2: You may modify it without breaking the trial code so on your machine go nuts, its a great app, seriously...</li>
-</ul>
+<p>Kind note: I won't grant others permission to push new features to the original code.</p> 
 
 (Instructions in development)
 ## Missing config | You need to create this yourself since .env uploads are dangerous
