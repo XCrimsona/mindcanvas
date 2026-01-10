@@ -1,6 +1,5 @@
 import UserModel from "../../../models/userModel.js";
 import getDB from "../../../lib/connnections/Connections.js";
-import AuthService from "../../../lib/Auth.js";
 // import express from "express";
 import Router from "express";
 import { TokenService } from "../../../lib/JwtTokenService.js";

@@ -62,7 +62,6 @@ export const ModificationWindow = ({ componentData }: any) => {
       <div className="delete-container ml-auto mr-auto flex flex-wrap items-center justify-around">
         <div
           className={"toggle-delete flex"}
-          // id={`${_id}`}
           onClick={(e: React.FormEvent<HTMLDivElement>) => {
             e.preventDefault();
             toggleDeleteLock();
@@ -91,13 +90,12 @@ export const ModificationWindow = ({ componentData }: any) => {
           className={`delete-button inline ${
             antiDeleteLock ? "cursor-not-allowed" : "cursor-pointer"
           } ${antiDeleteLock ? "opacity-80" : "opacity-100"}`}
-          // id={`${_id}`}
           disabled={antiDeleteLock}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
             mouseClickDelete(e);
             deleteLiveDataElement(owner, _id, workspaceId, type);
-            // return;
+            return;
           }}
         >
           Delete

@@ -41,7 +41,6 @@ export const AuthLogoutProvider = ({ children, userid }: AuthLogoutProps) => {
         //need server clarity to make better logic
         toast.info("Could not log you out, try again");
         return;
-        // window.location.reload();
       } else {
         navigate("/signin-portal");
         return;

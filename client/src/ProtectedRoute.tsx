@@ -5,7 +5,6 @@ const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   const [isloading, setIsLoading] = useState<boolean>(true);
   const [isAuth, setIsAuth] = useState(false);
   const { userid } = useParams();
-  console.log(userid);
 
   useEffect(() => {
     if (!userid) return;

@@ -43,17 +43,6 @@ const Signin = () => {
     const [recoverySubmitLock, setRecoverySubmitLock] = useState<boolean>(true);
     const [loginSubmitLock, setLoginSubmitLock] = useState<boolean>(true);
 
-    //the ui is displayed per server verification of user existence
-    //controls when the pw reset input and recovery submit ui appears
-    // useEffect(() => {
-    //   if (recoveryFormData.email.length !== 0) {
-    //     setUiPastEmail(true);
-    //     // setAccountVerified(true);
-    //   } else {
-    //     setUiPastEmail(false);
-    //     // setAccountVerified(false);
-    //   }
-    // }, [accountVerified, recoveryFormData.email]);
     const verifyUserExistence = async (e: FormEvent<HTMLFormElement>) => {
       try {
         e.preventDefault();
