@@ -8,11 +8,6 @@ import {
   useState,
 } from "react";
 import { useCanvasContext } from "../DataComponents/canva-data-provider/CanvasDataContextProvider";
-import canvaNotification_Edit from "../notifications/fragment-updates/CanvaNotification_Edit";
-import canvaNotification_EditFailed from "../notifications/fragment-updates/CanvaNotification_EditFailed";
-// import canvaNotification_Delete from "../notifications/canva-deletes/CanvaNotification_Delete";
-import canvaNotification_TextFragmentDeleted from "../notifications/fragment-deletes/CanvaNotification_TextFragmentDeleted";
-import canvaNotification_TextFragmentDeletedFailed from "../notifications/fragment-deletes/CanvaNotification_TextFragmentDeleteFailed";
 import { toast } from "react-toastify";
 
 type TypeModificationContext = true | false;

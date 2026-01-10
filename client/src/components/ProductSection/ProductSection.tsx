@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Div from "../../ui/Div";
+import { DivClass } from "../../ui/Div";
 
 interface ProductSectionProps {
   className: string;
@@ -7,7 +7,7 @@ interface ProductSectionProps {
 }
 
 const ProductSection = ({ className, children }: ProductSectionProps) => {
-  return <Div className={className}>{children}</Div>;
+  return <DivClass className={className}>{children}</DivClass>;
 };
 
 export default ProductSection;

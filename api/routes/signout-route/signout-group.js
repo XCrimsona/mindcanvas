@@ -1,10 +1,4 @@
-import getDB from "../../../lib/connnections/Connections.js";
-import audioModel from "../../../models/audioModel.js";
-import imageModel from "../../../models/imageModel.js";
-import textModel from "../../../models/textModel.js";
 import UserModel from "../../../models/userModel.js";
-import videoModel from "../../../models/videoModel.js";
-import workspaceModel from "../../../models/CanvaspaceModel.js";
 import Router from "express";
 
 
