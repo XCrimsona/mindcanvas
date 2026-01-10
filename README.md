@@ -29,8 +29,6 @@ If you wish to go the cloud route, In the next few months, I will have the trial
 
 The default api route will be configured as local 
 
-
-JWT server token security is set to 1 hour expiry
 PORT 5000 | backend
 
 Check cors in server.js file for the frontend port details
@@ -90,8 +88,6 @@ Check cors in server.js file for the frontend port details
   <li>Status of the following features (Scheduled for development | Not yet started):</li>
   <li>Data Backups: To prevent data loss, for now you can use MongoDBCompass to export your account data directly and import it back into the db as backup</li>
 </ul>
-
-<p>Installation and error log management guides coming soon</p>
 
 ## Version
 **Current local version:** 1.0.0 
